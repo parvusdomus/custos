@@ -1,0 +1,180 @@
+{
+    "Actor": {
+        "types":
+        [
+            "Player",
+            "Challenge"
+        ],
+        "Player": {
+            "virtutes": {
+                "coordinatio": {
+                    "value": 0,
+                    "label": "Coordinatio"
+                },
+                "auctoritas": {
+                    "value": 0,
+                    "label": "Auctoritas"
+                },
+                "ratio": {
+                    "value": 0,
+                    "label": "Ratio"
+                },
+                "vigor": {
+                    "value": 0,
+                    "label": "Vigor"
+                },
+                "ingenium": {
+                    "value": 0,
+                    "label": "Ingenium"
+                },
+                "sensibilitas": {
+                    "value": 0,
+                    "label": "Sensibilitas"
+                }
+            },
+            "peritiae": {
+                "bello": {
+                    "value": 0,
+                    "specialties": {},
+                    "label": "De Bello"
+                },
+                "corpore": {
+                    "value": 0,
+                    "specialties": {},
+                    "label": "De Corpore"
+                },
+                "magia": {
+                    "value": 0,
+                    "specialties": {},
+                    "label": "De Magia"
+                },
+                "natura": {
+                    "value": 0,
+                    "specialties": {},
+                    "label": "De Natura"
+                },
+                "scientia": {
+                    "value": 0,
+                    "specialties": {},
+                    "label": "De Scientia"
+                },
+                "societate": {
+                    "value": 0,
+                    "specialties": {},
+                    "label": "De Societate"
+                }
+            },
+            "creatio": {
+                "provintia": {
+                    "name": "",
+                    "bello": 0,
+                    "corpore": 0,
+                    "magia": 0,
+                    "natura": 0,
+                    "scientia": 0,
+                    "societate": 0
+                },
+                "age": {
+                    "value": "adulescens",
+                    "vigor": 
+                    {
+                        "bonus": 0,
+                        "value": 0
+                    },
+                    "coordinatio": 
+                    {
+                        "bonus": 0,
+                        "value": 0
+                    },
+                    "ingenium": 
+                    {
+                        "bonus": 0,
+                        "value": 0
+                    },
+                    "auctoritas": 
+                    {
+                        "bonus": 0,
+                        "value": 0
+                    },
+                    "ratio": 
+                    {
+                        "bonus": 0,
+                        "value": 0
+                    },
+                    "sensibilitas": 
+                    {
+                        "bonus": 0,
+                        "value": 0
+                    }
+                },
+                "values": {
+                    "val1": 0,
+                    "val2": 0,
+                    "val3": 0,
+                    "val4": 0,
+                    "val5": 0,
+                    "val6": 0
+                },
+                "virtutes": {
+                    "coordinatio": 0,
+                    "auctoritas": 0,
+                    "ratio": 0,
+                    "vigor": 0,
+                    "ingenium": 0,
+                    "sensibilitas": 0
+                },
+                "peritiae": {
+                    "bello": 0,
+                    "corpore": 0,
+                    "magia": 0,
+                    "natura": 0,
+                    "scientia": 0,
+                    "societate": 0
+                },
+                "half_values": {
+                   "vigor_corpore": 0,
+                   "vigor_bello": 0,
+                   "coordinatio_corpore": 0,
+                   "coordinatio_natura": 0,
+                   "sensibilitas_natura": 0,
+                   "sensibilitas_magia": 0,
+                   "ingenium_magia": 0,
+                   "ingenium_scientia": 0,
+                   "ratio_scientia": 0,
+                   "ratio_societate": 0,
+                   "auctoritas_societate": 0,
+                   "auctoritas_bello": 0 
+                }
+            }
+        },
+        "Challenge": {
+            "resources":{
+                "effort": {
+                    "value": 3,
+                    "min": 0,
+                    "max": 3
+                }
+            },
+            "initiative": "0.99",
+            "traits": "",
+            "rank": 1,
+            "description": ""
+        }
+    },
+    "Item": {
+        "types":
+        [
+            "provintia"
+        ],
+        "provintia": {
+            "bello": 0,
+            "corpore": 0,
+            "magia": 0,
+            "natura": 0,
+            "scientia": 0,
+            "societate": 0,
+            "description": ""
+        }
+    }
+
+}

@@ -1,0 +1,10 @@
+- Automatizar CREATIO (HECHO)
+- Meter lo de la provincia en CREATIO (HECHO)
+- Campos adicionales en la pestaña principal
+
+- Añadir Armas, armaduras y objetos
+- Añadir rituales, indigatamenta, etc (todo lo mágico)
+- Meter las tiradas normales
+- Meter iniciativa (si la hay)
+- Meter tiradas de combate
+- Automatizar daño y armadura

@@ -1,0 +1,25 @@
+<div class="custos test-result">
+    {{{testResult}}}
+    {{{rollText}}}
+    
+</div>
+<div class="custos dice-breakdown">
+    {{#each dados as |die|}}
+        <span>    
+            {{#if (eq die 1)}}
+                <span style="color:red" class="fas fa-2x {{face die }}"></span>
+            {{else}}
+                {{#if (gt ../nDiff die)}}
+                    <span style="color:grey" class="fas fa-2x {{face die }}"></span>
+                {{else}}
+                    <span style="color:green" class="fas fa-2x {{face die }}"></span>
+                {{/if}}
+            {{/if}}  
+        </span> 
+    {{/each}}
+</div>
+{{#if canSpendKarma}}
+    <div class="custos test-result">
+        <a class="spendKarma" data-rollResult="{{rollResult}}" data-dados="{{dados}}" data-nDice="{{nDice}}" data-rollText="{{rollText}}" data-rollText="{{rollText}}" data-nDiff="{{nDiff}}" data-testResult="{{testResult}}" data-actor_id="{{actor_id}}"><h3 class="enabled">{{localize "CUSTOS.ui.spendKarma"}}</h3></a>
+    </div>
+{{/if}}

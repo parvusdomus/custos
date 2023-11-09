@@ -1,0 +1,41 @@
+<form class="{{cssClass}} custos" autocomplete="off">
+    <div class="provintia-title">
+        <h2><input name="name" type="text" value="{{item.name}}" placeholder='Provintia' onClick="this.select();"/></h2>
+    </div>
+    <div class="provintia">
+        <table>
+            <tr>
+                <td>
+                    <label>De Bello</label>
+                    <label>De Bello</label>
+                    <div><h3><input name="system.bello" type="number" value="{{item.system.bello}}" data-dtype="Number"/></h3></div>
+                </td>
+                <td>
+                    <label>De Corpore</label>
+                    <div><h3><input name="system.corpore" type="number" value="{{item.system.corpore}}" data-dtype="Number"/></h3></div>
+                </td>
+                <td>
+                    <label>De Magia</label>
+                    <div><h3><input name="system.magia" type="number" value="{{item.system.magia}}" data-dtype="Number"/></h3></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>De Natura</label>
+                    <div><h3><input name="system.natura" type="number" value="{{item.system.natura}}" data-dtype="Number"/></h3></div>
+                </td>
+                <td>
+                    <label>De Scientia</label>
+                    <div><h3><input name="system.scientia" type="number" value="{{item.system.scientia}}" data-dtype="Number"/></h3></div>
+                </td>
+                <td>
+                    <label>De Societate</label>
+                    <div><h3><input name="system.societate" type="number" value="{{item.system.societate}}" data-dtype="Number"/></h3></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="desc">
+        {{editor item.system.desc target="system.desc" button=true owner=owner editable=true}}
+    </div>
+</form>

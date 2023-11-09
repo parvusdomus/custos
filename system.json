@@ -1,0 +1,53 @@
+{
+    "id": "custos",
+    "title": "Custos System",
+    "description": "Unofficial system for Lex Arcana",
+    "version": "0.0.1",
+    "authors": [
+      {
+        "name": "ParvusDomus",
+        "flags": {}
+      }
+    ],
+    "compatibility": {
+      "minimum": "11",
+      "verified": "11"
+    },
+    "esmodules": [
+      "custos.js"
+    ],
+    "styles": [
+      "style/custos.css"
+    ],
+    "media": [
+      {
+        "type": "setup",
+        "url": "systems/custos/style/images/Custos_Logo.webp",
+        "thumbnail": "systems/custos/style/images/Custos_Logo.webp"
+      }
+    ],
+  
+    "languages": [
+      {
+        "lang": "es",
+        "name": "Spanish",
+        "path": "lang/es.json",
+        "flags": {}
+      },
+      {
+        "lang": "en",
+        "name": "English",
+        "path": "lang/en.json",
+        "flags": {}
+      }
+    ],
+    "initiative": "@initiative",
+    "gridDistance": 2,
+    "gridUnits": "m",
+    "primaryTokenAttribute": "resources.resolve",
+    "secondaryTokenAttribute": "resources.karma",
+    "url": "https://github.com/parvusdomus/custos",
+    "manifest": "https://github.com/parvusdomus/custos/releases/latest/download/system.json",
+    "download": "https://github.com/parvusdomus/custos/releases/latest/download/custos.zip",
+    "license": "LICENSE.txt"
+  }

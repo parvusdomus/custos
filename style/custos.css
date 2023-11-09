@@ -1,0 +1,619 @@
+@font-face {
+    font-family: "Trajan";
+    src: url("../../../systems/custos/style/fonts/Trajan.ttf");
+}
+
+@font-face {
+    font-family: "TrajanBold";
+    src: url("../../../systems/custos/style/fonts/TrajanBold.ttf");
+}
+
+.top-section {
+    width: 100%;
+    max-height: 30%;
+    text-align: center;
+    display: flex;
+}
+
+.bottom-section {
+    width: 100%;
+    height: 70%;
+}
+
+.top-section h2{
+    font-family: var(--font-name);
+    color: var(--header-font-color);
+    border-bottom: none;
+}
+
+.char-pic {
+    border: 10px solid transparent;
+    padding: 15px;
+    background-image: url("../../../systems/custos/style/images/laurel.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.char-pic img{
+    width: 150px;
+    height: 150px;
+    clip-path: circle(50% at 50% 50%);
+    background-color: var(--input-bg-color);
+    border: none;
+    color: var(--crimson);
+}
+
+.char-name input{
+    font-family: var(--bold-font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    text-align: center;
+    font-weight: 900;
+    width: 170%;
+}
+
+.title table{
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.title tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.title tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.title h2{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
+}
+
+.title hr{
+    border: 2px solid var(--dark-gold);
+}
+
+.title th{
+    
+    text-align: center;
+}
+
+.title th:nth-child(even){
+    width: 25%;
+}
+
+.title td:nth-child(even){
+    width: 10%;
+}
+
+
+
+.virtutes table{
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.virtutes tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.virtutes tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.virtutes h2{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
+}
+
+.virtutes h3{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--font-name);
+}
+
+.virtutes hr{
+    border: 2px solid var(--dark-gold);
+}
+
+.virtutes th{
+    
+    text-align: center;
+}
+
+.virtutes input {
+    background-color: var(--input-bg-color);
+    clip-path: circle(50% at 50% 50%);
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+    height: 40px;
+    width: 40px; 
+}
+
+.peritiae table{
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.peritiae tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.peritiae tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.peritiae h2{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
+}
+
+.peritiae h3{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--font-name);
+}
+
+.peritiae hr{
+    border: 2px solid var(--dark-gold);
+}
+
+.peritiae th{
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    text-align: center;
+    font-weight: 900;
+}
+
+.peritiae td{
+    vertical-align: top;
+}
+
+.peritiae td:nth-child(4n+1) {
+    width: 3%;
+}
+
+.peritiae td:nth-child(4n+2) {
+    width: 22%;
+}
+
+.peritiae td:nth-child(4n+3) {
+    width: 3%;
+}
+
+.peritiae td:nth-child(4n+4) {
+    width: 7%;
+}
+
+.peritiae input {
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    clip-path: circle(50% at 50% 50%);
+    border: none;
+    text-align: center;
+    height: 40px;
+    width: 40px; 
+}
+
+.peritiae i {
+    height: 20px;
+    color: var(--crimson);
+}
+
+.regular-roll i {
+    height: 20px;
+    vertical-align: center;
+    color: var(--crimson);
+}
+
+.speciality-name input{
+    clip-path: none;
+    height: 20px;
+    width: 150px; 
+}
+
+.speciality-bonus input{
+    height: 20px;
+    width: 20px; 
+}
+
+.dices {
+    list-style: none;
+    margin: -0.5em 0px;
+    padding: 10px 0px 0px 0.5em;
+}
+
+.dices li {
+    display: inline-block;
+    padding: 0px 1px;
+}
+
+.dices img {
+    width: 60px;
+    height: 60px;
+    border: none;
+    margin: auto;
+}
+
+.sheet nav.sheet-tabs {
+    font-family: var(--font-name);
+    margin: 4px 0;
+    border-top: none;
+    border-bottom: none;
+}
+
+.sheet .tabs .item.active {
+    background: var(--crimson);
+    color: var(--tab-text-color-active);
+    font-family: var(--font-name);
+    font-weight: 900;
+    text-shadow: none;
+}
+
+.sheet .tabs .item:hover {
+    background: var(--tab-bg-color-hover);
+    color: var(--tab-text-color-hover);
+    text-shadow: none;
+}
+
+.editor-content, .editor, .tox,.tox-edit-area, .tox-tinymce
+{
+    list-style: circle;
+    text-align: left;
+    padding: 5px;
+	background-color: rgba(245, 245, 220, 0.5);
+    color: #000000;
+    height: 400px;
+}
+
+.dice-roll .dice-tooltip {
+    display: block !important;
+}
+
+#pause .pause-image {
+    background: url("images/pause.webp");
+    background-size: 128px;
+    width: 128px;
+    height: 128px;
+    padding-left: 128px;
+}
+
+#pause .pause-custos {
+    font-family: var(--bold-font-name);
+    margin: 0 auto;
+    text-align: center;
+    transform: scale3d(1, 1, 1);
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #f4eded;
+}
+
+
+:root { 
+    --bg-image: url("../../../systems/custos/style/images/charsheet_bg.webp");
+    --chat-bg-image: url("../../../systems/custos/style/images/chat_bg.webp");
+    --font-name: "Trajan";
+    --bold-font-name: "TrajanBold";
+    --main-font-color: #000000;
+    --dark-gold: #7B5624;
+    --light-gold: #A79B10;
+    --crimson: #5D222C;
+    --input-bg-color: #ffffdc80;
+    --tab-bg-color-active: #000000;
+    --tab-bg-color-hover: #555353;
+    --tab-text-color-active: #ffffff;
+    --tab-text-color-hover: #d8d1d1;
+}
+
+.custos{  
+
+}
+
+.custos .window-content{
+    background-color: white;
+    background: var(--bg-image) no-repeat;
+    background-size: 100% 100%;
+}
+
+.test-result{
+    text-align: center;
+}
+.test-result h3{
+    font-family: var(--font-name);
+    
+    border-bottom: none;
+}
+
+
+.dice-breakdown{
+    text-align: center;
+}
+
+.d-flex{
+    display:flex!important;
+    align-items: center;
+}
+
+.regular-success {
+    background-color: rgba(0, 128, 0, 0.5);
+    color: white;
+}
+
+.critical-success {
+    background-color: rgba(0, 0, 128, 0.5);
+    color: white;
+}
+
+.regular-failure {
+    background-color: rgba(128, 128, 128, 0.5);
+    color: white;
+}
+
+.critical-failure {
+    background-color: rgba(128, 0, 0, 0.5);
+    color: white;
+}
+
+.disabled {
+    background-color: rgba(128, 128, 128, 0.5);
+    color: white;
+}
+
+.enabled {
+    background-color: rgba(218, 165, 32, 0.5);
+    color: white;
+}
+
+.chat-message {
+    background: var(--chat-bg-image) no-repeat;
+    background-size: 100% 100%;
+}
+
+.creatio table{
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.creatio tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.creatio tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.creatio h3{
+    border-bottom: none;
+}
+
+.creatio h1{
+    border-bottom: none;
+}
+
+.creatio hr{
+    border: 2px solid var(--dark-gold);
+}
+
+.creatio th{
+    color: var(--dark-gold);
+    text-align: center;
+    font-weight: 900;
+}
+
+.creatio td{
+    color: var(--dark-gold);
+    text-align: center;
+    font-weight: 900;
+}
+
+.creatio select{
+    color: var(--crimson);
+    background-color: var(--input-bg-color);
+    text-align: center;
+    font-weight: 900;
+    border: none;
+}
+
+.creatio-circle input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    background-image: url("../../../systems/custos/style/images/creatio/step3_bg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color: var(--crimson);
+    border: none;
+    clip-path: circle(50% at 50% 50%);
+    text-align: center;
+    height: 40px;
+    width: 40px;
+}
+
+.creatio-circle-step5 input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    background-image: url("../../../systems/custos/style/images/creatio/circle_step5_bg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color: var(--crimson);
+    border: none;
+    clip-path: circle(50% at 50% 50%);
+    text-align: center;
+    height: 40px;
+    width: 40px;
+}
+
+.creatio-circle-big input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    background-image: url("../../../systems/custos/style/images/creatio/step4_bg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color: var(--crimson);
+    border: none;
+    clip-path: circle(50% at 50% 50%);
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+.creatio-octogon input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    background-image: url("../../../systems/custos/style/images/creatio/step4_bg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color: var(--crimson);
+    border: none;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+.creatio-provintia input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    background-image: url("../../../systems/custos/style/images/creatio/provintia_step3_bg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+    height: 30px;
+    width: 150px;
+}
+
+.creatio-box-step2 input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    background-image: url("../../../systems/custos/style/images/creatio/step2_bg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+.creatio-box-step1 input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    background-image: url("../../../systems/custos/style/images/creatio/step1_bg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+.creatio-box-step5 input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    background-image: url("../../../systems/custos/style/images/creatio/step5_bg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+.creatio-box-step6 input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    background-image: url("../../../systems/custos/style/images/creatio/step6_bg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+.provintia-title input {
+ background-color: var(--input-bg-color);
+ font-family: var(--bold-font-name);
+ color: var(--crimson);
+ text-align: center;
+}
+
+.provintia-title h2 {
+    border-bottom: none;
+}
+
+.provintia table{
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.provintia tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.provintia tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.provintia h3 {
+    border-bottom: none;
+    font-family: TrajanBold;
+    color: var(--dark-gold);
+    text-align: center;
+}
+
+.provintia td {
+    font-family: TrajanBold;
+    color: var(--dark-gold);
+    text-align: center;
+    font-weight: 900;
+}
+
+.provintia input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    border: none;
+    clip-path: circle(50% at 50% 50%);
+    text-align: center;
+    height: 40px;
+    width: 40px;
+}
+
+.provintia select{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+}

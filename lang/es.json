@@ -1,0 +1,21 @@
+{
+    "TYPES.Actor.Player": "Custos",
+
+    "CUSTOS.ui.tab.general": "General",
+    "CUSTOS.ui.tab.notes": "Notas",
+    "CUSTOS.ui.deleteTitle": "¿Borrar objeto?",
+    "CUSTOS.ui.deleteText": "Por favor confirma si quieres borrar este objeto.",
+    "CUSTOS.ui.regularSuccess": "¡Éxito!",
+    "CUSTOS.ui.criticalSuccess": "¡¡Éxito Excepcional!!",
+    "CUSTOS.ui.regularFailure": "Fallo",
+    "CUSTOS.ui.criticalFailure": "¡Fracaso Crítico!",
+    "CUSTOS.ui.noSelectedToken": "ADVERTENCIA: Necesitas tener un token seleccionado para que funcione.",
+    "CUSTOS.ui.name": "Nombre",
+    "CUSTOS.ui.cantAddMore": "No puedes tener más de una provincia.",
+    "CUSTOS.ui.writedown": "Anotar",
+    "CUSTOS.ui.province": "Provincia",
+    "CUSTOS.ui.age": "Edad",
+    "CUSTOS.ui.young": "Joven",
+    "CUSTOS.ui.adult": "Adulto",
+    "CUSTOS.ui.mature": "Maduro"
+}

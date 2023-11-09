@@ -1,0 +1,25 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div class="charsheet">
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <a class="item" data-tab="virtutes-tab">Virtutes</a>
+      <a class="item" data-tab="creatio">Creatio</a>
+      <a class="item" data-tab="bio">{{localize "CUSTOS.ui.tab.notes"}}</a>        
+    </nav>
+      
+    {{!-- Item Sheet Body --}}
+    <section class="sheet-body">
+      {{!-- General Tab --}}
+      <div class="tab virtutes-tab" data-group="primary" data-tab="virtutes-tab">
+        {{> "/systems/custos/templates/actors/parts/virtutes.html"}}
+      </div>
+      {{!-- Creatio Tab --}}
+      <div class="tab creatio" data-group="primary" data-tab="creatio">
+        {{> "/systems/custos/templates/actors/parts/creatio.html"}}
+      </div>
+      {{!-- Notes Tab --}}
+      <div class="tab bio" data-group="primary" data-tab="bio">
+        {{editor actor.system.notes target="system.notes" button=true owner=owner editable=true}}
+      </div>
+    </section>
+  </div>
+</form>

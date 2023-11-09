@@ -1,0 +1,24 @@
+{
+    "TYPES.Actor.Player": "Custos",
+    "TYPES.Item.provintia": "Provincia",
+
+    "CUSTOS.ui.tab.general": "General",
+    "CUSTOS.ui.tab.notes": "Notes",
+    "CUSTOS.ui.deleteTitle": "Delete item?",
+    "CUSTOS.ui.deleteText": "Please confirm if you want to delete this item.",
+    "CUSTOS.ui.regularSuccess": "Success!",
+    "CUSTOS.ui.criticalSuccess": "Exceptional Success!!",
+    "CUSTOS.ui.regularFailure": "Failure",
+    "CUSTOS.ui.criticalFailure": "Critical Failure!",
+    "CUSTOS.ui.noSelectedToken": "WARNING: You need to have a token selected for this to work.",
+    "CUSTOS.ui.name": "Name",
+    "CUSTOS.ui.cantAddMore": "Can't have more than one provintia.",
+    "CUSTOS.ui.writedown": "Write Down",
+    "CUSTOS.ui.province": "Province",
+    "CUSTOS.ui.age": "Age",
+    "CUSTOS.ui.young": "Young",
+    "CUSTOS.ui.adult": "Adult",
+    "CUSTOS.ui.mature": "Mature"
+
+
+}
