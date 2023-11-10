@@ -64,6 +64,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         this.actor.update ({ 'system.creatio.provintia.natura': actorData.Provintia[0].system.natura });
         this.actor.update ({ 'system.creatio.provintia.scientia': actorData.Provintia[0].system.scientia });
         this.actor.update ({ 'system.creatio.provintia.societate': actorData.Provintia[0].system.societate });
+        this.actor.update ({ 'system.creatio.provintia.languages': actorData.Provintia[0].system.languages });
       }
 
     }
@@ -266,6 +267,29 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       this.actor.update ({ 'system.peritiae.natura.value': this.actor.system.creatio.peritiae.natura });
       this.actor.update ({ 'system.peritiae.scientia.value': this.actor.system.creatio.peritiae.scientia });
       this.actor.update ({ 'system.peritiae.societate.value': this.actor.system.creatio.peritiae.societate });
+
+      this.actor.update ({ 'system.province': this.actor.system.creatio.provintia.name });
+      this.actor.update ({ 'system.languages': this.actor.system.creatio.provintia.languages });
+
+      let age=0;
+      switch (this.actor.system.creatio.age.value){
+        case 'iuvenis':
+        {
+          age=16;
+          break;
+        }
+        case 'adultus':
+        {
+          age=31;
+          break;
+        }
+        case 'maturus':
+        {
+          age=46;
+          break;
+        }
+      }
+      this.actor.update ({ 'system.age': age });
 		  return;
     }
     

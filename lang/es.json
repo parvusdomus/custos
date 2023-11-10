@@ -15,6 +15,10 @@
     "CUSTOS.ui.writedown": "Anotar",
     "CUSTOS.ui.province": "Provincia",
     "CUSTOS.ui.age": "Edad",
+    "CUSTOS.ui.sex": "Sexo",
+    "CUSTOS.ui.languages": "Idiomas",
+    "CUSTOS.ui.office": "Oficio",
+    "CUSTOS.ui.rank": "Rango",
     "CUSTOS.ui.young": "Joven",
     "CUSTOS.ui.adult": "Adulto",
     "CUSTOS.ui.mature": "Maduro"

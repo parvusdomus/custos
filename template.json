@@ -64,9 +64,33 @@
                     "label": "De Societate"
                 }
             },
+            "age": 0,
+            "sex": "",
+            "province": "",
+            "languages": "",
+            "office": "",
+            "rank": "",
+            "resources": {
+                "life": {
+                    "min": 0,
+                    "max": 0,
+                    "value": 0
+                },
+                "pietas": {
+                    "min": 0,
+                    "max": 0,
+                    "value": 0
+                },
+                "encumbrance": {
+                    "min": 0,
+                    "max": 0,
+                    "value": 0
+                }
+            },
             "creatio": {
                 "provintia": {
                     "name": "",
+                    "languages": "",
                     "bello": 0,
                     "corpore": 0,
                     "magia": 0,
@@ -173,6 +197,7 @@
             "natura": 0,
             "scientia": 0,
             "societate": 0,
+            "languages": "",
             "description": ""
         }
     }

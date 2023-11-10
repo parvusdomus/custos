@@ -1,6 +1,49 @@
 <section class="top-section">
-    <div class="char-pic"><img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/></div>
-    <div class="char-name"><h2><input name="name" type="text" value="{{actor.name}}" placeholder='Nombre' onClick="this.select();"/></h2></div>
+    <table>
+        <tr>
+            <td class="image-cell">
+                <div class="char-pic"><img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/></div>
+            </td>
+            <td>
+                <div class="char-name">
+                    <h2><input name="name" type="text" value="{{actor.name}}" placeholder='Nombre' onClick="this.select();"/></h2>
+                </div>
+                <div class="char-info1">
+                    <table>
+                        <tr>
+                            <td><h3><label>{{localize "CUSTOS.ui.age"}}&nbsp;&nbsp;</label></h3></td>
+                            <td><h3><input name="system.age" type="number" value="{{actor.system.age}}" data-dtype="number"/></h3></td>
+                            <td><h3><label>&nbsp;&nbsp;{{localize "CUSTOS.ui.sex"}}&nbsp;&nbsp;</label></h3></td>    
+                            <td><h3><input name="system.sex" type="text" value="{{actor.system.sex}}" data-dtype="text"/></h3></td>
+                            <td><h3><label>&nbsp;&nbsp;{{localize "CUSTOS.ui.province"}}&nbsp;&nbsp;</label></h3></td>    
+                            <td><h3><input name="system.province" type="text" value="{{actor.system.province}}" data-dtype="Text"/></h3></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="char-info2">
+                    <table>
+                        <tr>
+                            <td><h3><label>{{localize "CUSTOS.ui.languages"}}&nbsp;&nbsp;</label></h3></td>
+                            <td><h3><input name="system.languages" type="text" value="{{actor.system.languages}}" data-dtype="Text"/></h3></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="char-info3">
+                    <table>
+                        <tr>
+                            <td><h3><label>{{localize "CUSTOS.ui.office"}}&nbsp;&nbsp;</label></h3></td>
+                            <td><h3><input name="system.office" type="text" value="{{actor.system.office}}" data-dtype="Text"/></h3></td>
+                            <td><h3><label>&nbsp;&nbsp;{{localize "CUSTOS.ui.rank"}}&nbsp;&nbsp;</label></h3></td>
+                            <td><h3><input name="system.rank" type="text" value="{{actor.system.rank}}" data-dtype="Text"/></h3></td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
 </section>
 <section class="bottom-section">
     <div class="title">
@@ -74,7 +117,6 @@
                 </td>
                 <td class="speciality-bonus">
                     {{#each actor.system.peritiae.bello.specialties as |specialityValue specialityKey|}}
-                    <label>&nbsp;&nbsp;</label>
                     <input name="system.peritiae.bello.specialties.{{specialityKey}}.modifier" value="{{specialityValue.modifier}}" data-dtype="number" type="number"/>
                     <br><br>
                     {{/each}}
@@ -99,7 +141,6 @@
                 </td>
                 <td class="speciality-bonus">
                     {{#each actor.system.peritiae.corpore.specialties as |specialityValue specialityKey|}}
-                    <label>&nbsp;&nbsp;</label>
                     <input name="system.peritiae.corpore.specialties.{{specialityKey}}.modifier" value="{{specialityValue.modifier}}" data-dtype="number" type="number"/>
                     <br><br>
                     {{/each}}
@@ -124,7 +165,6 @@
                 </td>
                 <td class="speciality-bonus">
                     {{#each actor.system.peritiae.magia.specialties as |specialityValue specialityKey|}}
-                    <label>&nbsp;&nbsp;</label>
                     <input name="system.peritiae.magia.specialties.{{specialityKey}}.modifier" value="{{specialityValue.modifier}}" data-dtype="number" type="number"/>
                     <br><br>
                     {{/each}}
@@ -167,7 +207,6 @@
                 </td>
                 <td class="speciality-bonus">
                     {{#each actor.system.peritiae.natura.specialties as |specialityValue specialityKey|}}
-                    <label>&nbsp;&nbsp;</label>
                     <input name="system.peritiae.natura.specialties.{{specialityKey}}.modifier" value="{{specialityValue.modifier}}" data-dtype="number" type="number"/>
                     <br><br>
                     {{/each}}
@@ -192,7 +231,6 @@
                 </td>
                 <td class="speciality-bonus">
                     {{#each actor.system.peritiae.scientia.specialties as |specialityValue specialityKey|}}
-                    <label>&nbsp;&nbsp;</label>
                     <input name="system.peritiae.scientia.specialties.{{specialityKey}}.modifier" value="{{specialityValue.modifier}}" data-dtype="number" type="number"/>
                     <br><br>
                     {{/each}}
@@ -217,7 +255,6 @@
                 </td>
                 <td class="speciality-bonus">
                     {{#each actor.system.peritiae.societate.specialties as |specialityValue specialityKey|}}
-                    <label>&nbsp;&nbsp;</label>
                     <input name="system.peritiae.societate.specialties.{{specialityKey}}.modifier" value="{{specialityValue.modifier}}" data-dtype="number" type="number"/>
                     <br><br>
                     {{/each}}

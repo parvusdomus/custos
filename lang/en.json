@@ -16,6 +16,10 @@
     "CUSTOS.ui.writedown": "Write Down",
     "CUSTOS.ui.province": "Province",
     "CUSTOS.ui.age": "Age",
+    "CUSTOS.ui.sex": "Sex",
+    "CUSTOS.ui.languages": "Languages",
+    "CUSTOS.ui.office": "Office",
+    "CUSTOS.ui.rank": "Rank",
     "CUSTOS.ui.young": "Young",
     "CUSTOS.ui.adult": "Adult",
     "CUSTOS.ui.mature": "Mature"

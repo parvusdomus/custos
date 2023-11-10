@@ -15,6 +15,17 @@
     display: flex;
 }
 
+.top-section table {
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.image-cell {
+    width: 205px
+}
+
 .bottom-section {
     width: 100%;
     height: 70%;
@@ -23,6 +34,14 @@
 .top-section h2{
     font-family: var(--font-name);
     color: var(--header-font-color);
+    border-bottom: none;
+}
+
+.top-section h3{
+    font-family: var(--bold-font-name);
+    color: var(--header-font-color);
+    color: var(--dark-gold);
+    font-weight: 900;
     border-bottom: none;
 }
 
@@ -48,7 +67,61 @@
     color: var(--crimson);
     text-align: center;
     font-weight: 900;
-    width: 170%;
+}
+
+.char-info1 table {
+    background: none;
+    border: none;
+    font-family: var(--bold-font-name);
+    width: 100%;
+}
+
+.char-info1 td:nth-child(2) {
+    width: 10%;
+}
+
+.char-info1 td:nth-child(4) {
+    width: 10%;
+}
+
+.char-info1 input {
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    text-align: center;
+}
+
+.char-info2 table {
+    background: none;
+    border: none;
+    font-family: var(--bold-font-name);
+    width: 100%;
+}
+
+.char-info2 input {
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    text-align: center;
+}
+
+.char-info2 td:nth-child(1) {
+    width: 25%;
+}
+
+.char-info3 table {
+    background: none;
+    border: none;
+    font-family: var(--bold-font-name);
+    width: 100%;
+}
+
+.char-info3 input {
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    text-align: center;
+}
+
+.char-info3 td:nth-child(odd) {
+    width: 15%;
 }
 
 .title table{
@@ -135,8 +208,8 @@
     color: var(--crimson);
     border: none;
     text-align: center;
-    height: 40px;
-    width: 40px; 
+    height: 30px;
+    width: 30px; 
 }
 
 .peritiae table{
@@ -204,8 +277,8 @@
     clip-path: circle(50% at 50% 50%);
     border: none;
     text-align: center;
-    height: 40px;
-    width: 40px; 
+    height: 30px;
+    width: 30px; 
 }
 
 .peritiae i {
@@ -616,4 +689,16 @@
     color: var(--crimson);
     border: none;
     text-align: center;
+}
+
+.provintia_languages input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+    clip-path: none;
+    height: 20px;
+    width: 100%;
+
 }
