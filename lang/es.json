@@ -1,5 +1,7 @@
 {
     "TYPES.Actor.Player": "Custos",
+    "TYPES.Item.provintia": "Provincia",
+    "TYPES.Item.weapon": "Arma",
 
     "CUSTOS.ui.tab.general": "General",
     "CUSTOS.ui.tab.notes": "Notas",
@@ -30,5 +32,15 @@
     "CUSTOS.ui.savant": "Erudito",
     "CUSTOS.ui.diplomat": "Diplomático",
     "CUSTOS.ui.life": "Vida",
-    "CUSTOS.ui.pietas": "Pietas"
+    "CUSTOS.ui.pietas": "Pietas",
+    "CUSTOS.ui.difficulty": "Dificultad",
+    "CUSTOS.ui.diff": "Dif.",
+    "CUSTOS.ui.damage": "Daño",
+    "CUSTOS.ui.weight": "Peso",
+    "CUSTOS.ui.characteristic": "Característica",
+    "CUSTOS.ui.none": "Ninguna",
+    "CUSTOS.ui.slow": "Lenta",
+    "CUSTOS.ui.throwing": "Arrojadiza",
+    "CUSTOS.ui.twohand": "A dos Manos",
+    "CUSTOS.ui.versatile": "Versátil"
 }

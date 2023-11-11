@@ -36,13 +36,13 @@
         <table>
             <tr>
                 <td>
-                    <label>Languages</label>
+                    <label>{{localize "CUSTOS.ui.languages"}}</label>
                     <div class="provintia_languages"><h3><input name="system.languages" type="text" value="{{item.system.languages}}" data-dtype="Text"/></h3></div>
                 </td>
             </tr>
         </table>
     </div>
     <div class="desc">
-        {{editor item.system.desc target="system.desc" button=true owner=owner editable=true}}
+        {{editor item.system.description target="system.description" button=true owner=owner editable=true}}
     </div>
 </form>

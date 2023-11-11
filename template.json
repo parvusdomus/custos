@@ -194,7 +194,7 @@
     "Item": {
         "types":
         [
-            "provintia"
+            "provintia", "weapon"
         ],
         "provintia": {
             "bello": 0,
@@ -204,6 +204,14 @@
             "scientia": 0,
             "societate": 0,
             "languages": "",
+            "description": ""
+        },
+        "weapon": {
+            "difficulty": 0,
+            "damage": 0,
+            "weight": 0,
+            "characteristic": "none",
+            "equipped": "dropped",
             "description": ""
         }
     }

@@ -1,0 +1,47 @@
+<form class="{{cssClass}} custos" autocomplete="off">
+    <div class="weapon-title">
+        <h2><input name="name" type="text" value="{{item.name}}" placeholder='Provintia' onClick="this.select();"/></h2>
+    </div>
+    <div class="weapon">
+        <table class="weapon_line1">
+            <tr>
+                <td>
+                    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{name}}"/>
+                </td>
+                <td>
+                    <label>{{localize "CUSTOS.ui.diff"}}</label>
+                    <div><h3><input name="system.difficulty" type="number" value="{{item.system.difficulty}}" data-dtype="Number"/></h3></div>
+                </td>
+                <td>
+                    <label>{{localize "CUSTOS.ui.damage"}}</label>
+                    <div><h3><input name="system.damage" type="number" value="{{item.system.damage}}" data-dtype="Number"/></h3></div>
+                </td>
+                <td>
+                    <label>{{localize "CUSTOS.ui.weight"}}</label>
+                    <div><h3><input name="system.weight" type="number" value="{{item.system.weight}}" data-dtype="Number"/></h3></div>
+                </td>
+            </tr>
+        </table>
+        <table class="weapon_line2">
+            <tr>
+                <td>
+                    <label>{{localize "CUSTOS.ui.characteristic"}}</label>
+                </td>
+                <td>
+                    <select name="system.characteristic" data-dtype="String">
+                        {{#select item.system.characteristic}}
+                            <option value="none">{{localize "CUSTOS.ui.none"}}</option>
+                            <option value="slow">{{localize "CUSTOS.ui.slow"}}</option>
+                            <option value="throwing">{{localize "CUSTOS.ui.throwing"}}</option>
+                            <option value="twohand">{{localize "CUSTOS.ui.twohand"}}</option>
+                            <option value="versatile">{{localize "CUSTOS.ui.versatile"}}</option>
+                        {{/select}}
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="desc">
+        {{editor item.system.description target="system.description" button=true owner=owner editable=true}}
+    </div>
+</form>

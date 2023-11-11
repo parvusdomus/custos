@@ -750,3 +750,75 @@
 .resources td:nth-child(2){
     width: 10%;
 }
+
+
+.weapon-title input {
+    background-color: var(--input-bg-color);
+    font-family: var(--bold-font-name);
+    color: var(--crimson);
+    text-align: center;
+}
+   
+.weapon-title h2 {
+    border-bottom: none;
+}
+   
+.weapon table{
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.weapon tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.weapon tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.weapon h3 {
+    border-bottom: none;
+    font-family: TrajanBold;
+    color: var(--dark-gold);
+    text-align: center;
+}
+
+.weapon td {
+    font-family: TrajanBold;
+    color: var(--dark-gold);
+    text-align: center;
+    font-weight: 900;
+}
+
+.weapon input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    border: none;
+    clip-path: circle(50% at 50% 50%);
+    text-align: center;
+    height: 40px;
+    width: 40px;
+}
+
+.weapon select{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+}
+
+.weapon img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}

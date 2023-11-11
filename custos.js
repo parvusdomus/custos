@@ -25,7 +25,7 @@ Hooks.once("init", function(){
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("custos", CUSTOS_ITEM_SHEET,{
     makeDefault: true,
-    types: ['provintia','proprium']
+    types: ['provintia','weapon']
   });
   preloadHandlebarsTemplates();
 
@@ -72,6 +72,19 @@ Hooks.on("createActor", async (actor) =>{
     case 'Player':
     {
       actor.update ({ 'img': PJImage });
+      break;
+    }
+  }
+})
+
+Hooks.on("createItem", async (item) =>{
+  console.log ("CREATE ITEM")
+  console.log (item)
+  const Image="systems/custos/style/icons/gladius.svg"
+  switch (item.type){
+    case 'weapon':
+    {
+      item.update ({ 'img': Image });
       break;
     }
   }
