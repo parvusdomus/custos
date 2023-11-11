@@ -2,22 +2,37 @@
   <div class="charsheet">
     <nav class="sheet-tabs tabs" data-group="primary">
       <a class="item" data-tab="virtutes-tab">Virtutes</a>
-      <a class="item" data-tab="creatio">Creatio</a>
-      <a class="item" data-tab="bio">{{localize "CUSTOS.ui.tab.notes"}}</a>        
+      <a class="item" data-tab="inventory-tab">{{localize "CUSTOS.ui.tab.inventory"}}</a> 
+      <a class="item" data-tab="magic-tab">{{localize "CUSTOS.ui.tab.magic"}}</a> 
+      <a class="item" data-tab="creatio-tab">Creatio</a>
+      <a class="item" data-tab="curriculum-tab">Curriculum</a>  
+      <a class="item" data-tab="notes-tab">{{localize "CUSTOS.ui.tab.notes"}}</a>      
     </nav>
       
     {{!-- Item Sheet Body --}}
     <section class="sheet-body">
-      {{!-- General Tab --}}
+      {{!-- Virtutes Tab --}}
       <div class="tab virtutes-tab" data-group="primary" data-tab="virtutes-tab">
         {{> "/systems/custos/templates/actors/parts/virtutes.html"}}
       </div>
+      {{!-- Inventory Tab --}}
+      <div class="tab inventory-tab" data-group="primary" data-tab="inventory-tab">
+        {{> "/systems/custos/templates/actors/parts/inventory.html"}}
+      </div>
+      {{!-- Magic Tab --}}
+      <div class="tab magic-tab" data-group="primary" data-tab="magic-tab">
+        {{> "/systems/custos/templates/actors/parts/magic.html"}}
+      </div>
       {{!-- Creatio Tab --}}
-      <div class="tab creatio" data-group="primary" data-tab="creatio">
+      <div class="tab creatio-tab" data-group="primary" data-tab="creatio-tab">
         {{> "/systems/custos/templates/actors/parts/creatio.html"}}
       </div>
+      {{!-- Curriculum Tab --}}
+      <div class="tab curriculum-tab" data-group="primary" data-tab="curriculum-tab">
+        {{> "/systems/custos/templates/actors/parts/curriculum.html"}}
+      </div>
       {{!-- Notes Tab --}}
-      <div class="tab bio" data-group="primary" data-tab="bio">
+      <div class="tab notes-tab" data-group="primary" data-tab="notes-tab">
         {{editor actor.system.notes target="system.notes" button=true owner=owner editable=true}}
       </div>
     </section>

@@ -16,7 +16,7 @@
                             <td><h3><label>&nbsp;&nbsp;{{localize "CUSTOS.ui.sex"}}&nbsp;&nbsp;</label></h3></td>    
                             <td><h3><input name="system.sex" type="text" value="{{actor.system.sex}}" data-dtype="text"/></h3></td>
                             <td><h3><label>&nbsp;&nbsp;{{localize "CUSTOS.ui.province"}}&nbsp;&nbsp;</label></h3></td>    
-                            <td><h3><input name="system.province" type="text" value="{{actor.system.province}}" data-dtype="Text"/></h3></td>
+                            <td><h3><input name="system.province" type="text" value="{{actor.system.province}}" data-dtype="String"/></h3></td>
                         </tr>
                     </table>
                 </div>
@@ -24,7 +24,7 @@
                     <table>
                         <tr>
                             <td><h3><label>{{localize "CUSTOS.ui.languages"}}&nbsp;&nbsp;</label></h3></td>
-                            <td><h3><input name="system.languages" type="text" value="{{actor.system.languages}}" data-dtype="Text"/></h3></td>
+                            <td><h3><input name="system.languages" type="text" value="{{actor.system.languages}}" data-dtype="String"/></h3></td>
                         </tr>
                     </table>
                 </div>
@@ -32,19 +32,93 @@
                     <table>
                         <tr>
                             <td><h3><label>{{localize "CUSTOS.ui.office"}}&nbsp;&nbsp;</label></h3></td>
-                            <td><h3><input name="system.office" type="text" value="{{actor.system.office}}" data-dtype="Text"/></h3></td>
+                            <td><h3>
+                                <select name="system.office" data-dtype="String">
+                                    {{#select actor.system.office}}
+                                        <option value="bellicus">{{localize "CUSTOS.ui.warrior"}}</option>
+                                        <option value="auguralis">{{localize "CUSTOS.ui.augur"}}</option>
+                                        <option value="exploratorius">{{localize "CUSTOS.ui.explorer"}}</option>
+                                        <option value="sapiens">{{localize "CUSTOS.ui.savant"}}</option>
+                                        <option value="legatorius">{{localize "CUSTOS.ui.diplomat"}}</option>
+                                    {{/select}}
+                                </select>
+                            </h3></td>
                             <td><h3><label>&nbsp;&nbsp;{{localize "CUSTOS.ui.rank"}}&nbsp;&nbsp;</label></h3></td>
-                            <td><h3><input name="system.rank" type="text" value="{{actor.system.rank}}" data-dtype="Text"/></h3></td>
+                            <td><h3>
+                                <select name="system.rank" data-dtype="String">
+                                    {{#select actor.system.rank}}
+                                        <option value="gregarius">Gregarius</option>
+                                        <option value="duplicarius">Duplicarius</option>
+                                        <option value="beneficiarius">Beneficiarius</option>
+                                        <option value="veteranus">Veteranus</option>
+                                        <option value="decanus">Decanus</option>
+                                        <option value="electus">Electus</option>
+                                        <option value="protector">Protector</option>
+                                    {{/select}}
+                                </select>
+                            </h3></td>
                         </tr>
                     </table>
                 </div>
             </td>
         </tr>
     </table>
-    
-    
-    
 </section>
+<section class="resources">
+    <table>
+        <tr>
+            <td>
+                {{#if actor.system.treated}}
+                    <h3><a class="toggle-treated"><i class="fa-solid fa-heart" style="color: var(--crimson);"></i></a></h3>
+                {{else}}
+                    <h3><a class="toggle-treated"><i class="fa-regular fa-heart" style="color: var(--crimson);"></i></a></h3>
+                {{/if}}
+                
+            </td>
+            <td>
+                <h3><label>{{localize "CUSTOS.ui.life"}}&nbsp;&nbsp;</label></h3>
+            </td>
+            <td>
+                <h3>
+                    {{#times actor.system.resources.life.max}}
+                        <a class="resource-change" data-resource="life" data-number={{.}}>
+                            {{#if (gte . ../actor.system.resources.life.value)}}
+                                <i class="fa-regular fa-square"></i>
+                            {{else}}
+                                <i class="fa-regular fa-square-xmark"></i>
+                            {{/if}}
+                        </a>
+                    {{/times}}
+                </h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <h3><label>{{localize "CUSTOS.ui.pietas"}}&nbsp;&nbsp;</label></h3>
+            </td>
+            <td>
+                <h3>
+                    {{#times actor.system.resources.pietas.max}}
+                        <a class="resource-change" data-resource="pietas" data-number={{.}}>
+                            {{#if (gte . ../actor.system.resources.pietas.value)}}
+                                <i class="fa-regular fa-square"></i>
+                            {{else}}
+                                <i class="fa-regular fa-square-xmark"></i>
+                            {{/if}}
+                        </a>
+                    {{/times}}
+            </h3>
+            </td>
+        </tr>
+    </table>
+</section>
+   
+    
+    
+
 <section class="bottom-section">
     <div class="title">
         <table>

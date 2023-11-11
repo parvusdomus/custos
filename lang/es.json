@@ -3,6 +3,8 @@
 
     "CUSTOS.ui.tab.general": "General",
     "CUSTOS.ui.tab.notes": "Notas",
+    "CUSTOS.ui.tab.inventory": "Inventario",
+    "CUSTOS.ui.tab.magic": "Magia",
     "CUSTOS.ui.deleteTitle": "¿Borrar objeto?",
     "CUSTOS.ui.deleteText": "Por favor confirma si quieres borrar este objeto.",
     "CUSTOS.ui.regularSuccess": "¡Éxito!",
@@ -21,5 +23,12 @@
     "CUSTOS.ui.rank": "Rango",
     "CUSTOS.ui.young": "Joven",
     "CUSTOS.ui.adult": "Adulto",
-    "CUSTOS.ui.mature": "Maduro"
+    "CUSTOS.ui.mature": "Maduro",
+    "CUSTOS.ui.warrior": "Guerrero",
+    "CUSTOS.ui.augur": "Augur",
+    "CUSTOS.ui.explorer": "Explorador",
+    "CUSTOS.ui.savant": "Erudito",
+    "CUSTOS.ui.diplomat": "Diplomático",
+    "CUSTOS.ui.life": "Vida",
+    "CUSTOS.ui.pietas": "Pietas"
 }

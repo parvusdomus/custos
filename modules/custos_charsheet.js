@@ -18,6 +18,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         this._updateProvintiaValues(data);
         this._setAgeBonus(data);
         this._calculateCreatioValues(data);
+        this._calculateResources(data);
       }
       return data;
     }
@@ -163,6 +164,50 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       this.actor.update ({ 'system.initiative': initiative });
     }
 
+    _calculateResources(sheetData){
+      const actorData = sheetData;
+      let life_office_bonus=0;
+      let pietas_office_bonus=0;
+      switch (this.actor.system.office){
+        case 'bellicus':
+        {
+          life_office_bonus=2;
+          pietas_office_bonus=0;
+          break;
+        }
+        case 'auguralis':
+        {
+          life_office_bonus=0;
+          pietas_office_bonus=2;
+          break;
+        }
+        case 'exploratorius':
+        {
+          life_office_bonus=2;
+          pietas_office_bonus=0;
+          break;
+        }
+        case 'sapiens':
+        {
+          life_office_bonus=0;
+          pietas_office_bonus=2;
+          break;
+        }
+        case 'legatorius':
+        {
+          life_office_bonus=1;
+          pietas_office_bonus=1;
+          break;
+        }
+      }
+      this.actor.update ({ 'system.life_office_bonus': life_office_bonus });
+      this.actor.update ({ 'system.pietas_office_bonus': pietas_office_bonus });
+      let life=Number(this.actor.system.virtutes.vigor.value)+Number(this.actor.system.virtutes.coordinatio.value)+Number(life_office_bonus)+Number(this.actor.system.life_xp_bonus)
+      let pietas=Number(this.actor.system.virtutes.ratio.value)+Number(this.actor.system.virtutes.sensibilitas.value)+Number(pietas_office_bonus)+Number(this.actor.system.pietas_xp_bonus)
+      this.actor.update ({ 'system.resources.life.max': life });
+      this.actor.update ({ 'system.resources.pietas.max': pietas });
+    }
+
 
     activateListeners(html)
 	  {
@@ -176,6 +221,8 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       html.find('a.add-specialty').click(this._onAddSpecialty.bind(this));
       html.find('a.delete-specialty').click(this._onDeleteSpecialty.bind(this));
       html.find('a.virtute-roll').click(this._onVirtuteRoll.bind(this));
+      html.find('a.toggle-treated').click(this._onToggleTreated.bind(this));
+      html.find('a.resource-change').click(this._onResourceChange.bind(this));
     }
 
     _onItemCreate(event) {
@@ -247,6 +294,49 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         no: () => {},
         defaultYes: false
          });
+      return;
+    }
+
+    async _onToggleTreated(event, data)
+	  {
+      event.preventDefault();
+		  if (this.actor.system.treated == true){
+        await this.actor.update ({ 'system.treated': false });
+      }
+      else{
+        await this.actor.update ({ 'system.treated': true });
+      }
+		  return;
+    }
+
+    async _onResourceChange(event, data)
+    {
+      event.preventDefault();
+      const dataset = event.currentTarget.dataset;
+      let value=0;
+      if (Number(dataset.number)==0){
+          if (Number(this.actor.system.resources[dataset.resource].value)==0){
+            value=1;
+          }
+          else{
+            value=0;
+          }
+      }
+      else{
+        value=Number(dataset.number)+1
+      }
+      switch (dataset.resource){
+        case 'life':
+        {
+          this.actor.update ({'system.resources.life.value': value});
+          break;
+        }
+        case 'pietas':
+        {
+          this.actor.update ({'system.resources.pietas.value': value});
+          break;
+        }
+      }
       return;
     }
 

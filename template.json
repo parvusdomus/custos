@@ -68,8 +68,14 @@
             "sex": "",
             "province": "",
             "languages": "",
-            "office": "",
-            "rank": "",
+            "office": "bellicus",
+            "rank": "gregarius",
+            "resistance_rank_bonus": 0,
+            "life_office_bonus": 0,
+            "pietas_office_bonus": 0,
+            "life_xp_bonus": 0,
+            "pietas_xp_bonus": 0,
+            "treated": false,
             "resources": {
                 "life": {
                     "min": 0,

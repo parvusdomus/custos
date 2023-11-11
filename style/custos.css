@@ -55,8 +55,11 @@
 .char-pic img{
     width: 150px;
     height: 150px;
-    clip-path: circle(50% at 50% 50%);
+    border-radius: 50%;
     background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     border: none;
     color: var(--crimson);
 }
@@ -122,6 +125,13 @@
 
 .char-info3 td:nth-child(odd) {
     width: 15%;
+}
+
+.char-info3 select{
+    color: var(--crimson);
+    background-color: var(--input-bg-color);
+    text-align: center;
+    border: none;
 }
 
 .title table{
@@ -190,7 +200,8 @@
 .virtutes h3{
     border-bottom: none;
     color: var(--dark-gold);
-    font-family: var(--font-name);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
 }
 
 .virtutes hr{
@@ -237,7 +248,8 @@
 .peritiae h3{
     border-bottom: none;
     color: var(--dark-gold);
-    font-family: var(--font-name);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
 }
 
 .peritiae hr{
@@ -337,7 +349,7 @@
 }
 
 .sheet .tabs .item:hover {
-    background: var(--tab-bg-color-hover);
+    background: var(--dark-gold);
     color: var(--tab-text-color-hover);
     text-shadow: none;
 }
@@ -498,7 +510,6 @@
     color: var(--crimson);
     background-color: var(--input-bg-color);
     text-align: center;
-    font-weight: 900;
     border: none;
 }
 
@@ -701,4 +712,41 @@
     height: 20px;
     width: 100%;
 
+}
+
+.resources table{
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.resources tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.resources tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.resources h2{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
+}
+
+.resources h3{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
+}
+
+.resources td:nth-child(1){
+    width: 5%;
+}
+
+.resources td:nth-child(2){
+    width: 10%;
 }
