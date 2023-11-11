@@ -6,19 +6,43 @@
         <table class="weapon_line1">
             <tr>
                 <td>
-                    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{name}}"/>
+                    <td>
+                        <img class="item-img" src="{{item.img}}" data-edit="img" title="{{name}}"/>
+                    </td>
                 </td>
                 <td>
-                    <label>{{localize "CUSTOS.ui.diff"}}</label>
-                    <div><h3><input name="system.difficulty" type="number" value="{{item.system.difficulty}}" data-dtype="Number"/></h3></div>
-                </td>
-                <td>
-                    <label>{{localize "CUSTOS.ui.damage"}}</label>
-                    <div><h3><input name="system.damage" type="number" value="{{item.system.damage}}" data-dtype="Number"/></h3></div>
-                </td>
-                <td>
-                    <label>{{localize "CUSTOS.ui.weight"}}</label>
-                    <div><h3><input name="system.weight" type="number" value="{{item.system.weight}}" data-dtype="Number"/></h3></div>
+                    <table>
+                        <tr>
+                
+                            <td>
+                                <label>{{localize "CUSTOS.ui.diff"}}</label>
+                                <div><h3><input name="system.difficulty" type="number" value="{{item.system.difficulty}}" data-dtype="Number"/></h3></div>
+                            </td>
+                            <td>
+                                <label>{{localize "CUSTOS.ui.damage"}}</label>
+                                <div><h3><input name="system.damage" type="number" value="{{item.system.damage}}" data-dtype="Number"/></h3></div>
+                            </td>
+                            <td>
+                                <label>{{localize "CUSTOS.ui.weight"}}</label>
+                                <div><h3><input name="system.weight" type="number" value="{{item.system.weight}}" data-dtype="Number"/></h3></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>{{localize "CUSTOS.ui.range"}}</label>
+                            </td>
+                            <td>
+                                <select name="system.range" data-dtype="String">
+                                    {{#select item.system.range}}
+                                        <option value="cac">{{localize "CUSTOS.ui.cac"}}</option>
+                                        <option value="short">{{localize "CUSTOS.ui.short"}}</option>
+                                        <option value="medium">{{localize "CUSTOS.ui.medium"}}</option>
+                                        <option value="long">{{localize "CUSTOS.ui.long"}}</option>
+                                    {{/select}}
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>

@@ -194,7 +194,7 @@
     "Item": {
         "types":
         [
-            "provintia", "weapon"
+            "provintia", "weapon", "armor", "shield", "object"
         ],
         "provintia": {
             "bello": 0,
@@ -211,7 +211,22 @@
             "damage": 0,
             "weight": 0,
             "characteristic": "none",
+            "range": "cac",
             "equipped": "dropped",
+            "description": ""
+        },
+        "armor": {
+            "protection": 0,
+            "weight": 0,
+            "description": ""
+        },
+        "shield": {
+            "parry": 0,
+            "weight": 0,
+            "description": ""
+        },
+        "object": {
+            "weight": 0,
             "description": ""
         }
     }

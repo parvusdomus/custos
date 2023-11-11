@@ -1,7 +1,10 @@
 {
     "TYPES.Actor.Player": "Custos",
     "TYPES.Item.provintia": "Province",
-    "TYPES.Item.weapon": "Arma",
+    "TYPES.Item.weapon": "Weapon",
+    "TYPES.Item.armor": "Armor",
+    "TYPES.Item.shield": "Shield",
+    "TYPES.Item.object": "Object",
 
     "CUSTOS.ui.tab.general": "General",
     "CUSTOS.ui.tab.notes": "Notes",
@@ -42,7 +45,14 @@
     "CUSTOS.ui.slow": "Slow",
     "CUSTOS.ui.throwing": "Throwing",
     "CUSTOS.ui.twohand": "Two Handed",
-    "CUSTOS.ui.versatile": "Versatile"
+    "CUSTOS.ui.versatile": "Versatile",
+    "CUSTOS.ui.range": "Range",
+    "CUSTOS.ui.cac": "Melee",
+    "CUSTOS.ui.short": "Short",
+    "CUSTOS.ui.medium": "Medium",
+    "CUSTOS.ui.long": "Long",
+    "CUSTOS.ui.protection": "Protection",
+    "CUSTOS.ui.parry": "Parry"
 
 
 

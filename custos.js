@@ -25,7 +25,7 @@ Hooks.once("init", function(){
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("custos", CUSTOS_ITEM_SHEET,{
     makeDefault: true,
-    types: ['provintia','weapon']
+    types: ['provintia','weapon','armor','shield','object']
   });
   preloadHandlebarsTemplates();
 
@@ -65,8 +65,6 @@ Hooks.on('refreshToken', () => {
 })
 
 Hooks.on("createActor", async (actor) =>{
-  console.log ("CREATE ACTOR")
-  console.log (actor)
   const PJImage="systems/custos/style/icons/centurion-helmet.svg"
   switch (actor.type){
     case 'Player':
@@ -78,13 +76,29 @@ Hooks.on("createActor", async (actor) =>{
 })
 
 Hooks.on("createItem", async (item) =>{
-  console.log ("CREATE ITEM")
-  console.log (item)
-  const Image="systems/custos/style/icons/gladius.svg"
+  const weaponImage="systems/custos/style/icons/gladius.svg"
+  const armorImage="systems/custos/style/icons/lamellar.svg"
+  const shieldImage="systems/custos/style/icons/roman-shield.svg"
+  const objectImage="systems/custos/style/icons/swap-bag.svg"
   switch (item.type){
     case 'weapon':
     {
-      item.update ({ 'img': Image });
+      item.update ({ 'img': weaponImage });
+      break;
+    }
+    case 'armor':
+    {
+      item.update ({ 'img': armorImage });
+      break;
+    }
+    case 'shield':
+    {
+      item.update ({ 'img': shieldImage });
+      break;
+    }
+    case 'object':
+    {
+      item.update ({ 'img': objectImage });
       break;
     }
   }

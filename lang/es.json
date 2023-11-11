@@ -2,6 +2,9 @@
     "TYPES.Actor.Player": "Custos",
     "TYPES.Item.provintia": "Provincia",
     "TYPES.Item.weapon": "Arma",
+    "TYPES.Item.armor": "Armadura",
+    "TYPES.Item.shield": "Escudo",
+    "TYPES.Item.object": "Objeto",
 
     "CUSTOS.ui.tab.general": "General",
     "CUSTOS.ui.tab.notes": "Notas",
@@ -42,5 +45,12 @@
     "CUSTOS.ui.slow": "Lenta",
     "CUSTOS.ui.throwing": "Arrojadiza",
     "CUSTOS.ui.twohand": "A dos Manos",
-    "CUSTOS.ui.versatile": "Versátil"
+    "CUSTOS.ui.versatile": "Versátil",
+    "CUSTOS.ui.range": "Rango",
+    "CUSTOS.ui.cac": "C. a C.",
+    "CUSTOS.ui.short": "Corto",
+    "CUSTOS.ui.medium": "Medio",
+    "CUSTOS.ui.long": "Largo",
+    "CUSTOS.ui.protection": "Protección",
+    "CUSTOS.ui.parry": "Parada"
 }
