@@ -194,7 +194,7 @@
     "Item": {
         "types":
         [
-            "provintia", "weapon", "armor", "shield", "object", "talent"
+            "provintia", "weapon", "armor", "shield", "object", "talent", "ritual"
         ],
         "provintia": {
             "bello": 0,
@@ -238,6 +238,13 @@
         },
         "talent": {
             "office": "bellicus",
+            "description": ""
+        },
+        "ritual": {
+            "discipline": "clarividencia",
+            "difficulty": 0,
+            "cost": 0,
+            "duration": "",
             "description": ""
         }
     }

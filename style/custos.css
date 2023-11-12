@@ -978,3 +978,75 @@
 .inventory_armors td{
     color: var(--crimson);
 }
+   
+.ritual table{
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.ritual tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.ritual tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.ritual h3 {
+    border-bottom: none;
+    font-family: TrajanBold;
+    color: var(--dark-gold);
+    text-align: center;
+}
+
+.ritual td {
+    font-family: TrajanBold;
+    color: var(--dark-gold);
+    text-align: center;
+    font-weight: 900;
+}
+
+.ritual input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    border: none;
+    clip-path: circle(50% at 50% 50%);
+    text-align: center;
+    height: 40px;
+    width: 40px;
+}
+
+.ritual select{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+}
+
+.ritual img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.ritual_line2 input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    border: none;
+    clip-path: none;
+    text-align: center;
+    height: 20px;
+    width: 234px;
+}
+

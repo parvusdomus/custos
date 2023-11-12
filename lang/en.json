@@ -6,6 +6,7 @@
     "TYPES.Item.shield": "Shield",
     "TYPES.Item.object": "Object",
     "TYPES.Item.talent": "Talent",
+    "TYPES.Item.ritual": "Ritual",
 
     "CUSTOS.ui.tab.general": "General",
     "CUSTOS.ui.tab.notes": "Notes",
@@ -60,8 +61,16 @@
     "CUSTOS.ui.armors": "Armors",
     "CUSTOS.ui.shields": "Shields",
     "CUSTOS.ui.objects": "Objects",
-    "CUSTOS.ui.quantity": "Quantity"
-
+    "CUSTOS.ui.quantity": "Quantity",
+    "CUSTOS.ui.clarividency": "Clarividency",
+    "CUSTOS.ui.favor": "Favor of the Gods",
+    "CUSTOS.ui.dreams": "Dream Interpretation",
+    "CUSTOS.ui.omens": "Omen Interpretation",
+    "CUSTOS.ui.precognition": "Precognition",
+    "CUSTOS.ui.retrocognition": "Retrocognition",
+    "CUSTOS.ui.cost": "Cost",
+    "CUSTOS.ui.discipline": "Discipline",
+    "CUSTOS.ui.duration": "Duration"
 
 
 }

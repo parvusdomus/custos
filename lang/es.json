@@ -6,6 +6,7 @@
     "TYPES.Item.shield": "Escudo",
     "TYPES.Item.object": "Objeto",
     "TYPES.Item.talent": "Talento",
+    "TYPES.Item.ritual": "Ritual",
 
 
     "CUSTOS.ui.tab.general": "General",
@@ -61,5 +62,14 @@
     "CUSTOS.ui.armors": "Armaduras",
     "CUSTOS.ui.shields": "Escudos",
     "CUSTOS.ui.objects": "Objetos",
-    "CUSTOS.ui.quantity": "Cantidad"
+    "CUSTOS.ui.quantity": "Cantidad",
+    "CUSTOS.ui.clarividency": "Clarividencia",
+    "CUSTOS.ui.favor": "Favor de los Dioses",
+    "CUSTOS.ui.dreams": "Sueños, Interpretación",
+    "CUSTOS.ui.omens": "Presagios, Interpretación",
+    "CUSTOS.ui.precognition": "Precognición",
+    "CUSTOS.ui.retrocognition": "Retrocognición",
+    "CUSTOS.ui.cost": "Coste",
+    "CUSTOS.ui.discipline": "Disciplina",
+    "CUSTOS.ui.duration": "Duración"
 }
