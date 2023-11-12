@@ -5,6 +5,8 @@
     "TYPES.Item.armor": "Armadura",
     "TYPES.Item.shield": "Escudo",
     "TYPES.Item.object": "Objeto",
+    "TYPES.Item.talent": "Talento",
+
 
     "CUSTOS.ui.tab.general": "General",
     "CUSTOS.ui.tab.notes": "Notas",

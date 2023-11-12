@@ -1,7 +1,7 @@
 export default class CUSTOS_ITEM_SHEET extends ItemSheet{
     static get defaultOptions() {
       return mergeObject(super.defaultOptions, {
-          classes: ["custos", "sheet", "item"],
+          classes: ["custos", "sheet", "item", "talent"],
           template: "systems/custos/templates/actors/character.html",
           width: 400,
           height: 530

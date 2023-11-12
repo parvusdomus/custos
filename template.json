@@ -194,7 +194,7 @@
     "Item": {
         "types":
         [
-            "provintia", "weapon", "armor", "shield", "object"
+            "provintia", "weapon", "armor", "shield", "object", "talent"
         ],
         "provintia": {
             "bello": 0,
@@ -234,6 +234,10 @@
             "weight": 0,
             "quantity": 0,
             "equipped": "dropped",
+            "description": ""
+        },
+        "talent": {
+            "office": "bellicus",
             "description": ""
         }
     }
