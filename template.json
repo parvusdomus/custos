@@ -210,23 +210,30 @@
             "difficulty": 0,
             "damage": 0,
             "weight": 0,
-            "characteristic": "none",
+            "characteristic1": "none",
+            "characteristic2": "none",
+            "specialty": "",
             "range": "cac",
             "equipped": "dropped",
+            "peritia": "bello",
             "description": ""
         },
         "armor": {
             "protection": 0,
             "weight": 0,
+            "equipped": "dropped",
             "description": ""
         },
         "shield": {
             "parry": 0,
             "weight": 0,
+            "equipped": "dropped",
             "description": ""
         },
         "object": {
             "weight": 0,
+            "quantity": 0,
+            "equipped": "dropped",
             "description": ""
         }
     }

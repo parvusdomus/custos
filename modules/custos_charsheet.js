@@ -26,12 +26,30 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
     _prepareCharacterItems(sheetData){
       const actorData = sheetData;
       const Weapons = [];
+      const Armors = [];
+      const Shields = [];
+      const Objects = [];
       const Provintia = [];
       for (let i of sheetData.items){
         switch (i.type){
-				  case 'weapons':
+				  case 'weapon':
 				  {
             Weapons.push(i);
+            break;
+				  }
+          case 'armor':
+				  {
+            Armors.push(i);
+            break;
+				  }
+          case 'shield':
+				  {
+            Shields.push(i);
+            break;
+				  }
+          case 'object':
+				  {
+            Objects.push(i);
             break;
 				  }
           case 'provintia':
@@ -49,6 +67,10 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         }
       }
       actorData.Provintia = Provintia;
+      actorData.Weapons = Weapons;
+      actorData.Armors = Armors;
+      actorData.Shields = Shields;
+      actorData.Objects = Objects;
       actorData.settings = {
 
       }
@@ -216,6 +238,9 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       html.find('a.item-edit').click(this._onEditClick.bind(this));
       html.find('a.item-show').click(this._onShowClick.bind(this));
 		  html.find('a.item-delete').click(this._onDeleteClick.bind(this));
+      html.find('a.weapon-equip').click(this._onWeaponEquip.bind(this));
+      html.find('a.object-equip').click(this._onObjectEquip.bind(this));
+      html.find('a.armor-equip').click(this._onArmorEquip.bind(this));
       html.find('a.writedown').click(this._onWriteDown.bind(this));
       html.find('a.regular-roll').click(this._onDiceRoll.bind(this));
       html.find('a.add-specialty').click(this._onAddSpecialty.bind(this));
@@ -295,6 +320,87 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         defaultYes: false
          });
       return;
+    }
+
+    async _onWeaponEquip(event, data)
+	  {
+      event.preventDefault();
+		  const dataset = event.currentTarget.dataset;
+		  const item = this.actor.items.get(dataset.id);
+      let equipped=""
+      switch (item.system.equipped){
+        case 'dropped':
+        {
+          equipped="inbag"
+          break;
+        }
+        case 'inbag':
+        {
+          equipped="onehand"
+          break;
+        }
+        case 'onehand':
+        {
+          equipped="twohand"
+          break;
+        }
+        case 'twohand':
+        {
+          equipped="dropped"
+          break;
+        }
+      }
+      item.update ({'system.equipped': equipped});
+		  return;
+    }
+
+    async _onArmorEquip(event, data)
+	  {
+      event.preventDefault();
+		  const dataset = event.currentTarget.dataset;
+		  const item = this.actor.items.get(dataset.id);
+      let equipped=""
+      switch (item.system.equipped){
+        case 'dropped':
+        {
+          equipped="inbag"
+          break;
+        }
+        case 'inbag':
+        {
+          equipped="worn"
+          break;
+        }
+        case 'worn':
+        {
+          equipped="dropped"
+          break;
+        }
+      }
+      item.update ({'system.equipped': equipped});
+		  return;
+    }
+
+    async _onObjectEquip(event, data)
+	  {
+      event.preventDefault();
+		  const dataset = event.currentTarget.dataset;
+		  const item = this.actor.items.get(dataset.id);
+      let equipped=""
+      switch (item.system.equipped){
+        case 'dropped':
+        {
+          equipped="inbag"
+          break;
+        }
+        case 'inbag':
+        {
+          equipped="dropped"
+          break;
+        }
+      }
+      item.update ({'system.equipped': equipped});
+		  return;
     }
 
     async _onToggleTreated(event, data)

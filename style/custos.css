@@ -809,6 +809,7 @@
     color: var(--crimson);
     border: none;
     text-align: center;
+    width: 115px;
 }
 
 .weapon img{
@@ -820,5 +821,160 @@
     margin-left: auto;
     margin-right: auto;
     border: none;
+    color: var(--crimson);
+}
+
+.weapon_line2 input{
+    font-family: var(--font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    border: none;
+    clip-path: none;
+    text-align: center;
+    height: 20px;
+    width: 125px;
+}
+
+.inventory_weapon table {
+    background:none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.inventory_weapon td:nth-child(1){
+    text-align: left;
+    width: 30px;
+}
+
+.inventory_weapon td:nth-child(2){
+    text-align: right;
+    width: 30px;
+}
+
+.inventory_weapon td:nth-child(9){
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+}
+
+.inventory_weapon td:nth-child(3){
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 150px;
+}
+
+.inventory_weapon img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.inventory_weapon th{
+    color: var(--dark-gold);
+}
+
+.inventory_weapon td{
+    color: var(--crimson);
+}
+
+.inventory_objects table {
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.inventory_objects td:nth-child(1){
+    text-align: left;
+    width: 30px;
+}
+
+.inventory_objects td:nth-child(2){
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 300px;
+}
+
+.inventory_objects td:nth-child(5){
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+}
+
+.inventory_objects img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.inventory_objects th{
+    color: var(--dark-gold);
+}
+
+.inventory_objects td{
+    color: var(--crimson);
+}
+
+
+.inventory_armors table {
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.inventory_armors img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.inventory_armors td:nth-child(1){
+    text-align: left;
+    width: 30px;
+}
+
+.inventory_armors td:nth-child(2){
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 300px;
+}
+
+.inventory_armors td:nth-child(5){
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+}
+
+.inventory_armors th{
+    color: var(--dark-gold);
+}
+
+.inventory_armors td{
     color: var(--crimson);
 }

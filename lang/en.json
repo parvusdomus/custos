@@ -52,7 +52,14 @@
     "CUSTOS.ui.medium": "Medium",
     "CUSTOS.ui.long": "Long",
     "CUSTOS.ui.protection": "Protection",
-    "CUSTOS.ui.parry": "Parry"
+    "CUSTOS.ui.parry": "Parry",
+    "CUSTOS.ui.speciality": "Speciality",
+    "CUSTOS.ui.spec": "Spec.",
+    "CUSTOS.ui.weapons": "Weapons",
+    "CUSTOS.ui.armors": "Armors",
+    "CUSTOS.ui.shields": "Shields",
+    "CUSTOS.ui.objects": "Objects",
+    "CUSTOS.ui.quantity": "Quantity"
 
 
 

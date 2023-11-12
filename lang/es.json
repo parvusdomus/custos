@@ -52,5 +52,12 @@
     "CUSTOS.ui.medium": "Medio",
     "CUSTOS.ui.long": "Largo",
     "CUSTOS.ui.protection": "Protección",
-    "CUSTOS.ui.parry": "Parada"
+    "CUSTOS.ui.parry": "Parada",
+    "CUSTOS.ui.speciality": "Especialidad",
+    "CUSTOS.ui.spec": "Espec.",
+    "CUSTOS.ui.weapons": "Armas",
+    "CUSTOS.ui.armors": "Armaduras",
+    "CUSTOS.ui.shields": "Escudos",
+    "CUSTOS.ui.objects": "Objetos",
+    "CUSTOS.ui.quantity": "Cantidad"
 }

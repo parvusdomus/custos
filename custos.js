@@ -76,11 +76,17 @@ Hooks.on("createActor", async (actor) =>{
 })
 
 Hooks.on("createItem", async (item) =>{
+  const provintiaImage="systems/custos/style/icons/italia.svg"
   const weaponImage="systems/custos/style/icons/gladius.svg"
   const armorImage="systems/custos/style/icons/lamellar.svg"
   const shieldImage="systems/custos/style/icons/roman-shield.svg"
   const objectImage="systems/custos/style/icons/swap-bag.svg"
   switch (item.type){
+    case 'provintia':
+    {
+      item.update ({ 'img': provintiaImage });
+      break;
+    }
     case 'weapon':
     {
       item.update ({ 'img': weaponImage });
