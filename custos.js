@@ -81,7 +81,7 @@ Hooks.on("createItem", async (item) =>{
   const armorImage="systems/custos/style/icons/lamellar.svg"
   const shieldImage="systems/custos/style/icons/roman-shield.svg"
   const objectImage="systems/custos/style/icons/swap-bag.svg"
-  const talentImage="systems/custos/style/icons/laurels.svg"
+  const talentImage="systems/custos/style/icons/eagle-emblem.svg"
   switch (item.type){
     case 'provintia':
     {
