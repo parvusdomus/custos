@@ -7,6 +7,7 @@
     "TYPES.Item.object": "Objeto",
     "TYPES.Item.talent": "Talento",
     "TYPES.Item.ritual": "Ritual",
+    "TYPES.Item.summoning": "Invocación",
 
 
     "CUSTOS.ui.tab.general": "General",
@@ -71,5 +72,6 @@
     "CUSTOS.ui.retrocognition": "Retrocognición",
     "CUSTOS.ui.cost": "Coste",
     "CUSTOS.ui.discipline": "Disciplina",
-    "CUSTOS.ui.duration": "Duración"
+    "CUSTOS.ui.duration": "Duración",
+    "CUSTOS.ui.patron": "Patrón"
 }

@@ -1,0 +1,55 @@
+<form class="{{cssClass}} custos" autocomplete="off">
+    <div class="weapon-title">
+        <h2><input name="name" type="text" value="{{item.name}}" placeholder='Provintia' onClick="this.select();"/></h2>
+    </div>
+    <div class="ritual">
+        <table class="ritual_line1">
+            <tr>
+                <td>
+                    <td>
+                        <img class="item-img" src="{{item.img}}" data-edit="img" title="{{name}}"/>
+                    </td>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <label>{{localize "CUSTOS.ui.cost"}}</label>
+                                <div><h3><input name="system.cost" type="number" value="{{item.system.cost}}" data-dtype="Number"/></h3></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table class="ritual_line2">
+            <tr>
+                <td>
+                    <label>{{localize "CUSTOS.ui.discipline"}}&nbsp;&nbsp;</label>
+                </td>
+                <td>
+                    <select name="system.office" data-dtype="String">
+                        {{#select item.system.office}}
+                            <option value="bellicus">{{localize "CUSTOS.ui.warrior"}}</option>
+                            <option value="auguralis">{{localize "CUSTOS.ui.augur"}}</option>
+                            <option value="exploratorius">{{localize "CUSTOS.ui.explorer"}}</option>
+                            <option value="sapiens">{{localize "CUSTOS.ui.savant"}}</option>
+                            <option value="legatorius">{{localize "CUSTOS.ui.diplomat"}}</option>
+                        {{/select}}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>{{localize "CUSTOS.ui.patron"}}&nbsp;&nbsp;</label>
+                </td>
+                <td>
+                    <div><input name="system.patron" type="text" value="{{item.system.patron}}" data-dtype="String"/></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="desc">
+        {{editor item.system.description target="system.description" button=true owner=owner editable=true}}
+    </div>
+</form>

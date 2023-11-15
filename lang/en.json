@@ -7,6 +7,7 @@
     "TYPES.Item.object": "Object",
     "TYPES.Item.talent": "Talent",
     "TYPES.Item.ritual": "Ritual",
+    "TYPES.Item.summoning": "Summoning",
 
     "CUSTOS.ui.tab.general": "General",
     "CUSTOS.ui.tab.notes": "Notes",
@@ -70,7 +71,8 @@
     "CUSTOS.ui.retrocognition": "Retrocognition",
     "CUSTOS.ui.cost": "Cost",
     "CUSTOS.ui.discipline": "Discipline",
-    "CUSTOS.ui.duration": "Duration"
+    "CUSTOS.ui.duration": "Duration",
+    "CUSTOS.ui.patron": "Patron"
 
 
 }

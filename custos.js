@@ -25,7 +25,7 @@ Hooks.once("init", function(){
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("custos", CUSTOS_ITEM_SHEET,{
     makeDefault: true,
-    types: ['provintia','weapon','armor','shield','object','talent','ritual']
+    types: ['provintia','weapon','armor','shield','object','talent','ritual','summoning']
   });
   preloadHandlebarsTemplates();
 
@@ -83,6 +83,7 @@ Hooks.on("createItem", async (item) =>{
   const objectImage="systems/custos/style/icons/swap-bag.svg"
   const talentImage="systems/custos/style/icons/eagle-emblem.svg"
   const ritualImage="systems/custos/style/icons/brasero.svg"
+  const summoningImage="systems/custos/style/icons/capitol.svg"
   switch (item.type){
     case 'provintia':
     {
@@ -117,6 +118,11 @@ Hooks.on("createItem", async (item) =>{
     case 'ritual':
     {
       item.update ({ 'img': ritualImage });
+      break;
+    }
+    case 'summoning':
+    {
+      item.update ({ 'img': summoningImage });
       break;
     }
   }

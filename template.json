@@ -194,7 +194,7 @@
     "Item": {
         "types":
         [
-            "provintia", "weapon", "armor", "shield", "object", "talent", "ritual"
+            "provintia", "weapon", "armor", "shield", "object", "talent", "ritual", "summoning"
         ],
         "provintia": {
             "bello": 0,
@@ -245,6 +245,12 @@
             "difficulty": 0,
             "cost": 0,
             "duration": "",
+            "description": ""
+        },
+        "summoning": {
+            "office": "bellicus",
+            "cost": 0,
+            "patron": "",
             "description": ""
         }
     }
