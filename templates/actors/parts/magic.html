@@ -39,6 +39,9 @@
                     {{#if (eq item.system.office "legatorius")}}
                         <label>{{localize "CUSTOS.ui.diplomat"}}</label> 
                     {{/if}}
+                    {{#if (eq item.system.office "interfectorius")}}
+                        <label>{{localize "CUSTOS.ui.assassin"}}</label> 
+                    {{/if}}
                 </td>
                 <td class="item-controls">
                     <a class="item-show" data-id="{{item._id}}"><i class="fas fa-eye"></i></a>
@@ -96,6 +99,9 @@
                     {{/if}}
                     {{#if (eq item.system.office "legatorius")}}
                         <label>{{localize "CUSTOS.ui.diplomat"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.office "interfectorius")}}
+                        <label>{{localize "CUSTOS.ui.assassin"}}</label> 
                     {{/if}}
                 </td>
                 <td>

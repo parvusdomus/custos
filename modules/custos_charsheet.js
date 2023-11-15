@@ -248,6 +248,12 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
           pietas_office_bonus=1;
           break;
         }
+        case 'interfectorius':
+        {
+          life_office_bonus=1;
+          pietas_office_bonus=1;
+          break;
+        }
       }
       this.actor.update ({ 'system.life_office_bonus': life_office_bonus });
       this.actor.update ({ 'system.pietas_office_bonus': pietas_office_bonus });
