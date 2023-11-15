@@ -30,6 +30,9 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       const Shields = [];
       const Objects = [];
       const Provintia = [];
+      const Talent = [];
+      const Rituals = [];
+      const Summonings = [];
       for (let i of sheetData.items){
         switch (i.type){
 				  case 'weapon':
@@ -63,6 +66,27 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
             }
             break;			  
           }
+          case 'talent':
+          {
+            if (Talent.length <= 0){
+              Talent.push(i);
+            } 
+            else{
+              ui.notifications.warn(game.i18n.localize("CUSTOS.ui.cantAddMoreTalents"));
+              this.actor.deleteEmbeddedDocuments("Item", [i._id])
+            }
+            break;			  
+          }
+          case 'ritual':
+				  {
+            Rituals.push(i);
+            break;
+				  }
+          case 'summoning':
+				  {
+            Summonings.push(i);
+            break;
+				  }
           
         }
       }
@@ -71,6 +95,9 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       actorData.Armors = Armors;
       actorData.Shields = Shields;
       actorData.Objects = Objects;
+      actorData.Talent = Talent;
+      actorData.Rituals = Rituals;
+      actorData.Summonings = Summonings;
       actorData.settings = {
 
       }

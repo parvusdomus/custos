@@ -23,6 +23,7 @@
     "CUSTOS.ui.noSelectedToken": "ADVERTENCIA: Necesitas tener un token seleccionado para que funcione.",
     "CUSTOS.ui.name": "Nombre",
     "CUSTOS.ui.cantAddMore": "No puedes tener más de una provincia.",
+    "CUSTOS.ui.cantAddMoreTalents": "No puedes tener más de un talento de combate.",
     "CUSTOS.ui.writedown": "Anotar",
     "CUSTOS.ui.province": "Provincia",
     "CUSTOS.ui.age": "Edad",
@@ -73,5 +74,8 @@
     "CUSTOS.ui.cost": "Coste",
     "CUSTOS.ui.discipline": "Disciplina",
     "CUSTOS.ui.duration": "Duración",
-    "CUSTOS.ui.patron": "Patrón"
+    "CUSTOS.ui.patron": "Patrón",
+    "CUSTOS.ui.talents": "Talentos",
+    "CUSTOS.ui.rituals": "Rituales",
+    "CUSTOS.ui.summonings": "Invocaciones"
 }

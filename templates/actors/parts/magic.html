@@ -1,1 +1,180 @@
-MAGIA
+<div class="title">
+    <table>
+        <tr>
+            <th><h2><hr /></h2></th>
+            <th><h2><label>{{localize "CUSTOS.ui.talents"}}</label></h2></th>
+            <th><h2><hr /></h2></th>
+        </tr>
+    </table>
+</div>
+<div class="magic_talent">
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>{{localize "CUSTOS.ui.office"}}</th>
+            <th></th>
+        </tr>
+        {{#each Talent as |item id|}}
+            <tr data-item-id="{{item._id}}">
+                <td>
+                    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{name}}"/>
+                </td>
+                <td>
+                    <label>&nbsp;{{item.name}}</label>   
+                </td>
+                <td>
+                    {{#if (eq item.system.office "bellicus")}}
+                        <label>{{localize "CUSTOS.ui.warrior"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.office "auguralis")}}
+                        <label>{{localize "CUSTOS.ui.augur"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.office "exploratorius")}}
+                        <label>{{localize "CUSTOS.ui.explorer"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.office "sapiens")}}
+                        <label>{{localize "CUSTOS.ui.savant"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.office "legatorius")}}
+                        <label>{{localize "CUSTOS.ui.diplomat"}}</label> 
+                    {{/if}}
+                </td>
+                <td class="item-controls">
+                    <a class="item-show" data-id="{{item._id}}"><i class="fas fa-eye"></i></a>
+                    <a class="item-edit" data-id="{{item._id}}"><i class="fas fa-edit"></i></a>
+                    <a class="item-delete" data-id="{{item._id}}"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+
+<div class="title">
+    <table>
+        <tr>
+            <th><h2><hr /></h2></th>
+            <th><h2><label>{{localize "CUSTOS.ui.summonings"}}</label></h2></th>
+            <th><h2><hr /></h2></th>
+        </tr>
+    </table>
+</div>
+
+<div class="magic_summonings">
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>{{localize "CUSTOS.ui.patron"}}</th>
+            <th>{{localize "CUSTOS.ui.office"}}</th>
+            <th>{{localize "CUSTOS.ui.cost"}}</th>
+            <th></th>
+        </tr>
+        {{#each Summonings as |item id|}}
+            <tr data-item-id="{{item._id}}">
+                <td>
+                    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{name}}"/>
+                </td>
+                <td>
+                    <label>{{item.name}}&nbsp;</label>   
+                </td>
+                <td>
+                    <label>{{item.system.patron}}&nbsp;</label>
+                </td>
+                <td>
+                    {{#if (eq item.system.office "bellicus")}}
+                        <label>{{localize "CUSTOS.ui.warrior"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.office "auguralis")}}
+                        <label>{{localize "CUSTOS.ui.augur"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.office "exploratorius")}}
+                        <label>{{localize "CUSTOS.ui.explorer"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.office "sapiens")}}
+                        <label>{{localize "CUSTOS.ui.savant"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.office "legatorius")}}
+                        <label>{{localize "CUSTOS.ui.diplomat"}}</label> 
+                    {{/if}}
+                </td>
+                <td>
+                    <label>{{item.system.cost}}&nbsp;</label>
+                </td>
+                <td class="item-controls">
+                    <a class="item-show" data-id="{{item._id}}"><i class="fas fa-eye"></i></a>
+                    <a class="item-edit" data-id="{{item._id}}"><i class="fas fa-edit"></i></a>
+                    <a class="item-delete" data-id="{{item._id}}"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+
+<div class="title">
+    <table>
+        <tr>
+            <th><h2><hr /></h2></th>
+            <th><h2><label>{{localize "CUSTOS.ui.rituals"}}</label></h2></th>
+            <th><h2><hr /></h2></th>
+        </tr>
+    </table>
+</div>
+
+<div class="magic_rituals">
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>{{localize "CUSTOS.ui.discipline"}}</th>
+            <th>{{localize "CUSTOS.ui.diff"}}</th>
+            <th>{{localize "CUSTOS.ui.cost"}}</th>
+            <th></th>
+        </tr>
+        {{#each Rituals as |item id|}}
+            <tr data-item-id="{{item._id}}">
+                <td>
+                    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{name}}"/>
+                </td>
+                <td>
+                    <i class="fa-solid fa-dice"></i>
+                </td>
+                <td>
+                    <label>{{item.name}}&nbsp;</label>   
+                </td>
+                <td>
+                    {{#if (eq item.system.discipline "clarividency")}}
+                        <label>{{localize "CUSTOS.ui.clarividency"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.discipline "favor")}}
+                        <label>{{localize "CUSTOS.ui.favor"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.discipline "dreams")}}
+                        <label>{{localize "CUSTOS.ui.dreams"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.discipline "omens")}}
+                        <label>{{localize "CUSTOS.ui.omens"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.discipline "precognition")}}
+                        <label>{{localize "CUSTOS.ui.precognition"}}</label> 
+                    {{/if}}
+                    {{#if (eq item.system.discipline "retrocognition")}}
+                        <label>{{localize "CUSTOS.ui.retrocognition"}}</label> 
+                    {{/if}}
+                </td>
+                <td>
+                    <label>{{item.system.difficulty}}&nbsp;</label>   
+                </td>
+                <td>
+                    <label>{{item.system.cost}}&nbsp;</label>   
+                </td>
+                <td class="item-controls">
+                    <a class="item-show" data-id="{{item._id}}"><i class="fas fa-eye"></i></a>
+                    <a class="item-edit" data-id="{{item._id}}"><i class="fas fa-edit"></i></a>
+                    <a class="item-delete" data-id="{{item._id}}"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</div>

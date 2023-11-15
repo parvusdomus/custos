@@ -1050,3 +1050,179 @@
     width: 234px;
 }
 
+.magic_talent table {
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.magic_talent td:nth-child(1){
+    text-align: left;
+    width: 30px;
+}
+
+.magic_talent td:nth-child(2){
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 450px;
+}
+.magic_talent td:nth-child(3){
+    text-align: center;
+    overflow: hidden;
+    width: 160px;
+}
+
+.inventory_armors td:nth-child(4){
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+}
+
+.magic_talent img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.magic_talent th{
+    color: var(--dark-gold);
+}
+
+.magic_talent td{
+    color: var(--crimson);
+}
+
+.magic_summonings table {
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.magic_summonings td:nth-child(1){
+    text-align: left;
+    width: 30px;
+}
+
+.magic_summonings td:nth-child(2){
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 300px;
+}
+.magic_summonings td:nth-child(3){
+    text-align: center;
+    overflow: hidden;
+    width: 160px;
+}
+
+.magic_summonings td:nth-child(4){
+    text-align: center;
+    overflow: hidden;
+    width: 100px;
+}
+
+.magic_summonings td:nth-child(5){
+    text-align: center;
+    overflow: hidden;
+    width: 40px;
+}
+
+.magic_summonings td:nth-child(6){
+    text-align: right;
+    display: inline-block;
+    width: 80px;
+}
+
+.magic_summonings img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.magic_summonings th{
+    color: var(--dark-gold);
+}
+
+.magic_summonings td{
+    color: var(--crimson);
+}
+
+.magic_rituals table {
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.magic_rituals td:nth-child(1){
+    text-align: left;
+    width: 30px;
+}
+
+.magic_rituals td:nth-child(3){
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 280px;
+}
+.magic_rituals td:nth-child(4){
+    text-align: center;
+    overflow: hidden;
+    width: 160px;
+}
+
+.magic_rituals td:nth-child(5){
+    text-align: center;
+    overflow: hidden;
+    width: 100px;
+}
+
+.magic_rituals td:nth-child(6){
+    text-align: center;
+    overflow: hidden;
+    width: 40px;
+}
+
+.magic_rituals td:nth-child(7){
+    text-align: right;
+    display: inline-block;
+    width: 80px;
+}
+
+.magic_rituals img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.magic_rituals th{
+    color: var(--dark-gold);
+}
+
+.magic_rituals td{
+    color: var(--crimson);
+}

@@ -22,6 +22,7 @@
     "CUSTOS.ui.noSelectedToken": "WARNING: You need to have a token selected for this to work.",
     "CUSTOS.ui.name": "Name",
     "CUSTOS.ui.cantAddMore": "Can't have more than one provintia.",
+    "CUSTOS.ui.cantAddMoreTalents": "Can't have more than one combat talent.",
     "CUSTOS.ui.writedown": "Write Down",
     "CUSTOS.ui.province": "Province",
     "CUSTOS.ui.age": "Age",
@@ -72,7 +73,10 @@
     "CUSTOS.ui.cost": "Cost",
     "CUSTOS.ui.discipline": "Discipline",
     "CUSTOS.ui.duration": "Duration",
-    "CUSTOS.ui.patron": "Patron"
+    "CUSTOS.ui.patron": "Patron",
+    "CUSTOS.ui.talents": "Talents",
+    "CUSTOS.ui.rituals": "Rituals",
+    "CUSTOS.ui.summonings": "Summonings"
 
 
 }
