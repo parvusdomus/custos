@@ -15,10 +15,12 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       if (this.actor.type == 'Player') {
         this._prepareCharacterItems(data);
         //this._updateInitiative(data);
-        this._updateProvintiaValues(data);
-        this._setAgeBonus(data);
-        this._calculateCreatioValues(data);
         this._calculateResources(data);
+        if (this.actor.system.creatio.locked == false){
+          this._updateProvintiaValues(data);
+          this._setAgeBonus(data);
+          this._calculateCreatioValues(data);
+        }
       }
       return data;
     }
@@ -275,6 +277,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       html.find('a.object-equip').click(this._onObjectEquip.bind(this));
       html.find('a.armor-equip').click(this._onArmorEquip.bind(this));
       html.find('a.writedown').click(this._onWriteDown.bind(this));
+      html.find('a.lock-creatio').click(this._onLock.bind(this));
       html.find('a.regular-roll').click(this._onDiceRoll.bind(this));
       html.find('a.add-specialty').click(this._onAddSpecialty.bind(this));
       html.find('a.delete-specialty').click(this._onDeleteSpecialty.bind(this));
@@ -307,6 +310,10 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       event.preventDefault();
 		  const dataset = event.currentTarget.dataset;
 		  const item = this.actor.items.get(dataset.id);
+      if (this.actor.system.creatio.locked == true && item.type=="provintia"){
+        ui.notifications.warn(game.i18n.localize("CUSTOS.ui.locked"));
+        return;
+      }
 		  item.sheet.render(true);
 		  return;
     }
@@ -333,6 +340,10 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
       const item = this.actor.items.get(dataset.id);
+      if (this.actor.system.creatio.locked == true && item.type=="provintia"){
+        ui.notifications.warn(game.i18n.localize("CUSTOS.ui.locked"));
+        return;
+      }
       Dialog.confirm({
         title: game.i18n.localize("CUSTOS.ui.deleteTitle"),
 			  content: game.i18n.localize("CUSTOS.ui.deleteText"),
@@ -483,42 +494,68 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
 	  {
       event.preventDefault();
 		  const dataset = event.currentTarget.dataset;
-      this.actor.update ({ 'system.virtutes.coordinatio.value': this.actor.system.creatio.age.coordinatio.value });
-      this.actor.update ({ 'system.virtutes.auctoritas.value': this.actor.system.creatio.age.auctoritas.value });
-      this.actor.update ({ 'system.virtutes.ratio.value': this.actor.system.creatio.age.ratio.value });
-      this.actor.update ({ 'system.virtutes.vigor.value': this.actor.system.creatio.age.vigor.value });
-      this.actor.update ({ 'system.virtutes.ingenium.value': this.actor.system.creatio.age.ingenium.value });
-      this.actor.update ({ 'system.virtutes.sensibilitas.value': this.actor.system.creatio.age.sensibilitas.value });
-
-      this.actor.update ({ 'system.peritiae.bello.value': this.actor.system.creatio.peritiae.bello });
-      this.actor.update ({ 'system.peritiae.corpore.value': this.actor.system.creatio.peritiae.corpore });
-      this.actor.update ({ 'system.peritiae.magia.value': this.actor.system.creatio.peritiae.magia });
-      this.actor.update ({ 'system.peritiae.natura.value': this.actor.system.creatio.peritiae.natura });
-      this.actor.update ({ 'system.peritiae.scientia.value': this.actor.system.creatio.peritiae.scientia });
-      this.actor.update ({ 'system.peritiae.societate.value': this.actor.system.creatio.peritiae.societate });
-
-      this.actor.update ({ 'system.province': this.actor.system.creatio.provintia.name });
-      this.actor.update ({ 'system.languages': this.actor.system.creatio.provintia.languages });
-
-      let age=0;
-      switch (this.actor.system.creatio.age.value){
-        case 'iuvenis':
-        {
-          age=16;
-          break;
-        }
-        case 'adultus':
-        {
-          age=31;
-          break;
-        }
-        case 'maturus':
-        {
-          age=46;
-          break;
-        }
+      if (this.actor.system.creatio.locked == true){
+        ui.notifications.warn(game.i18n.localize("CUSTOS.ui.locked"));
+        return;
       }
-      this.actor.update ({ 'system.age': age });
+      Dialog.confirm({
+        title: game.i18n.localize("CUSTOS.ui.writedownTitle"),
+			  content: game.i18n.localize("CUSTOS.ui.writedownText"),
+        yes: () => {
+          this.actor.update ({ 'system.virtutes.coordinatio.value': this.actor.system.creatio.age.coordinatio.value });
+          this.actor.update ({ 'system.virtutes.auctoritas.value': this.actor.system.creatio.age.auctoritas.value });
+          this.actor.update ({ 'system.virtutes.ratio.value': this.actor.system.creatio.age.ratio.value });
+          this.actor.update ({ 'system.virtutes.vigor.value': this.actor.system.creatio.age.vigor.value });
+          this.actor.update ({ 'system.virtutes.ingenium.value': this.actor.system.creatio.age.ingenium.value });
+          this.actor.update ({ 'system.virtutes.sensibilitas.value': this.actor.system.creatio.age.sensibilitas.value });
+
+          this.actor.update ({ 'system.peritiae.bello.value': this.actor.system.creatio.peritiae.bello });
+          this.actor.update ({ 'system.peritiae.corpore.value': this.actor.system.creatio.peritiae.corpore });
+          this.actor.update ({ 'system.peritiae.magia.value': this.actor.system.creatio.peritiae.magia });
+          this.actor.update ({ 'system.peritiae.natura.value': this.actor.system.creatio.peritiae.natura });
+          this.actor.update ({ 'system.peritiae.scientia.value': this.actor.system.creatio.peritiae.scientia });
+          this.actor.update ({ 'system.peritiae.societate.value': this.actor.system.creatio.peritiae.societate });
+
+          this.actor.update ({ 'system.province': this.actor.system.creatio.provintia.name });
+          this.actor.update ({ 'system.languages': this.actor.system.creatio.provintia.languages });
+
+          let age=0;
+          switch (this.actor.system.creatio.age.value){
+            case 'iuvenis':
+            {
+              age=16;
+              break;
+            }
+            case 'adultus':
+            {
+              age=31;
+              break;
+            }
+            case 'maturus':
+            {
+              age=46;
+              break;
+            }
+          }
+          this.actor.update ({ 'system.age': age });
+        },
+        no: () => {},
+        defaultYes: false
+         });
+      
+		  return;
+    }
+
+    async _onLock(event, data)
+	  {
+      event.preventDefault();
+		  const dataset = event.currentTarget.dataset;
+      if (this.actor.system.creatio.locked == true){
+        this.actor.update ({ 'system.creatio.locked': false });
+      }
+      else{
+        this.actor.update ({ 'system.creatio.locked': true });
+      }
 		  return;
     }
     
@@ -556,6 +593,10 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
 
     async _onVirtuteRoll(event)
     {
+      if (this.actor.system.creatio.locked == true){
+        ui.notifications.warn(game.i18n.localize("CUSTOS.ui.locked"));
+        return;
+      }
       let dados=[];
       let values=[];
       let d6Roll = await new Roll("12d6").roll({async: false});

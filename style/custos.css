@@ -843,6 +843,29 @@
     text-align: center;
 }
 
+.inventory_weapon th:nth-child(1){
+    text-align: left;
+    width: 30px;
+}
+
+.inventory_weapon th:nth-child(2){
+    text-align: right;
+    width: 30px;
+}
+
+.inventory_weapon th:nth-child(9){
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+}
+
+.inventory_weapon th:nth-child(3){
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 150px;
+}
+
 .inventory_weapon td:nth-child(1){
     text-align: left;
     width: 30px;
@@ -912,6 +935,24 @@
     width: 100px;
 }
 
+.inventory_objects th:nth-child(1){
+    text-align: left;
+    width: 30px;
+}
+
+.inventory_objects th:nth-child(2){
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 300px;
+}
+
+.inventory_objects th:nth-child(5){
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+}
+
 .inventory_objects img{
     width: 30px;
     height: 30px;
@@ -963,13 +1004,18 @@
     display: inline-block;
     overflow: hidden;
     width: 300px;
+    background-color: red;
 }
+
+
 
 .inventory_armors td:nth-child(5){
     text-align: right;
     display: inline-block;
     width: 100px;
 }
+
+
 
 .inventory_armors th{
     color: var(--dark-gold);
