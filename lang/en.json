@@ -82,7 +82,11 @@
     "CUSTOS.ui.patron": "Patron",
     "CUSTOS.ui.talents": "Talents",
     "CUSTOS.ui.rituals": "Rituals",
-    "CUSTOS.ui.summonings": "Summonings"
-
-
+    "CUSTOS.ui.summonings": "Summonings",
+    "CUSTOS.ui.experience": "Experience",
+    "CUSTOS.ui.total": "Total",
+    "CUSTOS.ui.spent": "Spent",
+    "CUSTOS.ui.remaining": "Remaining",
+    "CUSTOS.ui.improvements": "Improvements"
 }
+

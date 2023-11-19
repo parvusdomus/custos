@@ -66,6 +66,8 @@
             },
             "age": 0,
             "sex": "",
+            "total_encumbrance": 0,
+            "converted_encumbrance": 0,
             "province": "",
             "languages": "",
             "office": "bellicus",
@@ -83,11 +85,6 @@
                     "value": 0
                 },
                 "pietas": {
-                    "min": 0,
-                    "max": 0,
-                    "value": 0
-                },
-                "encumbrance": {
                     "min": 0,
                     "max": 0,
                     "value": 0
@@ -176,6 +173,66 @@
                    "auctoritas_societate": 0,
                    "auctoritas_bello": 0 
                 }
+            },
+            "curriculum": {
+                "experience": 0,
+                "bello": {
+                    "multiplier": 0,
+                    "remaining": 0,
+                    "total": 0,
+                    "spent": 0,
+                    "label": "De Bello"
+                },
+                "corpore": {
+                    "multiplier": 0,
+                    "remaining": 0,
+                    "total": 0,
+                    "spent": 0,
+                    "label": "De Corpore"
+                },
+                "magia": {
+                    "multiplier": 0,
+                    "remaining": 0,
+                    "total": 0,
+                    "spent": 0,
+                    "label": "De Magia"
+                },
+                "natura": {
+                    "multiplier": 0,
+                    "remaining": 0,
+                    "total": 0,
+                    "spent": 0,
+                    "label": "De Natura"
+                },
+                "scientia": {
+                    "multiplier": 0,
+                    "remaining": 0,
+                    "total": 0,
+                    "spent": 0,
+                    "label": "De Scientia"
+                },
+                "societate": {
+                    "multiplier": 0,
+                    "remaining": 0,
+                    "total": 0,
+                    "spent": 0,
+                    "label": "De Societate"
+                },
+                "arcanorum": {
+                    "multiplier": 0,
+                    "remaining": 0,
+                    "total": 0,
+                    "spent": 0,
+                    "label": "Mos Arcanorum"
+                },
+                "deorum": {
+                    "multiplier": 0,
+                    "remaining": 0,
+                    "total": 0,
+                    "spent": 0,
+                    "label": "Pax Deorum"
+                }
+
             }
         },
         "Challenge": {

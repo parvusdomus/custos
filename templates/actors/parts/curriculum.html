@@ -1,1 +1,101 @@
-CURRICULUM
+
+    <div class="curriculum_title">
+        <h2>
+            <label>{{ localize "CUSTOS.ui.experience" }}&nbsp;&nbsp;</label>
+            <input name="system.curriculum.experience" value="{{actor.system.curriculum.experience}}" data-dtype="number" type="number"/>
+        </h2>
+    </div>
+    <div class="title">
+        <h2>
+            <hr />
+        </h2>
+    </div>
+    <div class="curriculum_content1">
+        <table>
+            <tr>
+                <th></th>
+                <th><h3><label>x</label></h3></th>
+                <th><h3><label>{{ localize "CUSTOS.ui.total" }}</label></h3></th>
+                <th><h3><label>{{ localize "CUSTOS.ui.spent" }}</label></h3></th>
+                <th><h3><label>{{ localize "CUSTOS.ui.remaining" }}</label></h3></th>
+            </tr>
+            <tr>
+                <td><h3><label>De Bello</label></h3></td>
+                <td><input name="system.curriculum.bello.multiplier" value="{{actor.system.curriculum.bello.multiplier}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.bello.total" value="{{actor.system.curriculum.bello.total}}" disabled="disabled" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.bello.spent" value="{{actor.system.curriculum.bello.spent}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.bello.remaining" value="{{actor.system.curriculum.bello.remaining}}" disabled="disabled" data-dtype="number" type="number"/></td>
+            </tr>
+            <tr>
+                <td><h3><label>De Corpore</label></h3></td>
+                <td><input name="system.curriculum.corpore.multiplier" value="{{actor.system.curriculum.corpore.multiplier}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.corpore.total" value="{{actor.system.curriculum.corpore.total}}" disabled="disabled" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.corpore.spent" value="{{actor.system.curriculum.corpore.spent}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.corpore.remaining" value="{{actor.system.curriculum.corpore.remaining}}" disabled="disabled" data-dtype="number" type="number"/></td>		
+            </tr>
+            <tr>
+                <td><h3><label>De Magia</label></h3></td>
+                <td><input name="system.curriculum.magia.multiplier" value="{{actor.system.curriculum.magia.multiplier}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.magia.total" value="{{actor.system.curriculum.magia.total}}" disabled="disabled" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.magia.spent" value="{{actor.system.curriculum.magia.spent}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.magia.remaining" value="{{actor.system.curriculum.magia.remaining}}" disabled="disabled" data-dtype="number" type="number"/></td>			
+            </tr>
+            <tr>
+                <td><h3><label>De Natura</label></h3></td>
+                <td><input name="system.curriculum.natura.multiplier" value="{{actor.system.curriculum.natura.multiplier}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.natura.total" value="{{actor.system.curriculum.natura.total}}" disabled="disabled" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.natura.spent" value="{{actor.system.curriculum.natura.spent}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.natura.remaining" value="{{actor.system.curriculum.natura.remaining}}" disabled="disabled" data-dtype="number" type="number"/></td>			
+            </tr>
+            <tr>
+                <td><h3><label>De Scientia</label></h3></td>
+                <td><input name="system.curriculum.scientia.multiplier" value="{{actor.system.curriculum.scientia.multiplier}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.scientia.total" value="{{actor.system.curriculum.scientia.total}}" disabled="disabled" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.scientia.spent" value="{{actor.system.curriculum.scientia.spent}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.scientia.remaining" value="{{actor.system.curriculum.scientia.remaining}}" disabled="disabled" data-dtype="number" type="number"/></td>			
+            </tr>
+            <tr>
+                <td><h3><label>De Societate</label></h3></td>
+                <td><input name="system.curriculum.societate.multiplier" value="{{actor.system.curriculum.societate.multiplier}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.societate.total" value="{{actor.system.curriculum.societate.total}}" disabled="disabled" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.societate.spent" value="{{actor.system.curriculum.societate.spent}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.societate.remaining" value="{{actor.system.curriculum.societate.remaining}}" disabled="disabled" data-dtype="number" type="number"/></td>			
+            </tr>
+            
+            <tr>
+                <td><h3><label>Mos Arcanorum</label></h3></td>
+                <td><input name="system.curriculum.arcanorum.multiplier" value="{{actor.system.curriculum.arcanorum.multiplier}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.arcanorum.total" value="{{actor.system.curriculum.arcanorum.total}}" disabled="disabled" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.arcanorum.spent" value="{{actor.system.curriculum.arcanorum.spent}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.arcanorum.remaining" value="{{actor.system.curriculum.arcanorum.remaining}}" disabled="disabled" data-dtype="number" type="number"/></td>			
+            </tr>
+            <tr>
+                <td><h3><label>Pax Deorum</label></h3></td>
+                <td><input name="system.curriculum.deorum.multiplier" value="{{actor.system.curriculum.deorum.multiplier}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.deorum.total" value="{{actor.system.curriculum.deorum.total}}" disabled="disabled" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.deorum.spent" value="{{actor.system.curriculum.deorum.spent}}" data-dtype="number" type="number"/></td>
+                <td><input name="system.curriculum.deorum.remaining" value="{{actor.system.curriculum.deorum.remaining}}" disabled="disabled" data-dtype="number" type="number"/></td>			
+            </tr>
+        </table>
+    </div>
+    
+    <div class="title">
+        <table>
+            <tr>
+                <th><h2><hr /></h2></th>
+                <th><h2><label>{{ localize "CUSTOS.ui.improvements" }}</label></h2></th>
+                <th><h2><hr /></h2></th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="curriculum_improvements">
+        <table>
+            <tr>
+                <td><h3><label>{{ localize "CUSTOS.ui.life" }}</label></h3></td>
+                <td><h3><input name="system.life_xp_bonus" value="{{actor.system.life_xp_bonus}}" data-dtype="number" type="number"/></h3></td>
+                <td><h3><label>{{ localize "CUSTOS.ui.pietas" }}</label></h3></td>
+                <td><h3><input name="system.pietas_xp_bonus" value="{{actor.system.pietas_xp_bonus}}" data-dtype="number" type="number"/></h3></td>
+            </tr>
+        </table>
+    </div>

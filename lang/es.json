@@ -83,5 +83,10 @@
     "CUSTOS.ui.patron": "Patrón",
     "CUSTOS.ui.talents": "Talentos",
     "CUSTOS.ui.rituals": "Rituales",
-    "CUSTOS.ui.summonings": "Invocaciones"
+    "CUSTOS.ui.summonings": "Invocaciones",
+    "CUSTOS.ui.experience": "Experiencia",
+    "CUSTOS.ui.total": "Total",
+    "CUSTOS.ui.spent": "Gastado",
+    "CUSTOS.ui.remaining": "Restante",
+    "CUSTOS.ui.improvements": "Mejoras"
 }

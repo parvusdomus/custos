@@ -1271,3 +1271,89 @@
 .magic_rituals td{
     color: var(--crimson);
 }
+
+.curriculum_title h2{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
+    text-align: right;
+}
+
+.curriculum_title input {
+    background-color: var(--input-bg-color);
+    clip-path: circle(50% at 50% 50%);
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+    height: 60px;
+    width: 60px; 
+}
+
+.curriculum_content1 table {
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.curriculum_content1 tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.curriculum_content1 tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.curriculum_content1 input {
+    background-color: var(--input-bg-color);
+    clip-path: circle(50% at 50% 50%);
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+    height: 40px;
+    width: 40px; 
+}
+
+.curriculum_content1 h3{
+    font-family: var(--bold-font-name);
+    color: var(--header-font-color);
+    color: var(--dark-gold);
+    font-weight: 900;
+    border-bottom: none;
+}
+
+.curriculum_improvements table {
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.curriculum_improvements tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.curriculum_improvements tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.curriculum_improvements input {
+    background-color: var(--input-bg-color);
+    clip-path: circle(50% at 50% 50%);
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+    height: 40px;
+    width: 40px; 
+}
+
+.curriculum_improvements h3{
+    font-family: var(--bold-font-name);
+    color: var(--header-font-color);
+    color: var(--dark-gold);
+    font-weight: 900;
+    border-bottom: none;
+}
