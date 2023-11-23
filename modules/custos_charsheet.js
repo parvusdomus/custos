@@ -1,3 +1,5 @@
+import RegularRollDialog from "../modules/dialogs.js";
+
 export default class CUSTOS_CHAR_SHEET extends ActorSheet{
     static get defaultOptions() {
       return mergeObject(super.defaultOptions, {
@@ -704,7 +706,22 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       console.log ("DICE ROLL")
       console.log ("DATASET")
       console.log (dataset)
-      //DiceRollV2(event);
+      let total=Number(dataset.pvalue)+Number(dataset.svalue)
+      let dice= {
+        total: total,
+        current:0,
+        ndice: 0,
+        dif: 3,
+        d3: 0,
+        d4: 0,
+        d5: 0,
+        d6: 0,
+        d8: 0,
+        d10: 0,
+        d12: 0,
+        d20: 0
+    };
+      new RegularRollDialog(dice).render(true);
       return;
     }
   

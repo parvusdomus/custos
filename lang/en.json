@@ -87,6 +87,17 @@
     "CUSTOS.ui.total": "Total",
     "CUSTOS.ui.spent": "Spent",
     "CUSTOS.ui.remaining": "Remaining",
-    "CUSTOS.ui.improvements": "Improvements"
+    "CUSTOS.ui.improvements": "Improvements",
+    "CUSTOS.ui.pool": "Pool",
+    "CUSTOS.ui.easy": "Easy (3)",
+    "CUSTOS.ui.normal": "Normal (6)",
+    "CUSTOS.ui.challenging": "Challenging (9)",
+    "CUSTOS.ui.hard": "Hard (12)",
+    "CUSTOS.ui.veryhard": "Very Hard (15)",
+    "CUSTOS.ui.extreme": "Extreme",
+    "CUSTOS.ui.roll": "Roll Dice!",
+    "CUSTOS.ui.nodice": "You have to roll at least 1 dice.",
+    "CUSTOS.ui.manydice": "You can't roll more than 3 dice.",
+    "CUSTOS.ui.manypoints": "You can't roll more dice points than your pool.",
+    "CUSTOS.ui.fewpoints": "You are rolling fewer dice points than your pool."
 }
-

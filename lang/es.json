@@ -88,5 +88,17 @@
     "CUSTOS.ui.total": "Total",
     "CUSTOS.ui.spent": "Gastado",
     "CUSTOS.ui.remaining": "Restante",
-    "CUSTOS.ui.improvements": "Mejoras"
+    "CUSTOS.ui.improvements": "Mejoras",
+    "CUSTOS.ui.pool": "Reserva",
+    "CUSTOS.ui.easy": "Fácil (3)",
+    "CUSTOS.ui.normal": "Normal (6)",
+    "CUSTOS.ui.challenging": "Desafiante (9)",
+    "CUSTOS.ui.hard": "Difícil (12)",
+    "CUSTOS.ui.veryhard": "Muy Difícil (15)",
+    "CUSTOS.ui.extreme": "Extremo",
+    "CUSTOS.ui.roll": "¡Lanzar Dados!",
+    "CUSTOS.ui.nodice": "Debes lanzar al menos 1 dado.",
+    "CUSTOS.ui.manydice": "No puedes tirar más de 3 dados.",
+    "CUSTOS.ui.manypoints": "No puedes lanzar más puntos de dados que tu reserva.",
+    "CUSTOS.ui.fewpoints": "Estás tirando menos puntos de dados que tu reserva."
 }

@@ -5,7 +5,7 @@ import { preloadHandlebarsTemplates } from "./modules/preloadTemplates.js";
 import {_getInitiativeFormula} from './modules/combat.js';
 import {diceToFaces} from "./modules/rolls.js";
 import custosChat from "./modules/chat.js";
-
+//import custosDialog from "./modules/dialogs.js";
 
 
 Hooks.once("init", function(){
@@ -127,3 +127,5 @@ Hooks.on("createItem", async (item) =>{
     }
   }
 })
+
+//Hooks.on('renderDialog', (app, html, data) => custosDialog.chatListeners(html))

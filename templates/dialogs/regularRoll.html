@@ -1,0 +1,89 @@
+<div class="roll_dialog">
+    <table>
+        <tr>
+            <td>
+                {{#if (gt current total)}}
+                    <h3><label class="blink">{{ localize "CUSTOS.ui.pool" }}:&nbsp;&nbsp;{{current}}/{{total}}</label></h3>
+                {{else}}
+                    <h3><label>{{ localize "CUSTOS.ui.pool" }}:&nbsp;&nbsp;{{current}}/{{total}}</label></h3>
+                {{/if}}
+            </td>
+            <td>
+                <h3>
+                    <label>{{ localize "CUSTOS.ui.diff" }}:&nbsp;&nbsp;</label>
+                    <select name="difficulty" id="difficulty" data-dtype="Number">
+                        <option value="3">{{localize "CUSTOS.ui.easy"}}</option>
+                        <option value="6">{{localize "CUSTOS.ui.normal"}}</option>
+                        <option value="9">{{localize "CUSTOS.ui.challenging"}}</option>
+                        <option value="12">{{localize "CUSTOS.ui.hard"}}</option>
+                        <option value="15">{{localize "CUSTOS.ui.veryhard"}}</option>
+                        <option value="18">{{localize "CUSTOS.ui.extreme"}}</option>
+                    </select>
+                </h3>
+            </td>
+        </tr>
+        <tr>
+            <td><hr/></td>
+            <td><hr/></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td class="change_dice" data-sides="3">
+                <img src="/systems/custos/style/icons/d3_red.svg">
+            </td>
+            <td class="change_dice" data-sides="4">
+                <img src="/systems/custos/style/icons/d4_red.svg">
+            </td>
+            <td class="change_dice" data-sides="5">
+                <img src="/systems/custos/style/icons/d5_red.svg">
+            </td>
+            <td class="change_dice" data-sides="6">
+                <img src="/systems/custos/style/icons/d6_red.svg">
+            </td>
+            <td class="change_dice" data-sides="8">
+                <img src="/systems/custos/style/icons/d8_red.svg">
+            </td>
+            <td class="change_dice" data-sides="10">
+                <img src="/systems/custos/style/icons/d10_red.svg">
+            </td>
+            <td class="change_dice" data-sides="12">
+                <img src="/systems/custos/style/icons/d12_red.svg">
+            </td>
+            <td class="change_dice" data-sides="20">
+                <img src="/systems/custos/style/icons/d20_red.svg">
+            </td>
+        </tr>
+        <tr>
+            <td><hr/></td>
+            <td><hr/></td>
+            <td><hr/></td>
+            <td><hr/></td>
+            <td><hr/></td>
+            <td><hr/></td>
+            <td><hr/></td>
+            <td><hr/></td>
+        </tr>
+        {{#if (gt ndice 3)}}
+            <tr class="blink">
+        {{else}}
+            <tr>
+        {{/if}}
+                <td><h3><label>{{d3}}</label></h3></td>
+                <td><h3><label>{{d4}}</label></h3></td>
+                <td><h3><label>{{d5}}</label></h3></td>
+                <td><h3><label>{{d6}}</label></h3></td>
+                <td><h3><label>{{d8}}</label></h3></td>
+                <td><h3><label>{{d10}}</label></h3></td>
+                <td><h3><label>{{d12}}</label></h3></td>
+                <td><h3><label>{{d20}}</label></h3></td>
+            </tr>
+    </table>
+    <table class="button1-cell">
+        <tr>
+            <td class="roll-dice">
+                <div class="button1"><h3><label>{{localize "CUSTOS.ui.roll"}}</label></h3></div>
+            </td>
+        </tr>
+    </table>
+</div>
