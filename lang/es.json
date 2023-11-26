@@ -102,10 +102,12 @@
     "CUSTOS.ui.manypoints": "No puedes lanzar más puntos de dados que tu reserva.",
     "CUSTOS.ui.fewpoints": "Estás tirando menos puntos de dados que tu reserva. ¿Seguro que quieres hacerlo?",
     "CUSTOS.ui.fewpointsTitle": "¿Estás seguro?",
+    "CUSTOS.ui.nopietas": "No te quedan puntos de Pietas.",
 
     "CUSTOS.chat.failure": "Fallo",
     "CUSTOS.chat.spendPietas": "Gastar Pietas",
     "CUSTOS.chat.marginal": "Apenas con Éxito (GdE I)",
     "CUSTOS.chat.regular": "Éxito Completo (GdE II)",
-    "CUSTOS.chat.extraordinary": "Éxito Extraordinario (GdE III)"
+    "CUSTOS.chat.extraordinary": "Éxito Extraordinario (GdE III)",
+    "CUSTOS.chat.spentPietas": "Gasta Pietas para obtener un Éxito"
 }

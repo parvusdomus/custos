@@ -2,6 +2,7 @@ export async function RegularDiceRoll (diceData)
 {
     let hasFate=false
     let actor=game.actors.get(diceData.actor_id)
+    let rollTitle=diceData.rollTitle+" VS "+diceData.difficulty
     if (actor.type=="Custos" && Number(actor.system.resources.pietas.value) < Number(actor.system.resources.pietas.max)){
         hasFate=true
     }
@@ -48,10 +49,11 @@ export async function RegularDiceRoll (diceData)
         if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
 	}while(explode);
+    
     if (Number(totalRoll) > Number(diceData.difficulty)){
         let diff=Number(totalRoll)-Number(diceData.difficulty)
         switch (true){
-            case (diff <= 3): 
+            case (diff <= 3 && diff > 0): 
             {
                 rollResult="<td class=\"success\">"+game.i18n.localize("CUSTOS.chat.marginal")+"</td>"
                 break;
@@ -71,7 +73,8 @@ export async function RegularDiceRoll (diceData)
     else{
         if (Number(totalRoll) == Number(diceData.difficulty)){
             if (hasFate){
-                rollResult="<td class=\"spend\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
+                //rollResult="<td class=\"spend\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
+                rollResult="<td class=\"spend\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
             }
             else{
                 rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failure")+"</td>"
@@ -85,7 +88,7 @@ export async function RegularDiceRoll (diceData)
     let renderedRoll = await renderTemplate("systems/custos/templates/chat/simpleTestResult.html", { 
         pjName: actor.name,
         pjImage: actor.img,
-        rollTitle: diceData.rollTitle,
+        rollTitle: rollTitle,
         totalRoll: totalRoll, 
         rollResult: rollResult,
         actor_id: diceData.actor_id

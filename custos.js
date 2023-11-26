@@ -125,4 +125,3 @@ Hooks.on("createItem", async (item) =>{
   }
 })
 
-//Hooks.on('renderDialog', (app, html, data) => custosDialog.chatListeners(html))

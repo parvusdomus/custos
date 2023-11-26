@@ -1508,8 +1508,8 @@
 }
 
 .chat-header img{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: var(--input-bg-color);
     display: block;
@@ -1521,7 +1521,7 @@
 
 .chat-header td:nth-child(1){
     text-align: left;
-    width: 30px
+    width: 40px
 }
 
 .chat-content {
@@ -1565,4 +1565,12 @@
 .spend {
     background-color:  var(--dark-gold);
     color: var(--light-gold);
+}
+
+.spent-pietas-message h3{
+    border-bottom: none;
+    font-family: TrajanBold;
+    color: var(--dark-gold);
+    font-weight: 900;
+    text-align: center;
 }
