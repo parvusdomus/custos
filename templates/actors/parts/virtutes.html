@@ -2,7 +2,11 @@
     <table>
         <tr>
             <td class="image-cell">
-                <div class="char-pic"><img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/></div>
+                {{#if (lt actor.system.resources.pietas.value actor.system.resources.pietas.max)}}
+                    <div class="char-pic"><img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/></div>
+                {{else}}
+                    <div class="char-pic-nopietas"><img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/></div>
+                {{/if}}
             </td>
             <td>
                 <div class="char-name">
@@ -44,9 +48,9 @@
                                     {{/select}}
                                 </select>
                             </h3></td>
-                            <td><h3><label>&nbsp;&nbsp;{{localize "CUSTOS.ui.rank"}}&nbsp;&nbsp;</label></h3></td>
+                            <td><h3><label>&nbsp;&nbsp;{{localize "CUSTOS.ui.rank"}}:&nbsp;&nbsp;</label></h3></td>
                             <td><h3>
-                                <select name="system.rank" data-dtype="String">
+                                <select name="system.rank" data-dtype="String" disabled style="appearance: none;">
                                     {{#select actor.system.rank}}
                                         <option value="gregarius">Gregarius</option>
                                         <option value="duplicarius">Duplicarius</option>
@@ -143,7 +147,7 @@
             <tr>
                 {{#each actor.system.virtutes as |virtuteValue virtuteKey|}}
                     <td><h3><label>{{virtuteValue.label}}&nbsp;&nbsp;</label></h3></td>
-                    <td><a class="regular-roll" data-name="{{virtuteKey}}" data-pvalue="{{virtuteValue.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
+                    <td><a class="regular-roll" data-name="{{virtuteValue.label}}" data-pvalue="{{virtuteValue.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
                     <td><h3><input name="system.virtutes.{{virtuteKey}}.value" type="number" value="{{virtuteValue.value}}" data-dtype="number"/></h3></td>
                     {{#if (eq virtuteValue.label "Ratio")}}
                         </tr><tr>
@@ -166,17 +170,17 @@
             <tr>
                 <td><a class="add-specialty" data-peritiaid="bello"><i class="fa-solid fa-plus"></i></a></td>
                 <td><h3><label>&nbsp;De Bello&nbsp;&nbsp;</label></h3>
-                <td><a class="regular-roll" data-name="bello" data-pvalue="{{actor.system.peritiae.bello.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
+                <td><a class="regular-roll" data-name="De Bello" data-pvalue="{{actor.system.peritiae.bello.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
                 <td><h3><input name="system.peritiae.bello.value" type="number" value="{{actor.system.peritiae.bello.value}}" data-dtype="number"/></h3>
 
                 <td><a class="add-specialty" data-peritiaid="corpore"><i class="fa-solid fa-plus"></i></a></td>
                 <td><h3><label>&nbsp;De Corpore&nbsp;&nbsp;</label></h3>
-                <td><a class="regular-roll" data-name="corpore" data-pvalue="{{actor.system.peritiae.corpore.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
+                <td><a class="regular-roll" data-name="De Corpore" data-pvalue="{{actor.system.peritiae.corpore.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
                 <td><h3><input name="system.peritiae.corpore.value" type="number" value="{{actor.system.peritiae.corpore.value}}" data-dtype="number"/></h3>
                         
                 <td><a class="add-specialty" data-peritiaid="magia"><i class="fa-solid fa-plus"></i></a></td>
                 <td><h3><label>&nbsp;De Magia&nbsp;&nbsp;</label></h3>
-                <td><a class="regular-roll" data-name="magia" data-pvalue="{{actor.system.peritiae.magia.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
+                <td><a class="regular-roll" data-name="De Magia" data-pvalue="{{actor.system.peritiae.magia.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
                 <td><h3><input name="system.peritiae.magia.value" type="number" value="{{actor.system.peritiae.magia.value}}" data-dtype="number"/></h3>
             </tr>
             <tr>
@@ -194,7 +198,7 @@
                 </td>
                 <td>
                     {{#each actor.system.peritiae.bello.specialties as |specialityValue specialityKey|}}
-                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-pvalue="{{../actor.system.peritiae.bello.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
+                    <a class="regular-roll" data-name="{{specialityValue.name}} (De Bello)" data-pvalue="{{../actor.system.peritiae.bello.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
                     <br><br>
                     {{/each}}
                 </td>
@@ -218,7 +222,7 @@
                 </td>
                 <td>
                     {{#each actor.system.peritiae.corpore.specialties as |specialityValue specialityKey|}}
-                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-pvalue="{{../actor.system.peritiae.corpore.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
+                    <a class="regular-roll" data-name="{{specialityValue.name}} (De Corpore)" data-pvalue="{{../actor.system.peritiae.corpore.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
                     <br><br>
                     {{/each}}
                 </td>
@@ -242,7 +246,7 @@
                 </td>
                 <td>
                     {{#each actor.system.peritiae.magia.specialties as |specialityValue specialityKey|}}
-                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-pvalue="{{../actor.system.peritiae.magia.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
+                    <a class="regular-roll" data-name="{{specialityValue.name}} (De Magia)" data-pvalue="{{../actor.system.peritiae.magia.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
                     <br><br>
                     {{/each}}
                 </td>
@@ -256,17 +260,17 @@
             <tr>
                 <td><a class="add-specialty" data-peritiaid="natura"><i class="fa-solid fa-plus"></i></a></td>
                 <td><h3><label>&nbsp;De Natura&nbsp;&nbsp;</label></h3>
-                <td><a class="regular-roll" data-name="natura" data-pvalue="{{actor.system.peritiae.natura.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
+                <td><a class="regular-roll" data-name="De Natura" data-pvalue="{{actor.system.peritiae.natura.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
                 <td><h3><input name="system.peritiae.natura.value" type="number" value="{{actor.system.peritiae.natura.value}}" data-dtype="number"/></h3>
                     
                 <td><a class="add-specialty" data-peritiaid="scientia"><i class="fa-solid fa-plus"></i></a></td>
                 <td><h3><label>&nbsp;De Scientia&nbsp;&nbsp;</label></h3>
-                <td><a class="regular-roll" data-name="scientia" data-pvalue="{{actor.system.peritiae.scientia.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
+                <td><a class="regular-roll" data-name="De Scientia" data-pvalue="{{actor.system.peritiae.scientia.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
                 <td><h3><input name="system.peritiae.scientia.value" type="number" value="{{actor.system.peritiae.scientia.value}}" data-dtype="number"/></h3>
                 
                 <td><a class="add-specialty" data-peritiaid="societate"><i class="fa-solid fa-plus"></i></a></td>
                 <td><h3><label>&nbsp;De Societate&nbsp;&nbsp;</label></h3>
-                <td><a class="regular-roll" data-name="societate" data-pvalue="{{actor.system.peritiae.societate.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
+                <td><a class="regular-roll" data-name="De Societate" data-pvalue="{{actor.system.peritiae.societate.value}}" data-svalue="0"><i class="fa-solid fa-dice" style="color: var(--dark-gold);"></i></a></td>
                 <td><h3><input name="system.peritiae.societate.value" type="number" value="{{actor.system.peritiae.societate.value}}" data-dtype="number"/></h3>
             </tr>      
             <tr>
@@ -284,7 +288,7 @@
                 </td>
                 <td>
                     {{#each actor.system.peritiae.natura.specialties as |specialityValue specialityKey|}}
-                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-pvalue="{{../actor.system.peritiae.natura.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
+                    <a class="regular-roll" data-name="{{specialityValue.name}} (De Natura)" data-pvalue="{{../actor.system.peritiae.natura.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
                     <br><br>
                     {{/each}}
                 </td>
@@ -308,7 +312,7 @@
                 </td>
                 <td>
                     {{#each actor.system.peritiae.scientia.specialties as |specialityValue specialityKey|}}
-                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-pvalue="{{../actor.system.peritiae.scientia.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
+                    <a class="regular-roll" data-name="{{specialityValue.name}} (De Scientia)" data-pvalue="{{../actor.system.peritiae.scientia.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
                     <br><br>
                     {{/each}}
                 </td>
@@ -332,7 +336,7 @@
                 </td>
                 <td>
                     {{#each actor.system.peritiae.societate.specialties as |specialityValue specialityKey|}}
-                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-pvalue="{{../actor.system.peritiae.societate.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
+                    <a class="regular-roll" data-name="{{specialityValue.name}} (De Societate)" data-pvalue="{{../actor.system.peritiae.societate.value}}" data-svalue="{{specialityValue.modifier}}"><i class="fa-solid fa-dice"></i></a>
                     <br><br>
                     {{/each}}
                 </td>

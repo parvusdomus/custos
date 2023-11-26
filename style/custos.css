@@ -52,7 +52,28 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.char-pic-nopietas {
+    border: 10px solid transparent;
+    padding: 15px;
+    background-image: url("../../../systems/custos/style/images/laurel_black.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .char-pic img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.char-pic-nopietas img{
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -1363,6 +1384,7 @@
 }
 
 .roll_dialog table {
+    margin: 0;
     background: none;
     border: none;
     font-family: var(--font-name);
@@ -1445,7 +1467,102 @@
     
 }
 
+.button1:active {
+    border: 10px solid transparent;
+    padding: 10px;
+    background-image: url("../../../systems/custos/style/images/button2.webp");
+    background-size: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
 .button1-cell h3{
     color: var(--crimson);
     font-weight: 900;
+}
+
+.chat-header {
+    background: var(--chat-bg-image) no-repeat;
+    background-size: 100% 100%;
+}
+
+.chat-header table {
+    margin: 0;
+    background: none;
+    background-color:  var(--crimson);
+    border: none;
+    width: 100%;
+    text-align: center;
+    font-family: TrajanBold;
+    color: var(--light-gold);
+    font-weight: 900;
+}
+
+.chat-header tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.chat-header tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.chat-header img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.chat-header td:nth-child(1){
+    text-align: left;
+    width: 30px
+}
+
+.chat-content {
+    background: var(--chat-bg-image) no-repeat;
+    background-size: 100% 100%;
+}
+
+.chat-content table {
+    margin: 0;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: center;
+    font-family: TrajanBold;
+    color: var(--dark-gold);
+    font-weight: 900;
+}
+
+.chat-content h1 {
+    border-bottom: none;
+}
+
+.chat-content tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.chat-content tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.failure {
+    background-color:  var(--crimson);
+    color: var(--light-gold);
+}
+
+.success {
+    background-color:  var(--light-gold);
+    color: var(--dark-gold);
+}
+
+.spend {
+    background-color:  var(--dark-gold);
+    color: var(--light-gold);
 }

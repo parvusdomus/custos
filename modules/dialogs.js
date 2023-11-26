@@ -1,12 +1,14 @@
+import {RegularDiceRoll} from "../modules/rolls.js";
 export default class RegularRollDialog extends FormApplication {
     constructor(dataset) {
+        console.log (dataset)
 	    super(dataset);
     }
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             id: "custos-roll-dialog",
-            title: "PERITIA ROLL",
+            title: "",
             template: "/systems/custos/templates/dialogs/regularRoll.html",
             classes: [ "custos-roll-dialog" ],
             popout: false,
@@ -18,6 +20,8 @@ export default class RegularRollDialog extends FormApplication {
     getData(dataset)
     {
         let data= {
+            actor_id: this.object.actor_id,
+            rollTitle: this.object.rollTitle,
             current: this.object.current,
             total: this.object.total,
             ndice: this.object.ndice,
@@ -45,6 +49,7 @@ export default class RegularRollDialog extends FormApplication {
     {
         event.preventDefault();
         const element = event.currentTarget;
+        let diceData={}
         if (this.object.ndice == 0){
             ui.notifications.warn(game.i18n.localize("CUSTOS.ui.nodice"));
             return;
@@ -61,17 +66,56 @@ export default class RegularRollDialog extends FormApplication {
 
         if (Number(this.object.current) < Number(this.object.total)){
             ui.notifications.warn(game.i18n.localize("CUSTOS.ui.fewpoints"));
+            Dialog.confirm
+            ({
+		        title: game.i18n.localize("CUSTOS.ui.fewpointsTitle"),
+			    content: game.i18n.localize("CUSTOS.ui.fewpoints"),
+			    yes: () => {
+                    diceData= {
+                        difficulty: document.getElementById("difficulty").value,
+                        rollTitle: this.object.rollTitle,
+                        actor_id: this.object.actor_id,
+                        current: this.object.current,
+                        total: this.object.total,
+                        ndice: this.object.ndice,
+                        d3: this.object.d3,
+                        d4: this.object.d4,
+                        d5: this.object.d5,
+                        d6: this.object.d6,
+                        d8: this.object.d8,
+                        d10: this.object.d10,
+                        d12: this.object.d12,
+                        d20: this.object.d20
+                    };
+                    RegularDiceRoll (diceData)
+                    this.close();
+                },
+			    no: () => {return},
+			    defaultYes: false
+		    });
         }
 
-
-
-
-        let rolltext=this.object.d3+"d3+"+this.object.d4+"d4+"+this.object.d5+"d5+"+this.object.d6+"d6+"+this.object.d8+"d8+"+this.object.d10+"d10+"+this.object.d12+"d12+"+this.object.d20+"d20"
-        let d6Roll = await new Roll(String(rolltext)).roll({async: false});
-        console.log ("TOTAL")
-        console.log (d6Roll)
-        d6Roll.toMessage();
-        this.close();
+        if (Number(this.object.current) == Number(this.object.total)){
+            diceData= {
+                difficulty: document.getElementById("difficulty").value,
+                actor_id: this.object.actor_id,
+                rollTitle: this.object.rollTitle,
+                current: this.object.current,
+                total: this.object.total,
+                ndice: this.object.ndice,
+                d3: this.object.d3,
+                d4: this.object.d4,
+                d5: this.object.d5,
+                d6: this.object.d6,
+                d8: this.object.d8,
+                d10: this.object.d10,
+                d12: this.object.d12,
+                d20: this.object.d20
+            };
+            RegularDiceRoll (diceData)
+            this.close();
+        }
+        
     }
 
     _onChangeDice(event)
@@ -162,6 +206,7 @@ export default class RegularRollDialog extends FormApplication {
             }
             
         }
+
         this.object.current=(this.object.d3*3)+(this.object.d4*4)+(this.object.d5*5)+(this.object.d6*6)+(this.object.d8*8)+(this.object.d10*10)+(this.object.d12*12)+(this.object.d20*20)
         this.object.ndice=this.object.d3+this.object.d4+this.object.d5+this.object.d6+this.object.d8+this.object.d10+this.object.d12+this.object.d20
         this.render()

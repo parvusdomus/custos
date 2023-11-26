@@ -3,7 +3,6 @@ import CUSTOS_NPC_SHEET from "./modules/custos_npc.js";
 import CUSTOS_ITEM_SHEET from "./modules/custos_itemsheet.js";
 import { preloadHandlebarsTemplates } from "./modules/preloadTemplates.js";
 import {_getInitiativeFormula} from './modules/combat.js';
-import {diceToFaces} from "./modules/rolls.js";
 import custosChat from "./modules/chat.js";
 //import custosDialog from "./modules/dialogs.js";
 
@@ -14,7 +13,7 @@ Hooks.once("init", function(){
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("custos", CUSTOS_CHAR_SHEET, {
     makeDefault: true,
-    types: ['Player']
+    types: ['Custos']
     
   });
   Actors.registerSheet("custos", CUSTOS_NPC_SHEET, {
@@ -36,7 +35,6 @@ Hooks.once("init", function(){
 
   console.log("test | INITIALIZING CUSTOS SETTINGS...");
 
-  //DICE FACE HELPER
   Handlebars.registerHelper("times", function(n, content)
     {
       let result = "";
@@ -48,7 +46,6 @@ Hooks.once("init", function(){
       return result;
     });
     
-  Handlebars.registerHelper("face", diceToFaces);
 
 });
 
@@ -67,7 +64,7 @@ Hooks.on('refreshToken', () => {
 Hooks.on("createActor", async (actor) =>{
   const PJImage="systems/custos/style/icons/centurion-helmet.svg"
   switch (actor.type){
-    case 'Player':
+    case 'Custos':
     {
       actor.update ({ 'img': PJImage });
       break;

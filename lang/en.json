@@ -1,5 +1,5 @@
 {
-    "TYPES.Actor.Player": "Custos",
+    "TYPES.Actor.Custos": "Custos",
     "TYPES.Item.provintia": "Province",
     "TYPES.Item.weapon": "Weapon",
     "TYPES.Item.armor": "Armor",
@@ -99,5 +99,12 @@
     "CUSTOS.ui.nodice": "You have to roll at least 1 dice.",
     "CUSTOS.ui.manydice": "You can't roll more than 3 dice.",
     "CUSTOS.ui.manypoints": "You can't roll more dice points than your pool.",
-    "CUSTOS.ui.fewpoints": "You are rolling fewer dice points than your pool."
+    "CUSTOS.ui.fewpoints": "You are rolling fewer dice points than your pool. Are you sure you want to continue?",
+    "CUSTOS.ui.fewpointsTitle": "Are you sure?",
+
+    "CUSTOS.chat.failure": "Failure",
+    "CUSTOS.chat.spendPietas": "Expend Pietas",
+    "CUSTOS.chat.marginal": "Marginal Success (DoS I)",
+    "CUSTOS.chat.regular": "Regular Success (DoS II)",
+    "CUSTOS.chat.extraordinary": "Extraordinary Success (DoS III)"
 }

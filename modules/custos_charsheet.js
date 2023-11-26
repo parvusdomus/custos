@@ -14,7 +14,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
     }
     getData() {
       const data = super.getData();
-      if (this.actor.type == 'Player') {
+      if (this.actor.type == 'Custos') {
         this._prepareCharacterItems(data);
         //this._updateInitiative(data);
         this._calculateResources(data);
@@ -289,46 +289,85 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       let total=0
       let remaining=0
       //DE BELLO
-      total=Number(this.actor.system.curriculum.experience)*Number(this.actor.system.curriculum.bello.multiplier)
+      total=(Number(this.actor.system.curriculum.experience)+Number(this.actor.system.curriculum.bello.extra))*Number(this.actor.system.curriculum.bello.multiplier)
       this.actor.update ({ 'system.curriculum.bello.total': total });
       remaining=Number(this.actor.system.curriculum.bello.total)-Number(this.actor.system.curriculum.bello.spent)
       this.actor.update ({ 'system.curriculum.bello.remaining': remaining });
       //DE CORPORE
-      total=Number(this.actor.system.curriculum.experience)*Number(this.actor.system.curriculum.corpore.multiplier)
+      total=(Number(this.actor.system.curriculum.experience)+Number(this.actor.system.curriculum.corpore.extra))*Number(this.actor.system.curriculum.corpore.multiplier)
       this.actor.update ({ 'system.curriculum.corpore.total': total });
       remaining=Number(this.actor.system.curriculum.corpore.total)-Number(this.actor.system.curriculum.corpore.spent)
       this.actor.update ({ 'system.curriculum.corpore.remaining': remaining });
       //DE MAGIA
-      total=Number(this.actor.system.curriculum.experience)*Number(this.actor.system.curriculum.magia.multiplier)
+      total=(Number(this.actor.system.curriculum.experience)+Number(this.actor.system.curriculum.magia.extra))*Number(this.actor.system.curriculum.magia.multiplier)
       this.actor.update ({ 'system.curriculum.magia.total': total });
       remaining=Number(this.actor.system.curriculum.magia.total)-Number(this.actor.system.curriculum.magia.spent)
       this.actor.update ({ 'system.curriculum.magia.remaining': remaining });
       //DE NATURA
-      total=Number(this.actor.system.curriculum.experience)*Number(this.actor.system.curriculum.natura.multiplier)
+      total=(Number(this.actor.system.curriculum.experience)+Number(this.actor.system.curriculum.natura.extra))*Number(this.actor.system.curriculum.natura.multiplier)
       this.actor.update ({ 'system.curriculum.natura.total': total });
       remaining=Number(this.actor.system.curriculum.natura.total)-Number(this.actor.system.curriculum.natura.spent)
       this.actor.update ({ 'system.curriculum.natura.remaining': remaining });
       //DE SCIENTIA
-      total=Number(this.actor.system.curriculum.experience)*Number(this.actor.system.curriculum.scientia.multiplier)
+      total=(Number(this.actor.system.curriculum.experience)+Number(this.actor.system.curriculum.scientia.extra))*Number(this.actor.system.curriculum.scientia.multiplier)
       this.actor.update ({ 'system.curriculum.scientia.total': total });
       remaining=Number(this.actor.system.curriculum.scientia.total)-Number(this.actor.system.curriculum.scientia.spent)
       this.actor.update ({ 'system.curriculum.scientia.remaining': remaining });
       //DE SOCIETATE
-      total=Number(this.actor.system.curriculum.experience)*Number(this.actor.system.curriculum.societate.multiplier)
+      total=(Number(this.actor.system.curriculum.experience)+Number(this.actor.system.curriculum.societate.extra))*Number(this.actor.system.curriculum.societate.multiplier)
       this.actor.update ({ 'system.curriculum.societate.total': total });
       remaining=Number(this.actor.system.curriculum.societate.total)-Number(this.actor.system.curriculum.societate.spent)
       this.actor.update ({ 'system.curriculum.societate.remaining': remaining });
       //ARCANORUM
-      total=Number(this.actor.system.curriculum.experience)*Number(this.actor.system.curriculum.arcanorum.multiplier)
+      total=(Number(this.actor.system.curriculum.experience)+Number(this.actor.system.curriculum.arcanorum.extra))*Number(this.actor.system.curriculum.arcanorum.multiplier)
       this.actor.update ({ 'system.curriculum.arcanorum.total': total });
       remaining=Number(this.actor.system.curriculum.arcanorum.total)-Number(this.actor.system.curriculum.arcanorum.spent)
       this.actor.update ({ 'system.curriculum.arcanorum.remaining': remaining });
       //DEORUM
-      total=Number(this.actor.system.curriculum.experience)*Number(this.actor.system.curriculum.deorum.multiplier)
+      total=(Number(this.actor.system.curriculum.experience)+Number(this.actor.system.curriculum.deorum.extra))*Number(this.actor.system.curriculum.deorum.multiplier)
       this.actor.update ({ 'system.curriculum.deorum.total': total });
       remaining=Number(this.actor.system.curriculum.deorum.total)-Number(this.actor.system.curriculum.deorum.spent)
       this.actor.update ({ 'system.curriculum.deorum.remaining': remaining });
 
+      //RANGO
+
+      switch (true){
+        case (Number(this.actor.system.curriculum.arcanorum.spent) < 100):
+        {
+          this.actor.update ({ 'system.rank': "gregarius" });
+          break;
+        }
+        case (Number(this.actor.system.curriculum.arcanorum.spent) >= 100 && Number(this.actor.system.curriculum.arcanorum.spent) < 210):
+        {
+          this.actor.update ({ 'system.rank': "duplicarius" });
+          break;
+        }
+        case (Number(this.actor.system.curriculum.arcanorum.spent) >= 210 && Number(this.actor.system.curriculum.arcanorum.spent) < 330):
+        {
+          this.actor.update ({ 'system.rank': "beneficiarius" });
+          break;
+        }
+        case (Number(this.actor.system.curriculum.arcanorum.spent) >= 330 && Number(this.actor.system.curriculum.arcanorum.spent) < 460):
+        {
+          this.actor.update ({ 'system.rank': "veteranus" });
+          break;
+        }
+        case (Number(this.actor.system.curriculum.arcanorum.spent) >= 460 && Number(this.actor.system.curriculum.arcanorum.spent) < 600):
+        {
+          this.actor.update ({ 'system.rank': "decanus" });
+          break;
+        }
+        case (Number(this.actor.system.curriculum.arcanorum.spent) >= 600 && Number(this.actor.system.curriculum.arcanorum.spent) < 750):
+        {
+          this.actor.update ({ 'system.rank': "electus" });
+          break;
+        }
+        case (Number(this.actor.system.curriculum.arcanorum.spent) >= 750):
+        {
+          this.actor.update ({ 'system.rank': "protector" });
+          break;
+        }
+      }
     }
 
 
@@ -703,11 +742,11 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
     {
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
-      console.log ("DICE ROLL")
-      console.log ("DATASET")
-      console.log (dataset)
       let total=Number(dataset.pvalue)+Number(dataset.svalue)
+
       let dice= {
+        actor_id: this.actor._id,
+        rollTitle: dataset.name,
         total: total,
         current:0,
         ndice: 0,
