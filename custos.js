@@ -18,7 +18,7 @@ Hooks.once("init", function(){
   });
   Actors.registerSheet("custos", CUSTOS_NPC_SHEET, {
     makeDefault: true,
-    types: ['Challenge']
+    types: ['npc']
   });
   console.log("test | INITIALIZING CUSTOS ITEM SHEETS...");
   Items.unregisterSheet("core", ItemSheet);

@@ -1,0 +1,149 @@
+<section class="top-section">
+    <table>
+        <tr>
+            <td class="image-cell">
+                {{#if actor.system.hasFate}}
+                    <div class="char-pic"><img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/></div>
+                {{else}}
+                    <div class="char-pic-nopietas"><img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/></div>
+                {{/if}}
+            </td>
+            <td>
+                <div class="char-name">
+                    <h2><input name="name" type="text" value="{{actor.name}}" placeholder='Nombre' onClick="this.select();"/></h2>
+                </div>
+                <div class="char-info1">
+                    <table>
+                        <tr>
+                            <td><h3><label>{{localize "CUSTOS.ui.diceValue"}}&nbsp;&nbsp;</label></h3></td>
+                            <td><h3><input name="system.diceValue" type="number" value="{{actor.system.diceValue}}" data-dtype="number"/></h3></td>
+                            <td><h3><label>&nbsp;&nbsp;{{localize "CUSTOS.ui.size"}}&nbsp;&nbsp;</label></h3></td>    
+                            <td><h3><input name="system.size" type="number" value="{{actor.system.size}}" data-dtype="number"/></h3></td>                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3><label>{{localize "CUSTOS.ui.life"}}&nbsp;&nbsp;</label></h3>
+                            </td>
+                            <td>
+                                <h3><input name="system.resources.life.max" type="number" value="{{actor.system.resources.life.max}}" data-dtype="number"/></h3>
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                                
+                            <td>
+                                <h3>
+                                    {{#times actor.system.resources.life.max}}
+                                        <a class="resource-change" data-resource="life" data-number={{.}}>
+                                            {{#if (gte . ../actor.system.resources.life.value)}}
+                                                {{#if (gte . ../actor.system.converted_encumbrance)}}
+                                                    <i style="color: var(--crimson);" class="fa-solid fa-square"></i>
+                                                {{else}}
+                                                    <i class="fa-regular fa-square"></i>
+                                                {{/if}}
+                                            {{else}}
+                                                {{#if (gte . ../actor.system.converted_encumbrance)}}
+                                                    <i style="color: var(--crimson);" class="fa-solid fa-square-xmark"></i>
+                                                {{else}}
+                                                    <i class="fa-regular fa-square-xmark"></i>
+                                                {{/if}}
+                                            {{/if}}
+                                        </a>
+                                    {{/times}}
+                                </h3>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</section>
+   
+<section class="bottom-section">
+    <div class="title">
+        <table>
+            <tr>
+                <th><h2><hr /></h2></th>
+                <th><h2><label>PERITIAE</label></h2></th>
+                <th><h2><hr /></h2></th>
+            </tr>
+        </table>
+    </div>
+    <div class="peritiae">
+        <table>
+            <tr>
+                <td><a class="add-specialty" data-peritiaid="one"><i class="fa-solid fa-plus"></i></a></td>
+                <td><h3><label>&nbsp;{{localize "CUSTOS.ui.oneDice"}}&nbsp;&nbsp;</label></h3>
+                <td></td>
+                <td><a class="add-specialty" data-peritiaid="two"><i class="fa-solid fa-plus"></i></a></td>
+                <td><h3><label>&nbsp;{{localize "CUSTOS.ui.twoDice"}}&nbsp;&nbsp;</label></h3>
+                <td></td>    
+                <td><a class="add-specialty" data-peritiaid="three"><i class="fa-solid fa-plus"></i></a></td>
+                <td><h3><label>&nbsp;{{localize "CUSTOS.ui.threeDice"}}&nbsp;&nbsp;</label></h3>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    {{#each actor.system.peritiae.one.specialties as |specialityValue specialityKey|}}
+                        <a class="delete-specialty" data-peritiaid="one" data-specialityid="{{specialityValue.name}}"><i class="fa-regular fa-trash-can"></i></a>
+                        <br><br>
+                    {{/each}}
+                </td> 
+                <td class="speciality-name">
+                    {{#each actor.system.peritiae.one.specialties as |specialityValue specialityKey|}}
+                    <input name="system.peritiae.one.specialties.{{specialityKey}}.name" value="{{specialityValue.name}}" data-dtype="text" type="text"/>
+                    <br><br>
+                    {{/each}}
+                </td>
+                <td>
+                    {{#each actor.system.peritiae.one.specialties as |specialityValue specialityKey|}}
+                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-nDice="1"><i class="fa-solid fa-dice"></i></a>
+                    <br><br>
+                    {{/each}}
+                </td>
+
+                <td>
+                    {{#each actor.system.peritiae.two.specialties as |specialityValue specialityKey|}}
+                        <a class="delete-specialty" data-peritiaid="two" data-specialityid="{{specialityValue.name}}"><i class="fa-regular fa-trash-can"></i></a>
+                        <br><br>
+                    {{/each}}
+                </td> 
+                <td class="speciality-name">
+                    {{#each actor.system.peritiae.two.specialties as |specialityValue specialityKey|}}
+                    <input name="system.peritiae.two.specialties.{{specialityKey}}.name" value="{{specialityValue.name}}" data-dtype="text" type="text"/>
+                    <br><br>
+                    {{/each}}
+                </td>
+                <td>
+                    {{#each actor.system.peritiae.two.specialties as |specialityValue specialityKey|}}
+                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-nDice="2"><i class="fa-solid fa-dice"></i></a>
+                    <br><br>
+                    {{/each}}
+                </td>
+
+                <td>
+                    {{#each actor.system.peritiae.three.specialties as |specialityValue specialityKey|}}
+                        <a class="delete-specialty" data-peritiaid="three" data-specialityid="{{specialityValue.name}}"><i class="fa-regular fa-trash-can"></i></a>
+                        <br><br>
+                    {{/each}}
+                </td> 
+                <td class="speciality-name">
+                    {{#each actor.system.peritiae.three.specialties as |specialityValue specialityKey|}}
+                    <input name="system.peritiae.three.specialties.{{specialityKey}}.name" value="{{specialityValue.name}}" data-dtype="text" type="text"/>
+                    <br><br>
+                    {{/each}}
+                </td>
+                <td>
+                    {{#each actor.system.peritiae.three.specialties as |specialityValue specialityKey|}}
+                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-nDice="3"><i class="fa-solid fa-dice"></i></a>
+                    <br><br>
+                    {{/each}}
+                </td>
+            </tr> 
+        </table>
+    </div>
+        
+</section>
+

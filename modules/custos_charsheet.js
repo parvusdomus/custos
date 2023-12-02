@@ -4,10 +4,10 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
     static get defaultOptions() {
       return mergeObject(super.defaultOptions, {
           classes: ["custos", "sheet", "actor"],
-          template: "systems/custos/templates/actors/character.html",
+          template: "systems/custos/templates/actors/custos/custos.html",
           width: 750,
           height: 800,
-          tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "general" }],
+          tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "virtutes" }],
           scrollY: ['section.sheet-body']
         });
   

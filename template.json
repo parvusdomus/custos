@@ -3,7 +3,7 @@
         "types":
         [
             "Custos",
-            "Challenge"
+            "npc"
         ],
         "Custos": {
             "virtutes": {
@@ -243,17 +243,53 @@
 
             }
         },
-        "Challenge": {
-            "resources":{
-                "effort": {
-                    "value": 3,
+        "npc": {
+            "hasFate": false,
+            "diceValue": "4",
+            "size": "1",
+            "resources": {
+                "life": {
                     "min": 0,
-                    "max": 3
+                    "max": 0,
+                    "value": 0
                 }
             },
-            "initiative": "0.99",
-            "traits": "",
-            "rank": 1,
+            "peritiae": {
+                "one": {
+                    "specialties": {}
+                },
+                "two": {
+                    "specialties": {}
+                },
+                "three": {
+                    "specialties": {}
+                }
+            },
+            "description": ""
+        },
+        "beast": {
+            "hasFate": false,
+            "diceValue": "4",
+            "size": "1",
+            "danger": "4",
+            "resources": {
+                "life": {
+                    "min": 0,
+                    "max": 0,
+                    "value": 2
+                }
+            },
+            "peritiae": {
+                "one": {
+                    "specialties": {}
+                },
+                "two": {
+                    "specialties": {}
+                },
+                "three": {
+                    "specialties": {}
+                }
+            },
             "description": ""
         }
     },

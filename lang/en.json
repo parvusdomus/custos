@@ -1,5 +1,6 @@
 {
     "TYPES.Actor.Custos": "Custos",
+    "TYPES.Actor.npc": "NPC",
     "TYPES.Item.provintia": "Province",
     "TYPES.Item.weapon": "Weapon",
     "TYPES.Item.armor": "Armor",
@@ -108,5 +109,11 @@
     "CUSTOS.chat.marginal": "Marginal Success (DoS I)",
     "CUSTOS.chat.regular": "Regular Success (DoS II)",
     "CUSTOS.chat.extraordinary": "Extraordinary Success (DoS III)",
-    "CUSTOS.chat.spentPietas": "Spends Pietas to get a Success"
+    "CUSTOS.chat.spentPietas": "Spends Pietas to get a Success",
+
+    "CUSTOS.ui.diceValue": "Dice Value",
+    "CUSTOS.ui.size": "Size",
+    "CUSTOS.ui.oneDice": "One Dice",
+    "CUSTOS.ui.twoDice": "Two Dice",
+    "CUSTOS.ui.threeDice": "Three Dice"
 }

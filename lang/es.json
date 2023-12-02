@@ -1,5 +1,6 @@
 {
     "TYPES.Actor.Custos": "Custos",
+    "TYPES.Actor.npc": "PNJ",
     "TYPES.Item.provintia": "Provincia",
     "TYPES.Item.weapon": "Arma",
     "TYPES.Item.armor": "Armadura",
@@ -106,8 +107,14 @@
 
     "CUSTOS.chat.failure": "Fallo",
     "CUSTOS.chat.spendPietas": "Gastar Pietas",
-    "CUSTOS.chat.marginal": "Apenas con Éxito (GdE I)",
+    "CUSTOS.chat.marginal": "Éxito Marginal (GdE I)",
     "CUSTOS.chat.regular": "Éxito Completo (GdE II)",
     "CUSTOS.chat.extraordinary": "Éxito Extraordinario (GdE III)",
-    "CUSTOS.chat.spentPietas": "Gasta Pietas para obtener un Éxito"
+    "CUSTOS.chat.spentPietas": "Gasta Pietas para obtener un Éxito",
+
+    "CUSTOS.ui.diceValue": "Valor de Dado",
+    "CUSTOS.ui.size": "Tamaño",
+    "CUSTOS.ui.oneDice": "Un Dado",
+    "CUSTOS.ui.twoDice": "Dos Dados",
+    "CUSTOS.ui.threeDice": "Tres Dados"
 }
