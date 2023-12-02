@@ -1,7 +1,7 @@
-<section class="top-section">
+<section class="top-section-npc">
     <table>
         <tr>
-            <td class="image-cell">
+            <td class="image-cell-npc"> 
                 {{#if actor.system.hasFate}}
                     <div class="char-pic"><img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{name}}" alt='Imagen del Personaje'/></div>
                 {{else}}
@@ -9,10 +9,10 @@
                 {{/if}}
             </td>
             <td>
-                <div class="char-name">
+                <div class="char-name-npc">
                     <h2><input name="name" type="text" value="{{actor.name}}" placeholder='Nombre' onClick="this.select();"/></h2>
                 </div>
-                <div class="char-info1">
+                <div class="char-info1-npc">
                     <table>
                         <tr>
                             <td><h3><label>{{localize "CUSTOS.ui.diceValue"}}&nbsp;&nbsp;</label></h3></td>
@@ -29,25 +29,16 @@
                             </td>
                         </tr>
                     </table>
-                    <table>
-                        <tr>
-                                
+                    <table class="npc-resource">
+                        <tr>     
                             <td>
                                 <h3>
                                     {{#times actor.system.resources.life.max}}
                                         <a class="resource-change" data-resource="life" data-number={{.}}>
                                             {{#if (gte . ../actor.system.resources.life.value)}}
-                                                {{#if (gte . ../actor.system.converted_encumbrance)}}
-                                                    <i style="color: var(--crimson);" class="fa-solid fa-square"></i>
-                                                {{else}}
-                                                    <i class="fa-regular fa-square"></i>
-                                                {{/if}}
+                                                <i class="fa-regular fa-square"></i>
                                             {{else}}
-                                                {{#if (gte . ../actor.system.converted_encumbrance)}}
-                                                    <i style="color: var(--crimson);" class="fa-solid fa-square-xmark"></i>
-                                                {{else}}
-                                                    <i class="fa-regular fa-square-xmark"></i>
-                                                {{/if}}
+                                                <i class="fa-regular fa-square-xmark"></i>
                                             {{/if}}
                                         </a>
                                     {{/times}}
@@ -58,11 +49,20 @@
                 </div>
             </td>
         </tr>
+        <tr>
+            <td>
+                {{#if actor.system.hasFate}}
+                    <h3><a class="fate-toggle"><i class="fa-solid fa-toggle-on"></i></a></h3>
+                {{else}}
+                    <h3><a class="fate-toggle" style="color: black;"><i class="fa-solid fa-toggle-off"></i></a></h3>
+                {{/if}}
+            </td>
+        </tr>
     </table>
 </section>
    
-<section class="bottom-section">
-    <div class="title">
+<section class="bottom-section-npc">
+    <div class="title-npc">
         <table>
             <tr>
                 <th><h2><hr /></h2></th>
@@ -71,7 +71,7 @@
             </tr>
         </table>
     </div>
-    <div class="peritiae">
+    <div class="peritiae-npc">
         <table>
             <tr>
                 <td><a class="add-specialty" data-peritiaid="one"><i class="fa-solid fa-plus"></i></a></td>
@@ -91,7 +91,7 @@
                         <br><br>
                     {{/each}}
                 </td> 
-                <td class="speciality-name">
+                <td class="speciality-name-npc">
                     {{#each actor.system.peritiae.one.specialties as |specialityValue specialityKey|}}
                     <input name="system.peritiae.one.specialties.{{specialityKey}}.name" value="{{specialityValue.name}}" data-dtype="text" type="text"/>
                     <br><br>
@@ -99,7 +99,7 @@
                 </td>
                 <td>
                     {{#each actor.system.peritiae.one.specialties as |specialityValue specialityKey|}}
-                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-nDice="1"><i class="fa-solid fa-dice"></i></a>
+                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-ndice="1" data-sides="{{../actor.system.diceValue}}"><i class="fa-solid fa-dice"></i></a>
                     <br><br>
                     {{/each}}
                 </td>
@@ -110,7 +110,7 @@
                         <br><br>
                     {{/each}}
                 </td> 
-                <td class="speciality-name">
+                <td class="speciality-name-npc">
                     {{#each actor.system.peritiae.two.specialties as |specialityValue specialityKey|}}
                     <input name="system.peritiae.two.specialties.{{specialityKey}}.name" value="{{specialityValue.name}}" data-dtype="text" type="text"/>
                     <br><br>
@@ -118,7 +118,7 @@
                 </td>
                 <td>
                     {{#each actor.system.peritiae.two.specialties as |specialityValue specialityKey|}}
-                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-nDice="2"><i class="fa-solid fa-dice"></i></a>
+                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-ndice="2" data-sides="{{../actor.system.diceValue}}"><i class="fa-solid fa-dice"></i></a>
                     <br><br>
                     {{/each}}
                 </td>
@@ -129,7 +129,7 @@
                         <br><br>
                     {{/each}}
                 </td> 
-                <td class="speciality-name">
+                <td class="speciality-name-npc">
                     {{#each actor.system.peritiae.three.specialties as |specialityValue specialityKey|}}
                     <input name="system.peritiae.three.specialties.{{specialityKey}}.name" value="{{specialityValue.name}}" data-dtype="text" type="text"/>
                     <br><br>
@@ -137,7 +137,7 @@
                 </td>
                 <td>
                     {{#each actor.system.peritiae.three.specialties as |specialityValue specialityKey|}}
-                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-nDice="3"><i class="fa-solid fa-dice"></i></a>
+                    <a class="regular-roll" data-name="{{specialityValue.name}}" data-ndice="3" data-sides="{{../actor.system.diceValue}}"><i class="fa-solid fa-dice"></i></a>
                     <br><br>
                     {{/each}}
                 </td>

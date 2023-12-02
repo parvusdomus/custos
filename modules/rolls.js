@@ -103,3 +103,42 @@ export async function RegularDiceRoll (diceData)
     return;
 }
 
+export async function RegularNPCDiceRoll (diceData)
+{
+    console.log (diceData)
+    
+    let actor=game.actors.get(diceData.actor_id)
+    let hasFate=actor.system.hasFate
+    let rollTitle=diceData.rollTitle
+    let rollResult=""
+    let rollText=diceData.ndice+"d"+diceData.sides
+    let explode=false
+    let totalRoll = 0;
+    let diceMax=Number(diceData.ndice)*Number(diceData.sides)
+   do
+	{
+        explode=false;
+		let roll = new Roll(rollText);
+		let evaluateRoll = roll.evaluate({async: false});
+        game.dice3d.showForRoll(roll,game.user,true,false,null)
+        if (Number(evaluateRoll.total)===Number(diceMax) && hasFate){explode = true}
+		totalRoll += Number(evaluateRoll.total)
+	}while(explode);
+ 
+    let renderedRoll = await renderTemplate("systems/custos/templates/chat/simpleTestResult.html", { 
+        pjName: actor.name,
+        pjImage: actor.img,
+        rollTitle: rollTitle,
+        totalRoll: totalRoll, 
+        rollResult: rollResult,
+        actor_id: diceData.actor_id
+    });
+
+    const chatData = {
+        speaker: ChatMessage.getSpeaker(),
+        content: renderedRoll
+    };
+
+    ChatMessage.create(chatData);
+    return;
+}

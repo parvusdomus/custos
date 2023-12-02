@@ -1,0 +1,243 @@
+.top-section-npc {
+    width: 100%;
+    max-height: 30%;
+    text-align: center;
+    display: flex;
+}
+
+.top-section-npc table {
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.top-section-npc tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.top-section-npc tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.image-cell-npc {
+    width: 205px
+}
+
+.bottom-section-npc {
+    width: 100%;
+    height: 70%;
+}
+
+.top-section-npc h2{
+    font-family: var(--font-name);
+    color: var(--header-font-color);
+    border-bottom: none;
+}
+
+.top-section-npc h3{
+    font-family: var(--bold-font-name);
+    color: var(--header-font-color);
+    color: var(--dark-gold);
+    font-weight: 900;
+    border-bottom: none;
+}
+
+.char-pic-npc {
+    border: 10px solid transparent;
+    padding: 15px;
+    background-image: url("../../../systems/custos/style/images/laurel.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.char-pic-nopietas-npc {
+    border: 10px solid transparent;
+    padding: 15px;
+    background-image: url("../../../systems/custos/style/images/laurel_black.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.char-pic-npc img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.char-pic-nopietas-npc img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.char-name-npc input{
+    font-family: var(--bold-font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    text-align: center;
+    font-weight: 900;
+}
+
+.char-info1-npc table {
+    background: none;
+    border: none;
+    font-family: var(--bold-font-name);
+    width: 100%;
+}
+
+.char-info1-npc td:nth-child(2) {
+    width: 10%;
+}
+
+.char-info1-npc td:nth-child(4) {
+    width: 10%;
+}
+
+.char-info1-npc tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.char-info1-npc tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.npc-resource td{
+    text-align: left;
+}
+
+.char-info1-npc input {
+    background-color: var(--input-bg-color);
+    text-align: center;
+    color: var(--crimson);
+    border: none;
+    clip-path: circle(50% at 50% 50%);
+    height: 40px;
+    width: 40px;
+}
+
+.title-npc table{
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.title-npc tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.title-npc tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.title-npc h2{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
+}
+
+.title-npc hr{
+    border: 2px solid var(--dark-gold);
+}
+
+.title-npc th{
+    
+    text-align: center;
+}
+
+.title-npc th:nth-child(even){
+    width: 25%;
+}
+
+.title-npc td:nth-child(even){
+    width: 10%;
+}
+
+.peritiae-npc table{
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+}
+
+.peritiae-npc tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.peritiae-npc tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.peritiae-npc h2{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
+}
+
+.peritiae-npc h3{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
+}
+
+.peritiae-npc hr{
+    border: 2px solid var(--dark-gold);
+}
+
+.peritiae-npc th{
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    text-align: center;
+    font-weight: 900;
+}
+
+.peritiae-npc td{
+    vertical-align: top;
+}
+
+.peritiae-npc td:nth-child(3n+1) {
+    width: 3%;
+}
+
+.peritiae-npc td:nth-child(3n+2) {
+    width: 22%;
+}
+
+.peritiae-npc td:nth-child(3n+3) {
+    width: 3%;
+}
+
+
+.peritiae-npc input {
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+}
+
+.peritiae-npc i {
+    height: 20px;
+    color: var(--crimson);
+}
+
+.regular-roll-npc i {
+    height: 20px;
+    vertical-align: center;
+    color: var(--crimson);
+}

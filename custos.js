@@ -63,10 +63,22 @@ Hooks.on('refreshToken', () => {
 
 Hooks.on("createActor", async (actor) =>{
   const PJImage="systems/custos/style/icons/centurion-helmet.svg"
+  const NPCImage="systems/custos/style/icons/roman-toga.svg"
+  const BeastImage="systems/custos/style/icons/hydra.svg"
   switch (actor.type){
     case 'Custos':
     {
       actor.update ({ 'img': PJImage });
+      break;
+    }
+    case 'npc':
+    {
+      actor.update ({ 'img': NPCImage });
+      break;
+    }
+    case 'beast':
+    {
+      actor.update ({ 'img': BeastImage });
       break;
     }
   }
