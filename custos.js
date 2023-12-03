@@ -1,5 +1,6 @@
 import CUSTOS_CHAR_SHEET from "./modules/custos_charsheet.js";
 import CUSTOS_NPC_SHEET from "./modules/custos_npc.js";
+import CUSTOS_BEAST_SHEET from "./modules/custos_beast.js";
 import CUSTOS_ITEM_SHEET from "./modules/custos_itemsheet.js";
 import { preloadHandlebarsTemplates } from "./modules/preloadTemplates.js";
 import {_getInitiativeFormula} from './modules/combat.js';
@@ -20,11 +21,16 @@ Hooks.once("init", function(){
     makeDefault: true,
     types: ['npc']
   });
+  Actors.registerSheet("custos", CUSTOS_BEAST_SHEET, {
+    makeDefault: true,
+    types: ['beast']
+  });
+
   console.log("test | INITIALIZING CUSTOS ITEM SHEETS...");
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("custos", CUSTOS_ITEM_SHEET,{
     makeDefault: true,
-    types: ['provintia','weapon','armor','shield','object','talent','ritual','summoning']
+    types: ['provintia','weapon','armor','shield','object','talent','ritual','summoning','special','magic']
   });
   preloadHandlebarsTemplates();
 
@@ -93,6 +99,8 @@ Hooks.on("createItem", async (item) =>{
   const talentImage="systems/custos/style/icons/eagle-emblem.svg"
   const ritualImage="systems/custos/style/icons/brasero.svg"
   const summoningImage="systems/custos/style/icons/capitol.svg"
+  const specialImage="systems/custos/style/icons/discobolus.svg"
+  const magicImage="systems/custos/style/icons/medusa-head.svg"
   switch (item.type){
     case 'provintia':
     {
@@ -132,6 +140,16 @@ Hooks.on("createItem", async (item) =>{
     case 'summoning':
     {
       item.update ({ 'img': summoningImage });
+      break;
+    }
+    case 'special':
+    {
+      item.update ({ 'img': specialImage });
+      break;
+    }
+    case 'magic':
+    {
+      item.update ({ 'img': magicImage });
       break;
     }
   }

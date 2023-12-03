@@ -1,6 +1,7 @@
 {
     "TYPES.Actor.Custos": "Custos",
     "TYPES.Actor.npc": "PNJ",
+    "TYPES.Actor.beast": "Bestia Mágica",
     "TYPES.Item.provintia": "Provincia",
     "TYPES.Item.weapon": "Arma",
     "TYPES.Item.armor": "Armadura",
@@ -9,12 +10,15 @@
     "TYPES.Item.talent": "Talento",
     "TYPES.Item.ritual": "Ritual",
     "TYPES.Item.summoning": "Invocación",
-
+    "TYPES.Item.special": "Habilidad Especial",
+    "TYPES.Item.magic": "Poder Mágico",
 
     "CUSTOS.ui.tab.general": "General",
     "CUSTOS.ui.tab.notes": "Notas",
     "CUSTOS.ui.tab.inventory": "Inventario",
     "CUSTOS.ui.tab.magic": "Magia",
+    "CUSTOS.ui.tab.special": "Especial",
+    "CUSTOS.ui.tab.knowledge": "Conocimiento",
     "CUSTOS.ui.deleteTitle": "¿Borrar objeto?",
     "CUSTOS.ui.deleteText": "Por favor confirma si quieres borrar este objeto.",
     "CUSTOS.ui.writedownTitle": "Anotar valores?",
@@ -104,6 +108,8 @@
     "CUSTOS.ui.fewpoints": "Estás tirando menos puntos de dados que tu reserva. ¿Seguro que quieres hacerlo?",
     "CUSTOS.ui.fewpointsTitle": "¿Estás seguro?",
     "CUSTOS.ui.nopietas": "No te quedan puntos de Pietas.",
+    "CUSTOS.ui.special": "Habilidades Especiales",
+    "CUSTOS.ui.magic": "Poderes Mágicos",
 
     "CUSTOS.chat.failure": "Fallo",
     "CUSTOS.chat.spendPietas": "Gastar Pietas",
@@ -114,7 +120,11 @@
 
     "CUSTOS.ui.diceValue": "Valor de Dado",
     "CUSTOS.ui.size": "Tamaño",
+    "CUSTOS.ui.danger": "Peligro",
     "CUSTOS.ui.oneDice": "Un Dado",
     "CUSTOS.ui.twoDice": "Dos Dados",
-    "CUSTOS.ui.threeDice": "Tres Dados"
+    "CUSTOS.ui.threeDice": "Tres Dados",
+    "CUSTOS.ui.success1": "GdE I",
+    "CUSTOS.ui.success2": "GdE II",
+    "CUSTOS.ui.success3": "GdE II"
 }

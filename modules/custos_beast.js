@@ -1,9 +1,9 @@
 import {RegularNPCDiceRoll} from "../modules/rolls.js";
-export default class CUSTOS_NPC_SHEET extends ActorSheet{
+export default class CUSTOS_BEAST_SHEET extends ActorSheet{
     static get defaultOptions() {
       return mergeObject(super.defaultOptions, {
           classes: ["custos", "sheet", "actor"],
-          template: "systems/custos/templates/actors/npc/npc.html",
+          template: "systems/custos/templates/actors/beast/beast.html",
           width: 650,
           height: 600,
           tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "virtutes" }]
@@ -12,7 +12,7 @@ export default class CUSTOS_NPC_SHEET extends ActorSheet{
     }
     getData() {
       const data = super.getData();
-      if (this.actor.type == 'npc') {
+      if (this.actor.type == 'beast') {
         this._prepareCharacterItems(data);
       }
       return data;
@@ -25,6 +25,7 @@ export default class CUSTOS_NPC_SHEET extends ActorSheet{
       const Shields = [];
       const Objects = [];
       const Special = [];
+      const Magic = [];
       for (let i of sheetData.items){
         switch (i.type){
 				  case 'weapon':
@@ -52,6 +53,11 @@ export default class CUSTOS_NPC_SHEET extends ActorSheet{
             Special.push(i);
             break;
 				  }
+          case 'magic':
+				  {
+            Magic.push(i);
+            break;
+				  }
         }
       }
       actorData.Weapons = Weapons;
@@ -59,6 +65,7 @@ export default class CUSTOS_NPC_SHEET extends ActorSheet{
       actorData.Shields = Shields;
       actorData.Objects = Objects;
       actorData.Special = Special;
+      actorData.Magic = Magic;
       actorData.settings = {
 
       }

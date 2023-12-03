@@ -241,3 +241,108 @@
     vertical-align: center;
     color: var(--crimson);
 }
+
+.special_ability table {
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.special_ability td:nth-child(1){
+    text-align: left;
+    width: 30px;
+}
+
+.special_ability td:nth-child(2){
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 490px;
+}
+
+.inventory_armors td:nth-child(3){
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+}
+
+.special_ability img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.special_ability th{
+    color: var(--dark-gold);
+}
+
+.special_ability td{
+    color: var(--crimson);
+}
+
+.magic_power table {
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.magic_power td:nth-child(1){
+    text-align: left;
+    width: 30px;
+}
+
+.magic_power td:nth-child(2){
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 490px;
+}
+
+.magic_power td:nth-child(3){
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+}
+
+
+.magic_power img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.magic_power th{
+    color: var(--dark-gold);
+}
+
+.magic_power td{
+    color: var(--crimson);
+}
+
+.knowledge-box {
+    background-color: red;
+}
+
+.knowledge-box textarea{
+    background-color: var(--input-bg-color);
+    border: none;
+    font-family: var(--font-name);
+    color: var(--crimson);
+    text-align: left;
+}

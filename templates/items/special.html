@@ -1,0 +1,18 @@
+<form class="{{cssClass}} custos" autocomplete="off">
+    <div class="weapon-title">
+        <h2><input name="name" type="text" value="{{item.name}}" placeholder='Provintia' onClick="this.select();"/></h2>
+    </div>
+    <div class="weapon">
+        <table class="weapon_line1">
+            <tr>
+                <td>
+                    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{name}}"/>
+                </td>
+                
+            </tr>
+        </table>
+    </div>
+    <div class="desc">
+        {{editor item.system.description target="system.description" button=true owner=owner editable=true}}
+    </div>
+</form>

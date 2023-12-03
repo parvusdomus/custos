@@ -1,6 +1,7 @@
 {
     "TYPES.Actor.Custos": "Custos",
     "TYPES.Actor.npc": "NPC",
+    "TYPES.Actor.beast": "Magic Beast",
     "TYPES.Item.provintia": "Province",
     "TYPES.Item.weapon": "Weapon",
     "TYPES.Item.armor": "Armor",
@@ -9,11 +10,15 @@
     "TYPES.Item.talent": "Talent",
     "TYPES.Item.ritual": "Ritual",
     "TYPES.Item.summoning": "Summoning",
+    "TYPES.Item.special": "Special Ability",
+    "TYPES.Item.magic": "Magic Power",
 
     "CUSTOS.ui.tab.general": "General",
     "CUSTOS.ui.tab.notes": "Notes",
     "CUSTOS.ui.tab.inventory": "Inventory",
     "CUSTOS.ui.tab.magic": "Magic",
+    "CUSTOS.ui.tab.special": "Special",
+    "CUSTOS.ui.tab.knowledge": "Knowledge",
     "CUSTOS.ui.deleteTitle": "Delete item?",
     "CUSTOS.ui.deleteText": "Please confirm if you want to delete this item.",
     "CUSTOS.ui.writedownTitle": "Write down values?",
@@ -103,6 +108,8 @@
     "CUSTOS.ui.fewpoints": "You are rolling fewer dice points than your pool. Are you sure you want to continue?",
     "CUSTOS.ui.fewpointsTitle": "Are you sure?",
     "CUSTOS.ui.nopietas": "You have no Pietas left.",
+    "CUSTOS.ui.special": "Special Habilities",
+    "CUSTOS.ui.magic": "Magic Powers",
 
     "CUSTOS.chat.failure": "Failure",
     "CUSTOS.chat.spendPietas": "Expend Pietas",
@@ -113,7 +120,11 @@
 
     "CUSTOS.ui.diceValue": "Dice Value",
     "CUSTOS.ui.size": "Size",
+    "CUSTOS.ui.danger": "Danger",
     "CUSTOS.ui.oneDice": "One Dice",
     "CUSTOS.ui.twoDice": "Two Dice",
-    "CUSTOS.ui.threeDice": "Three Dice"
+    "CUSTOS.ui.threeDice": "Three Dice",
+    "CUSTOS.ui.success1": "DoS I",
+    "CUSTOS.ui.success2": "DoS II",
+    "CUSTOS.ui.success3": "DoS II"
 }

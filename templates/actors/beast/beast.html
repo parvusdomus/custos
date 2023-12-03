@@ -4,6 +4,7 @@
       <a class="item" data-tab="virtutes-tab">{{localize "CUSTOS.ui.tab.general"}}</a>
       <a class="item" data-tab="inventory-tab">{{localize "CUSTOS.ui.tab.inventory"}}</a> 
       <a class="item" data-tab="special-tab">{{localize "CUSTOS.ui.tab.special"}}</a> 
+      <a class="item" data-tab="knowledge-tab">{{localize "CUSTOS.ui.tab.knowledge"}}</a> 
       <a class="item" data-tab="notes-tab">{{localize "CUSTOS.ui.tab.notes"}}</a>      
     </nav>
       
@@ -11,15 +12,19 @@
     <section class="sheet-body">
       {{!-- Virtutes Tab --}}
       <div class="tab virtutes-tab" data-group="primary" data-tab="virtutes-tab">
-        {{> "/systems/custos/templates/actors/npc/parts/virtutes.html"}}
+        {{> "/systems/custos/templates/actors/beast/parts/virtutes.html"}}
       </div>
       {{!-- Inventory Tab --}}
       <div class="tab inventory-tab" data-group="primary" data-tab="inventory-tab">
-        {{> "/systems/custos/templates/actors/npc/parts/inventory.html"}}
+        {{> "/systems/custos/templates/actors/beast/parts/inventory.html"}}
       </div>
       {{!-- Special Tab --}}
       <div class="tab special-tab" data-group="primary" data-tab="special-tab">
-        {{> "/systems/custos/templates/actors/npc/parts/special.html"}}
+        {{> "/systems/custos/templates/actors/beast/parts/special.html"}}
+      </div>
+      {{!-- Knowledge Tab --}}
+      <div class="tab knowledge-tab" data-group="primary" data-tab="knowledge-tab">
+        {{> "/systems/custos/templates/actors/beast/parts/knowledge.html"}}
       </div>
       {{!-- Notes Tab --}}
       <div class="tab notes-tab" data-group="primary" data-tab="notes-tab">

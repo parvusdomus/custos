@@ -3,7 +3,8 @@
         "types":
         [
             "Custos",
-            "npc"
+            "npc",
+            "beast"
         ],
         "Custos": {
             "virtutes": {
@@ -275,8 +276,8 @@
             "resources": {
                 "life": {
                     "min": 0,
-                    "max": 0,
-                    "value": 2
+                    "max": 6,
+                    "value": 0
                 }
             },
             "peritiae": {
@@ -290,13 +291,18 @@
                     "specialties": {}
                 }
             },
+            "knowledge": {
+                "one": "",
+                "two": "",
+                "three": ""
+            },
             "description": ""
         }
     },
     "Item": {
         "types":
         [
-            "provintia", "weapon", "armor", "shield", "object", "talent", "ritual", "summoning"
+            "provintia", "weapon", "armor", "shield", "object", "talent", "ritual", "summoning", "special", "magic"
         ],
         "provintia": {
             "bello": 0,
@@ -353,6 +359,12 @@
             "office": "bellicus",
             "cost": 0,
             "patron": "",
+            "description": ""
+        },
+        "special": {
+            "description": ""
+        },
+        "magic": {
             "description": ""
         }
     }
