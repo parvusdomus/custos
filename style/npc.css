@@ -262,12 +262,6 @@
     width: 490px;
 }
 
-.inventory_armors td:nth-child(3){
-    text-align: right;
-    display: inline-block;
-    width: 100px;
-}
-
 .special_ability img{
     width: 30px;
     height: 30px;

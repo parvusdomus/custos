@@ -990,25 +990,12 @@
     color: var(--crimson);
 }
 
-
 .inventory_armors table {
     background: none;
     border: none;
     font-family: var(--font-name);
     width: 100%;
     text-align: center;
-}
-
-.inventory_armors img{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: var(--input-bg-color);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border: none;
-    color: var(--crimson);
 }
 
 .inventory_armors td:nth-child(1){
@@ -1023,8 +1010,6 @@
     width: 300px;
 }
 
-
-
 .inventory_armors td:nth-child(5){
     text-align: right;
     display: inline-block;
@@ -1032,6 +1017,17 @@
 }
 
 
+.inventory_armors img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--input-bg-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
 
 .inventory_armors th{
     color: var(--dark-gold);
@@ -1040,6 +1036,7 @@
 .inventory_armors td{
     color: var(--crimson);
 }
+
    
 .ritual table{
     background: none;
@@ -1135,12 +1132,6 @@
     text-align: center;
     overflow: hidden;
     width: 160px;
-}
-
-.inventory_armors td:nth-child(4){
-    text-align: right;
-    display: inline-block;
-    width: 100px;
 }
 
 .magic_talent img{

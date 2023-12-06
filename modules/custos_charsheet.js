@@ -743,8 +743,20 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
       let total=Number(dataset.pvalue)+Number(dataset.svalue)
+      let fatigued=false;
+      if ((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max)){
+        fatigued=true;
+        if (total > (Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value))){
+          total=Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value)
+        }
+        if (total < 3){
+          total=3
+        }
+      }
+      
 
       let dice= {
+        fatigued: fatigued,
         actor_id: this.actor._id,
         rollTitle: dataset.name,
         total: total,

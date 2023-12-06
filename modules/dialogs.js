@@ -1,7 +1,6 @@
 import {RegularDiceRoll} from "../modules/rolls.js";
 export default class RegularRollDialog extends FormApplication {
     constructor(dataset) {
-        console.log (dataset)
 	    super(dataset);
     }
 
@@ -20,6 +19,7 @@ export default class RegularRollDialog extends FormApplication {
     getData(dataset)
     {
         let data= {
+            fatigued: this.object.fatigued,
             actor_id: this.object.actor_id,
             rollTitle: this.object.rollTitle,
             current: this.object.current,

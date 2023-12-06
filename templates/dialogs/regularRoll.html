@@ -2,11 +2,20 @@
     <table>
         <tr>
             <td>
-                {{#if (gt current total)}}
-                    <h3><label class="blink">{{ localize "CUSTOS.ui.pool" }}:&nbsp;&nbsp;{{current}}/{{total}}</label></h3>
+                {{#if fatigued}}
+                    {{#if (gt current total)}}
+                        <h3><i class="fa-regular fa-face-tired blink"></i><label class="blink">{{ localize "CUSTOS.ui.pool" }}:&nbsp;&nbsp;{{current}}/{{total}}</label></h3>
+                    {{else}}
+                        <h3><i class="fa-regular fa-face-tired blink"></i><label>{{ localize "CUSTOS.ui.pool" }}:&nbsp;&nbsp;{{current}}/{{total}}</label></h3>
+                    {{/if}}
                 {{else}}
-                    <h3><label>{{ localize "CUSTOS.ui.pool" }}:&nbsp;&nbsp;{{current}}/{{total}}</label></h3>
+                    {{#if (gt current total)}}
+                        <h3><label class="blink">{{ localize "CUSTOS.ui.pool" }}:&nbsp;&nbsp;{{current}}/{{total}}</label></h3>
+                    {{else}}
+                        <h3><label>{{ localize "CUSTOS.ui.pool" }}:&nbsp;&nbsp;{{current}}/{{total}}</label></h3>
+                    {{/if}}
                 {{/if}}
+                
             </td>
             <td>
                 <h3>
