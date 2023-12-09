@@ -350,6 +350,7 @@
         },
         "ritual": {
             "discipline": "clarividencia",
+            "speciality": "",
             "difficulty": 0,
             "cost": 0,
             "duration": "",

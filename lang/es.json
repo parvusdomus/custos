@@ -82,6 +82,7 @@
     "CUSTOS.ui.omens": "Presagios, Interpretación",
     "CUSTOS.ui.precognition": "Precognición",
     "CUSTOS.ui.retrocognition": "Retrocognición",
+    "CUSTOS.ui.specname": "N. Especial.",
     "CUSTOS.ui.cost": "Coste",
     "CUSTOS.ui.discipline": "Disciplina",
     "CUSTOS.ui.duration": "Duración",
@@ -117,6 +118,7 @@
     "CUSTOS.chat.regular": "Éxito Completo (GdE II)",
     "CUSTOS.chat.extraordinary": "Éxito Extraordinario (GdE III)",
     "CUSTOS.chat.spentPietas": "Gasta Pietas para obtener un Éxito",
+    "CUSTOS.chat.spentPietasRitual": "Gasta Pietas para el Ritual: ",
 
     "CUSTOS.ui.diceValue": "Valor de Dado",
     "CUSTOS.ui.size": "Tamaño",

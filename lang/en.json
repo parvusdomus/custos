@@ -82,6 +82,7 @@
     "CUSTOS.ui.omens": "Omen Interpretation",
     "CUSTOS.ui.precognition": "Precognition",
     "CUSTOS.ui.retrocognition": "Retrocognition",
+    "CUSTOS.ui.specname": "Spec. Name",
     "CUSTOS.ui.cost": "Cost",
     "CUSTOS.ui.discipline": "Discipline",
     "CUSTOS.ui.duration": "Duration",
@@ -117,6 +118,7 @@
     "CUSTOS.chat.regular": "Regular Success (DoS II)",
     "CUSTOS.chat.extraordinary": "Extraordinary Success (DoS III)",
     "CUSTOS.chat.spentPietas": "Spends Pietas to get a Success",
+    "CUSTOS.chat.spentPietasRitual": "Spends Pietas for the Ritual: ",
 
     "CUSTOS.ui.diceValue": "Dice Value",
     "CUSTOS.ui.size": "Size",

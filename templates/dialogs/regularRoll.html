@@ -21,12 +21,14 @@
                 <h3>
                     <label>{{ localize "CUSTOS.ui.diff" }}:&nbsp;&nbsp;</label>
                     <select name="difficulty" id="difficulty" data-dtype="Number">
+                        {{#select dif}}
                         <option value="3">{{localize "CUSTOS.ui.easy"}}</option>
                         <option value="6">{{localize "CUSTOS.ui.normal"}}</option>
                         <option value="9">{{localize "CUSTOS.ui.challenging"}}</option>
                         <option value="12">{{localize "CUSTOS.ui.hard"}}</option>
                         <option value="15">{{localize "CUSTOS.ui.veryhard"}}</option>
                         <option value="18">{{localize "CUSTOS.ui.extreme"}}</option>
+                        {{/select}}
                     </select>
                 </h3>
             </td>
