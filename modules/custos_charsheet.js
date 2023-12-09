@@ -1,4 +1,4 @@
-import RegularRollDialog from "../modules/dialogs.js";
+import RegularRollDialog from "../modules/rolldialog.js";
 
 export default class CUSTOS_CHAR_SHEET extends ActorSheet{
     static get defaultOptions() {

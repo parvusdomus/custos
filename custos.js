@@ -3,8 +3,9 @@ import CUSTOS_NPC_SHEET from "./modules/custos_npc.js";
 import CUSTOS_BEAST_SHEET from "./modules/custos_beast.js";
 import CUSTOS_ITEM_SHEET from "./modules/custos_itemsheet.js";
 import { preloadHandlebarsTemplates } from "./modules/preloadTemplates.js";
-import {_getInitiativeFormula} from './modules/combat.js';
+//import {_getInitiativeFormula} from './modules/combat.js';
 import custosChat from "./modules/chat.js";
+import leftPanel from "./modules/leftpanel.js";
 //import custosDialog from "./modules/dialogs.js";
 
 
@@ -32,8 +33,11 @@ Hooks.once("init", function(){
     makeDefault: true,
     types: ['provintia','weapon','armor','shield','object','talent','ritual','summoning','special','magic']
   });
-  preloadHandlebarsTemplates();
 
+  preloadHandlebarsTemplates();
+  registerLayers();
+
+  
     // Slowing down pings
     CONFIG.Canvas.pings.styles.pulse.duration = 2000
     CONFIG.Canvas.pings.styles.alert.duration = 2000
@@ -64,6 +68,9 @@ Hooks.once("init", function(){
 
 });
 
+function registerLayers() {
+  CONFIG.Canvas.layers.battlemat = { layerClass: ControlsLayer, group: "interface" };
+}
 
 Hooks.on("renderPause", () => {
   $("#pause img").attr("class", "fa-spin pause-image");
@@ -71,6 +78,30 @@ Hooks.on("renderPause", () => {
 });
 
 Hooks.on('renderChatLog', (app, html, data) => custosChat.chatListeners(html))
+
+Hooks.on("getSceneControlButtons", (controls) => {
+  controls.push(
+    {
+        name: "battlemat",
+        title: "Battlemat",
+        icon: "fa-solid fa-swords",
+        layer: "battlemat",
+        visible: true,
+        button: true,
+        tools: [
+        {
+          name: "battlemat",
+          title: "Open Battlemat",
+          layer: "battlemat",
+          icon: "fa-solid fa-swords",
+          onClick: () => {
+            console.log ("DICE 6");
+          },
+        }],
+        activeTool: "battlemat",
+    }
+  );
+});
 
 Hooks.on('refreshToken', () => {
 
@@ -98,6 +129,7 @@ Hooks.on("createActor", async (actor) =>{
     }
   }
 })
+
 
 Hooks.on("createItem", async (item) =>{
   const provintiaImage="systems/custos/style/icons/italia.svg"
