@@ -123,6 +123,7 @@ export default class RegularRollDialog extends FormApplication {
     {
         const element = event.currentTarget;
         const dataset = event.currentTarget.dataset;
+        this.object.dif= document.getElementById("difficulty").value;
         switch (dataset.sides){
             case '3':
             {

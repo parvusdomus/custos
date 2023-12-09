@@ -52,7 +52,6 @@ export async function RegularDiceRoll (diceData)
         if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
 	}while(explode);
-    totalRoll=6
     if (Number(totalRoll) > Number(diceData.difficulty)){
         let diff=Number(totalRoll)-Number(diceData.difficulty)
         switch (true){
