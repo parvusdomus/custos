@@ -3,6 +3,9 @@ export async function RegularDiceRoll (diceData)
     let hasFate=false
     let actor=game.actors.get(diceData.actor_id)
     let rollTitle=diceData.rollTitle+" VS "+diceData.difficulty
+    let pietasOnTie=game.settings.get ("custos", "enablePietasonTie")
+    console.log ("PIETAS ON TIE")
+    console.log (pietasOnTie)
     if (actor.type=="Custos" && Number(actor.system.resources.pietas.value) < Number(actor.system.resources.pietas.max)){
         hasFate=true
     }
@@ -49,7 +52,7 @@ export async function RegularDiceRoll (diceData)
         if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
 	}while(explode);
-    
+    totalRoll=6
     if (Number(totalRoll) > Number(diceData.difficulty)){
         let diff=Number(totalRoll)-Number(diceData.difficulty)
         switch (true){
@@ -72,8 +75,7 @@ export async function RegularDiceRoll (diceData)
     }
     else{
         if (Number(totalRoll) == Number(diceData.difficulty)){
-            if (hasFate){
-                //rollResult="<td class=\"spend\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
+            if (hasFate && pietasOnTie){
                 rollResult="<td class=\"spend\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
             }
             else{

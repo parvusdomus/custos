@@ -128,5 +128,8 @@
     "CUSTOS.ui.threeDice": "Three Dice",
     "CUSTOS.ui.success1": "DoS I",
     "CUSTOS.ui.success2": "DoS II",
-    "CUSTOS.ui.success3": "DoS II"
+    "CUSTOS.ui.success3": "DoS II",
+
+    "CUSTOS.config.enablePietasonTieName": "Enable Pietas on Tie",
+    "CUSTOS.config.enablePietasonTieHint": "Allow to expend pietas to change a tie into a success"
 }

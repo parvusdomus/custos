@@ -41,6 +41,15 @@ Hooks.once("init", function(){
 
   console.log("test | INITIALIZING CUSTOS SETTINGS...");
 
+  game.settings.register("custos", "enablePietasonTie", {
+    name: game.i18n.localize("CUSTOS.config.enablePietasonTieName"),
+    hint: game.i18n.localize("CUSTOS.config.enablePietasonTieHint"),
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true
+  });
+
   Handlebars.registerHelper("times", function(n, content)
     {
       let result = "";
