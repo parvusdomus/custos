@@ -109,6 +109,7 @@
     "CUSTOS.ui.fewpoints": "Estás tirando menos puntos de dados que tu reserva. ¿Seguro que quieres hacerlo?",
     "CUSTOS.ui.fewpointsTitle": "¿Estás seguro?",
     "CUSTOS.ui.nopietas": "No te quedan puntos de Pietas.",
+    "CUSTOS.ui.noequipped": "No tienes el arma equipada.",
     "CUSTOS.ui.special": "Habilidades Especiales",
     "CUSTOS.ui.magic": "Poderes Mágicos",
 

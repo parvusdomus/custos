@@ -4,8 +4,6 @@ export async function RegularDiceRoll (diceData)
     let actor=game.actors.get(diceData.actor_id)
     let rollTitle=diceData.rollTitle+" VS "+diceData.difficulty
     let pietasOnTie=game.settings.get ("custos", "enablePietasonTie")
-    console.log ("PIETAS ON TIE")
-    console.log (pietasOnTie)
     if (actor.type=="Custos" && Number(actor.system.resources.pietas.value) < Number(actor.system.resources.pietas.max)){
         hasFate=true
     }

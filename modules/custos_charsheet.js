@@ -390,6 +390,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       html.find('a.toggle-treated').click(this._onToggleTreated.bind(this));
       html.find('a.resource-change').click(this._onResourceChange.bind(this));
       html.find('a.ritual-roll').click(this._onRitualRoll.bind(this));
+      html.find('a.weapon-roll').click(this._onWeaponRoll.bind(this));
     }
 
     _onItemCreate(event) {
@@ -832,6 +833,25 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         d20: 0
     };
       new RegularRollDialog(dice).render(true);
+      return;
+    }
+
+    async _onWeaponRoll(event)
+    {
+      event.preventDefault();
+      const dataset = event.currentTarget.dataset;
+      console.log ("WEAPON ROLL")
+      console.log ("DATASET")
+      console.log (dataset.item_id)
+      let item=this.actor.items.get(dataset.item_id)
+      console.log ("ITEM")
+      console.log (item)
+      console.log ("ACTOR")
+      console.log (this.actor)
+      if (item.system.equipped=="dropped" || item.system.equipped=="inbag"){
+        ui.notifications.warn(game.i18n.localize("CUSTOS.ui.noequipped"));
+        return;
+      }
       return;
     }
   
