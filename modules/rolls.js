@@ -48,7 +48,10 @@ export async function RegularDiceRoll (diceData)
         explode=false;
 		let roll = new Roll(rollText);
 		let evaluateRoll = roll.evaluate({async: false});
-        game.dice3d.showForRoll(roll,game.user,true,false,null)
+        if (game.modules.get('dice-so-nice')?.active){
+            game.dice3d.showForRoll(roll,game.user,true,false,null)
+        }
+        
         if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
 	}while(explode);

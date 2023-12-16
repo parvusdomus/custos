@@ -3,11 +3,8 @@ import CUSTOS_NPC_SHEET from "./modules/custos_npc.js";
 import CUSTOS_BEAST_SHEET from "./modules/custos_beast.js";
 import CUSTOS_ITEM_SHEET from "./modules/custos_itemsheet.js";
 import { preloadHandlebarsTemplates } from "./modules/preloadTemplates.js";
-//import {_getInitiativeFormula} from './modules/combat.js';
 import custosChat from "./modules/chat.js";
-import leftPanel from "./modules/leftpanel.js";
-//import custosDialog from "./modules/dialogs.js";
-
+import CombatMat from "./modules/combat.js";
 
 Hooks.once("init", function(){
   document.getElementById("logo").src = "/systems/custos/style/images/Custos_Logo2.webp";
@@ -95,7 +92,7 @@ Hooks.on("getSceneControlButtons", (controls) => {
           layer: "battlemat",
           icon: "fa-solid fa-swords",
           onClick: () => {
-            console.log ("DICE 6");
+            new CombatMat().render(true);
           },
         }],
         activeTool: "battlemat",
