@@ -118,8 +118,12 @@
     "CUSTOS.chat.marginal": "Éxito Marginal (GdE I)",
     "CUSTOS.chat.regular": "Éxito Completo (GdE II)",
     "CUSTOS.chat.extraordinary": "Éxito Extraordinario (GdE III)",
+    "CUSTOS.chat.tie": "Empate",
     "CUSTOS.chat.spentPietas": "Gasta Pietas para obtener un Éxito",
     "CUSTOS.chat.spentPietasRitual": "Gasta Pietas para el Ritual: ",
+    "CUSTOS.chat.attacker": "es el atacante",
+    "CUSTOS.chat.multiplier": "Multiplicador de Daño",
+    "CUSTOS.chat.shieldblock": "Bloqueado con el Escudo",
 
     "CUSTOS.ui.diceValue": "Valor de Dado",
     "CUSTOS.ui.size": "Tamaño",

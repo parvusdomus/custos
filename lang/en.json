@@ -118,8 +118,12 @@
     "CUSTOS.chat.marginal": "Marginal Success (DoS I)",
     "CUSTOS.chat.regular": "Regular Success (DoS II)",
     "CUSTOS.chat.extraordinary": "Extraordinary Success (DoS III)",
+    "CUSTOS.chat.tie": "Tie.",
     "CUSTOS.chat.spentPietas": "Spends Pietas to get a Success",
     "CUSTOS.chat.spentPietasRitual": "Spends Pietas for the Ritual: ",
+    "CUSTOS.chat.attacker": "is the attacker",
+    "CUSTOS.chat.multiplier": "Damage multiplier",
+    "CUSTOS.chat.shieldblock": "Blocked with Shield",
 
     "CUSTOS.ui.diceValue": "Dice Value",
     "CUSTOS.ui.size": "Size",

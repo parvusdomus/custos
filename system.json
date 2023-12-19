@@ -23,8 +23,8 @@
     "media": [
       {
         "type": "setup",
-        "url": "systems/custos/style/images/Custos_Logo.webp",
-        "thumbnail": "systems/custos/style/images/Custos_Logo.webp"
+        "url": "systems/custos/style/images/Custos_Logo_Dark.png",
+        "thumbnail": "systems/custos/style/images/Custos_Logo_Dark.png"
       }
     ],
   

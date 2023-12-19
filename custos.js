@@ -4,7 +4,7 @@ import CUSTOS_BEAST_SHEET from "./modules/custos_beast.js";
 import CUSTOS_ITEM_SHEET from "./modules/custos_itemsheet.js";
 import { preloadHandlebarsTemplates } from "./modules/preloadTemplates.js";
 import custosChat from "./modules/chat.js";
-import CombatMat from "./modules/combat.js";
+import CombatMat from "./modules/combatMat.js";
 
 Hooks.once("init", function(){
   document.getElementById("logo").src = "/systems/custos/style/images/Custos_Logo2.webp";

@@ -1,5 +1,5 @@
-import {RegularDiceRoll} from "../modules/rolls.js";
-export default class RegularRollDialog extends FormApplication {
+import {SingleCombatRoll} from "../modules/rolls.js";
+export default class CombatRollDialogSingle extends FormApplication {
     constructor(dataset) {
 	    super(dataset);
     }
@@ -8,7 +8,7 @@ export default class RegularRollDialog extends FormApplication {
         return mergeObject(super.defaultOptions, {
             id: "custos-roll-dialog",
             title: "",
-            template: "/systems/custos/templates/dialogs/regularRoll.html",
+            template: "/systems/custos/templates/dialogs/CombatRollSingle.html",
             classes: [ "custos-roll-dialog" ],
             popout: false,
             buttons: [],
@@ -22,6 +22,11 @@ export default class RegularRollDialog extends FormApplication {
             fatigued: this.object.fatigued,
             actor_id: this.object.actor_id,
             rollTitle: this.object.rollTitle,
+            targetimage: this.object.targetimage,
+            targetname: this.object.targetname,
+            targetroll: this.object.targetroll,
+            shield: this.object.shield,
+            targetshield: this.object.targetshield,
             fixed_dif: this.object.fixed_dif,
             dif: this.object.dif,
             current: this.object.current,
@@ -85,6 +90,11 @@ export default class RegularRollDialog extends FormApplication {
                         actor_id: this.object.actor_id,
                         current: this.object.current,
                         total: this.object.total,
+                        targetimage: this.object.targetimage,
+                        targetname: this.object.targetname,
+                        targetroll: this.object.targetroll,
+                        shield: this.object.shield,
+                        targetshield: this.object.targetshield,
                         ndice: this.object.ndice,
                         d3: this.object.d3,
                         d4: this.object.d4,
@@ -95,7 +105,7 @@ export default class RegularRollDialog extends FormApplication {
                         d12: this.object.d12,
                         d20: this.object.d20
                     };
-                    RegularDiceRoll (diceData)
+                    SingleCombatRoll (diceData)
                     this.close();
                 },
 			    no: () => {return},
@@ -114,6 +124,11 @@ export default class RegularRollDialog extends FormApplication {
                 difficulty: this.object.dif,
                 actor_id: this.object.actor_id,
                 rollTitle: this.object.rollTitle,
+                targetimage: this.object.targetimage,
+                targetname: this.object.targetname,
+                targetroll: this.object.targetroll,
+                shield: this.object.shield,
+                targetshield: this.object.targetshield,
                 current: this.object.current,
                 total: this.object.total,
                 ndice: this.object.ndice,
@@ -126,7 +141,7 @@ export default class RegularRollDialog extends FormApplication {
                 d12: this.object.d12,
                 d20: this.object.d20
             };
-            RegularDiceRoll (diceData)
+            SingleCombatRoll (diceData)
             this.close();
         }
         

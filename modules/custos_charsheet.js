@@ -1,5 +1,5 @@
 import RegularRollDialog from "../modules/rolldialog.js";
-
+import {CombatSingleRoll} from "../modules/combat.js";
 export default class CUSTOS_CHAR_SHEET extends ActorSheet{
     static get defaultOptions() {
       return mergeObject(super.defaultOptions, {
@@ -764,6 +764,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         total: total,
         current:0,
         ndice: 0,
+        fixed_dif: false,
         dif: 3,
         d3: 0,
         d4: 0,
@@ -822,6 +823,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         total: total,
         current:0,
         ndice: 0,
+        fixed_dif: true,
         dif: dataset.difficulty,
         d3: 0,
         d4: 0,
@@ -838,12 +840,11 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
 
     async _onWeaponRoll(event)
     {
+      console.log ("ON WEAPON ROLL")
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
-      console.log ("WEAPON ROLL")
-      console.log ("DATASET")
-      console.log (dataset.item_id)
       let item=this.actor.items.get(dataset.item_id)
+      let actor=this.actor
       console.log ("ITEM")
       console.log (item)
       console.log ("ACTOR")
@@ -851,6 +852,73 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       if (item.system.equipped=="dropped" || item.system.equipped=="inbag"){
         ui.notifications.warn(game.i18n.localize("CUSTOS.ui.noequipped"));
         return;
+      }
+      let target= Array.from(game.user.targets)[0]?.actor;
+      if (!target){
+        Dialog.confirm
+            ({
+		        title: game.i18n.localize("CUSTOS.ui.notargetTitle"),
+			    content: game.i18n.localize("CUSTOS.ui.notarget"),
+			    yes: () => {
+            let pvalue=actor.system.peritiae[item.system.peritia].value;
+            let svalue=0;
+            if (item.system.speciality!=""){
+              for (let [key, value] of Object.entries(actor.system.peritiae[item.system.peritia].specialties)) {
+                if (item.system.speciality===value.name){
+                  svalue=value.modifier;
+                }
+              }
+            }
+            let total=Number(pvalue)+Number(svalue);
+            let weapondifficulty=item.system.difficulty;
+            let weapondamage=item.system.damage;
+            let rollname=actor.system.peritiae[item.system.peritia].label;
+            let fatigued=false;
+            if ((Number(actor.system.resources.life.value)+Number(actor.system.total_encumbrance)) >= Number(actor.system.resources.life.max)){
+              fatigued=true;
+              if (total > (Number(actor.system.resources.life.max)-Number(actor.system.resources.life.value))){
+                total=Number(actor.system.resources.life.max)-Number(actor.system.resources.life.value)
+              }
+              if (total < 3){
+                total=3
+              }
+            }
+            let dice= {
+              fatigued: fatigued,
+              actor_id: this.actor._id,
+              rollTitle: rollname,
+              total: total,
+              current:0,
+              ndice: 0,
+              fixed_dif: true,
+              dif: weapondifficulty,
+              d3: 0,
+              d4: 0,
+              d5: 0,
+              d6: 0,
+              d8: 0,
+              d10: 0,
+              d12: 0,
+              d20: 0
+            };
+            new RegularRollDialog(dice).render(true);
+            return;
+
+            },
+			    no: () => {return},
+			    defaultYes: false
+		    });
+      }
+      else{
+        console.log ("TARGET")
+        console.log (target)
+        //for ( let i = 0; i < listaObjetivos.size; i++) {
+        //  let target= Array.from(game.user.targets)[i]?.actor;
+        //  console.log ("TARGET")
+        //  console.log (target)
+        //  await target.update ({ 'system.resources.life.value': i });
+        //}
+        CombatSingleRoll (this.actor, item, target)
       }
       return;
     }
