@@ -49,14 +49,8 @@ export default class custosChat {
   }
 
   static _rollDamage (event){
-    console.log ("ROLL DAMAGE FROM CHAT")
     const dataset = event.currentTarget.dataset;
     const element = event.currentTarget;
-    console.log ("DATASET")
-    console.log (dataset)
-    console.log ("AM I EVIL?")
-    console.log (dataset.player)
-    console.log (game.user?.isGM)
     if (dataset.player == "false" && game.user?.isGM == false){
       ui.notifications.error(game.i18n.localize("CUSTOS.ui.notallowed"));
       return
@@ -89,18 +83,13 @@ export default class custosChat {
       d12: 0,
       d20: 0
     }
-    console.log ("ROLL DAMAGE DATA")
-    console.log (rollDamageData)
 
     new DamageRollDialogSingle(rollDamageData).render(true);
   }
 
   static _applyDamage (event){
-    console.log ("ON APPLY DAMAGE")
     const dataset = event.currentTarget.dataset;
     const element = event.currentTarget;
-    console.log ("DATASET")
-    console.log (dataset)
     if (dataset.player == "false" && game.user?.isGM == false){
       ui.notifications.error(game.i18n.localize("CUSTOS.ui.notallowed"));
       return
@@ -110,14 +99,9 @@ export default class custosChat {
       ui.notifications.warn(game.i18n.localize("CUSTOS.ui.noselected"));
       return
     }
-    console.log ("SELECTED")
-    console.log (selected)
     let currentdamage=Number(selected.system.resources.life.value)
     let maxdamage=Number(selected.system.resources.life.max)
-    console.log ("CURRENT DAMAGE")
-    console.log (currentdamage)
     currentdamage+=Number(dataset.damage)
-
     if(currentdamage > maxdamage){currentdamage=maxdamage}
     selected.update ({ 'system.resources.life.value': currentdamage });
     ui.notifications.info(selected.name+" "+game.i18n.localize("CUSTOS.ui.receivedamage")+dataset.damage);

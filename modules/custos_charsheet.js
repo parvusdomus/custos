@@ -841,15 +841,10 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
 
     async _onWeaponRoll(event)
     {
-      console.log ("ON WEAPON ROLL")
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
       let item=this.actor.items.get(dataset.item_id)
       let actor=this.actor
-      console.log ("ITEM")
-      console.log (item)
-      console.log ("ACTOR")
-      console.log (this.actor)
       if (item.system.equipped=="dropped" || item.system.equipped=="inbag"){
         ui.notifications.warn(game.i18n.localize("CUSTOS.ui.noequipped"));
         return;
@@ -911,12 +906,8 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
 		    });
       }
       else{
-        console.log ("TARGET")
-        console.log (target)
         //for ( let i = 0; i < listaObjetivos.size; i++) {
         //  let target= Array.from(game.user.targets)[i]?.actor;
-        //  console.log ("TARGET")
-        //  console.log (target)
         //  await target.update ({ 'system.resources.life.value': i });
         //}
         CombatSingleRoll (this.actor, item, target)
@@ -926,7 +917,6 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
 
     async _onDamageRoll(event)
     {
-      console.log ("ON DAMAGE ROLL")
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
       let item=this.actor.items.get(dataset.item_id)
@@ -936,12 +926,6 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         return;
       }
       let target= Array.from(game.user.targets)[0]?.actor;
-      console.log ("ACTOR")
-      console.log (actor)
-      console.log ("ITEM")
-      console.log (item)
-      console.log ("TARGET")
-      console.log (target)
     }
 
   

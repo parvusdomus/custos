@@ -107,7 +107,6 @@ export async function RegularDiceRoll (diceData)
 
 export async function RegularNPCDiceRoll (diceData)
 {
-    console.log (diceData)
     
     let actor=game.actors.get(diceData.actor_id)
     let hasFate=actor.system.hasFate
@@ -147,8 +146,6 @@ export async function RegularNPCDiceRoll (diceData)
 
 export async function SingleCombatRoll (diceData)
 {
-    console.log ("SINGLE COMBAT ROLL")
-    console.log (diceData)
     let hasFate=false
     let targethasFate=false
     let actor=game.actors.get(diceData.actor_id)
@@ -162,15 +159,6 @@ export async function SingleCombatRoll (diceData)
     let weapondamage=diceData.damage
     let targetweapondamage=diceData.targetdamage
     let targetweapondifficulty=diceData.targetweapondifficulty
-    console.log ("SINGLE COMBAT ROLL")
-    console.log ("SHIELD")
-    console.log (shield)
-    console.log ("TARGET SHIELD")
-    console.log (targetshield)
-    console.log ("WEAPON DAMAGE")
-    console.log (weapondamage)
-    console.log ("TARGET WEAPON DAMAGE")
-    console.log (targetweapondamage)
     let pietasOnTie=game.settings.get ("custos", "enablePietasonTie")
     if (actor.type=="Custos" && Number(actor.system.resources.pietas.value) < Number(actor.system.resources.pietas.max)){
         hasFate=true
@@ -531,8 +519,6 @@ export async function SingleCombatRoll (diceData)
 
 export async function SingleDamageRoll (diceData)
 {
-    console.log ("SINGLE DAMAGE ROLL FUNCTION")
-    console.log (diceData)
     let hasFate=false
     let actor=game.actors.get(diceData.actor_id)
     let rollTitle=diceData.rollTitle
@@ -585,8 +571,6 @@ export async function SingleDamageRoll (diceData)
         if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
 	}while(explode);
-    console.log ("TOTAL ROLL")
-    console.log (totalRoll)
     let totalDamage=totalRoll
     rollResult+="</tr><tr><td class=\"failure damageapply \" data-player=\""+diceData.player+"\" data-damage=\""+totalDamage+"\" >"+game.i18n.localize("CUSTOS.chat.damageapply")+"</td>"
     let renderedRoll = await renderTemplate("systems/custos/templates/chat/damageTestResult.html", { 

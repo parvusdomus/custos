@@ -266,8 +266,6 @@ export default class CUSTOS_BEAST_SHEET extends ActorSheet{
 
     _onAddSpecialty(event)
     {
-      console.log ("ADD SPECIALITY")
-      event.preventDefault();
       const dataset = event.currentTarget.dataset;
       let specialtyList = this.object.system.peritiae?.[dataset.peritiaid]?.specialties ?? [];
       const currentSpecialties = duplicate( Object.values (specialtyList));
@@ -279,8 +277,6 @@ export default class CUSTOS_BEAST_SHEET extends ActorSheet{
 
     _onDeleteSpecialty(event)
     {
-      console.log ("DELETE SPECIALITY")
-      event.preventDefault();
       const dataset = event.currentTarget.dataset;
       Dialog.confirm
       ({

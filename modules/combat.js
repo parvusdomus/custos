@@ -81,8 +81,6 @@ export async function CombatSingleRoll (actor, item, target){
         d12: 0,
         d20: 0
     };
-    console.log ("ALLTOGETHER")
-    console.log (dice)
     new CombatRollDialogSingle(dice).render(true);
 
 }

@@ -18,7 +18,6 @@ export default class DamageRollDialogSingle extends FormApplication {
     /** @override */
     getData(dataset)
     {
-        console.log ("DAMAGE ROLL DIALOG GET DATA")
         let data= {
             actor_id: this.object.actor_id,
             player: this.object.player,

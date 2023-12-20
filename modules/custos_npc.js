@@ -259,7 +259,6 @@ export default class CUSTOS_NPC_SHEET extends ActorSheet{
 
     _onAddSpecialty(event)
     {
-      console.log ("ADD SPECIALITY")
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
       let specialtyList = this.object.system.peritiae?.[dataset.peritiaid]?.specialties ?? [];
@@ -272,7 +271,6 @@ export default class CUSTOS_NPC_SHEET extends ActorSheet{
 
     _onDeleteSpecialty(event)
     {
-      console.log ("DELETE SPECIALITY")
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
       Dialog.confirm
