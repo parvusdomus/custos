@@ -16,9 +16,15 @@ export async function CombatSingleRoll (actor, item, target){
     let equippedshield=actor.items.find((k) => k.type === "shield" && k.system.equipped === "worn");
     let shield=0;
     if (equippedshield){shield=equippedshield.system.parry}
+    let armor=0;
+    let equippedarmor=actor.items.find((k) => k.type === "armor" && k.system.equipped === "worn");
+    if (equippedarmor){armor=equippedarmor.system.protection}
     let targetequippedshield=target.items.find((k) => k.type === "shield" && k.system.equipped === "worn");
     let targetshield=0;
     if (targetequippedshield){targetshield=targetequippedshield.system.parry}
+    let targetarmor=0;
+    let targetequippedarmor=target.items.find((k) => k.type === "armor" && k.system.equipped === "worn");
+    if (targetequippedarmor){targetarmor=targetequippedarmor.system.protection}
     let targetequippedweapon=target.items.find((k) => k.type === "weapon" && (k.system.equipped === "onehand" || k.system.equipped === "twohand"));
     let targetweapondamage=3
     let targetweapondifficulty=0
@@ -61,7 +67,9 @@ export async function CombatSingleRoll (actor, item, target){
         rollTitle: rollname,
         targetroll: targetroll,
         shield: shield,
+        armor: armor,
         targetshield: targetshield,
+        targetarmor: targetarmor,
         targetname: target.name,
         targetimage: target.img,
         total: total,

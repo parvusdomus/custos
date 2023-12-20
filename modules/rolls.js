@@ -157,6 +157,8 @@ export async function SingleCombatRoll (diceData)
     let playerattacker=false
     let multiplier=1
     let weapondamage=diceData.damage
+    let armor=diceData.armor
+    let targetarmor=diceData.targetarmor
     let targetweapondamage=diceData.targetdamage
     let targetweapondifficulty=diceData.targetweapondifficulty
     let pietasOnTie=game.settings.get ("custos", "enablePietasonTie")
@@ -247,7 +249,7 @@ export async function SingleCombatRoll (diceData)
                     else{
                         rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                         
-                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     }
                     break;
                 }
@@ -259,7 +261,7 @@ export async function SingleCombatRoll (diceData)
                     }
                     rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                     
-                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     break;
                 }
                 case (margin > 6 && margin <= 9): 
@@ -270,7 +272,7 @@ export async function SingleCombatRoll (diceData)
                     }
                     rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                     
-                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     break;
                 }
                 case (margin > 9 && margin <= 12): 
@@ -281,7 +283,7 @@ export async function SingleCombatRoll (diceData)
                     }
                     rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                     
-                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     break;
                 }
                 case (margin > 12 && margin <= 15): 
@@ -292,7 +294,7 @@ export async function SingleCombatRoll (diceData)
                     }
                     rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                     
-                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     break;
                 }
                 case (margin >= 16): 
@@ -303,7 +305,7 @@ export async function SingleCombatRoll (diceData)
                     }
                     rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                     
-                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     break;
                 }
             }
@@ -338,7 +340,7 @@ export async function SingleCombatRoll (diceData)
                         else{
                             rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                             
-                            rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                            rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                         }
                         break;
                     }
@@ -350,7 +352,7 @@ export async function SingleCombatRoll (diceData)
                         }
                         rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                         
-                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                         break;
                     }
                     case (margin > 6 && margin <= 9): 
@@ -361,7 +363,7 @@ export async function SingleCombatRoll (diceData)
                         }
                         rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                         
-                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                         break;
                     }
                     case (margin > 9 && margin <= 12): 
@@ -372,7 +374,7 @@ export async function SingleCombatRoll (diceData)
                         }
                         rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                         
-                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                         break;
                     }
                     case (margin > 12 && margin <= 15): 
@@ -383,7 +385,7 @@ export async function SingleCombatRoll (diceData)
                         }
                         rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                         
-                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                         break;
                     }
                     case (margin >= 16): 
@@ -394,7 +396,7 @@ export async function SingleCombatRoll (diceData)
                         }
                         rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                         
-                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                         break;
                     }
                 }
@@ -434,7 +436,7 @@ export async function SingleCombatRoll (diceData)
                     else{
                         rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                         
-                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                        rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     }
                     break;
                 }
@@ -446,7 +448,7 @@ export async function SingleCombatRoll (diceData)
                     }
                     rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                     
-                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     break;
                 }
                 case (margin > 6 && margin <= 9): 
@@ -457,7 +459,7 @@ export async function SingleCombatRoll (diceData)
                     }
                     rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                     
-                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     break;
                 }
                 case (margin > 9 && margin <= 12): 
@@ -468,7 +470,7 @@ export async function SingleCombatRoll (diceData)
                     }
                     rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                     
-                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     break;
                 }
                 case (margin > 12 && margin <= 15): 
@@ -479,7 +481,7 @@ export async function SingleCombatRoll (diceData)
                     }
                     rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                     
-                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     break;
                 }
                 case (margin >= 16): 
@@ -490,7 +492,7 @@ export async function SingleCombatRoll (diceData)
                     }
                     rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
                     
-                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+weapondamage+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    rollResult+="</tr><tr><td class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+targetname+"\" data-pjImage=\""+targetimage+"\" data-weapondamage=\""+targetweapondamage+"\" data-armor=\""+armor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
                     break;
                 }
             }
@@ -571,8 +573,25 @@ export async function SingleDamageRoll (diceData)
         if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
 	}while(explode);
-    let totalDamage=totalRoll
-    rollResult+="</tr><tr><td class=\"failure damageapply \" data-player=\""+diceData.player+"\" data-damage=\""+totalDamage+"\" >"+game.i18n.localize("CUSTOS.chat.damageapply")+"</td>"
+
+    let armorRoll=0;
+    let armorRollText="1d"+diceData.armor
+    do
+	{
+        explode=false;
+		let roll = new Roll(armorRollText);
+		let evaluateRoll = roll.evaluate({async: false});
+        if (game.modules.get('dice-so-nice')?.active){
+            game.dice3d.showForRoll(roll,game.user,true,false,null)
+        }
+        
+        if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
+		armorRoll += Number(evaluateRoll.total)
+	}while(explode);
+    let totalDamage=totalRoll-armorRoll
+    if (totalDamage > 0){
+        rollResult+="</tr><tr><td class=\"failure damageapply \" data-player=\""+diceData.player+"\" data-damage=\""+totalDamage+"\" >"+game.i18n.localize("CUSTOS.chat.damageapply")+"</td>"
+    }
     let renderedRoll = await renderTemplate("systems/custos/templates/chat/damageTestResult.html", { 
         pjName: diceData.pjName,
         pjImage: diceData.pjImage,
