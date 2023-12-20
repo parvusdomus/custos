@@ -21,6 +21,7 @@ export default class DamageRollDialogSingle extends FormApplication {
         console.log ("DAMAGE ROLL DIALOG GET DATA")
         let data= {
             actor_id: this.object.actor_id,
+            player: this.object.player,
             rollTitle: this.object.rollTitle,
             total: this.object.total,
             fatigued: this.object.fatigued,
@@ -85,6 +86,7 @@ export default class DamageRollDialogSingle extends FormApplication {
 			    yes: () => {
                     diceData= {
                         actor_id: this.object.actor_id,
+                        player: this.object.player,
                         rollTitle: this.object.rollTitle,
                         total: this.object.total,
                         fatigued: this.object.fatigued,
@@ -115,6 +117,7 @@ export default class DamageRollDialogSingle extends FormApplication {
         if (Number(this.object.current) == Number(this.object.total)){
             diceData= {
                 actor_id: this.object.actor_id,
+                player: this.object.player,
                 rollTitle: this.object.rollTitle,
                 total: this.object.total,
                 fatigued: this.object.fatigued,

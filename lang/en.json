@@ -118,6 +118,7 @@
     "CUSTOS.ui.noselected": "You have to select a token to apply damage",
     "CUSTOS.ui.receivedamage": "receives damage: ",
     "CUSTOS.ui.die": "died",
+    "CUSTOS.ui.notallowed": "You are not allowed to do that",
 
     "CUSTOS.chat.failure": "Failure",
     "CUSTOS.chat.spendPietas": "Expend Pietas",

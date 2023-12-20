@@ -118,6 +118,7 @@
     "CUSTOS.ui.noselected": "Debes seleccionar un token para aplicar el daño",
     "CUSTOS.ui.receivedamage": "recibe daño: ",
     "CUSTOS.ui.die": "ha muerto",
+    "CUSTOS.ui.notallowed": "No tienes permiso para hacer eso",
 
     "CUSTOS.chat.failure": "Fallo",
     "CUSTOS.chat.spendPietas": "Gastar Pietas",

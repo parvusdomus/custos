@@ -54,6 +54,13 @@ export default class custosChat {
     const element = event.currentTarget;
     console.log ("DATASET")
     console.log (dataset)
+    console.log ("AM I EVIL?")
+    console.log (dataset.player)
+    console.log (game.user?.isGM)
+    if (dataset.player == "false" && game.user?.isGM == false){
+      ui.notifications.error(game.i18n.localize("CUSTOS.ui.notallowed"));
+      return
+    }
     const messageId = $(element)
       .parents('[data-message-id]')
       .attr('data-message-id');
@@ -62,6 +69,7 @@ export default class custosChat {
     let totaldamage=Number(dataset.weapondamage)*Number(dataset.multiplier)
     let rollDamageData = {
       actor_id: actor._id,
+      player: dataset.player,
       rollTitle: game.i18n.localize("CUSTOS.chat.damageroll"),
       total: totaldamage,
       fatigued: false,
@@ -93,6 +101,10 @@ export default class custosChat {
     const element = event.currentTarget;
     console.log ("DATASET")
     console.log (dataset)
+    if (dataset.player == "false" && game.user?.isGM == false){
+      ui.notifications.error(game.i18n.localize("CUSTOS.ui.notallowed"));
+      return
+    }
     let selected= Array.from(canvas.tokens.controlled)[0]?.actor;
     if (!selected){
       ui.notifications.warn(game.i18n.localize("CUSTOS.ui.noselected"));
@@ -101,13 +113,15 @@ export default class custosChat {
     console.log ("SELECTED")
     console.log (selected)
     let currentdamage=Number(selected.system.resources.life.value)
+    let maxdamage=Number(selected.system.resources.life.max)
     console.log ("CURRENT DAMAGE")
     console.log (currentdamage)
     currentdamage+=Number(dataset.damage)
-    if(currentdamage > Number(selected.system.resources.life.max)){currentdamage=(selected.system.resources.life.max)}
+
+    if(currentdamage > maxdamage){currentdamage=maxdamage}
     selected.update ({ 'system.resources.life.value': currentdamage });
     ui.notifications.info(selected.name+" "+game.i18n.localize("CUSTOS.ui.receivedamage")+dataset.damage);
-    if (Number(selected.system.resources.life.value) <= Number(selected.system.resources.life.max)){
+    if (currentdamage >= maxdamage){
       ui.notifications.info(selected.name+" "+game.i18n.localize("CUSTOS.ui.die"));
     }
 
