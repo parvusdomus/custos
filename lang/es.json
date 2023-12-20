@@ -112,6 +112,12 @@
     "CUSTOS.ui.noequipped": "No tienes el arma equipada.",
     "CUSTOS.ui.special": "Habilidades Especiales",
     "CUSTOS.ui.magic": "Poderes Mágicos",
+    "CUSTOS.ui.notarget": "No tienes objetivo, ¿quieres continuar?",
+    "CUSTOS.ui.notargetTitle": "Sin objetivo",
+    "CUSTOS.ui.multiplier": "Multiplicador",
+    "CUSTOS.ui.noselected": "Debes seleccionar un token para aplicar el daño",
+    "CUSTOS.ui.receivedamage": "recibe daño: ",
+    "CUSTOS.ui.die": "ha muerto",
 
     "CUSTOS.chat.failure": "Fallo",
     "CUSTOS.chat.spendPietas": "Gastar Pietas",
@@ -124,6 +130,10 @@
     "CUSTOS.chat.attacker": "es el atacante",
     "CUSTOS.chat.multiplier": "Multiplicador de Daño",
     "CUSTOS.chat.shieldblock": "Bloqueado con el Escudo",
+    "CUSTOS.chat.nodamage": "Golpea pero no hace daño",
+    "CUSTOS.chat.rolldamage": "->  Tirar daño  <-",
+    "CUSTOS.chat.damageroll": "Tirada de daño",
+    "CUSTOS.chat.damageapply": "->  Aplicar daño a seleccionado  <-",
 
     "CUSTOS.ui.diceValue": "Valor de Dado",
     "CUSTOS.ui.size": "Tamaño",

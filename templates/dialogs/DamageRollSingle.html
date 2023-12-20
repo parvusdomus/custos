@@ -19,31 +19,32 @@
             </td>
             <td>
                 <h3>
-                    <label>{{ localize "CUSTOS.ui.diff" }}:&nbsp;&nbsp;</label>
-                    {{#if fixed_dif}}
-                        <label name="difficulty" id="difficulty" data-dtype="Number" >{{dif}}</label>
+                    <label>{{ localize "CUSTOS.ui.damage" }}:&nbsp;&nbsp;</label>
+                    <label name="damage" id="damage" data-dtype="Number" >{{weapondamage}}</label>
+                </h3>
+            </td>
+            <td>
+                <h3>
+                    <label>{{ localize "CUSTOS.ui.multiplier" }}:&nbsp;&nbsp;</label>
+                    {{#if fixed_multiplier}}
+                        <label name="multiplier" id="multiplier" data-dtype="Number" >{{multiplier}}</label>
                     {{else}}
-                        <select name="difficulty" id="difficulty" data-dtype="Number">
-                            {{#select dif}}
-                            <option value="3">{{localize "CUSTOS.ui.easy"}}</option>
-                            <option value="6">{{localize "CUSTOS.ui.normal"}}</option>
-                            <option value="9">{{localize "CUSTOS.ui.challenging"}}</option>
-                            <option value="12">{{localize "CUSTOS.ui.hard"}}</option>
-                            <option value="15">{{localize "CUSTOS.ui.veryhard"}}</option>
-                            <option value="18">{{localize "CUSTOS.ui.extreme"}}</option>
+                        <select name="multiplier" id="multiplier" data-dtype="Number">
+                            {{#select multiplier}}
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                             {{/select}}
                         </select>
                     {{/if}}
                     
                 </h3>
             </td>
-            <td>
-                <h3><label>&nbsp;&nbsp;VS&nbsp;&nbsp;</label></h3>
-            </td>
-            <td class="target"><img src="{{targetimage}}"></td>
         </tr>
         <tr>
-            <td><hr/></td>
             <td><hr/></td>
             <td><hr/></td>
             <td><hr/></td>

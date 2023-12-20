@@ -1,16 +1,6 @@
 import CombatRollDialogSingle from "../modules/combatRollDialogSingle.js";
 
 export async function CombatSingleRoll (actor, item, target){
-    console.log ("COMBAT SINGLE ROLL")
-    console.log (actor)
-    console.log (target)
-    console.log (item)
-    console.log ("PERITIA")
-    console.log (item.system.peritia)
-    console.log ("PERITIA VALUE")
-    console.log (actor.system.peritiae[item.system.peritia].value)
-    console.log ("ITEM SPECIALITY")
-    console.log (item.system.speciality)
     let pvalue=actor.system.peritiae[item.system.peritia].value;
     let svalue=0;
     if (item.system.speciality!=""){
@@ -26,15 +16,16 @@ export async function CombatSingleRoll (actor, item, target){
     let equippedshield=actor.items.find((k) => k.type === "shield" && k.system.equipped === "worn");
     let shield=0;
     if (equippedshield){shield=equippedshield.system.parry}
-    console.log ("SHIELD")
-    console.log (equippedshield)
-    console.log (shield)
     let targetequippedshield=target.items.find((k) => k.type === "shield" && k.system.equipped === "worn");
     let targetshield=0;
     if (targetequippedshield){targetshield=targetequippedshield.system.parry}
-    console.log ("TARGET SHIELD")
-    console.log (targetequippedshield)
-    console.log (targetshield)
+    let targetequippedweapon=target.items.find((k) => k.type === "weapon" && (k.system.equipped === "onehand" || k.system.equipped === "twohand"));
+    let targetweapondamage=3
+    let targetweapondifficulty=0
+    if (targetequippedweapon){
+      targetweapondamage=targetequippedweapon.system.damage
+      targetweapondifficulty=targetequippedweapon.system.difficulty
+    }
     let fatigued=false;
       if ((Number(actor.system.resources.life.value)+Number(actor.system.total_encumbrance)) >= Number(actor.system.resources.life.max)){
         fatigued=true;
@@ -46,9 +37,6 @@ export async function CombatSingleRoll (actor, item, target){
         }
     }
     let rollname=actor.system.peritiae[item.system.peritia].label;
-    console.log ("WEAPON DIF AND DAM")
-    console.log (weapondifficulty)
-    console.log (weapondamage)
     let ndice=0;
     let sides=target.system.diceValue
     for (let [key, value] of Object.entries(target.system.peritiae.one.specialties)) {
@@ -81,6 +69,9 @@ export async function CombatSingleRoll (actor, item, target){
         ndice: 0,
         fixed_dif: true,
         dif: weapondifficulty,
+        targetweapondifficulty: targetweapondifficulty,
+        damage: weapondamage,
+        targetdamage: targetweapondamage,
         d3: 0,
         d4: 0,
         d5: 0,

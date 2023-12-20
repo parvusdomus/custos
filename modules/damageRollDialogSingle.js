@@ -1,5 +1,5 @@
-import {SingleCombatRoll} from "../modules/rolls.js";
-export default class CombatRollDialogSingle extends FormApplication {
+import {SingleDamageRoll} from "../modules/rolls.js";
+export default class DamageRollDialogSingle extends FormApplication {
     constructor(dataset) {
 	    super(dataset);
     }
@@ -8,7 +8,7 @@ export default class CombatRollDialogSingle extends FormApplication {
         return mergeObject(super.defaultOptions, {
             id: "custos-roll-dialog",
             title: "",
-            template: "/systems/custos/templates/dialogs/CombatRollSingle.html",
+            template: "/systems/custos/templates/dialogs/DamageRollSingle.html",
             classes: [ "custos-roll-dialog" ],
             popout: false,
             buttons: [],
@@ -18,22 +18,18 @@ export default class CombatRollDialogSingle extends FormApplication {
     /** @override */
     getData(dataset)
     {
+        console.log ("DAMAGE ROLL DIALOG GET DATA")
         let data= {
-            fatigued: this.object.fatigued,
             actor_id: this.object.actor_id,
             rollTitle: this.object.rollTitle,
-            targetimage: this.object.targetimage,
-            targetname: this.object.targetname,
-            targetroll: this.object.targetroll,
-            shield: this.object.shield,
-            targetshield: this.object.targetshield,
-            damage: this.object.damage,
-            targetdamage: this.object.targetdamage,
-            targetweapondifficulty: this.object.targetweapondifficulty,
-            fixed_dif: this.object.fixed_dif,
-            dif: this.object.dif,
-            current: this.object.current,
             total: this.object.total,
+            fatigued: this.object.fatigued,
+            pjName: this.object.pjName,
+            pjImage: this.object.pjImage,
+            multiplier: this.object.multiplier,
+            fixed_multiplier: this.object.fixed_multiplier,
+            weapondamage: this.object.weapondamage,
+            current: this.object.current,
             ndice: this.object.ndice,
             d3: this.object.d3,
             d4: this.object.d4,
@@ -88,19 +84,16 @@ export default class CombatRollDialogSingle extends FormApplication {
 			    content: game.i18n.localize("CUSTOS.ui.fewpoints"),
 			    yes: () => {
                     diceData= {
-                        difficulty: this.object.dif,
-                        rollTitle: this.object.rollTitle,
                         actor_id: this.object.actor_id,
-                        current: this.object.current,
+                        rollTitle: this.object.rollTitle,
                         total: this.object.total,
-                        targetimage: this.object.targetimage,
-                        targetname: this.object.targetname,
-                        targetroll: this.object.targetroll,
-                        shield: this.object.shield,
-                        targetshield: this.object.targetshield,
-                        damage: this.object.damage,
-                        targetdamage: this.object.targetdamage,
-                        targetweapondifficulty: this.object.targetweapondifficulty,
+                        fatigued: this.object.fatigued,
+                        pjName: this.object.pjName,
+                        pjImage: this.object.pjImage,
+                        multiplier: this.object.multiplier,
+                        fixed_multiplier: this.object.fixed_multiplier,
+                        weapondamage: this.object.weapondamage,
+                        current: this.object.current,
                         ndice: this.object.ndice,
                         d3: this.object.d3,
                         d4: this.object.d4,
@@ -111,7 +104,7 @@ export default class CombatRollDialogSingle extends FormApplication {
                         d12: this.object.d12,
                         d20: this.object.d20
                     };
-                    SingleCombatRoll (diceData)
+                    SingleDamageRoll (diceData)
                     this.close();
                 },
 			    no: () => {return},
@@ -120,26 +113,17 @@ export default class CombatRollDialogSingle extends FormApplication {
         }
 
         if (Number(this.object.current) == Number(this.object.total)){
-            if (this.object.fixed_dif==true){
-                this.object.dif=this.object.dif;
-            }
-            else{
-                this.object.dif= document.getElementById("difficulty").value;
-            }
             diceData= {
-                difficulty: this.object.dif,
                 actor_id: this.object.actor_id,
                 rollTitle: this.object.rollTitle,
-                targetimage: this.object.targetimage,
-                targetname: this.object.targetname,
-                targetroll: this.object.targetroll,
-                shield: this.object.shield,
-                targetshield: this.object.targetshield,
-                damage: this.object.damage,
-                targetdamage: this.object.targetdamage,
-                targetweapondifficulty: this.object.targetweapondifficulty,
-                current: this.object.current,
                 total: this.object.total,
+                fatigued: this.object.fatigued,
+                pjName: this.object.pjName,
+                pjImage: this.object.pjImage,
+                multiplier: this.object.multiplier,
+                fixed_multiplier: this.object.fixed_multiplier,
+                weapondamage: this.object.weapondamage,
+                current: this.object.current,
                 ndice: this.object.ndice,
                 d3: this.object.d3,
                 d4: this.object.d4,
@@ -150,7 +134,7 @@ export default class CombatRollDialogSingle extends FormApplication {
                 d12: this.object.d12,
                 d20: this.object.d20
             };
-            SingleCombatRoll (diceData)
+            SingleDamageRoll (diceData)
             this.close();
             
         }
@@ -161,11 +145,11 @@ export default class CombatRollDialogSingle extends FormApplication {
     {
         const element = event.currentTarget;
         const dataset = event.currentTarget.dataset;
-        if (this.object.fixed_dif==true){
-            this.object.dif=this.object.dif;
+        if (this.object.fixed_multiplier==true){
+            this.object.multiplier=this.object.multiplier;
         }
         else{
-            this.object.dif= document.getElementById("difficulty").value;
+            this.object.multiplier= Number(document.getElementById("multiplier").value)*Number(this.object.weapondamage);
         }
         
         switch (dataset.sides){

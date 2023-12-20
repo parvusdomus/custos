@@ -112,6 +112,12 @@
     "CUSTOS.ui.noequipped": "This weapon is not equipped.",
     "CUSTOS.ui.special": "Special Habilities",
     "CUSTOS.ui.magic": "Magic Powers",
+    "CUSTOS.ui.notarget": "You have no target, are you sure you want to continue?",
+    "CUSTOS.ui.notargetTitle": "No target",
+    "CUSTOS.ui.multiplier": "Multiplier",
+    "CUSTOS.ui.noselected": "You have to select a token to apply damage",
+    "CUSTOS.ui.receivedamage": "receives damage: ",
+    "CUSTOS.ui.die": "died",
 
     "CUSTOS.chat.failure": "Failure",
     "CUSTOS.chat.spendPietas": "Expend Pietas",
@@ -124,6 +130,10 @@
     "CUSTOS.chat.attacker": "is the attacker",
     "CUSTOS.chat.multiplier": "Damage multiplier",
     "CUSTOS.chat.shieldblock": "Blocked with Shield",
+    "CUSTOS.chat.nodamage": "Hit for no damage",
+    "CUSTOS.chat.rolldamage": "->  Roll damage  <-",
+    "CUSTOS.chat.damageroll": "Damage roll",
+    "CUSTOS.chat.damageapply": "->  Apply damage to selected  <-",
 
     "CUSTOS.ui.diceValue": "Dice Value",
     "CUSTOS.ui.size": "Size",

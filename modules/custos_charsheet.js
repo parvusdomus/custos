@@ -391,6 +391,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       html.find('a.resource-change').click(this._onResourceChange.bind(this));
       html.find('a.ritual-roll').click(this._onRitualRoll.bind(this));
       html.find('a.weapon-roll').click(this._onWeaponRoll.bind(this));
+      html.find('a.damage-roll').click(this._onDamageRoll.bind(this));
     }
 
     _onItemCreate(event) {
@@ -922,5 +923,26 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       }
       return;
     }
+
+    async _onDamageRoll(event)
+    {
+      console.log ("ON DAMAGE ROLL")
+      event.preventDefault();
+      const dataset = event.currentTarget.dataset;
+      let item=this.actor.items.get(dataset.item_id)
+      let actor=this.actor
+      if (item.system.equipped=="dropped" || item.system.equipped=="inbag"){
+        ui.notifications.warn(game.i18n.localize("CUSTOS.ui.noequipped"));
+        return;
+      }
+      let target= Array.from(game.user.targets)[0]?.actor;
+      console.log ("ACTOR")
+      console.log (actor)
+      console.log ("ITEM")
+      console.log (item)
+      console.log ("TARGET")
+      console.log (target)
+    }
+
   
   }
