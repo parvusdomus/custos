@@ -50,6 +50,7 @@ export default class DamageRollDialogSingle extends FormApplication {
         super.activateListeners(html);
         html.find(".roll-dice").on('click', this._onDieRoll.bind(this));
         html.find(".change_dice").on('click', this._onChangeDice.bind(this));
+        html.find(".change_multiplier").on('click', this._onChangeMultiplier.bind(this));
     }
     
     async _onDieRoll(event)
@@ -246,6 +247,20 @@ export default class DamageRollDialogSingle extends FormApplication {
         this.object.current=(this.object.d3*3)+(this.object.d4*4)+(this.object.d5*5)+(this.object.d6*6)+(this.object.d8*8)+(this.object.d10*10)+(this.object.d12*12)+(this.object.d20*20)
         this.object.ndice=this.object.d3+this.object.d4+this.object.d5+this.object.d6+this.object.d8+this.object.d10+this.object.d12+this.object.d20
         
+        this.render()
+    }
+
+    _onChangeMultiplier(event)
+    {
+        const element = event.currentTarget;
+        const dataset = event.currentTarget.dataset;
+        if (this.object.fixed_multiplier==true){
+            this.object.multiplier=this.object.multiplier;
+        }
+        else{
+            this.object.multiplier= Number(document.getElementById("multiplier").value);
+            this.object.total=Number(this.object.weapondamage)*Number(this.object.multiplier)
+        }
         this.render()
     }
 
