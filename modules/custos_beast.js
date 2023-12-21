@@ -314,9 +314,6 @@ export default class CUSTOS_BEAST_SHEET extends ActorSheet{
     {
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
-      console.log ("ON DAMAGE ROLL")
-      console.log ("DATASET")
-      console.log (dataset)
       let item=this.actor.items.get(dataset.item_id)
       let actor=this.actor
       let player=false
@@ -328,10 +325,6 @@ export default class CUSTOS_BEAST_SHEET extends ActorSheet{
         player=true
       }
       let target= Array.from(game.user.targets)[0]?.actor;
-      console.log ("ITEM ACTOR AND TARGET")
-      console.log (item)
-      console.log (actor)
-      console.log (target)
 
       let multiplier=1
       let weapondamage=item.system.damage
