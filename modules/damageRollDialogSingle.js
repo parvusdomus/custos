@@ -73,11 +73,11 @@ export default class DamageRollDialogSingle extends FormApplication {
 
         if (Number(this.object.current) < Number(this.object.total)){
             ui.notifications.warn(game.i18n.localize("CUSTOS.ui.fewpoints"));
-            if (this.object.fixed_dif==true){
-                this.object.dif=this.object.dif;
+            if (this.object.fixed_multiplier==true){
+                this.object.multiplier=this.object.multiplier;
             }
             else{
-                this.object.dif= document.getElementById("difficulty").value;
+                this.object.multiplier= document.getElementById("multiplier").value;
             }
             Dialog.confirm
             ({
