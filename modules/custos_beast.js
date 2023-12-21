@@ -1,4 +1,5 @@
 import {RegularNPCDiceRoll} from "../modules/rolls.js";
+import DamageRollDialogSingle from "../modules/damageRollDialogSingle.js";
 export default class CUSTOS_BEAST_SHEET extends ActorSheet{
     static get defaultOptions() {
       return mergeObject(super.defaultOptions, {
@@ -86,6 +87,7 @@ export default class CUSTOS_BEAST_SHEET extends ActorSheet{
       html.find('a.weapon-equip').click(this._onWeaponEquip.bind(this));
       html.find('a.object-equip').click(this._onObjectEquip.bind(this));
       html.find('a.armor-equip').click(this._onArmorEquip.bind(this));
+      html.find('a.damage-roll').click(this._onDamageRoll.bind(this));
     }
 
     _onItemCreate(event) {
@@ -306,6 +308,101 @@ export default class CUSTOS_BEAST_SHEET extends ActorSheet{
     };
       RegularNPCDiceRoll (diceData)
       return;
+    }
+
+    async _onDamageRoll(event)
+    {
+      event.preventDefault();
+      const dataset = event.currentTarget.dataset;
+      console.log ("ON DAMAGE ROLL")
+      console.log ("DATASET")
+      console.log (dataset)
+      let item=this.actor.items.get(dataset.item_id)
+      let actor=this.actor
+      let player=false
+      if (item.system.equipped=="dropped" || item.system.equipped=="inbag"){
+        ui.notifications.warn(game.i18n.localize("CUSTOS.ui.noequipped"));
+        return;
+      }
+      if (actor.type=="Custos"){
+        player=true
+      }
+      let target= Array.from(game.user.targets)[0]?.actor;
+      console.log ("ITEM ACTOR AND TARGET")
+      console.log (item)
+      console.log (actor)
+      console.log (target)
+
+      let multiplier=1
+      let weapondamage=item.system.damage
+      let totaldamage=Number(weapondamage)*Number(multiplier)
+      let targetarmor=0
+      if (target){
+        let targetequippedarmor=target.items.find((k) => k.type === "armor" && k.system.equipped === "worn");
+        if (targetequippedarmor){targetarmor=targetequippedarmor.system.protection}
+        let rollDamageData = {
+          actor_id: actor._id,
+          player: player,
+          rollTitle: game.i18n.localize("CUSTOS.chat.damageroll"),
+          total: totaldamage,
+          armor: targetarmor,
+          fatigued: false,
+          pjName: actor.name,
+          pjImage: actor.img,
+          multiplier: multiplier,
+          fixed_multiplier: false,
+          weapondamage: weapondamage,
+          current:0,
+          ndice: 0,
+          d3: 0,
+          d4: 0,
+          d5: 0,
+          d6: 0,
+          d8: 0,
+          d10: 0,
+          d12: 0,
+          d20: 0
+        }
+    
+        new DamageRollDialogSingle(rollDamageData).render(true);
+      }
+      else {
+        Dialog.confirm
+            ({
+		        title: game.i18n.localize("CUSTOS.ui.notargetTitle"),
+			    content: game.i18n.localize("CUSTOS.ui.notarget"),
+			    yes: () => {
+            let rollDamageData = {
+              actor_id: actor._id,
+              player: player,
+              rollTitle: game.i18n.localize("CUSTOS.chat.damageroll"),
+              total: totaldamage,
+              armor: targetarmor,
+              fatigued: false,
+              pjName: actor.name,
+              pjImage: actor.img,
+              multiplier: multiplier,
+              fixed_multiplier: false,
+              weapondamage: weapondamage,
+              current:0,
+              ndice: 0,
+              d3: 0,
+              d4: 0,
+              d5: 0,
+              d6: 0,
+              d8: 0,
+              d10: 0,
+              d12: 0,
+              d20: 0
+            }
+        
+            new DamageRollDialogSingle(rollDamageData).render(true);
+            },
+			    no: () => {return},
+			    defaultYes: false
+		    });
+      }
+      
     }
 
   
