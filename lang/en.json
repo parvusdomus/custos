@@ -133,7 +133,7 @@
     "CUSTOS.chat.shieldblock": "Blocked with Shield",
     "CUSTOS.chat.nodamage": "Hit for no damage",
     "CUSTOS.chat.rolldamage": "->  Roll damage  <-",
-    "CUSTOS.chat.damageroll": "Damage roll",
+    "CUSTOS.chat.damageroll": "Total Damage",
     "CUSTOS.chat.damageapply": "->  Apply damage to selected  <-",
 
     "CUSTOS.ui.diceValue": "Dice Value",

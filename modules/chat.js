@@ -18,7 +18,17 @@ export default class custosChat {
     if (actor.type=="Custos" && Number(actor.system.resources.pietas.value) < Number(actor.system.resources.pietas.max)){
       let pietasValue = Number(actor.system.resources.pietas.value)+1
       actor.update ({ 'system.resources.pietas.value': pietasValue });
-      rollResult="<td class=\"success\">"+game.i18n.localize("CUSTOS.chat.marginal")+"</td>"
+      if (dataset.isCombat=="true"){
+        if (dataset.multiplier==0){
+          rollResult+="</tr><tr><td class=\"success\">"+game.i18n.localize("CUSTOS.chat.nodamage")+"</td>"
+        }
+        else{
+          rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x1</td>"
+        }
+      }
+      else{
+        rollResult="<td class=\"success\">"+game.i18n.localize("CUSTOS.chat.marginal")+"</td>"
+      }
       let msg_content="<div class=\"spent-pietas-message\"><h3>"+dataset.name+" "+game.i18n.localize("CUSTOS.chat.spentPietas")+"</h3></div>"
       let chatData = {
         content: msg_content,

@@ -313,7 +313,16 @@ export async function SingleCombatRoll (diceData)
         else{
             if (Number(totalRoll) == Number(totaltargetRoll)){
                 if (hasFate && pietasOnTie){
-                    rollResult="<td class=\"spend\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
+                    if (Number(diceData.difficulty)==0){
+                        multiplier=0
+                    }
+                    margin = Number(totaltargetRoll) - Number(totalRoll) - Number (shield)
+                    if (margin==0){
+                        rollResult="<td class=\"spend\" data-name=\""+actor.name+"\" data-isCombat=\"true\" data-multiplier=\""+multiplier+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
+                    }
+                    else{
+                        rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.tie")+"</td>"
+                    }
                 }
                 else{
                     multiplier=0
@@ -329,6 +338,12 @@ export async function SingleCombatRoll (diceData)
                         multiplier=0
                         rollResult+="</tr><tr><td class=\"success\">"+game.i18n.localize("CUSTOS.chat.shieldblock")+"</td>"
                         break;
+                    }
+                    case (margin == 0):
+                    {
+                        if (Number(totalRoll) == Number(totaltargetRoll)){
+                            rollResult="<td class=\"spend\" data-name=\""+actor.name+"\" data-isCombat=\"true\" data-multiplier=\""+multiplier+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
+                        }
                     }
                     case (margin > 0 && margin <= 3): 
                     {
@@ -407,7 +422,7 @@ export async function SingleCombatRoll (diceData)
     else{
         if (Number(totalRoll) == Number(diceData.difficulty)){
             if (hasFate && pietasOnTie){
-                rollResult="<td class=\"spend\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
+                rollResult="<td class=\"spendcombat\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
             }
             else{
                 rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failure")+"</td>"
@@ -589,8 +604,14 @@ export async function SingleDamageRoll (diceData)
 		armorRoll += Number(evaluateRoll.total)
 	}while(explode);
     let totalDamage=totalRoll-armorRoll
+    if (totalDamage < 0){
+        totalDamage = 0
+    }
     if (totalDamage > 0){
         rollResult+="</tr><tr><td class=\"failure damageapply \" data-player=\""+diceData.player+"\" data-damage=\""+totalDamage+"\" >"+game.i18n.localize("CUSTOS.chat.damageapply")+"</td>"
+    }
+    else{
+        rollResult+="</tr><tr><td class=\"success\">"+game.i18n.localize("CUSTOS.chat.nodamage")+"</td>"
     }
     let renderedRoll = await renderTemplate("systems/custos/templates/chat/damageTestResult.html", { 
         pjName: diceData.pjName,
