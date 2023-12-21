@@ -42,6 +42,7 @@ export async function CombatSingleRoll (actor, item, target){
           total=3
         }
     }
+    
     let rollname=actor.system.peritiae[item.system.peritia].label;
     let ndice=0;
     let sides=target.system.diceValue
@@ -61,6 +62,14 @@ export async function CombatSingleRoll (actor, item, target){
         }
     }
     let targetroll=ndice+"d"+sides;
+    let targethasFate=false
+    if (target.type=="Custos" && Number(target.system.resources.pietas.value) < Number(target.system.resources.pietas.max)){
+      targethasFate=true
+    }
+    if (target.type=="npc" || target.type=="beast"){
+      targethasFate=target.system.hasFate
+    }
+
     let dice= {
         fatigued: fatigued,
         actor_id: actor._id,
@@ -72,6 +81,7 @@ export async function CombatSingleRoll (actor, item, target){
         targetarmor: targetarmor,
         targetname: target.name,
         targetimage: target.img,
+        targethasFate: targethasFate,
         total: total,
         current:0,
         ndice: 0,

@@ -77,6 +77,7 @@ export default class custosChat {
       rollTitle: game.i18n.localize("CUSTOS.chat.damageroll"),
       total: totaldamage,
       armor: dataset.armor,
+      targethasFate: dataset.targethasFate,
       fatigued: false,
       pjName: dataset.name,
       pjImage: dataset.pjimage,
