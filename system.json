@@ -43,7 +43,7 @@
         "flags": {}
       }
     ],
-    "initiative": "@initiative",
+    "initiative": "1",
     "gridDistance": 2,
     "gridUnits": "m",
     "primaryTokenAttribute": "resources.resolve",
