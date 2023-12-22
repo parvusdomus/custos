@@ -375,14 +375,24 @@
     text-shadow: none;
 }
 
-.editor-content, .editor, .tox,.tox-edit-area, .tox-tinymce
+.custossheet {
+    height: 700px;
+}
+
+.custossheet hr{
+    border: 2px solid var(--dark-gold);
+}
+
+.editor {
+    height: 100%;
+}
+.editor-content
 {
     list-style: circle;
     text-align: left;
     padding: 5px;
 	background-color: rgba(245, 245, 220, 0.5);
-    color: #000000;
-    height: 400px;
+    color: var(--crimson);
 }
 
 .dice-roll .dice-tooltip {
@@ -440,34 +450,6 @@
 }
 
 
-.dice-breakdown{
-    text-align: center;
-}
-
-.d-flex{
-    display:flex!important;
-    align-items: center;
-}
-
-.regular-success {
-    background-color: rgba(0, 128, 0, 0.5);
-    color: white;
-}
-
-.critical-success {
-    background-color: rgba(0, 0, 128, 0.5);
-    color: white;
-}
-
-.regular-failure {
-    background-color: rgba(128, 128, 128, 0.5);
-    color: white;
-}
-
-.critical-failure {
-    background-color: rgba(128, 0, 0, 0.5);
-    color: white;
-}
 
 .disabled {
     background-color: rgba(128, 128, 128, 0.5);
@@ -660,77 +642,6 @@
     width: 50px;
 }
 
-.provintia-title input {
- background-color: var(--input-bg-color);
- font-family: var(--bold-font-name);
- color: var(--crimson);
- text-align: center;
-}
-
-.provintia-title h2 {
-    border-bottom: none;
-}
-
-.provintia table{
-    background: none;
-    border: none;
-    font-family: var(--font-name);
-    width: 100%;
-}
-
-.provintia tr:nth-child(even){
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.provintia tr:nth-child(odd){
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.provintia h3 {
-    border-bottom: none;
-    font-family: TrajanBold;
-    color: var(--dark-gold);
-    text-align: center;
-}
-
-.provintia td {
-    font-family: TrajanBold;
-    color: var(--dark-gold);
-    text-align: center;
-    font-weight: 900;
-}
-
-.provintia input{
-    font-family: var(--font-name);
-    background-color: var(--input-bg-color);
-    color: var(--crimson);
-    border: none;
-    clip-path: circle(50% at 50% 50%);
-    text-align: center;
-    height: 40px;
-    width: 40px;
-}
-
-.provintia select{
-    font-family: var(--font-name);
-    background-color: var(--input-bg-color);
-    color: var(--crimson);
-    border: none;
-    text-align: center;
-}
-
-.provintia_languages input{
-    font-family: var(--font-name);
-    background-color: var(--input-bg-color);
-    color: var(--crimson);
-    border: none;
-    text-align: center;
-    clip-path: none;
-    height: 20px;
-    width: 100%;
-
-}
-
 .resources table{
     background: none;
     border: none;
@@ -766,90 +677,6 @@
 
 .resources td:nth-child(2){
     width: 10%;
-}
-
-
-.weapon-title input {
-    background-color: var(--input-bg-color);
-    font-family: var(--bold-font-name);
-    color: var(--crimson);
-    text-align: center;
-}
-   
-.weapon-title h2 {
-    border-bottom: none;
-}
-   
-.weapon table{
-    background: none;
-    border: none;
-    font-family: var(--font-name);
-    width: 100%;
-}
-
-.weapon tr:nth-child(even){
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.weapon tr:nth-child(odd){
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.weapon h3 {
-    border-bottom: none;
-    font-family: TrajanBold;
-    color: var(--dark-gold);
-    text-align: center;
-}
-
-.weapon td {
-    font-family: TrajanBold;
-    color: var(--dark-gold);
-    text-align: center;
-    font-weight: 900;
-}
-
-.weapon input{
-    font-family: var(--font-name);
-    background-color: var(--input-bg-color);
-    color: var(--crimson);
-    border: none;
-    clip-path: circle(50% at 50% 50%);
-    text-align: center;
-    height: 40px;
-    width: 40px;
-}
-
-.weapon select{
-    font-family: var(--font-name);
-    background-color: var(--input-bg-color);
-    color: var(--crimson);
-    border: none;
-    text-align: center;
-    width: 115px;
-}
-
-.weapon img{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: var(--input-bg-color);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border: none;
-    color: var(--crimson);
-}
-
-.weapon_line2 input{
-    font-family: var(--font-name);
-    background-color: var(--input-bg-color);
-    color: var(--crimson);
-    border: none;
-    clip-path: none;
-    text-align: center;
-    height: 20px;
-    width: 125px;
 }
 
 .inventory_weapon table {
@@ -1035,78 +862,6 @@
 
 .inventory_armors td{
     color: var(--crimson);
-}
-
-   
-.ritual table{
-    background: none;
-    border: none;
-    font-family: var(--font-name);
-    width: 100%;
-}
-
-.ritual tr:nth-child(even){
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.ritual tr:nth-child(odd){
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.ritual h3 {
-    border-bottom: none;
-    font-family: TrajanBold;
-    color: var(--dark-gold);
-    text-align: center;
-}
-
-.ritual td {
-    font-family: TrajanBold;
-    color: var(--dark-gold);
-    text-align: center;
-    font-weight: 900;
-}
-
-.ritual input{
-    font-family: var(--font-name);
-    background-color: var(--input-bg-color);
-    color: var(--crimson);
-    border: none;
-    clip-path: circle(50% at 50% 50%);
-    text-align: center;
-    height: 40px;
-    width: 40px;
-}
-
-.ritual select{
-    font-family: var(--font-name);
-    background-color: var(--input-bg-color);
-    color: var(--crimson);
-    border: none;
-    text-align: center;
-}
-
-.ritual img{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: var(--input-bg-color);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border: none;
-    color: var(--crimson);
-}
-
-.ritual_line2 input{
-    font-family: var(--font-name);
-    background-color: var(--input-bg-color);
-    color: var(--crimson);
-    border: none;
-    clip-path: none;
-    text-align: center;
-    height: 20px;
-    width: 234px;
 }
 
 .magic_talent table {

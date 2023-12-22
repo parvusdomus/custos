@@ -329,14 +329,13 @@
     color: var(--crimson);
 }
 
-.knowledge-box {
-    background-color: red;
+.knowledge {
+    height: 115px;
 }
 
-.knowledge-box textarea{
-    background-color: var(--input-bg-color);
-    border: none;
-    font-family: var(--font-name);
-    color: var(--crimson);
-    text-align: left;
+.npcsheet {
+    height: 500px;
+}
+.npcsheet hr{
+    border: 2px solid var(--dark-gold);
 }

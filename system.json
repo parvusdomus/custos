@@ -19,7 +19,8 @@
     "styles": [
       "style/custos.css",
       "style/npc.css",
-      "style/dialogs.css"
+      "style/dialogs.css",
+      "style/items.css"
     ],
     "media": [
       {
