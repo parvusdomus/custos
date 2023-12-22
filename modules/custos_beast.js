@@ -83,6 +83,7 @@ export default class CUSTOS_BEAST_SHEET extends ActorSheet{
       html.find('a.regular-roll').click(this._onDiceRoll.bind(this));
       html.find('a.item-edit').click(this._onEditClick.bind(this));
       html.find('a.item-show').click(this._onShowClick.bind(this));
+      html.find('a.knowledge-show').click(this._onShowKnowledge.bind(this));
 		  html.find('a.item-delete').click(this._onDeleteClick.bind(this));
       html.find('a.weapon-equip').click(this._onWeaponEquip.bind(this));
       html.find('a.object-equip').click(this._onObjectEquip.bind(this));
@@ -123,15 +124,75 @@ export default class CUSTOS_BEAST_SHEET extends ActorSheet{
       event.preventDefault();
 		  const dataset = event.currentTarget.dataset;
 		  const item = this.actor.items.get(dataset.id);
-      let chatData = {}
-      let msg_content = "<p><span>"+item.name+" </span>"
-      if (item.system.tag != ""){msg_content+="<span style=\"background-color:"+item.system.bg_color+"; color:"+item.system.text_color+"\">&nbsp;"+item.system.tag+"&nbsp;</span>"}
-      msg_content+="</p>"
-      if (item.system.desc != ""){msg_content+="<hr>"+item.system.desc}
-      chatData = {
-        content: msg_content,
-      };
-      ChatMessage.create(chatData);
+      let itemType=""
+      switch (item.type){
+        case "special":
+        {
+          itemType=game.i18n.localize("TYPES.Item.special")
+          break
+        }
+        case "magic":
+        {
+          itemType=game.i18n.localize("TYPES.Item.magic")
+          break
+        }
+      }
+      let itemShow = await renderTemplate("systems/custos/templates/chat/itemShow.html", { 
+        itemName: item.name,
+        itemImage: item.img,
+        itemType: itemType,
+        itemDescription: item.system.description
+    });
+    const chatData = {
+        speaker: ChatMessage.getSpeaker(),
+        content: itemShow
+    };
+
+    ChatMessage.create(chatData);
+		  return;
+    }
+
+    async _onShowKnowledge(event, data)
+	  {
+      event.preventDefault();
+		  const dataset = event.currentTarget.dataset;
+      let actor=this.actor
+      console.log ("SHOW KNOWLEDGE")
+      console.log (actor)
+      let knowledgeLevel=""
+      let knowledgeText=""
+      switch (dataset.level){
+        case "one":
+        {
+          knowledgeLevel=game.i18n.localize("CUSTOS.chat.marginal")
+          knowledgeText=actor.system.knowledge.one
+          break
+        }
+        case "two":
+        {
+          knowledgeLevel=game.i18n.localize("CUSTOS.chat.regular")
+          knowledgeText=actor.system.knowledge.two
+          break
+        }
+        case "three":
+        {
+          knowledgeLevel=game.i18n.localize("CUSTOS.chat.extraordinary")
+          knowledgeText=actor.system.knowledge.three
+          break
+        }
+      }
+      let knowledgeContent = await renderTemplate("systems/custos/templates/chat/itemShow.html", { 
+        itemName: actor.name,
+        itemImage: actor.img,
+        itemType: knowledgeLevel,
+        itemDescription: knowledgeText
+    });
+    const chatData = {
+        speaker: ChatMessage.getSpeaker(),
+        content: knowledgeContent
+    };
+
+    ChatMessage.create(chatData);
 		  return;
     }
     

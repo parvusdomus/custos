@@ -2,46 +2,40 @@
     <table>
         <tr>
             <th><h2><hr /></h2></th>
-            <th><h2><label>{{localize "CUSTOS.ui.success1"}}&nbsp;&nbsp;</label><a class="item-show" data-id="{{item._id}}"><i class="fas fa-eye"></i></a></h2></th>
+            <th><h2><label>{{localize "CUSTOS.ui.success1"}}&nbsp;&nbsp;</label><a class="knowledge-show" data-level="one"><i class="fas fa-eye"></i></a></h2></th>
             <th><h2><hr /></h2></th>
         </tr>
     </table>
 </div>
 
 <div clas="knowledge-box">
-    <textarea name="system.knowledge.one" value="{{actor.system.knowledge.one}}" rows="6" cols="50">
-      {{actor.system.knowledge.one}}
-    </textarea>
+    {{editor actor.system.knowledge.one target="system.knowledge.one" button=true owner=owner editable=true}}
 </div>
 
 <div class="title">
     <table>
         <tr>
             <th><h2><hr /></h2></th>
-            <th><h2><label>{{localize "CUSTOS.ui.success2"}}&nbsp;&nbsp;</label><a class="item-show" data-id="{{item._id}}"><i class="fas fa-eye"></i></a></h2></th>
+            <th><h2><label>{{localize "CUSTOS.ui.success2"}}&nbsp;&nbsp;</label><a class="knowledge-show" data-level="two"><i class="fas fa-eye"></i></a></h2></th>
             <th><h2><hr /></h2></th>
         </tr>
     </table>
 </div>
 
 <div clas="knowledge">
-    <textarea name="system.knowledge.two" value="{{actor.system.knowledge.two}}" rows="6" cols="50">
-      {{actor.system.knowledge.two}}
-    </textarea>
+    {{editor actor.system.knowledge.two target="system.knowledge.two" button=true owner=owner editable=true}}
 </div>
 
 <div class="title">
     <table>
         <tr>
             <th><h2><hr /></h2></th>
-            <th><h2><label>{{localize "CUSTOS.ui.success3"}}&nbsp;&nbsp;</label><a class="item-show" data-id="{{item._id}}"><i class="fas fa-eye"></i></a></h2></th>
+            <th><h2><label>{{localize "CUSTOS.ui.success3"}}&nbsp;&nbsp;</label><a class="knowledge-show" data-level="three"><i class="fas fa-eye"></i></a></h2></th>
             <th><h2><hr /></h2></th>
         </tr>
     </table>
 </div>
 
 <div clas="knowledge">
-    <textarea name="system.knowledge.three" value="{{actor.system.knowledge.three}}" rows="6" cols="50">
-      {{actor.system.knowledge.three}}
-    </textarea>
+    {{editor actor.system.knowledge.three target="system.knowledge.three" button=true owner=owner editable=true}}
 </div>

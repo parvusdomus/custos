@@ -116,15 +116,31 @@ export default class CUSTOS_NPC_SHEET extends ActorSheet{
       event.preventDefault();
 		  const dataset = event.currentTarget.dataset;
 		  const item = this.actor.items.get(dataset.id);
-      let chatData = {}
-      let msg_content = "<p><span>"+item.name+" </span>"
-      if (item.system.tag != ""){msg_content+="<span style=\"background-color:"+item.system.bg_color+"; color:"+item.system.text_color+"\">&nbsp;"+item.system.tag+"&nbsp;</span>"}
-      msg_content+="</p>"
-      if (item.system.desc != ""){msg_content+="<hr>"+item.system.desc}
-      chatData = {
-        content: msg_content,
-      };
-      ChatMessage.create(chatData);
+      let itemType=""
+      switch (item.type){
+        case "special":
+        {
+          itemType=game.i18n.localize("TYPES.Item.special")
+          break
+        }
+        case "magic":
+        {
+          itemType=game.i18n.localize("TYPES.Item.magic")
+          break
+        }
+      }
+      let itemShow = await renderTemplate("systems/custos/templates/chat/itemShow.html", { 
+        itemName: item.name,
+        itemImage: item.img,
+        itemType: itemType,
+        itemDescription: item.system.description
+    });
+    const chatData = {
+        speaker: ChatMessage.getSpeaker(),
+        content: itemShow
+    };
+
+    ChatMessage.create(chatData);
 		  return;
     }
     
