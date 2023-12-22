@@ -1271,6 +1271,10 @@
     background-size: 100% 100%;
 }
 
+.chat-content hr{
+    border: 2px solid var(--dark-gold);
+}
+
 .chat-content table {
     margin: 0;
     background: none;
