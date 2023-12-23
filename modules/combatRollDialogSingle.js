@@ -19,6 +19,7 @@ export default class CombatRollDialogSingle extends FormApplication {
     getData(dataset)
     {
         let data= {
+            bonus: this.object.bonus,
             fatigued: this.object.fatigued,
             actor_id: this.object.actor_id,
             rollTitle: this.object.rollTitle,
@@ -37,6 +38,7 @@ export default class CombatRollDialogSingle extends FormApplication {
             dif: this.object.dif,
             current: this.object.current,
             total: this.object.total,
+            base: this.object.base,
             ndice: this.object.ndice,
             d3: this.object.d3,
             d4: this.object.d4,
@@ -56,6 +58,7 @@ export default class CombatRollDialogSingle extends FormApplication {
         super.activateListeners(html);
         html.find(".roll-dice").on('click', this._onDieRoll.bind(this));
         html.find(".change_dice").on('click', this._onChangeDice.bind(this));
+        html.find(".change_bonus").on('click', this._onChangeBonus.bind(this));
     }
     
     async _onDieRoll(event)
@@ -91,11 +94,13 @@ export default class CombatRollDialogSingle extends FormApplication {
 			    content: game.i18n.localize("CUSTOS.ui.fewpoints"),
 			    yes: () => {
                     diceData= {
+                        bonus: this.object.bonus,
                         difficulty: this.object.dif,
                         rollTitle: this.object.rollTitle,
                         actor_id: this.object.actor_id,
                         current: this.object.current,
                         total: this.object.total,
+                        base: this.object.base,
                         targetimage: this.object.targetimage,
                         targetname: this.object.targetname,
                         targetroll: this.object.targetroll,
@@ -133,6 +138,7 @@ export default class CombatRollDialogSingle extends FormApplication {
                 this.object.dif= document.getElementById("difficulty").value;
             }
             diceData= {
+                bonus: this.object.bonus,
                 difficulty: this.object.dif,
                 actor_id: this.object.actor_id,
                 rollTitle: this.object.rollTitle,
@@ -149,6 +155,7 @@ export default class CombatRollDialogSingle extends FormApplication {
                 targetweapondifficulty: this.object.targetweapondifficulty,
                 current: this.object.current,
                 total: this.object.total,
+                base: this.object.base,
                 ndice: this.object.ndice,
                 d3: this.object.d3,
                 d4: this.object.d4,
@@ -264,6 +271,18 @@ export default class CombatRollDialogSingle extends FormApplication {
 
         this.object.current=(this.object.d3*3)+(this.object.d4*4)+(this.object.d5*5)+(this.object.d6*6)+(this.object.d8*8)+(this.object.d10*10)+(this.object.d12*12)+(this.object.d20*20)
         this.object.ndice=this.object.d3+this.object.d4+this.object.d5+this.object.d6+this.object.d8+this.object.d10+this.object.d12+this.object.d20
+        this.render()
+    }
+
+    _onChangeBonus(event)
+    {
+        const element = event.currentTarget;
+        const dataset = event.currentTarget.dataset;
+        this.object.bonus= Number(document.getElementById("bonus").value);
+        if (Number(this.object.bonus)>0)
+        {
+            this.object.total=Number(this.object.base)+Number(this.object.bonus)
+        }
         this.render()
     }
 

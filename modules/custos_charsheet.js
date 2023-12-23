@@ -937,9 +937,11 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
 		    });
       }
       else{
+        //let listaObjetivos = game.user.targets;
         //for ( let i = 0; i < listaObjetivos.size; i++) {
-        //  let target= Array.from(game.user.targets)[i]?.actor;
-        //  await target.update ({ 'system.resources.life.value': i });
+          //let target= Array.from(game.user.targets)[i]?.actor;
+          //await target.update ({ 'system.resources.life.value': i });
+          //CombatSingleRoll (this.actor, item, target)
         //}
         CombatSingleRoll (this.actor, item, target)
       }

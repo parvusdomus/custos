@@ -34,7 +34,10 @@
                             {{/select}}
                         </select>
                     {{/if}}
-                    
+                    {{#if fixed_dif}}
+                        <a><label class="change_bonus">{{ localize "CUSTOS.ui.bonus" }}:&nbsp;&nbsp;</label></a>
+                        <input name="bonus" id="bonus" type="number" value="{{bonus}}" data-dtype="number"/>
+                    {{/if}}
                 </h3>
             </td>
             <td>

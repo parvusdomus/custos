@@ -71,6 +71,8 @@ export async function CombatSingleRoll (actor, item, target){
     }
 
     let dice= {
+        bonus: 0,
+        targetbonus: 0,
         fatigued: fatigued,
         actor_id: actor._id,
         rollTitle: rollname,
@@ -83,6 +85,7 @@ export async function CombatSingleRoll (actor, item, target){
         targetimage: target.img,
         targethasFate: targethasFate,
         total: total,
+        base: total,
         current:0,
         ndice: 0,
         fixed_dif: true,

@@ -213,11 +213,17 @@ export async function SingleCombatRoll (diceData)
         if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
 	}while(explode);
-
+    let targetrolltext=diceData.targetroll
+    if (Number(diceData.bonus)<0){
+        console.log ("BONUS FOR THE TARGET")
+        targetrolltext+="+1d"+Math.abs(Number(diceData.bonus))
+        console.log ("TARGET ROLL TEXT")
+        console.log (targetrolltext)
+    }
     do
 	{
         explode=false;
-		let targetRoll = new Roll (diceData.targetroll)
+		let targetRoll = new Roll (targetrolltext)
 		let evaluateRoll = targetRoll.evaluate({async: false});
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(targetRoll,game.user,true,false,null)
@@ -230,7 +236,8 @@ export async function SingleCombatRoll (diceData)
     let margin=0;
     if (Number(totalRoll) > Number(diceData.difficulty)){
         if (Number(totalRoll) > Number(totaltargetRoll)){
-            rollResult="<td class=\"success\">"+actor.name+" "+game.i18n.localize("CUSTOS.chat.attacker")+"</td>"
+            margin=Number(totalRoll) - Number(totaltargetRoll)
+            rollResult="<td class=\"success\">"+actor.name+" "+game.i18n.localize("CUSTOS.chat.attacker")+" ("+margin+")</td>"
             margin = Number(totalRoll) - Number(totaltargetRoll) - Number (targetshield)
             playerattacker=true
             switch (true){
@@ -331,7 +338,8 @@ export async function SingleCombatRoll (diceData)
                 }
             }
             else{
-                rollResult="<td class=\"failure\">"+targetname+" "+game.i18n.localize("CUSTOS.chat.attacker")+"</td>"
+                margin = Number(totaltargetRoll) - Number(totalRoll)
+                rollResult="<td class=\"failure\">"+targetname+" "+game.i18n.localize("CUSTOS.chat.attacker")+" ("+margin+")</td>"
                 margin = Number(totaltargetRoll) - Number(totalRoll) - Number (shield)
                 switch (true){
                     case (margin <= 0):
@@ -434,7 +442,8 @@ export async function SingleCombatRoll (diceData)
             rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failure")+"</td>"
         }
         if (Number(totalRoll) < Number(totaltargetRoll)){
-            rollResult="<td class=\"failure\">"+targetname+" "+game.i18n.localize("CUSTOS.chat.attacker")+"</td>"
+            margin = Number(totaltargetRoll) - Number(totalRoll)
+            rollResult="<td class=\"failure\">"+targetname+" "+game.i18n.localize("CUSTOS.chat.attacker")+" ("+margin+")</td>"
             margin = Number(totaltargetRoll) - Number(totalRoll) - Number (shield)
             switch (true){
                 case (margin <= 0):
