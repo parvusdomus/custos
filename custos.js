@@ -32,7 +32,7 @@ Hooks.once("init", function(){
   });
 
   preloadHandlebarsTemplates();
-  registerLayers();
+  //registerLayers();
 
   
     // Slowing down pings
@@ -65,9 +65,9 @@ Hooks.once("init", function(){
 
 });
 
-function registerLayers() {
-  CONFIG.Canvas.layers.battlemat = { layerClass: ControlsLayer, group: "interface" };
-}
+//function registerLayers() {
+  //CONFIG.Canvas.layers.battlemat = { layerClass: ControlsLayer, group: "interface" };
+//}
 
 Hooks.on("renderPause", () => {
   $("#pause img").attr("class", "fa-spin pause-image");
@@ -76,7 +76,7 @@ Hooks.on("renderPause", () => {
 
 Hooks.on('renderChatLog', (app, html, data) => custosChat.chatListeners(html))
 
-Hooks.on("getSceneControlButtons", (controls) => {
+/*Hooks.on("getSceneControlButtons", (controls) => {
   controls.push(
     {
         name: "battlemat",
@@ -98,7 +98,7 @@ Hooks.on("getSceneControlButtons", (controls) => {
         activeTool: "battlemat",
     }
   );
-});
+});*/
 
 Hooks.on('refreshToken', () => {
 
