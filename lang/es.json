@@ -123,6 +123,7 @@
     "CUSTOS.ui.notallowed": "No tienes permiso para hacer eso",
 
     "CUSTOS.chat.failure": "Fallo",
+    "CUSTOS.chat.failureweapon": "No supera la dificultad del arma",
     "CUSTOS.chat.spendPietas": "Gastar Pietas",
     "CUSTOS.chat.marginal": "Éxito Marginal (GdE I)",
     "CUSTOS.chat.regular": "Éxito Completo (GdE II)",

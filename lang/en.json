@@ -123,6 +123,7 @@
     "CUSTOS.ui.notallowed": "You are not allowed to do that",
 
     "CUSTOS.chat.failure": "Failure",
+    "CUSTOS.chat.failureweapon": "Fails to meet weapon difficulty",
     "CUSTOS.chat.spendPietas": "Expend Pietas",
     "CUSTOS.chat.marginal": "Marginal Success (DoS I)",
     "CUSTOS.chat.regular": "Regular Success (DoS II)",

@@ -215,9 +215,7 @@ export async function SingleCombatRoll (diceData)
 	}while(explode);
     let targetrolltext=diceData.targetroll
     if (Number(diceData.bonus)<0){
-        console.log ("BONUS FOR THE TARGET")
         targetrolltext+="+1d"+Math.abs(Number(diceData.bonus))
-        console.log ("TARGET ROLL TEXT")
         console.log (targetrolltext)
     }
     do
@@ -434,16 +432,16 @@ export async function SingleCombatRoll (diceData)
                 rollResult="<td class=\"spendcombat\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
             }
             else{
-                rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failure")+"</td>"
+                rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failureweapon")+"</td></tr><tr>"
             }
             
         }
         else{
-            rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failure")+"</td>"
+            rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failureweapon")+"</td></tr><tr>"
         }
         if (Number(totalRoll) < Number(totaltargetRoll)){
             margin = Number(totaltargetRoll) - Number(totalRoll)
-            rollResult="<td class=\"failure\">"+targetname+" "+game.i18n.localize("CUSTOS.chat.attacker")+" ("+margin+")</td>"
+            rollResult+="<td class=\"failure\">"+targetname+" "+game.i18n.localize("CUSTOS.chat.attacker")+" ("+margin+")</td>"
             margin = Number(totaltargetRoll) - Number(totalRoll) - Number (shield)
             switch (true){
                 case (margin <= 0):
