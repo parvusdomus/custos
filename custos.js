@@ -125,6 +125,8 @@ Hooks.on("createActor", async (actor) =>{
       break;
     }
   }
+  console.log ("MODIFIED ACTOR")
+  console.log (actor)
 })
 
 

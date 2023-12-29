@@ -1224,99 +1224,30 @@
     font-weight: 900;
 }
 
-.chat-header {
-    background: var(--chat-bg-image) no-repeat;
-    background-size: 100% 100%;
-}
-
-.chat-header table {
-    margin: 0;
-    background: none;
-    background-color:  var(--crimson);
+.total_encumbrance table {
+    background:none;
     border: none;
+    font-family: var(--font-name);
     width: 100%;
-    text-align: center;
-    font-family: TrajanBold;
-    color: white;
+    text-align: right;
+}
+
+.total_encumbrance tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.total_encumbrance tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.total_encumbrance h3{
+    font-family: var(--bold-font-name);
+    color: var(--header-font-color);
+    color: var(--dark-gold);
     font-weight: 900;
+    border-bottom: none;
 }
 
-.chat-header tr:nth-child(even){
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.chat-header tr:nth-child(odd){
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.chat-header img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--input-bg-color);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border: none;
-    color: var(--crimson);
-}
-
-.chat-header td:nth-child(1){
-    text-align: left;
-    width: 40px
-}
-
-.chat-content {
-    background: var(--chat-bg-image) no-repeat;
-    background-size: 100% 100%;
-}
-
-.chat-content hr{
+.total_encumbrance hr{
     border: 2px solid var(--dark-gold);
-}
-
-.chat-content table {
-    margin: 0;
-    background: none;
-    border: none;
-    width: 100%;
-    text-align: center;
-    font-family: TrajanBold;
-    color: var(--dark-gold);
-    font-weight: 900;
-}
-
-.chat-content h1 {
-    border-bottom: none;
-}
-
-.chat-content tr:nth-child(even){
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.chat-content tr:nth-child(odd){
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.failure {
-    background-color:  var(--crimson);
-    color: white;
-}
-
-.success {
-    background-color:  var(--dark-gold);
-    color: white;
-}
-
-.spend {
-    background-color:  var(--dark-gold);
-    color: white;
-}
-
-.spent-pietas-message h3{
-    border-bottom: none;
-    font-family: TrajanBold;
-    color: var(--dark-gold);
-    font-weight: 900;
-    text-align: center;
 }

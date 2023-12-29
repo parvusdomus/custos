@@ -57,6 +57,7 @@
     "CUSTOS.ui.bonus": "Bonus",
     "CUSTOS.ui.damage": "Damage",
     "CUSTOS.ui.weight": "Weight",
+    "CUSTOS.ui.weighttotal": "Total Weight",
     "CUSTOS.ui.characteristic": "Characteristic",
     "CUSTOS.ui.none": "None",
     "CUSTOS.ui.slow": "Slow",
