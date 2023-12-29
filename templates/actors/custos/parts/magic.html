@@ -150,24 +150,7 @@
                     <label>{{item.name}}&nbsp;</label>   
                 </td>
                 <td>
-                    {{#if (eq item.system.discipline "clarividency")}}
-                        <label>{{localize "CUSTOS.ui.clarividency"}}</label> 
-                    {{/if}}
-                    {{#if (eq item.system.discipline "favor")}}
-                        <label>{{localize "CUSTOS.ui.favor"}}</label> 
-                    {{/if}}
-                    {{#if (eq item.system.discipline "dreams")}}
-                        <label>{{localize "CUSTOS.ui.dreams"}}</label> 
-                    {{/if}}
-                    {{#if (eq item.system.discipline "omens")}}
-                        <label>{{localize "CUSTOS.ui.omens"}}</label> 
-                    {{/if}}
-                    {{#if (eq item.system.discipline "precognition")}}
-                        <label>{{localize "CUSTOS.ui.precognition"}}</label> 
-                    {{/if}}
-                    {{#if (eq item.system.discipline "retrocognition")}}
-                        <label>{{localize "CUSTOS.ui.retrocognition"}}</label> 
-                    {{/if}}
+                    <label>{{item.system.speciality}}</label>
                 </td>
                 <td>
                     <label>{{item.system.difficulty}}&nbsp;</label>   
