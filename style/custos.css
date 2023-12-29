@@ -1237,7 +1237,7 @@
     width: 100%;
     text-align: center;
     font-family: TrajanBold;
-    color: var(--light-gold);
+    color: white;
     font-weight: 900;
 }
 
@@ -1300,17 +1300,17 @@
 
 .failure {
     background-color:  var(--crimson);
-    color: var(--light-gold);
+    color: white;
 }
 
 .success {
-    background-color:  var(--light-gold);
-    color: var(--dark-gold);
+    background-color:  var(--dark-gold);
+    color: white;
 }
 
 .spend {
     background-color:  var(--dark-gold);
-    color: var(--light-gold);
+    color: white;
 }
 
 .spent-pietas-message h3{
