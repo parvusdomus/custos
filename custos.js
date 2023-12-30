@@ -51,6 +51,15 @@ Hooks.once("init", function(){
     config: true
   });
 
+  game.settings.register("custos", "enableCreatio", {
+    name: game.i18n.localize("CUSTOS.config.enableCreatioName"),
+    hint: game.i18n.localize("CUSTOS.config.enableCreatioHint"),
+    scope: "world",
+    type: Boolean,
+    default: true,
+    config: true
+  });
+
   Handlebars.registerHelper("times", function(n, content)
     {
       let result = "";

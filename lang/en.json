@@ -150,5 +150,8 @@
     "CUSTOS.ui.success3": "DoS II",
 
     "CUSTOS.config.enablePietasonTieName": "Enable Pietas on Tie",
-    "CUSTOS.config.enablePietasonTieHint": "Allow to expend pietas to change a tie into a success"
+    "CUSTOS.config.enablePietasonTieHint": "Allow to expend pietas to change a tie into a success",
+    "CUSTOS.config.enableCreatioName": "Enable Creatio tab",
+    "CUSTOS.config.enableCreatioHint": "Allows to have the Creatio tab visible in the character sheet"
+
 }

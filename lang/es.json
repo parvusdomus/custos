@@ -150,5 +150,7 @@
     "CUSTOS.ui.success3": "GdE II",
 
     "CUSTOS.config.enablePietasonTieName": "Permitir Pietas en Empate",
-    "CUSTOS.config.enablePietasonTieHint": "Permite gastar Pietas para convertir un empate en un éxito."
+    "CUSTOS.config.enablePietasonTieHint": "Permite gastar Pietas para convertir un empate en un éxito.",
+    "CUSTOS.config.enableCreatioName": "Activar pestaña de Creatio",
+    "CUSTOS.config.enableCreatioHint": "Activala para tener la pestaña de Creatio visible en la hoja de personaje"
 }

@@ -4,7 +4,9 @@
       <a class="item" data-tab="virtutes-tab">{{localize "CUSTOS.ui.tab.general"}}</a>
       <a class="item" data-tab="inventory-tab">{{localize "CUSTOS.ui.tab.inventory"}}</a> 
       <a class="item" data-tab="magic-tab">{{localize "CUSTOS.ui.tab.magic"}}</a> 
-      <a class="item" data-tab="creatio-tab">Creatio</a>
+      {{#if settings.enableCreatio}}
+        <a class="item" data-tab="creatio-tab">Creatio</a>
+      {{/if}}
       <a class="item" data-tab="curriculum-tab">Curriculum</a>  
       <a class="item" data-tab="notes-tab">{{localize "CUSTOS.ui.tab.notes"}}</a>      
     </nav>

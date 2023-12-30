@@ -17,7 +17,6 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       const data = super.getData();
       if (this.actor.type == 'Custos') {
         this._prepareCharacterItems(data);
-        //this._updateInitiative(data);
         this._calculateResources(data);
         this._calculateXp(data);
         if (this.actor.system.creatio.locked == false){
@@ -121,7 +120,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       let converted = Number (this.actor.system.resources.life.max) - weight
       this.actor.update ({ 'system.converted_encumbrance': converted });
       actorData.settings = {
-
+        enableCreatio: game.settings.get("custos", "enableCreatio"),
       }
       actorData.isGM = game.user.isGM;
     }
@@ -219,20 +218,6 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       this.actor.update ({ 'system.creatio.peritiae.natura': natura})
       this.actor.update ({ 'system.creatio.peritiae.scientia': scientia})
       this.actor.update ({ 'system.creatio.peritiae.societate': societate})
-    }
-
-
-
-
-    _updateInitiative(sheetData){
-      let initiative=""
-      if (sheetData.actor.system.trait=="Agile" || sheetData.actor.system.subtrait.reflexes){
-        initiative="3d6cs>=5"
-      }
-      else{
-        initiative="2d6cs>=5"
-      }
-      this.actor.update ({ 'system.initiative': initiative });
     }
 
     _calculateResources(sheetData){
