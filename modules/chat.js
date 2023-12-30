@@ -106,7 +106,8 @@ export default class custosChat {
       ui.notifications.error(game.i18n.localize("CUSTOS.ui.notallowed"));
       return
     }
-    let selected= Array.from(canvas.tokens.controlled)[0]?.actor;
+    let selected= Array.from(game.user.targets)[0]?.actor;
+    //let selected= Array.from(canvas.tokens.controlled)[0]?.actor;
     if (!selected){
       ui.notifications.warn(game.i18n.localize("CUSTOS.ui.noselected"));
       return

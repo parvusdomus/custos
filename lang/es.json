@@ -117,7 +117,7 @@
     "CUSTOS.ui.notarget": "No tienes objetivo, ¿quieres continuar?",
     "CUSTOS.ui.notargetTitle": "Sin objetivo",
     "CUSTOS.ui.multiplier": "Multiplicador",
-    "CUSTOS.ui.noselected": "Debes seleccionar un token para aplicar el daño",
+    "CUSTOS.ui.noselected": "Debes tener un objetivo para aplicar el daño",
     "CUSTOS.ui.receivedamage": "recibe daño: ",
     "CUSTOS.ui.die": "ha muerto",
     "CUSTOS.ui.notallowed": "No tienes permiso para hacer eso",
@@ -137,7 +137,7 @@
     "CUSTOS.chat.nodamage": "Golpea pero no hace daño",
     "CUSTOS.chat.rolldamage": "->  Tirar daño  <-",
     "CUSTOS.chat.damageroll": "Daño total",
-    "CUSTOS.chat.damageapply": "->  Aplicar daño a seleccionado  <-",
+    "CUSTOS.chat.damageapply": "->  Aplicar daño a objetivo  <-",
 
     "CUSTOS.ui.diceValue": "Valor de Dado",
     "CUSTOS.ui.size": "Tamaño",
