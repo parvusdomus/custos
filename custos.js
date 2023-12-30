@@ -4,7 +4,7 @@ import CUSTOS_BEAST_SHEET from "./modules/custos_beast.js";
 import CUSTOS_ITEM_SHEET from "./modules/custos_itemsheet.js";
 import { preloadHandlebarsTemplates } from "./modules/preloadTemplates.js";
 import custosChat from "./modules/chat.js";
-import CombatMat from "./modules/combatMat.js";
+//import creatio from "./modules/creatio.js";
 
 Hooks.once("init", function(){
   document.getElementById("logo").src = "/systems/custos/style/images/Custos_Logo2.webp";
@@ -65,9 +65,9 @@ Hooks.once("init", function(){
 
 });
 
-//function registerLayers() {
-  //CONFIG.Canvas.layers.battlemat = { layerClass: ControlsLayer, group: "interface" };
-//}
+/*function registerLayers() {
+  CONFIG.Canvas.layers.custostools = { layerClass: ControlsLayer, group: "interface" };
+}*/
 
 Hooks.on("renderPause", () => {
   $("#pause img").attr("class", "fa-spin pause-image");
@@ -79,23 +79,23 @@ Hooks.on('renderChatLog', (app, html, data) => custosChat.chatListeners(html))
 /*Hooks.on("getSceneControlButtons", (controls) => {
   controls.push(
     {
-        name: "battlemat",
-        title: "Battlemat",
+        name: "custostools",
+        title: "Custos Tools",
         icon: "fa-solid fa-swords",
-        layer: "battlemat",
+        layer: "custostools",
         visible: true,
         button: true,
         tools: [
         {
-          name: "battlemat",
-          title: "Open Battlemat",
-          layer: "battlemat",
+          name: "creatio",
+          title: "Custos Creatio",
+          layer: "custostools",
           icon: "fa-solid fa-swords",
           onClick: () => {
-            new CombatMat().render(true);
+            new creatio().render(true);
           },
         }],
-        activeTool: "battlemat",
+        activeTool: "creatio",
     }
   );
 });*/
@@ -108,29 +108,31 @@ Hooks.on("createActor", async (actor) =>{
   const PJImage="systems/custos/style/icons/centurion-helmet.svg"
   const NPCImage="systems/custos/style/icons/roman-toga.svg"
   const BeastImage="systems/custos/style/icons/hydra.svg"
-  switch (actor.type){
-    case 'Custos':
-    {
-      actor.update ({ 'img': PJImage });
-      break;
-    }
-    case 'npc':
-    {
-      actor.update ({ 'img': NPCImage });
-      break;
-    }
-    case 'beast':
-    {
-      actor.update ({ 'img': BeastImage });
-      break;
+  if (actor.img=="icons/svg/mystery-man.svg"){
+    switch (actor.type){
+      case 'Custos':
+      {
+        actor.update ({ 'img': PJImage });
+        break;
+      }
+      case 'npc':
+      {
+        actor.update ({ 'img': NPCImage });
+        break;
+      }
+      case 'beast':
+      {
+        actor.update ({ 'img': BeastImage });
+        break;
+      }
     }
   }
-  console.log ("MODIFIED ACTOR")
-  console.log (actor)
 })
 
 
 Hooks.on("createItem", async (item) =>{
+  console.log ("ACTOR")
+  console.log (item.img)
   const provintiaImage="systems/custos/style/icons/italia.svg"
   const weaponImage="systems/custos/style/icons/gladius.svg"
   const armorImage="systems/custos/style/icons/lamellar.svg"
@@ -141,56 +143,58 @@ Hooks.on("createItem", async (item) =>{
   const summoningImage="systems/custos/style/icons/capitol.svg"
   const specialImage="systems/custos/style/icons/discobolus.svg"
   const magicImage="systems/custos/style/icons/medusa-head.svg"
-  switch (item.type){
-    case 'provintia':
-    {
-      item.update ({ 'img': provintiaImage });
-      break;
-    }
-    case 'weapon':
-    {
-      item.update ({ 'img': weaponImage });
-      break;
-    }
-    case 'armor':
-    {
-      item.update ({ 'img': armorImage });
-      break;
-    }
-    case 'shield':
-    {
-      item.update ({ 'img': shieldImage });
-      break;
-    }
-    case 'object':
-    {
-      item.update ({ 'img': objectImage });
-      break;
-    }
-    case 'talent':
-    {
-      item.update ({ 'img': talentImage });
-      break;
-    }
-    case 'ritual':
-    {
-      item.update ({ 'img': ritualImage });
-      break;
-    }
-    case 'summoning':
-    {
-      item.update ({ 'img': summoningImage });
-      break;
-    }
-    case 'special':
-    {
-      item.update ({ 'img': specialImage });
-      break;
-    }
-    case 'magic':
-    {
-      item.update ({ 'img': magicImage });
-      break;
+  if (item.img=="icons/svg/item-bag.svg"){
+    switch (item.type){
+      case 'provintia':
+      {
+        item.update ({ 'img': provintiaImage });
+        break;
+      }
+      case 'weapon':
+      {
+        item.update ({ 'img': weaponImage });
+        break;
+      }
+      case 'armor':
+      {
+        item.update ({ 'img': armorImage });
+        break;
+      }
+      case 'shield':
+      {
+        item.update ({ 'img': shieldImage });
+        break;
+      }
+      case 'object':
+      {
+        item.update ({ 'img': objectImage });
+        break;
+      }
+      case 'talent':
+      {
+        item.update ({ 'img': talentImage });
+        break;
+      }
+      case 'ritual':
+      {
+        item.update ({ 'img': ritualImage });
+        break;
+      }
+      case 'summoning':
+      {
+        item.update ({ 'img': summoningImage });
+        break;
+      }
+      case 'special':
+      {
+        item.update ({ 'img': specialImage });
+        break;
+      }
+      case 'magic':
+      {
+        item.update ({ 'img': magicImage });
+        break;
+      }
     }
   }
 })

@@ -1,17 +1,16 @@
-import {RegularDiceRoll} from "./rolls.js";
-export default class CombatMat extends FormApplication {
+export default class creatio extends FormApplication {
     constructor(dataset) {
 	    super(dataset);
     }
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            id: "custos-combat-mat",
+            id: "custos-creatio",
             title: "",
             width: 750,
-            height: 800,
-            template: "/systems/custos/templates/dialogs/combatMat.html",
-            classes: [ "custos-combat-mat" ],
+            height: 1000,
+            template: "/systems/custos/templates/actors/custos/parts/creatio.html",
+            classes: [ "custos-creatio" ],
             popout: false,
             buttons: [],
         });
