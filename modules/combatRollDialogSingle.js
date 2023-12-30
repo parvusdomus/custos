@@ -101,7 +101,7 @@ export default class CombatRollDialogSingle extends FormApplication {
                         rollTitle: this.object.rollTitle,
                         actor_id: this.object.actor_id,
                         current: this.object.current,
-                        total: this.object.total,
+                        total: this.object.current,
                         base: this.object.base,
                         targetimage: this.object.targetimage,
                         targetname: this.object.targetname,

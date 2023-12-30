@@ -84,7 +84,7 @@ export default class RegularRollDialog extends FormApplication {
                         rollTitle: this.object.rollTitle,
                         actor_id: this.object.actor_id,
                         current: this.object.current,
-                        total: this.object.total,
+                        total: this.object.current,
                         ndice: this.object.ndice,
                         d3: this.object.d3,
                         d4: this.object.d4,

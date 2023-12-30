@@ -90,7 +90,7 @@ export default class DamageRollDialogSingle extends FormApplication {
                         actor_id: this.object.actor_id,
                         player: this.object.player,
                         rollTitle: this.object.rollTitle,
-                        total: this.object.total,
+                        total: this.object.current,
                         fatigued: this.object.fatigued,
                         targethasFate: this.object.targethasFate,
                         pjName: this.object.pjName,
