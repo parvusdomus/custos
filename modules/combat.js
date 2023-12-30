@@ -10,6 +10,7 @@ export async function CombatSingleRoll (actor, item, target){
           }
         }
     }
+    let isExpertus=false;
     let total=Number(pvalue)+Number(svalue);
     let weapondifficulty=item.system.difficulty;
     let weapondamage=item.system.damage;
@@ -32,6 +33,12 @@ export async function CombatSingleRoll (actor, item, target){
       targetweapondamage=targetequippedweapon.system.damage
       targetweapondifficulty=targetequippedweapon.system.difficulty
     }
+    if (Number(total)>=(Number(weapondifficulty)*2)){
+      isExpertus=true;
+      console.log ("IS EXPERTUS")
+      console.log (isExpertus)
+    }
+    
     let fatigued=false;
       if ((Number(actor.system.resources.life.value)+Number(actor.system.total_encumbrance)) >= Number(actor.system.resources.life.max)){
         fatigued=true;
@@ -84,6 +91,7 @@ export async function CombatSingleRoll (actor, item, target){
         targetname: target.name,
         targetimage: target.img,
         targethasFate: targethasFate,
+        isExpertus: isExpertus,
         total: total,
         base: total,
         current:0,

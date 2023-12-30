@@ -36,6 +36,7 @@ export default class CombatRollDialogSingle extends FormApplication {
             targetweapondifficulty: this.object.targetweapondifficulty,
             fixed_dif: this.object.fixed_dif,
             dif: this.object.dif,
+            isExpertus: this.object.isExpertus,
             current: this.object.current,
             total: this.object.total,
             base: this.object.base,
@@ -96,6 +97,7 @@ export default class CombatRollDialogSingle extends FormApplication {
                     diceData= {
                         bonus: this.object.bonus,
                         difficulty: this.object.dif,
+                        isExpertus: this.object.isExpertus,
                         rollTitle: this.object.rollTitle,
                         actor_id: this.object.actor_id,
                         current: this.object.current,
@@ -140,6 +142,7 @@ export default class CombatRollDialogSingle extends FormApplication {
             diceData= {
                 bonus: this.object.bonus,
                 difficulty: this.object.dif,
+                isExpertus: this.object.isExpertus,
                 actor_id: this.object.actor_id,
                 rollTitle: this.object.rollTitle,
                 targetimage: this.object.targetimage,

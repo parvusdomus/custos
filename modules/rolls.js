@@ -155,6 +155,7 @@ export async function RegularNPCDiceRoll (diceData)
 
 export async function SingleCombatRoll (diceData)
 {
+    let isExpertus=diceData.isExpertus
     let hasFate=false
     let targethasFate=diceData.targethasFate
     let actor=game.actors.get(diceData.actor_id)
@@ -171,7 +172,9 @@ export async function SingleCombatRoll (diceData)
     let targetweapondamage=diceData.targetdamage
     let targetweapondifficulty=diceData.targetweapondifficulty
     let pietasOnTie=game.settings.get ("custos", "enablePietasonTie")
-    
+    console.log ("IN COMBAT ROLL")
+    console.log ("IS EXPERTUS")
+    console.log (isExpertus)
     let rollResult=""
     let dice = [];
     if (diceData.d3>0){
@@ -243,7 +246,8 @@ export async function SingleCombatRoll (diceData)
     console.log ("TOTAL")
     console.log (totalRoll)
     let margin=0;
-    if (Number(totalRoll) > Number(diceData.difficulty)){
+    if (Number(totalRoll) > Number(diceData.difficulty) || isExpertus == true){
+        console.log ("IS EXPERTUS AGAIN")
         if (Number(totalRoll) > Number(totaltargetRoll)){
             margin=Number(totalRoll) - Number(totaltargetRoll)
             rollResult="<td class=\"success\">"+actor.name+" "+game.i18n.localize("CUSTOS.chat.attacker")+" ("+margin+")</td>"
@@ -438,6 +442,7 @@ export async function SingleCombatRoll (diceData)
         
     }
     else{
+        console.log ("IS NOT NOT NOT EXPERTUS AGAIN")
         if (Number(totalRoll) == Number(diceData.difficulty)){
             if (hasFate && pietasOnTie){
                 rollResult="<td style=\"border:5px outset rgb(29, 0, 0);\" class=\"spendcombat\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
