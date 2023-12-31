@@ -9,7 +9,7 @@
     "TYPES.Item.object": "Objeto",
     "TYPES.Item.talent": "Talento",
     "TYPES.Item.ritual": "Ritual",
-    "TYPES.Item.summoning": "Invocación",
+    "TYPES.Item.summoning": "Indigitamentum",
     "TYPES.Item.special": "Habilidad Especial",
     "TYPES.Item.magic": "Poder Mágico",
 
@@ -91,7 +91,7 @@
     "CUSTOS.ui.patron": "Patrón",
     "CUSTOS.ui.talents": "Talentos",
     "CUSTOS.ui.rituals": "Rituales",
-    "CUSTOS.ui.summonings": "Invocaciones",
+    "CUSTOS.ui.summonings": "Indigitamenta",
     "CUSTOS.ui.experience": "Experiencia",
     "CUSTOS.ui.total": "Total",
     "CUSTOS.ui.spent": "Gastado",
