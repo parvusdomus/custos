@@ -225,9 +225,9 @@ export async function SingleCombatRoll (diceData)
 	}while(explode);
     console.log ("TOTAL")
     console.log (totalRoll)
-    let targetrolltext=diceData.targetroll
+    let targetrolltext=diceData.targetroll+"[red]"
     if (Number(diceData.bonus)<0){
-        targetrolltext+="+1d"+Math.abs(Number(diceData.bonus))
+        targetrolltext+="+1d"+Math.abs(Number(diceData.bonus))+"[red]"
         console.log (targetrolltext)
     }
     console.log ("NPC")
@@ -618,7 +618,7 @@ export async function SingleDamageRoll (diceData)
     console.log ("TOTAL")
     console.log (totalRoll)
     let armorRoll=0;
-    let armorRollText="1d"+diceData.armor
+    let armorRollText="1d"+diceData.armor+"[grey]"
     console.log ("ARMOR ROLL")
     do
 	{
