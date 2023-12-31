@@ -8,6 +8,16 @@
     src: url("../../../systems/custos/style/fonts/TrajanBold.ttf");
 }
 
+@font-face {
+    font-family: "AppleGaramond";
+    src: url("../../../systems/custos/style/fonts/AppleGaramond.ttf");
+}
+
+@font-face {
+    font-family: "AppleGaramondLight";
+    src: url("../../../systems/custos/style/fonts/AppleGaramond-Light.ttf");
+}
+
 .top-section {
     width: 100%;
     max-height: 30%;

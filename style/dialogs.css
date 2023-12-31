@@ -84,6 +84,46 @@
     background-color: rgba(255, 255, 255, 0);
 }
 
+
+.chat-content2 {
+    background: var(--chat-bg-image) no-repeat;
+    background-size: 100% 100%;
+}
+
+.chat-content2 hr{
+    border: 2px solid var(--dark-gold);
+}
+
+.chat-content2 table {
+    margin: 0;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: center;
+    font-family: TrajanBold;
+    color: var(--dark-gold);
+    font-weight: 900;
+}
+
+.chat-content2 h1 {
+    border-bottom: none;
+}
+
+.chat-content2 tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.chat-content2 tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.chat-content2 tr:nth-child(3){
+    color: black;
+    font-family: AppleGaramondLight;
+    text-align: left;
+
+}
+
 .failure {
     background-color:  var(--crimson);
     color: white;
