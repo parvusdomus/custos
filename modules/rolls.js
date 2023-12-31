@@ -616,7 +616,7 @@ export async function SingleDamageRoll (diceData)
 		totalRoll += Number(evaluateRoll.total)
 	}while(explode);
     console.log ("TOTAL")
-    console.loog (totalRoll)
+    console.log (totalRoll)
     let armorRoll=0;
     let armorRollText="1d"+diceData.armor
     console.log ("ARMOR ROLL")
