@@ -923,30 +923,34 @@
 }
 
 .magic_summonings td:nth-child(2){
+    width: 20px;
+}
+
+.magic_summonings td:nth-child(3){
     text-align: left;
     display: inline-block;
     overflow: hidden;
     width: 300px;
 }
-.magic_summonings td:nth-child(3){
+.magic_summonings td:nth-child(4){
     text-align: center;
     overflow: hidden;
     width: 160px;
 }
 
-.magic_summonings td:nth-child(4){
+.magic_summonings td:nth-child(5){
     text-align: center;
     overflow: hidden;
     width: 100px;
 }
 
-.magic_summonings td:nth-child(5){
+.magic_summonings td:nth-child(6){
     text-align: center;
     overflow: hidden;
     width: 40px;
 }
 
-.magic_summonings td:nth-child(6){
+.magic_summonings td:nth-child(7){
     text-align: right;
     display: inline-block;
     width: 80px;

@@ -376,6 +376,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       html.find('a.toggle-treated').click(this._onToggleTreated.bind(this));
       html.find('a.resource-change').click(this._onResourceChange.bind(this));
       html.find('a.ritual-roll').click(this._onRitualRoll.bind(this));
+      html.find('a.summoning-roll').click(this._onSummoningRoll.bind(this));
       html.find('a.weapon-roll').click(this._onWeaponRoll.bind(this));
       html.find('a.damage-roll').click(this._onDamageRoll.bind(this));
     }
@@ -833,6 +834,64 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         ndice: 0,
         fixed_dif: true,
         dif: dataset.difficulty,
+        d3: 0,
+        d4: 0,
+        d5: 0,
+        d6: 0,
+        d8: 0,
+        d10: 0,
+        d12: 0,
+        d20: 0
+    };
+      new RegularRollDialog(dice).render(true);
+      return;
+    }
+
+    async _onSummoningRoll(event)
+    {
+      event.preventDefault();
+      const dataset = event.currentTarget.dataset;
+      console.log (dataset)
+      if (dataset.virtus=="none"){
+        return;
+      }
+      if ((Number(this.actor.system.resources.pietas.value)+Number(dataset.cost))> Number(this.actor.system.resources.pietas.max)){
+        ui.notifications.warn(game.i18n.localize("CUSTOS.ui.nopietas"));
+        return;
+      }
+      let msg_content="<div class=\"spent-pietas-message\"><h3>"+this.actor.name+" "+game.i18n.localize("CUSTOS.chat.spentPietasSummoning")+dataset.name+" ("+dataset.cost+")"+"</h3></div>"
+      let chatData = {
+        content: msg_content,
+        speaker: ChatMessage.getSpeaker()
+      };
+      let currentpietas=Number(this.actor.system.resources.pietas.value)+Number(dataset.cost)
+      await this.actor.update ({ 'system.resources.pietas.value': currentpietas });
+      ChatMessage.create(chatData);
+      let svalue=0
+      let pvalue=this.actor.system.virtutes[dataset.virtus].value
+
+      let total=Number(pvalue)+Number(svalue)
+      let fatigued=false;
+      if ((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max)){
+        fatigued=true;
+        if (total > (Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value))){
+          total=Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value)
+        }
+        if (total < 3){
+          total=3
+        }
+      }
+      
+
+      let dice= {
+        fatigued: fatigued,
+        actor_id: this.actor._id,
+        rollTitle: dataset.name,
+        total: total,
+        current:0,
+        ndice: 0,
+        fixed_dif: false,
+        dif: 3,
         d3: 0,
         d4: 0,
         d5: 0,

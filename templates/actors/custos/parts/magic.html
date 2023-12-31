@@ -68,6 +68,7 @@
         <tr>
             <th></th>
             <th></th>
+            <th></th>
             <th>{{localize "CUSTOS.ui.patron"}}</th>
             <th>{{localize "CUSTOS.ui.office"}}</th>
             <th>{{localize "CUSTOS.ui.cost"}}</th>
@@ -77,6 +78,13 @@
             <tr data-item-id="{{item._id}}">
                 <td>
                     <img class="item-img" src="{{item.img}}" data-edit="img" title="{{name}}"/>
+                </td>
+                <td>
+                    {{#if (eq item.system.virtus "none")}}
+                        &nbsp;
+                    {{else}}
+                        <a class="summoning-roll" data-name="{{item.name}}" data-cost="{{item.system.cost}}" data-virtus="{{item.system.virtus}}"><i class="fa-solid fa-dice"></i></a>
+                    {{/if}}
                 </td>
                 <td>
                     <label>{{item.name}}&nbsp;</label>   

@@ -358,6 +358,7 @@
         },
         "summoning": {
             "office": "bellicus",
+            "virtus": "none",
             "cost": 0,
             "patron": "",
             "description": ""
