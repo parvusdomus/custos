@@ -54,17 +54,18 @@ export async function CombatSingleRoll (actor, item, target){
     let ndice=0;
     let sides=target.system.diceValue
     for (let [key, value] of Object.entries(target.system.peritiae.one.specialties)) {
-        if (value.name==="De Bello"){
+        if (value.name.includes("De Bello")){
             ndice=1;
+            
         }
     }
     for (let [key, value] of Object.entries(target.system.peritiae.two.specialties)) {
-        if (value.name==="De Bello"){
+        if (value.name.includes("De Bello")){
             ndice=2;
         }
     }
     for (let [key, value] of Object.entries(target.system.peritiae.three.specialties)) {
-        if (value.name==="De Bello"){
+        if (value.name.includes("De Bello")){
             ndice=3;
         }
     }
