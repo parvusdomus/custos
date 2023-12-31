@@ -118,8 +118,8 @@
 }
 
 .chat-content2 tr:nth-child(3){
-    color: black;
-    font-family: AppleGaramondLight;
+    color: var(--crimson);
+    font-family: AGaramondPro;
     text-align: left;
 
 }
