@@ -162,89 +162,179 @@ export default class DamageRollDialogSingle extends FormApplication {
             this.object.total=Number(this.object.weapondamage)*Number(this.object.multiplier)
         }
         
-        switch (dataset.sides){
-            case '3':
-            {
-                if (this.object.d3 < 3){
-                    this.object.d3++;
+        if (dataset.direction=="up")
+        {
+            switch (dataset.sides){
+                case '3':
+                {
+                    if (this.object.d3 < 3){
+                        this.object.d3++;
+                    }
+                    else{
+                        this.object.d3=0;
+                    }
+                    
+                    break;
                 }
-                else{
-                    this.object.d3=0;
+                case '4':
+                {
+                    if (this.object.d4 < 3){
+                        this.object.d4++;
+                    }
+                    else{
+                        this.object.d4=0;
+                    }
+                    break;   
+                }
+                case '5':
+                {
+                    if (this.object.d5 < 3){
+                        this.object.d5++;
+                    }
+                    else{
+                        this.object.d5=0;
+                    }
+                    break;   
+                }
+                case '6':
+                {
+                    if (this.object.d6 < 3){
+                        this.object.d6++;
+                    }
+                    else{
+                        this.object.d6=0;
+                    }
+                    break;   
+                }
+                case '8':
+                {
+                    if (this.object.d8 < 3){
+                        this.object.d8++;
+                    }
+                    else{
+                        this.object.d8=0;
+                    }
+                    break;   
+                }
+                case '10':
+                {
+                    if (this.object.d10 < 3){
+                        this.object.d10++;
+                    }
+                    else{
+                        this.object.d10=0;
+                    }
+                    break;   
+                }
+                case '12':
+                {
+                    if (this.object.d12 < 3){
+                        this.object.d12++;
+                    }
+                    else{
+                        this.object.d12=0;
+                    }
+                    break;   
+                }
+                case '20':
+                {
+                    if (this.object.d20 < 3){
+                        this.object.d20++;
+                    }
+                    else{
+                        this.object.d20=0;
+                    }
+                    break;   
                 }
                 
-                break;
             }
-            case '4':
-            {
-                if (this.object.d4 < 3){
-                    this.object.d4++;
+        }
+        else
+        {
+            switch (dataset.sides){
+                case '3':
+                {
+                    if (this.object.d3 > 0){
+                        this.object.d3--;
+                    }
+                    else{
+                        this.object.d3=3;
+                    }
+                    
+                    break;
                 }
-                else{
-                    this.object.d4=0;
+                case '4':
+                {
+                    if (this.object.d4 > 0){
+                        this.object.d4--;
+                    }
+                    else{
+                        this.object.d4=3;
+                    }
+                    break;   
                 }
-                break;   
+                case '5':
+                {
+                    if (this.object.d5 > 0){
+                        this.object.d5--;
+                    }
+                    else{
+                        this.object.d5=3;
+                    }
+                    break;   
+                }
+                case '6':
+                {
+                    if (this.object.d6 > 0){
+                        this.object.d6--;
+                    }
+                    else{
+                        this.object.d6=3;
+                    }
+                    break;   
+                }
+                case '8':
+                {
+                    if (this.object.d8 > 0){
+                        this.object.d8--;
+                    }
+                    else{
+                        this.object.d8=3;
+                    }
+                    break;   
+                }
+                case '10':
+                {
+                    if (this.object.d10 > 0){
+                        this.object.d10--;
+                    }
+                    else{
+                        this.object.d10=3;
+                    }
+                    break;   
+                }
+                case '12':
+                {
+                    if (this.object.d12 > 0){
+                        this.object.d12--;
+                    }
+                    else{
+                        this.object.d12=3;
+                    }
+                    break;   
+                }
+                case '20':
+                {
+                    if (this.object.d20 > 0){
+                        this.object.d20--;
+                    }
+                    else{
+                        this.object.d20=3;
+                    }
+                    break;   
+                }
+                
             }
-            case '5':
-            {
-                if (this.object.d5 < 3){
-                    this.object.d5++;
-                }
-                else{
-                    this.object.d5=0;
-                }
-                break;   
-            }
-            case '6':
-            {
-                if (this.object.d6 < 3){
-                    this.object.d6++;
-                }
-                else{
-                    this.object.d6=0;
-                }
-                break;   
-            }
-            case '8':
-            {
-                if (this.object.d8 < 3){
-                    this.object.d8++;
-                }
-                else{
-                    this.object.d8=0;
-                }
-                break;   
-            }
-            case '10':
-            {
-                if (this.object.d10 < 3){
-                    this.object.d10++;
-                }
-                else{
-                    this.object.d10=0;
-                }
-                break;   
-            }
-            case '12':
-            {
-                if (this.object.d12 < 3){
-                    this.object.d12++;
-                }
-                else{
-                    this.object.d12=0;
-                }
-                break;   
-            }
-            case '20':
-            {
-                if (this.object.d20 < 3){
-                    this.object.d20++;
-                }
-                else{
-                    this.object.d20=0;
-                }
-                break;   
-            }
-            
         }
 
         this.object.current=(this.object.d3*3)+(this.object.d4*4)+(this.object.d5*5)+(this.object.d6*6)+(this.object.d8*8)+(this.object.d10*10)+(this.object.d12*12)+(this.object.d20*20)
