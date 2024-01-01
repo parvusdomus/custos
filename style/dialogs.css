@@ -146,3 +146,70 @@
     font-weight: 900;
     text-align: center;
 }
+
+.roll_dialog {
+    background: var(--chat-bg-image) no-repeat;
+    background-size: 100% 100%;
+}
+
+.roll_dialog table {
+    margin: 0;
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.roll_dialog tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.roll_dialog tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.roll_dialog input {
+    background-color: var(--input-bg-color);
+    clip-path: circle(50% at 50% 50%);
+    color: var(--crimson);
+    border: none;
+    text-align: center;
+    height: 40px;
+    width: 40px; 
+}
+
+.roll_dialog h3{
+    font-family: var(--bold-font-name);
+    color: var(--dark-gold);
+    font-weight: 900;
+    border-bottom: none;
+}
+
+.roll_dialog select{
+    font-family: var(--bold-font-name);
+    background-color: var(--input-bg-color);
+    color: var(--crimson);
+    text-align: center;
+    border-bottom: none;
+    border: none;
+}
+
+.roll_dialog img{
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: var(--crimson);
+}
+
+.roll_dialog hr{
+    border: 2px solid var(--dark-gold);
+}
+
+.image_small img{
+    height: 20px;
+}
+
