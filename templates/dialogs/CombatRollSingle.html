@@ -18,9 +18,9 @@
                 
             </td>
             <td>
-                <h3>
-                    <label>{{ localize "CUSTOS.ui.diff" }}:&nbsp;&nbsp;</label>
+                <h3>        
                     {{#if fixed_dif}}
+                        <label>{{ localize "CUSTOS.ui.diff" }}:&nbsp;&nbsp;</label>
                         <label name="difficulty" id="difficulty" data-dtype="Number" >{{dif}}&nbsp;&nbsp;</label>
                     {{else}}
                         <select name="difficulty" id="difficulty" data-dtype="Number">

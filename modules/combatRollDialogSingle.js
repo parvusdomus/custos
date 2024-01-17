@@ -1,4 +1,5 @@
 import {SingleCombatRoll} from "../modules/rolls.js";
+import {RangedCombatRoll} from "../modules/rolls.js";
 export default class CombatRollDialogSingle extends FormApplication {
     constructor(dataset) {
 	    super(dataset);
@@ -124,8 +125,15 @@ export default class CombatRollDialogSingle extends FormApplication {
                         d12: this.object.d12,
                         d20: this.object.d20
                     };
-                    SingleCombatRoll (diceData)
-                    this.close();
+                    if (this.object.fixed_dif==true){
+                        SingleCombatRoll (diceData)
+                        this.close();
+                    }
+                    else{
+                        RangedCombatRoll (diceData)
+                        this.close(); 
+                    }
+                    
                 },
 			    no: () => {return},
 			    defaultYes: false
@@ -169,8 +177,14 @@ export default class CombatRollDialogSingle extends FormApplication {
                 d12: this.object.d12,
                 d20: this.object.d20
             };
-            SingleCombatRoll (diceData)
-            this.close();
+            if (this.object.fixed_dif==true){
+                SingleCombatRoll (diceData)
+                this.close();
+            }
+            else{
+                RangedCombatRoll (diceData)
+                this.close(); 
+            }
             
         }
         

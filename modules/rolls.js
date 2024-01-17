@@ -225,9 +225,9 @@ export async function SingleCombatRoll (diceData)
 	}while(explode);
     console.log ("TOTAL")
     console.log (totalRoll)
-    let targetrolltext=diceData.targetroll+"[red]"
+    let targetrolltext=diceData.targetroll+"[grey]"
     if (Number(diceData.bonus)<0){
-        targetrolltext+="+1d"+Math.abs(Number(diceData.bonus))+"[red]"
+        targetrolltext+="+1d"+Math.abs(Number(diceData.bonus))+"[grey]"
         console.log (targetrolltext)
     }
     console.log ("NPC")
@@ -556,6 +556,12 @@ export async function SingleCombatRoll (diceData)
 
     ChatMessage.create(chatData);
     return;
+}
+
+export async function RangedCombatRoll (diceData)
+{
+    console.log ("RANGED COMBAT ROLL")
+
 }
 
 export async function SingleDamageRoll (diceData)

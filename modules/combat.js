@@ -78,7 +78,47 @@ export async function CombatSingleRoll (actor, item, target){
       targethasFate=target.system.hasFate
     }
 
-    let dice= {
+    console.log ("WEAPON")
+    console.log (item.system)
+    if (item.system.range != "cac"){
+      console.log ("ARMA A DISTANCIA")
+      let dice= {
+        bonus: 0,
+        targetbonus: 0,
+        fatigued: fatigued,
+        actor_id: actor._id,
+        rollTitle: rollname,
+        targetroll: targetroll,
+        shield: shield,
+        armor: armor,
+        targetshield: targetshield,
+        targetarmor: targetarmor,
+        targetname: target.name,
+        targetimage: target.img,
+        targethasFate: targethasFate,
+        isExpertus: isExpertus,
+        total: total,
+        base: total,
+        current:0,
+        ndice: 0,
+        fixed_dif: false,
+        dif: weapondifficulty,
+        targetweapondifficulty: targetweapondifficulty,
+        damage: weapondamage,
+        targetdamage: targetweapondamage,
+        d3: 0,
+        d4: 0,
+        d5: 0,
+        d6: 0,
+        d8: 0,
+        d10: 0,
+        d12: 0,
+        d20: 0
+      };
+      new CombatRollDialogSingle(dice).render(true);
+    }
+    else{
+      let dice= {
         bonus: 0,
         targetbonus: 0,
         fatigued: fatigued,
@@ -110,7 +150,10 @@ export async function CombatSingleRoll (actor, item, target){
         d10: 0,
         d12: 0,
         d20: 0
-    };
-    new CombatRollDialogSingle(dice).render(true);
+      };
+      new CombatRollDialogSingle(dice).render(true);
+    }
+
+    
 
 }
