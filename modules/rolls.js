@@ -561,6 +561,201 @@ export async function SingleCombatRoll (diceData)
 export async function RangedCombatRoll (diceData)
 {
     console.log ("RANGED COMBAT ROLL")
+    console.log ("DICE DATA")
+    console.log (diceData)
+    let isExpertus=diceData.isExpertus
+    let hasFate=false
+    let actor=game.actors.get(diceData.actor_id)
+    let rollTitle=diceData.rollTitle+" VS "+diceData.weapondifficulty
+    let targetimage=diceData.targetimage
+    let targetname=diceData.targetname
+    let targetshield=diceData.targetshield
+    let multiplier=1
+    let weapondamage=diceData.damage
+    let weapondifficulty=diceData.weapondifficulty
+    let difficulty=diceData.difficulty
+    let targetarmor=diceData.targetarmor
+    let pietasOnTie=game.settings.get ("custos", "enablePietasonTie")
+    let margin=0
+    let playerattacker=false
+    let targethasFate=false
+    console.log ("IN COMBAT RANGED ROLL")
+    console.log ("IS EXPERTUS")
+    console.log (isExpertus)
+    let rollResult=""
+    let dice = [];
+    if (diceData.d3>0){
+        dice.push(diceData.d3+"d3");
+    }
+    if (diceData.d4>0){
+        dice.push(diceData.d4+"d4");
+    }
+    if (diceData.d5>0){
+        dice.push(diceData.d5+"d5");
+    }
+    if (diceData.d6>0){
+        dice.push(diceData.d6+"d6");
+    }
+    if (diceData.d8>0){
+        dice.push(diceData.d8+"d8");
+    }
+    if (diceData.d10>0){
+        dice.push(diceData.d10+"d10");
+    }
+    if (diceData.d12>0){
+        dice.push(diceData.d12+"d12");
+    }
+    if (diceData.d20>0){
+        dice.push(diceData.d20+"d20");
+    }
+    let rollText=""
+    for (let i = 0; i < dice.length; i++) {
+        if (i>0)rollText+="+"
+        rollText+=dice[i]
+    }
+    let explode=false
+    let totalRoll = 0;
+    let totaltargetRoll = 0;
+    console.log ("TIRADA DE DADOS COMBATE")
+    console.log ("JUGADOR")
+   do
+	{
+        explode=false;
+		let roll = new Roll(rollText);
+		let evaluateRoll = roll.evaluate({async: false});
+        if (game.modules.get('dice-so-nice')?.active){
+            game.dice3d.showForRoll(roll,game.user,true,false,null)
+        }
+        console.log (evaluateRoll)
+        if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true; console.log("EXPLODED")}
+		totalRoll += Number(evaluateRoll.total)
+	}while(explode);
+    console.log ("TOTAL")
+    console.log (totalRoll)
+    if (Number(totalRoll) > Number(weapondifficulty) || isExpertus == true){
+        console.log ("IS EXPERTUS AGAIN")
+        if (Number(totalRoll) > Number(difficulty)){
+            margin=Number(totalRoll) - Number(difficulty)
+            margin = Number(totalRoll) - Number(difficulty) - Number (targetshield)
+            playerattacker=true
+            switch (true){
+                case (margin <= 0):
+                {
+                    multiplier=0
+                    rollResult+="</tr><tr><td class=\"success\">"+game.i18n.localize("CUSTOS.chat.shieldblock")+"</td>"
+                    break;
+                }
+                case (margin > 0 && margin <= 3): 
+                {
+                    multiplier=1
+                    if (Number(diceData.difficulty)==0){
+                        multiplier--
+                        rollResult+="</tr><tr><td class=\"success\">"+game.i18n.localize("CUSTOS.chat.nodamage")+"</td>"
+                    }
+                    else{
+                        rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
+                        
+                        rollResult+="</tr><tr><td style=\"border:5px outset rgb(29, 0, 0);\" class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\"  data-targethasFate=\""+targethasFate+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    }
+                    break;
+                }
+                case (margin > 3 && margin <= 6):
+                {
+                    multiplier=2
+                    if (Number(diceData.difficulty)==0){
+                        multiplier--
+                    }
+                    rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
+                    
+                    rollResult+="</tr><tr><td style=\"border:5px outset rgb(29, 0, 0);\" class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-targethasFate=\""+targethasFate+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    break;
+                }
+                case (margin > 6 && margin <= 9): 
+                {
+                    multiplier=3
+                    if (Number(diceData.difficulty)==0){
+                        multiplier--
+                    }
+                    rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
+                    
+                    rollResult+="</tr><tr><td style=\"border:5px outset rgb(29, 0, 0);\" class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-targethasFate=\""+targethasFate+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    break;
+                }
+                case (margin > 9 && margin <= 12): 
+                {
+                    multiplier=4
+                    if (Number(diceData.difficulty)==0){
+                        multiplier--
+                    }
+                    rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
+                    
+                    rollResult+="</tr><tr><td style=\"border:5px outset rgb(29, 0, 0);\" class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-targethasFate=\""+targethasFate+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    break;
+                }
+                case (margin > 12 && margin <= 15): 
+                {
+                    multiplier=5
+                    if (Number(diceData.difficulty)==0){
+                        multiplier--
+                    }
+                    rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
+                    
+                    rollResult+="</tr><tr><td style=\"border:5px outset rgb(29, 0, 0);\" class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-targethasFate=\""+targethasFate+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    break;
+                }
+                case (margin >= 16): 
+                {
+                    multiplier=6
+                    if (Number(diceData.difficulty)==0){
+                        multiplier--
+                    }
+                    rollResult+="</tr><tr><td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.multiplier")+" x"+multiplier+"</td>"
+                    
+                    rollResult+="</tr><tr><td style=\"border:5px outset rgb(29, 0, 0);\" class=\"failure damage \" data-player=\""+playerattacker+"\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-targethasFate=\""+targethasFate+"\" data-weapondamage=\""+weapondamage+"\" data-armor=\""+targetarmor+"\" data-multiplier=\""+multiplier+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.rolldamage")+"</td>"
+                    break;
+                }
+            }
+        }
+        else {
+            rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failure")+"</td></tr><tr>"
+        }
+        
+    }
+    else {
+        console.log ("IS NOT NOT NOT EXPERTUS AGAIN")
+        if (Number(totalRoll) == Number(diceData.weapondifficulty)){
+            if (hasFate && pietasOnTie){
+                rollResult="<td style=\"border:5px outset rgb(29, 0, 0);\" class=\"spendcombat\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
+            }
+            else{
+                rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failureweapon")+"</td></tr><tr>"
+            }
+            
+        }
+        else{
+            rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failureweapon")+"</td></tr><tr>"
+        }
+
+    }
+    let renderedRoll = await renderTemplate("systems/custos/templates/chat/combatTestResult.html", { 
+        pjName: actor.name,
+        pjImage: actor.img,
+        targetImage: targetimage,
+        targetName: targetname,
+        rollTitle: rollTitle,
+        totalRoll: totalRoll, 
+        totaltargetRoll: difficulty, 
+        rollResult: rollResult,
+        actor_id: diceData.actor_id
+    });
+
+    const chatData = {
+        speaker: ChatMessage.getSpeaker(),
+        content: renderedRoll
+    };
+
+    ChatMessage.create(chatData);
+    return;
 
 }
 

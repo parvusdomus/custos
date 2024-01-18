@@ -98,6 +98,7 @@ export default class CombatRollDialogSingle extends FormApplication {
                     diceData= {
                         bonus: this.object.bonus,
                         difficulty: this.object.dif,
+                        weapondifficulty: this.object.weapondifficulty,
                         isExpertus: this.object.isExpertus,
                         rollTitle: this.object.rollTitle,
                         actor_id: this.object.actor_id,
@@ -147,41 +148,71 @@ export default class CombatRollDialogSingle extends FormApplication {
             else{
                 this.object.dif= document.getElementById("difficulty").value;
             }
-            diceData= {
-                bonus: this.object.bonus,
-                difficulty: this.object.dif,
-                isExpertus: this.object.isExpertus,
-                actor_id: this.object.actor_id,
-                rollTitle: this.object.rollTitle,
-                targetimage: this.object.targetimage,
-                targetname: this.object.targetname,
-                targetroll: this.object.targetroll,
-                shield: this.object.shield,
-                targetshield: this.object.targetshield,
-                armor: this.object.armor,
-                targetarmor: this.object.targetarmor,
-                targethasFate: this.object.targethasFate,
-                damage: this.object.damage,
-                targetdamage: this.object.targetdamage,
-                targetweapondifficulty: this.object.targetweapondifficulty,
-                current: this.object.current,
-                total: this.object.total,
-                base: this.object.base,
-                ndice: this.object.ndice,
-                d3: this.object.d3,
-                d4: this.object.d4,
-                d5: this.object.d5,
-                d6: this.object.d6,
-                d8: this.object.d8,
-                d10: this.object.d10,
-                d12: this.object.d12,
-                d20: this.object.d20
-            };
+            
             if (this.object.fixed_dif==true){
+                diceData= {
+                    bonus: this.object.bonus,
+                    difficulty: this.object.dif,
+                    weapondifficulty: this.object.weapondifficulty,
+                    isExpertus: this.object.isExpertus,
+                    actor_id: this.object.actor_id,
+                    rollTitle: this.object.rollTitle,
+                    targetimage: this.object.targetimage,
+                    targetname: this.object.targetname,
+                    targetroll: this.object.targetroll,
+                    shield: this.object.shield,
+                    targetshield: this.object.targetshield,
+                    armor: this.object.armor,
+                    targetarmor: this.object.targetarmor,
+                    targethasFate: this.object.targethasFate,
+                    damage: this.object.damage,
+                    targetdamage: this.object.targetdamage,
+                    targetweapondifficulty: this.object.targetweapondifficulty,
+                    current: this.object.current,
+                    total: this.object.total,
+                    base: this.object.base,
+                    ndice: this.object.ndice,
+                    d3: this.object.d3,
+                    d4: this.object.d4,
+                    d5: this.object.d5,
+                    d6: this.object.d6,
+                    d8: this.object.d8,
+                    d10: this.object.d10,
+                    d12: this.object.d12,
+                    d20: this.object.d20
+                };
                 SingleCombatRoll (diceData)
                 this.close();
             }
             else{
+                diceData= {
+                    bonus: this.object.bonus,
+                    difficulty: this.object.dif,
+                    weapondifficulty: this.object.weapondifficulty,
+                    isExpertus: this.object.isExpertus,
+                    actor_id: this.object.actor_id,
+                    rollTitle: this.object.rollTitle,
+                    targetimage: this.object.targetimage,
+                    targetname: this.object.targetname,
+                    shield: this.object.shield,
+                    targetshield: this.object.targetshield,
+                    armor: this.object.armor,
+                    targetarmor: this.object.targetarmor,
+                    damage: this.object.damage,
+                    weapondifficulty: this.object.weapondifficulty,
+                    current: this.object.current,
+                    total: this.object.total,
+                    base: this.object.base,
+                    ndice: this.object.ndice,
+                    d3: this.object.d3,
+                    d4: this.object.d4,
+                    d5: this.object.d5,
+                    d6: this.object.d6,
+                    d8: this.object.d8,
+                    d10: this.object.d10,
+                    d12: this.object.d12,
+                    d20: this.object.d20
+                };
                 RangedCombatRoll (diceData)
                 this.close(); 
             }
