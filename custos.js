@@ -140,8 +140,6 @@ Hooks.on("createActor", async (actor) =>{
 
 
 Hooks.on("createItem", async (item) =>{
-  console.log ("ACTOR")
-  console.log (item.img)
   const provintiaImage="systems/custos/style/icons/italia.svg"
   const weaponImage="systems/custos/style/icons/gladius.svg"
   const armorImage="systems/custos/style/icons/lamellar.svg"

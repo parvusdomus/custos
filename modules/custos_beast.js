@@ -157,8 +157,6 @@ export default class CUSTOS_BEAST_SHEET extends ActorSheet{
       event.preventDefault();
 		  const dataset = event.currentTarget.dataset;
       let actor=this.actor
-      console.log ("SHOW KNOWLEDGE")
-      console.log (actor)
       let knowledgeLevel=""
       let knowledgeText=""
       switch (dataset.level){

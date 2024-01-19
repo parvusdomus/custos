@@ -139,6 +139,7 @@
     "CUSTOS.chat.rolldamage": "->  Roll damage  <-",
     "CUSTOS.chat.damageroll": "Total Damage",
     "CUSTOS.chat.damageapply": "->  Apply damage to target  <-",
+    "CUSTOS.chat.armorroll": "Armor roll",
 
     "CUSTOS.ui.diceValue": "Dice Value",
     "CUSTOS.ui.size": "Size",

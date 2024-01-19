@@ -139,6 +139,7 @@
     "CUSTOS.chat.rolldamage": "->  Tirar daño  <-",
     "CUSTOS.chat.damageroll": "Daño total",
     "CUSTOS.chat.damageapply": "->  Aplicar daño a objetivo  <-",
+    "CUSTOS.chat.armorroll": "Tirada de armadura",
 
     "CUSTOS.ui.diceValue": "Valor de Dado",
     "CUSTOS.ui.size": "Tamaño",

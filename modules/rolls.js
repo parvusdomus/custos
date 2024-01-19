@@ -7,41 +7,84 @@ export async function RegularDiceRoll (diceData)
     if (actor.type=="Custos" && Number(actor.system.resources.pietas.value) < Number(actor.system.resources.pietas.max)){
         hasFate=true
     }
-    
     let rollResult=""
-    let dice = [];
-    if (diceData.d3>0){
-        dice.push(diceData.d3+"d3");
-    }
-    if (diceData.d4>0){
-        dice.push(diceData.d4+"d4");
-    }
-    if (diceData.d5>0){
-        dice.push(diceData.d5+"d5");
-    }
-    if (diceData.d6>0){
-        dice.push(diceData.d6+"d6");
-    }
-    if (diceData.d8>0){
-        dice.push(diceData.d8+"d8");
-    }
-    if (diceData.d10>0){
-        dice.push(diceData.d10+"d10");
-    }
-    if (diceData.d12>0){
-        dice.push(diceData.d12+"d12");
-    }
-    if (diceData.d20>0){
-        dice.push(diceData.d20+"d20");
-    }
     let rollText=""
-    for (let i = 0; i < dice.length; i++) {
-        if (i>0)rollText+="+"
-        rollText+=dice[i]
+    let ndice=0
+    for (let i = 0; i < diceData.d3; i++) {
+        if (rollText==""){
+            rollText+="1d3"
+        }
+        else {
+            rollText+="+1d3"
+        }   
+        ndice++   
+    }
+    for (let i = 0; i < diceData.d4; i++) {
+        if (rollText==""){
+            rollText+="1d4"
+        }
+        else {
+            rollText+="+1d4"
+        }     
+        ndice++ 
+    }
+    for (let i = 0; i < diceData.d5; i++) {
+        if (rollText==""){
+            rollText+="1d5"
+        }
+        else {
+            rollText+="+1d5"
+        }   
+        ndice++   
+    }
+    for (let i = 0; i < diceData.d6; i++) {
+        if (rollText==""){
+            rollText+="1d6"
+        }
+        else {
+            rollText+="+1d6"
+        }  
+        ndice++    
+    }
+    for (let i = 0; i < diceData.d8; i++) {
+        if (rollText==""){
+            rollText+="1d8"
+        }
+        else {
+            rollText+="+1d8"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d10; i++) {
+        if (rollText==""){
+            rollText+="10"
+        }
+        else {
+            rollText+="+1d10"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d12; i++) {
+        if (rollText==""){
+            rollText+="1d12"
+        }
+        else {
+            rollText+="+1d12"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d20; i++) {
+        if (rollText==""){
+            rollText+="1d20"
+        }
+        else {
+            rollText+="+1d20"
+        } 
+        ndice++     
     }
     let explode=false
     let totalRoll = 0;
-    console.log ("TIRADA DE DADOS NORMAL")
+    let dicelist = "";
    do
 	{
         explode=false;
@@ -50,12 +93,20 @@ export async function RegularDiceRoll (diceData)
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
-        console.log (evaluateRoll)
-        if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true; console.log ("EXPLODED")}
+        if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
+        for (let i = 0; i < ndice; i++) {
+            let diceterm = 0
+            let j = i+i
+            diceterm =evaluateRoll.terms[j].results[0].result
+            if (dicelist==""){
+                dicelist+=diceterm
+            }
+            else {
+                dicelist+=" ,"+diceterm
+            }    
+        }
 	}while(explode);
-    console.log ("TOTAL:")
-    console.log (totalRoll)
     if (Number(totalRoll) > Number(diceData.difficulty)){
         let diff=Number(totalRoll)-Number(diceData.difficulty)
         switch (true){
@@ -95,6 +146,7 @@ export async function RegularDiceRoll (diceData)
         pjImage: actor.img,
         rollTitle: rollTitle,
         totalRoll: totalRoll, 
+        dicelist: dicelist,
         rollResult: rollResult,
         actor_id: diceData.actor_id
     });
@@ -115,11 +167,19 @@ export async function RegularNPCDiceRoll (diceData)
     let hasFate=actor.system.hasFate
     let rollTitle=diceData.rollTitle
     let rollResult=""
-    let rollText=diceData.ndice+"d"+diceData.sides
+    let rollText=""
     let explode=false
     let totalRoll = 0;
+    let dicelist = "";
     let diceMax=Number(diceData.ndice)*Number(diceData.sides)
-    console.log ("TIRADA DE DADOS NPC")
+    for (let i = 0; i < Number(diceData.ndice); i++) {
+        if (rollText==""){
+            rollText+="1d"+diceData.sides
+        }
+        else {
+            rollText+="+1d"+diceData.sides
+        }    
+    }
    do
 	{
         explode=false;
@@ -128,18 +188,27 @@ export async function RegularNPCDiceRoll (diceData)
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
-        console.log (evaluateRoll)
-        if (Number(evaluateRoll.total)===Number(diceMax) && hasFate){explode = true; console.log ("EXPLODED")}
+        if (Number(evaluateRoll.total)===Number(diceMax) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
+        for (let i = 0; i < Number(diceData.ndice); i++) {
+            let diceterm = 0
+            let j = i+i
+            diceterm =evaluateRoll.terms[j].results[0].result
+            if (dicelist==""){
+                dicelist+=diceterm
+            }
+            else {
+                dicelist+=" ,"+diceterm
+            }    
+        }
 	}while(explode);
-    console.log ("TOTAL:")
-    console.log (totalRoll)
  
     let renderedRoll = await renderTemplate("systems/custos/templates/chat/simpleTestResult.html", { 
         pjName: actor.name,
         pjImage: actor.img,
         rollTitle: rollTitle,
         totalRoll: totalRoll, 
+        dicelist: dicelist,
         rollResult: rollResult,
         actor_id: diceData.actor_id
     });
@@ -172,45 +241,87 @@ export async function SingleCombatRoll (diceData)
     let targetweapondamage=diceData.targetdamage
     let targetweapondifficulty=diceData.targetweapondifficulty
     let pietasOnTie=game.settings.get ("custos", "enablePietasonTie")
-    console.log ("IN COMBAT ROLL")
-    console.log ("IS EXPERTUS")
-    console.log (isExpertus)
     let rollResult=""
-    let dice = [];
-    if (diceData.d3>0){
-        dice.push(diceData.d3+"d3");
-    }
-    if (diceData.d4>0){
-        dice.push(diceData.d4+"d4");
-    }
-    if (diceData.d5>0){
-        dice.push(diceData.d5+"d5");
-    }
-    if (diceData.d6>0){
-        dice.push(diceData.d6+"d6");
-    }
-    if (diceData.d8>0){
-        dice.push(diceData.d8+"d8");
-    }
-    if (diceData.d10>0){
-        dice.push(diceData.d10+"d10");
-    }
-    if (diceData.d12>0){
-        dice.push(diceData.d12+"d12");
-    }
-    if (diceData.d20>0){
-        dice.push(diceData.d20+"d20");
-    }
     let rollText=""
-    for (let i = 0; i < dice.length; i++) {
-        if (i>0)rollText+="+"
-        rollText+=dice[i]
+    let ndice=0
+    for (let i = 0; i < diceData.d3; i++) {
+        if (rollText==""){
+            rollText+="1d3"
+        }
+        else {
+            rollText+="+1d3"
+        }   
+        ndice++   
+    }
+    for (let i = 0; i < diceData.d4; i++) {
+        if (rollText==""){
+            rollText+="1d4"
+        }
+        else {
+            rollText+="+1d4"
+        }     
+        ndice++ 
+    }
+    for (let i = 0; i < diceData.d5; i++) {
+        if (rollText==""){
+            rollText+="1d5"
+        }
+        else {
+            rollText+="+1d5"
+        }   
+        ndice++   
+    }
+    for (let i = 0; i < diceData.d6; i++) {
+        if (rollText==""){
+            rollText+="1d6"
+        }
+        else {
+            rollText+="+1d6"
+        }  
+        ndice++    
+    }
+    for (let i = 0; i < diceData.d8; i++) {
+        if (rollText==""){
+            rollText+="1d8"
+        }
+        else {
+            rollText+="+1d8"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d10; i++) {
+        if (rollText==""){
+            rollText+="10"
+        }
+        else {
+            rollText+="+1d10"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d12; i++) {
+        if (rollText==""){
+            rollText+="1d12"
+        }
+        else {
+            rollText+="+1d12"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d20; i++) {
+        if (rollText==""){
+            rollText+="1d20"
+        }
+        else {
+            rollText+="+1d20"
+        } 
+        ndice++     
     }
     let explode=false
     let totalRoll = 0;
+    let dicelist = "";
+    let npcdicelist = "";
     let totaltargetRoll = 0;
-    console.log ("TIRADA DE DADOS COMBATE")
-    console.log ("JUGADOR")
+    let targetndice = Number(diceData.targetndice);
    do
 	{
         explode=false;
@@ -219,18 +330,33 @@ export async function SingleCombatRoll (diceData)
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
-        console.log (evaluateRoll)
-        if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true; console.log("EXPLODED")}
+        if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
+        for (let i = 0; i < Number(diceData.ndice); i++) {
+            let diceterm = 0
+            let j = i+i
+            diceterm =evaluateRoll.terms[j].results[0].result
+            if (dicelist==""){
+                dicelist+=diceterm
+            }
+            else {
+                dicelist+=" ,"+diceterm
+            }    
+        }
 	}while(explode);
-    console.log ("TOTAL")
-    console.log (totalRoll)
-    let targetrolltext=diceData.targetroll+"[grey]"
+    let targetrolltext=""
+    for (let i = 0; i < Number(targetndice); i++) {
+        if (targetrolltext==""){
+            targetrolltext+="1d"+diceData.targetsides+"[grey]"
+        }
+        else {
+            targetrolltext+="+1d"+diceData.targetsides+"[grey]"
+        }    
+    }
     if (Number(diceData.bonus)<0){
         targetrolltext+="+1d"+Math.abs(Number(diceData.bonus))+"[grey]"
-        console.log (targetrolltext)
+        targetndice++
     }
-    console.log ("NPC")
     do
 	{
         explode=false;
@@ -239,15 +365,22 @@ export async function SingleCombatRoll (diceData)
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(targetRoll,game.user,true,false,null)
         }
-        console.log (evaluateRoll)
-        if (Number(evaluateRoll.total)===Number(diceData.current) && targethasFate){explode = true; console.log("EXPLODED")}
+        if (Number(evaluateRoll.total)===Number(diceData.current) && targethasFate){explode = true}
 		totaltargetRoll += Number(evaluateRoll.total)
+        for (let i = 0; i < Number(targetndice); i++) {
+            let diceterm = 0
+            let j = i+i
+            diceterm =evaluateRoll.terms[j].results[0].result
+            if (npcdicelist==""){
+                npcdicelist+=diceterm
+            }
+            else {
+                npcdicelist+=" ,"+diceterm
+            }    
+        }
 	}while(explode);
-    console.log ("TOTAL")
-    console.log (totalRoll)
     let margin=0;
     if (Number(totalRoll) > Number(diceData.difficulty) || isExpertus == true){
-        console.log ("IS EXPERTUS AGAIN")
         if (Number(totalRoll) > Number(totaltargetRoll)){
             margin=Number(totalRoll) - Number(totaltargetRoll)
             rollResult="<td class=\"success\">"+actor.name+" "+game.i18n.localize("CUSTOS.chat.attacker")+" ("+margin+")</td>"
@@ -442,7 +575,6 @@ export async function SingleCombatRoll (diceData)
         
     }
     else{
-        console.log ("IS NOT NOT NOT EXPERTUS AGAIN")
         if (Number(totalRoll) == Number(diceData.difficulty)){
             if (hasFate && pietasOnTie){
                 rollResult="<td style=\"border:5px outset rgb(29, 0, 0);\" class=\"spendcombat\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
@@ -544,6 +676,8 @@ export async function SingleCombatRoll (diceData)
         targetName: targetname,
         rollTitle: rollTitle,
         totalRoll: totalRoll, 
+        dicelist: dicelist,
+        npcdicelist: npcdicelist,
         totaltargetRoll: totaltargetRoll, 
         rollResult: rollResult,
         actor_id: diceData.actor_id
@@ -560,9 +694,6 @@ export async function SingleCombatRoll (diceData)
 
 export async function RangedCombatRoll (diceData)
 {
-    console.log ("RANGED COMBAT ROLL")
-    console.log ("DICE DATA")
-    console.log (diceData)
     let isExpertus=diceData.isExpertus
     let hasFate=false
     let actor=game.actors.get(diceData.actor_id)
@@ -579,45 +710,86 @@ export async function RangedCombatRoll (diceData)
     let margin=0
     let playerattacker=false
     let targethasFate=false
-    console.log ("IN COMBAT RANGED ROLL")
-    console.log ("IS EXPERTUS")
-    console.log (isExpertus)
     let rollResult=""
-    let dice = [];
-    if (diceData.d3>0){
-        dice.push(diceData.d3+"d3");
-    }
-    if (diceData.d4>0){
-        dice.push(diceData.d4+"d4");
-    }
-    if (diceData.d5>0){
-        dice.push(diceData.d5+"d5");
-    }
-    if (diceData.d6>0){
-        dice.push(diceData.d6+"d6");
-    }
-    if (diceData.d8>0){
-        dice.push(diceData.d8+"d8");
-    }
-    if (diceData.d10>0){
-        dice.push(diceData.d10+"d10");
-    }
-    if (diceData.d12>0){
-        dice.push(diceData.d12+"d12");
-    }
-    if (diceData.d20>0){
-        dice.push(diceData.d20+"d20");
-    }
     let rollText=""
-    for (let i = 0; i < dice.length; i++) {
-        if (i>0)rollText+="+"
-        rollText+=dice[i]
+    let ndice=0
+    for (let i = 0; i < diceData.d3; i++) {
+        if (rollText==""){
+            rollText+="1d3"
+        }
+        else {
+            rollText+="+1d3"
+        }   
+        ndice++   
+    }
+    for (let i = 0; i < diceData.d4; i++) {
+        if (rollText==""){
+            rollText+="1d4"
+        }
+        else {
+            rollText+="+1d4"
+        }     
+        ndice++ 
+    }
+    for (let i = 0; i < diceData.d5; i++) {
+        if (rollText==""){
+            rollText+="1d5"
+        }
+        else {
+            rollText+="+1d5"
+        }   
+        ndice++   
+    }
+    for (let i = 0; i < diceData.d6; i++) {
+        if (rollText==""){
+            rollText+="1d6"
+        }
+        else {
+            rollText+="+1d6"
+        }  
+        ndice++    
+    }
+    for (let i = 0; i < diceData.d8; i++) {
+        if (rollText==""){
+            rollText+="1d8"
+        }
+        else {
+            rollText+="+1d8"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d10; i++) {
+        if (rollText==""){
+            rollText+="10"
+        }
+        else {
+            rollText+="+1d10"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d12; i++) {
+        if (rollText==""){
+            rollText+="1d12"
+        }
+        else {
+            rollText+="+1d12"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d20; i++) {
+        if (rollText==""){
+            rollText+="1d20"
+        }
+        else {
+            rollText+="+1d20"
+        } 
+        ndice++     
     }
     let explode=false
     let totalRoll = 0;
+    let dicelist = "";
+    let npcdicelist = "";
     let totaltargetRoll = 0;
-    console.log ("TIRADA DE DADOS COMBATE")
-    console.log ("JUGADOR")
    do
 	{
         explode=false;
@@ -626,14 +798,21 @@ export async function RangedCombatRoll (diceData)
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
-        console.log (evaluateRoll)
-        if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true; console.log("EXPLODED")}
+        if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
+        for (let i = 0; i < ndice; i++) {
+            let diceterm = 0
+            let j = i+i
+            diceterm =evaluateRoll.terms[j].results[0].result
+            if (dicelist==""){
+                dicelist+=diceterm
+            }
+            else {
+                dicelist+=" ,"+diceterm
+            }    
+        }
 	}while(explode);
-    console.log ("TOTAL")
-    console.log (totalRoll)
     if (Number(totalRoll) > Number(weapondifficulty) || isExpertus == true){
-        console.log ("IS EXPERTUS AGAIN")
         if (Number(totalRoll) > Number(difficulty)){
             margin=Number(totalRoll) - Number(difficulty)
             margin = Number(totalRoll) - Number(difficulty) - Number (targetshield)
@@ -722,7 +901,6 @@ export async function RangedCombatRoll (diceData)
         
     }
     else {
-        console.log ("IS NOT NOT NOT EXPERTUS AGAIN")
         if (Number(totalRoll) == Number(diceData.weapondifficulty)){
             if (hasFate && pietasOnTie){
                 rollResult="<td style=\"border:5px outset rgb(29, 0, 0);\" class=\"spendcombat\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
@@ -737,13 +915,15 @@ export async function RangedCombatRoll (diceData)
         }
 
     }
-    let renderedRoll = await renderTemplate("systems/custos/templates/chat/combatTestResult.html", { 
+    let renderedRoll = await renderTemplate("systems/custos/templates/chat/combatTestResultRanged.html", { 
         pjName: actor.name,
         pjImage: actor.img,
         targetImage: targetimage,
         targetName: targetname,
         rollTitle: rollTitle,
         totalRoll: totalRoll, 
+        dicelist: dicelist,
+        npcdicelist: npcdicelist,
         totaltargetRoll: difficulty, 
         rollResult: rollResult,
         actor_id: diceData.actor_id
@@ -771,39 +951,84 @@ export async function SingleDamageRoll (diceData)
     }
 
     let rollResult=""
-    let dice = [];
-    if (diceData.d3>0){
-        dice.push(diceData.d3+"d3");
-    }
-    if (diceData.d4>0){
-        dice.push(diceData.d4+"d4");
-    }
-    if (diceData.d5>0){
-        dice.push(diceData.d5+"d5");
-    }
-    if (diceData.d6>0){
-        dice.push(diceData.d6+"d6");
-    }
-    if (diceData.d8>0){
-        dice.push(diceData.d8+"d8");
-    }
-    if (diceData.d10>0){
-        dice.push(diceData.d10+"d10");
-    }
-    if (diceData.d12>0){
-        dice.push(diceData.d12+"d12");
-    }
-    if (diceData.d20>0){
-        dice.push(diceData.d20+"d20");
-    }
     let rollText=""
-    for (let i = 0; i < dice.length; i++) {
-        if (i>0)rollText+="+"
-        rollText+=dice[i]
+    let ndice=0
+    for (let i = 0; i < diceData.d3; i++) {
+        if (rollText==""){
+            rollText+="1d3"
+        }
+        else {
+            rollText+="+1d3"
+        }   
+        ndice++   
     }
+    for (let i = 0; i < diceData.d4; i++) {
+        if (rollText==""){
+            rollText+="1d4"
+        }
+        else {
+            rollText+="+1d4"
+        }     
+        ndice++ 
+    }
+    for (let i = 0; i < diceData.d5; i++) {
+        if (rollText==""){
+            rollText+="1d5"
+        }
+        else {
+            rollText+="+1d5"
+        }   
+        ndice++   
+    }
+    for (let i = 0; i < diceData.d6; i++) {
+        if (rollText==""){
+            rollText+="1d6"
+        }
+        else {
+            rollText+="+1d6"
+        }  
+        ndice++    
+    }
+    for (let i = 0; i < diceData.d8; i++) {
+        if (rollText==""){
+            rollText+="1d8"
+        }
+        else {
+            rollText+="+1d8"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d10; i++) {
+        if (rollText==""){
+            rollText+="10"
+        }
+        else {
+            rollText+="+1d10"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d12; i++) {
+        if (rollText==""){
+            rollText+="1d12"
+        }
+        else {
+            rollText+="+1d12"
+        } 
+        ndice++     
+    }
+    for (let i = 0; i < diceData.d20; i++) {
+        if (rollText==""){
+            rollText+="1d20"
+        }
+        else {
+            rollText+="+1d20"
+        } 
+        ndice++     
+    }
+    let armordicelist = "";
     let explode=false
     let totalRoll = 0;
-    console.log ("DAMAGE ROLL")
+    let dicelist = "";
    do
 	{
         explode=false;
@@ -812,15 +1037,22 @@ export async function SingleDamageRoll (diceData)
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
-        console.log(evaluateRoll)
-        if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true;console.log("EXPLODED")}
+        if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
 		totalRoll += Number(evaluateRoll.total)
+        for (let i = 0; i < ndice; i++) {
+            let diceterm = 0
+            let j = i+i
+            diceterm =evaluateRoll.terms[j].results[0].result
+            if (dicelist==""){
+                dicelist+=diceterm
+            }
+            else {
+                dicelist+=" ,"+diceterm
+            }    
+        }
 	}while(explode);
-    console.log ("TOTAL")
-    console.log (totalRoll)
     let armorRoll=0;
     let armorRollText="1d"+diceData.armor+"[grey]"
-    console.log ("ARMOR ROLL")
     do
 	{
         explode=false;
@@ -829,12 +1061,20 @@ export async function SingleDamageRoll (diceData)
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
-        console.log(evaluateRoll)
-        if (Number(evaluateRoll.total)===Number(diceData.current) && targethasFate){explode = true;console.log("EXPLODED")}
+        if (Number(evaluateRoll.total)===Number(diceData.current) && targethasFate){explode = true}
 		armorRoll += Number(evaluateRoll.total)
+        for (let i = 0; i < 1; i++) {
+            let diceterm = 0
+            let j = i+i
+            diceterm =evaluateRoll.terms[j].results[0].result
+            if (armordicelist==""){
+                armordicelist+=diceterm
+            }
+            else {
+                armordicelist+=" ,"+diceterm
+            }    
+        }
 	}while(explode);
-    console.log ("TOTAL")
-    console.log (armorRoll)
     let totalDamage=totalRoll-armorRoll
     if (totalDamage < 0){
         totalDamage = 0
@@ -851,6 +1091,8 @@ export async function SingleDamageRoll (diceData)
         pjImage: diceData.pjImage,
         rollTitle: rollTitle,
         totalRoll: totalDamage, 
+        dicelist: dicelist,
+        armordicelist: armordicelist,
         rollResult: rollResult,
         actor_id: diceData.actor_id
     });

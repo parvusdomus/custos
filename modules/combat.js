@@ -35,8 +35,6 @@ export async function CombatSingleRoll (actor, item, target){
     }
     if (Number(total)>=(Number(weapondifficulty)*2)){
       isExpertus=true;
-      console.log ("IS EXPERTUS")
-      console.log (isExpertus)
     }
     
     let fatigued=false;
@@ -78,10 +76,7 @@ export async function CombatSingleRoll (actor, item, target){
       targethasFate=target.system.hasFate
     }
 
-    console.log ("WEAPON")
-    console.log (item.system)
     if (item.system.range != "cac"){
-      console.log ("ARMA A DISTANCIA")
       let dice= {
         bonus: 0,
         targetbonus: 0,
@@ -89,6 +84,8 @@ export async function CombatSingleRoll (actor, item, target){
         actor_id: actor._id,
         rollTitle: rollname,
         targetroll: targetroll,
+        targetndice: ndice,
+        targetsides: sides,
         shield: shield,
         armor: armor,
         targetshield: targetshield,
@@ -126,6 +123,8 @@ export async function CombatSingleRoll (actor, item, target){
         actor_id: actor._id,
         rollTitle: rollname,
         targetroll: targetroll,
+        targetndice: ndice,
+        targetsides: sides,
         shield: shield,
         armor: armor,
         targetshield: targetshield,

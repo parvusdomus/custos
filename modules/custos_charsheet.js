@@ -851,7 +851,6 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
     {
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
-      console.log (dataset)
       if (dataset.virtus=="none"){
         return;
       }
@@ -907,7 +906,6 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
 
     async _onWeaponRoll(event)
     {
-      console.log ("ON WEAPON ROLL")
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
       let item=this.actor.items.get(dataset.item_id)
