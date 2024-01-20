@@ -208,13 +208,13 @@
                         <a class="resource-change" data-resource="life" data-number={{.}}>
                             {{#if (gte . ../actor.system.resources.life.value)}}
                                 {{#if (gte . ../actor.system.converted_encumbrance)}}
-                                    <i style="color: var(--crimson);" class="fa-solid fa-square"></i>
+                                    <i style="color: var(--crimson); border-style: dotted; border-color: var(--crimson);" class="fa-regular fa-square"></i>
                                 {{else}}
                                     <i class="fa-regular fa-square"></i>
                                 {{/if}}
                             {{else}}
                                 {{#if (gte . ../actor.system.converted_encumbrance)}}
-                                    <i style="color: var(--crimson);" class="fa-solid fa-square-xmark"></i>
+                                    <i style="color: var(--crimson); border-style: dotted; border-color: var(--crimson);" class="fa-regular fa-square-xmark"></i>
                                 {{else}}
                                     <i class="fa-regular fa-square-xmark"></i>
                                 {{/if}}
