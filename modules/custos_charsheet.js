@@ -269,11 +269,18 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       let pietas=Number(this.actor.system.virtutes.ratio.value)+Number(this.actor.system.virtutes.sensibilitas.value)+Number(pietas_office_bonus)+Number(this.actor.system.pietas_xp_bonus)
       this.actor.update ({ 'system.resources.life.max': life });
       this.actor.update ({ 'system.resources.pietas.max': pietas });
+      let remaining_life=life-Number(this.actor.system.resources.life.value)
+      let remaining_pietas=pietas-Number(this.actor.system.resources.pietas.value)
+      this.actor.update ({ 'system.resources.life.remaining': remaining_life });
+      this.actor.update ({ 'system.resources.pietas.remaining': remaining_pietas });
     }
 
     _statusCheck(sheetData){
       if ((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max)){
         this.actor.update ({ 'system.status.fatigued': true });
+      }
+      else {
+        this.actor.update ({ 'system.status.fatigued': false });
       }
     }
 

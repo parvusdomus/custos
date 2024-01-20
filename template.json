@@ -82,12 +82,14 @@
                 "life": {
                     "min": 0,
                     "max": 0,
-                    "value": 0
+                    "value": 0,
+                    "remaining": 0
                 },
                 "pietas": {
                     "min": 0,
                     "max": 0,
-                    "value": 0
+                    "value": 0,
+                    "remaining": 0
                 }
             },
             "status": {
