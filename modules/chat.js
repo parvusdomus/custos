@@ -104,23 +104,28 @@ export default class custosChat {
     const element = event.currentTarget;
     if (dataset.player == "false" && game.user?.isGM == false){
       ui.notifications.error(game.i18n.localize("CUSTOS.ui.notallowed"));
-      return
+      
     }
-    let selected= Array.from(game.user.targets)[0]?.actor;
-    //let selected= Array.from(canvas.tokens.controlled)[0]?.actor;
-    if (!selected){
-      ui.notifications.warn(game.i18n.localize("CUSTOS.ui.noselected"));
-      return
+    else 
+    {
+      let selected= Array.from(game.user.targets)[0]?.actor;
+      //let selected= Array.from(canvas.tokens.controlled)[0]?.actor;
+      if (!selected){
+        ui.notifications.warn(game.i18n.localize("CUSTOS.ui.noselected"));
+      }
+      else
+      {
+        let currentdamage=Number(selected.system.resources.life.value)
+        let maxdamage=Number(selected.system.resources.life.max)
+        currentdamage+=Number(dataset.damage)
+        if(currentdamage > maxdamage){currentdamage=maxdamage}
+        selected.update ({ 'system.resources.life.value': currentdamage });
+        ui.notifications.info(selected.name+" "+game.i18n.localize("CUSTOS.ui.receivedamage")+dataset.damage);
+        if (currentdamage >= maxdamage){
+          ui.notifications.info(selected.name+" "+game.i18n.localize("CUSTOS.ui.die"));
+        }
+      } 
     }
-    let currentdamage=Number(selected.system.resources.life.value)
-    let maxdamage=Number(selected.system.resources.life.max)
-    currentdamage+=Number(dataset.damage)
-    if(currentdamage > maxdamage){currentdamage=maxdamage}
-    selected.update ({ 'system.resources.life.value': currentdamage });
-    ui.notifications.info(selected.name+" "+game.i18n.localize("CUSTOS.ui.receivedamage")+dataset.damage);
-    if (currentdamage >= maxdamage){
-      ui.notifications.info(selected.name+" "+game.i18n.localize("CUSTOS.ui.die"));
-    }
-
+    return
   }
 }
