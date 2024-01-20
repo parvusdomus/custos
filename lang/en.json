@@ -154,6 +154,17 @@
     "CUSTOS.config.enablePietasonTieName": "Enable Pietas on Tie",
     "CUSTOS.config.enablePietasonTieHint": "Allow to expend pietas to change a tie into a success",
     "CUSTOS.config.enableCreatioName": "Enable Creatio tab",
-    "CUSTOS.config.enableCreatioHint": "Allows to have the Creatio tab visible in the character sheet"
+    "CUSTOS.config.enableCreatioHint": "Allows to have the Creatio tab visible in the character sheet",
+
+    "CUSTOS.status.treated": "Treated",
+    "CUSTOS.status.fatigued": "Fatigued",
+    "CUSTOS.status.cursed": "Cursed",
+    "CUSTOS.status.blinded": "Blinded",
+    "CUSTOS.status.weakened": "Weakened",
+    "CUSTOS.status.sick": "Sick",
+    "CUSTOS.status.poisoned": "Poisoned",
+    "CUSTOS.status.unconcious": "Unconcious",
+    "CUSTOS.status.dying": "Dying",
+    "CUSTOS.status.surprised": "Surprised"
 
 }

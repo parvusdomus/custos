@@ -73,74 +73,125 @@
     <table>
         <tr>
             <td>
-                {{#if actor.system.status.treated}}
-                    <h2><a class="toggle-status" data-status="treated" data-current="true"><i class="fa-solid fa-heart" style="color: var(--crimson);"></i></a></h2>
-                {{else}}
-                    <h2><a class="toggle-status" data-status="treated" data-current="false"><i class="fa-regular fa-heart" style="color: grey;"></i></a></h2>
-                {{/if}}        
+                <div class="tooltip">
+                    {{#if actor.system.status.treated}}
+                        <h2><a class="toggle-status" data-status="treated" data-current="true"><i class="fa-solid fa-heart" style="color: var(--crimson);"></i></a></h2>
+                    {{else}}
+                        <h2><a class="toggle-status" data-status="treated" data-current="false"><i class="fa-regular fa-heart" style="color: grey;"></i></a></h2>
+                    {{/if}}
+                    <span class="tooltiptext">
+                        <label>{{localize "CUSTOS.status.treated"}}</label>
+                    </span>  
+                </div>      
             </td>
             <td>
-                {{#if actor.system.status.fatigued}}
-                    <h2><a class="toggle-status" data-status="fatigued" data-current="true"><i class="fa-solid fa-face-tired" style="color: var(--crimson);"></i></a></h2>
-                {{else}}
-                    <h2><a class="toggle-status" data-status="fatigued" data-current="false"><i class="fa-regular fa-face-tired" style="color: grey;"></i></a></h2>
-                {{/if}}        
+                <div class="tooltip">
+                    {{#if actor.system.status.fatigued}}
+                        <h2><a class="toggle-status" data-status="fatigued" data-current="true"><i class="fa-solid fa-face-tired" style="color: var(--crimson);"></i></a></h2>
+                    {{else}}
+                        <h2><a class="toggle-status" data-status="fatigued" data-current="false"><i class="fa-regular fa-face-tired" style="color: grey;"></i></a></h2>
+                    {{/if}}   
+                    <span class="tooltiptext">
+                        <label>{{localize "CUSTOS.status.fatigued"}}</label>
+                    </span> 
+                </div>     
             </td>
             <td>
-                {{#if actor.system.status.cursed}}
-                    <h2><a class="toggle-status" data-status="cursed" data-current="true"><i class="fa-solid fa-face-swear" style="color: var(--crimson);"></i></a></h2>
-                {{else}}
-                    <h2><a class="toggle-status" data-status="cursed" data-current="false"><i class="fa-regular fa-face-swear" style="color: grey;"></i></a></h2>
-                {{/if}}        
+                <div class="tooltip">
+                    {{#if actor.system.status.cursed}}
+                        <h2><a class="toggle-status" data-status="cursed" data-current="true"><i class="fa-solid fa-face-swear" style="color: var(--crimson);"></i></a></h2>
+                    {{else}}
+                        <h2><a class="toggle-status" data-status="cursed" data-current="false"><i class="fa-regular fa-face-swear" style="color: grey;"></i></a></h2>
+                    {{/if}} 
+                    <span class="tooltiptext">
+                        <label>{{localize "CUSTOS.status.cursed"}}</label>
+                    </span> 
+                </div>       
             </td>
             <td>
-                {{#if actor.system.status.blinded}}
-                    <h2><a class="toggle-status" data-status="blinded" data-current="true"><i class="fa-solid fa-eye-slash" style="color: var(--crimson);"></i></a></h2>
-                {{else}}
-                    <h2><a class="toggle-status" data-status="blinded" data-current="false"><i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></h2>
-                {{/if}}        
+                <div class="tooltip">
+                    {{#if actor.system.status.blinded}}
+                        <h2><a class="toggle-status" data-status="blinded" data-current="true"><i class="fa-solid fa-eye-slash" style="color: var(--crimson);"></i></a></h2>
+                    {{else}}
+                        <h2><a class="toggle-status" data-status="blinded" data-current="false"><i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></h2>
+                    {{/if}}
+                    <span class="tooltiptext">
+                        <label>{{localize "CUSTOS.status.blinded"}}</label>
+                    </span> 
+                </div>        
             </td>
             <td>
-                {{#if actor.system.status.weakened}}
-                    <h2><a class="toggle-status" data-status="weakened" data-current="true"><i class="fa-solid fa-face-spiral-eyes" style="color: var(--crimson);"></i></a></h2>
-                {{else}}
-                    <h2><a class="toggle-status" data-status="weakened" data-current="false"><i class="fa-regular fa-face-spiral-eyes" style="color: grey;"></i></a></h2>
-                {{/if}}        
+                <div class="tooltip">
+                    {{#if actor.system.status.weakened}}
+                        <h2><a class="toggle-status" data-status="weakened" data-current="true"><i class="fa-solid fa-face-spiral-eyes" style="color: var(--crimson);"></i></a></h2>
+                    {{else}}
+                        <h2><a class="toggle-status" data-status="weakened" data-current="false"><i class="fa-regular fa-face-spiral-eyes" style="color: grey;"></i></a></h2>
+                    {{/if}}
+                    <span class="tooltiptext">
+                        <label>{{localize "CUSTOS.status.weakened"}}</label>
+                    </span>
+                </div>          
             </td>
             <td>
-                {{#if actor.system.status.sick}}
-                    <h2><a class="toggle-status" data-status="sick" data-current="true"><i class="fa-solid fa-face-vomit" style="color: var(--crimson);"></i></a></h2>
-                {{else}}
-                    <h2><a class="toggle-status" data-status="sick" data-current="false"><i class="fa-regular fa-face-vomit" style="color: grey;"></i></a></h2>
-                {{/if}}        
+                <div class="tooltip">
+                    {{#if actor.system.status.sick}}
+                        <h2><a class="toggle-status" data-status="sick" data-current="true"><i class="fa-solid fa-face-vomit" style="color: var(--crimson);"></i></a></h2>
+                    {{else}}
+                        <h2><a class="toggle-status" data-status="sick" data-current="false"><i class="fa-regular fa-face-vomit" style="color: grey;"></i></a></h2>
+                    {{/if}}
+                    <span class="tooltiptext">
+                        <label>{{localize "CUSTOS.status.sick"}}</label>
+                    </span>  
+                </div>  
             </td>
             <td>
-                {{#if actor.system.status.poisoned}}
-                    <h2><a class="toggle-status" data-status="poisoned" data-current="true"><i class="fa-solid fa-flask-round-poison" style="color: var(--crimson);"></i></a></h2>
-                {{else}}
-                    <h2><a class="toggle-status" data-status="poisoned" data-current="false"><i class="fa-regular fa-flask-round-poison" style="color: grey;"></i></a></h2>
-                {{/if}}        
+                <div class="tooltip">
+                    {{#if actor.system.status.poisoned}}
+                        <h2><a class="toggle-status" data-status="poisoned" data-current="true"><i class="fa-solid fa-flask-round-poison" style="color: var(--crimson);"></i></a></h2>
+                    {{else}}
+                        <h2><a class="toggle-status" data-status="poisoned" data-current="false"><i class="fa-regular fa-flask-round-poison" style="color: grey;"></i></a></h2>
+                    {{/if}}
+                    <span class="tooltiptext">
+                        <label>{{localize "CUSTOS.status.poisoned"}}</label>
+                    </span>  
+                </div>     
             </td>
             <td>
-                {{#if actor.system.status.unconcious}}
-                    <h2><a class="toggle-status" data-status="unconcious" data-current="true"><i class="fa-solid fa-face-sleeping" style="color: var(--crimson);"></i></a></h2>
-                {{else}}
-                    <h2><a class="toggle-status" data-status="unconcious" data-current="false"><i class="fa-regular fa-face-sleeping" style="color: grey;"></i></a></h2>
-                {{/if}}        
+                <div class="tooltip">
+                    {{#if actor.system.status.unconcious}}
+                        <h2><a class="toggle-status" data-status="unconcious" data-current="true"><i class="fa-solid fa-face-sleeping" style="color: var(--crimson);"></i></a></h2>
+                    {{else}}
+                        <h2><a class="toggle-status" data-status="unconcious" data-current="false"><i class="fa-regular fa-face-sleeping" style="color: grey;"></i></a></h2>
+                    {{/if}}
+                    <span class="tooltiptext">
+                        <label>{{localize "CUSTOS.status.unconcious"}}</label>
+                    </span> 
+                </div>  
             </td>
             <td>
-                {{#if actor.system.status.dying}}
-                    <h2><a class="toggle-status" data-status="dying" data-current="true"><i class="fa-solid fa-skull" style="color: var(--crimson);"></i></a></h2>
-                {{else}}
-                    <h2><a class="toggle-status" data-status="dying" data-current="false"><i class="fa-regular fa-skull" style="color: grey;"></i></a></h2>
-                {{/if}}        
+                <div class="tooltip">
+                    {{#if actor.system.status.dying}}
+                        <h2><a class="toggle-status" data-status="dying" data-current="true"><i class="fa-solid fa-skull" style="color: var(--crimson);"></i></a></h2>
+                    {{else}}
+                        <h2><a class="toggle-status" data-status="dying" data-current="false"><i class="fa-regular fa-skull" style="color: grey;"></i></a></h2>
+                    {{/if}}
+                    <span class="tooltiptext">
+                        <label>{{localize "CUSTOS.status.dying"}}</label>
+                    </span> 
+                </div>
+                        
             </td>
             <td>
-                {{#if actor.system.status.surprised}}
-                    <h2><a class="toggle-status" data-status="surprised" data-current="true"><i class="fa-solid fa-face-flushed" style="color: var(--crimson);"></i></a></h2>
-                {{else}}
-                    <h2><a class="toggle-status" data-status="surprised" data-current="false"><i class="fa-regular fa-face-flushed" style="color: grey;"></i></a></h2>
-                {{/if}}        
+                <div class="tooltip">
+                    {{#if actor.system.status.surprised}}
+                        <h2><a class="toggle-status" data-status="surprised" data-current="true"><i class="fa-solid fa-face-flushed" style="color: var(--crimson);"></i></a></h2>
+                    {{else}}
+                        <h2><a class="toggle-status" data-status="surprised" data-current="false"><i class="fa-regular fa-face-flushed" style="color: grey;"></i></a></h2>
+                    {{/if}}
+                    <span class="tooltiptext">
+                        <label>{{localize "CUSTOS.status.surprised"}}</label>
+                    </span>
+                </div>              
             </td>
         </tr>
     </table>

@@ -19,17 +19,14 @@
         </tr>
         <tr>
             <td>
-                <h1>{{{totalRoll}}}</h1>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label>{{{pjName}}} [{{{dicelist}}}]</label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="color: grey">{{localize "CUSTOS.chat.armorroll"}} [{{{armordicelist}}}]</label>
+                <div class="tooltip">
+                    <h1>{{{totalRoll}}}</h1>
+                    <span class="tooltiptext">
+                        <label>{{{pjName}}}<br>[{{{dicelist}}}]</label>
+                        <hr style="color: white;"/>
+                        <label>{{localize "CUSTOS.chat.armorroll"}}<br>[{{{armordicelist}}}]</label>
+                    </span>
+                </div>
             </td>
         </tr>
         <tr>

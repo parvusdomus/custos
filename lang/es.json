@@ -154,5 +154,16 @@
     "CUSTOS.config.enablePietasonTieName": "Permitir Pietas en Empate",
     "CUSTOS.config.enablePietasonTieHint": "Permite gastar Pietas para convertir un empate en un éxito.",
     "CUSTOS.config.enableCreatioName": "Activar pestaña de Creatio",
-    "CUSTOS.config.enableCreatioHint": "Activala para tener la pestaña de Creatio visible en la hoja de personaje"
+    "CUSTOS.config.enableCreatioHint": "Activala para tener la pestaña de Creatio visible en la hoja de personaje",
+
+    "CUSTOS.status.treated": "Tratado",
+    "CUSTOS.status.fatigued": "Fatigado",
+    "CUSTOS.status.cursed": "Maldito",
+    "CUSTOS.status.blinded": "Cegado",
+    "CUSTOS.status.weakened": "Debilitado",
+    "CUSTOS.status.sick": "Enfermo",
+    "CUSTOS.status.poisoned": "Envenenado",
+    "CUSTOS.status.unconcious": "Inconsciente",
+    "CUSTOS.status.dying": "Moribundo",
+    "CUSTOS.status.surprised": "Sorprendido"
 }
