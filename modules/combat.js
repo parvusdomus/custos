@@ -38,7 +38,7 @@ export async function CombatSingleRoll (actor, item, target){
     }
     
     let fatigued=false;
-      if ((Number(actor.system.resources.life.value)+Number(actor.system.total_encumbrance)) >= Number(actor.system.resources.life.max)){
+      if (((Number(actor.system.resources.life.value)+Number(actor.system.total_encumbrance)) >= Number(actor.system.resources.life.max)) || actor.system.status.fatigued == true){
         fatigued=true;
         if (total > (Number(actor.system.resources.life.max)-Number(actor.system.resources.life.value))){
           total=Number(actor.system.resources.life.max)-Number(actor.system.resources.life.value)

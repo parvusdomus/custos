@@ -78,7 +78,6 @@
             "pietas_office_bonus": 0,
             "life_xp_bonus": 0,
             "pietas_xp_bonus": 0,
-            "treated": false,
             "resources": {
                 "life": {
                     "min": 0,
@@ -90,6 +89,18 @@
                     "max": 0,
                     "value": 0
                 }
+            },
+            "status": {
+                "treated": false,
+                "fatigued": false,
+                "cursed": false,
+                "blinded": false,
+                "weakened": false,
+                "sick": false,
+                "poisoned": false,
+                "unconcious": false,
+                "dying": false,
+                "surprised": false
             },
             "creatio": {
                 "locked": false,

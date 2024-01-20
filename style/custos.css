@@ -687,11 +687,30 @@
 }
 
 .resources td:nth-child(1){
-    width: 5%;
+    width: 10%;
 }
 
-.resources td:nth-child(2){
-    width: 10%;
+.status table{
+    background: none;
+    border: none;
+    font-family: var(--font-name);
+    width: 100%;
+    text-align: center;
+}
+
+.status tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.status tr:nth-child(odd){
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.status h2{
+    border-bottom: none;
+    color: var(--dark-gold);
+    font-family: var(--bold-font-name);
+    font-weight: 900;
 }
 
 .inventory_weapon table {

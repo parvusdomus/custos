@@ -19,6 +19,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         this._prepareCharacterItems(data);
         this._calculateResources(data);
         this._calculateXp(data);
+        this._statusCheck(data);
         if (this.actor.system.creatio.locked == false){
           this._updateProvintiaValues(data);
           this._setAgeBonus(data);
@@ -270,6 +271,12 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       this.actor.update ({ 'system.resources.pietas.max': pietas });
     }
 
+    _statusCheck(sheetData){
+      if ((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max)){
+        this.actor.update ({ 'system.status.fatigued': true });
+      }
+    }
+
     _calculateXp(sheetData){
       const actorData = sheetData;
       let total=0
@@ -373,7 +380,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       html.find('a.add-specialty').click(this._onAddSpecialty.bind(this));
       html.find('a.delete-specialty').click(this._onDeleteSpecialty.bind(this));
       html.find('a.virtute-roll').click(this._onVirtuteRoll.bind(this));
-      html.find('a.toggle-treated').click(this._onToggleTreated.bind(this));
+      html.find('a.toggle-status').click(this._onToggleStatus.bind(this));
       html.find('a.resource-change').click(this._onResourceChange.bind(this));
       html.find('a.ritual-roll').click(this._onRitualRoll.bind(this));
       html.find('a.summoning-roll').click(this._onSummoningRoll.bind(this));
@@ -563,15 +570,74 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
 		  return;
     }
 
-    async _onToggleTreated(event, data)
+    async _onToggleStatus(event, data)
 	  {
+      console.log ("TOGGLE STATUS")
+      const dataset = event.currentTarget.dataset;
+      console.log (dataset)
       event.preventDefault();
-		  if (this.actor.system.treated == true){
+      let value=false;
+      if (dataset.current == "false"){
+        value=true
+      }
+      switch (dataset.status){
+        case 'treated':
+        {
+          this.actor.update ({'system.status.treated': value});
+          break;
+        }
+        case 'fatigued':
+        {
+          this.actor.update ({'system.status.fatigued': value});
+          break;
+        }
+        case 'cursed':
+        {
+          this.actor.update ({'system.status.cursed': value});
+          break;
+        }
+        case 'blinded':
+        {
+          this.actor.update ({'system.status.blinded': value});
+          break;
+        }
+        case 'weakened':
+        {
+          this.actor.update ({'system.status.weakened': value});
+          break;
+        }
+        case 'sick':
+        {
+          this.actor.update ({'system.status.sick': value});
+          break;
+        }
+        case 'poisoned':
+        {
+          this.actor.update ({'system.status.poisoned': value});
+          break;
+        }
+        case 'unconcious':
+        {
+          this.actor.update ({'system.status.unconcious': value});
+          break;
+        }
+        case 'dying':
+        {
+          this.actor.update ({'system.status.dying': value});
+          break;
+        }
+        case 'surprised':
+        {
+          this.actor.update ({'system.status.surprised': value});
+          break;
+        }
+      }
+		  /*if (this.actor.system.treated == true){
         await this.actor.update ({ 'system.treated': false });
       }
       else{
         await this.actor.update ({ 'system.treated': true });
-      }
+      }*/
 		  return;
     }
 
@@ -755,7 +821,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       const dataset = event.currentTarget.dataset;
       let total=Number(dataset.pvalue)+Number(dataset.svalue)
       let fatigued=false;
-      if ((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max)){
+      if (((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max)) || this.actor.system.status.fatigued == true){
         fatigued=true;
         if (total > (Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value))){
           total=Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value)
@@ -814,7 +880,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       }
       let total=Number(this.actor.system.peritiae.magia.value)+Number(svalue)
       let fatigued=false;
-      if ((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max)){
+      if (((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max)) || this.actor.system.status.fatigued == true){
         fatigued=true;
         if (total > (Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value))){
           total=Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value)
@@ -871,7 +937,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
 
       let total=Number(pvalue)+Number(svalue)
       let fatigued=false;
-      if ((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max)){
+      if (((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max))|| this.actor.system.status.fatigued == true){
         fatigued=true;
         if (total > (Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value))){
           total=Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value)
@@ -932,7 +998,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
             }
             let total=Number(pvalue)+Number(svalue);
             let fatigued=false;
-            if ((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max)){
+            if (((Number(this.actor.system.resources.life.value)+Number(this.actor.system.total_encumbrance)) >= Number(this.actor.system.resources.life.max))|| this.actor.system.status.fatigued == true){
               fatigued=true;
               if (total > (Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value))){
                 total=Number(this.actor.system.resources.life.max)-Number(this.actor.system.resources.life.value)
@@ -944,7 +1010,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
             let weapondifficulty=item.system.difficulty;
             let weapondamage=item.system.damage;
             let rollname=actor.system.peritiae[item.system.peritia].label;
-            if ((Number(actor.system.resources.life.value)+Number(actor.system.total_encumbrance)) >= Number(actor.system.resources.life.max)){
+            if (((Number(actor.system.resources.life.value)+Number(actor.system.total_encumbrance)) >= Number(actor.system.resources.life.max))|| this.actor.system.status.fatigued == true){
               fatigued=true;
               if (total > (Number(actor.system.resources.life.max)-Number(actor.system.resources.life.value))){
                 total=Number(actor.system.resources.life.max)-Number(actor.system.resources.life.value)
