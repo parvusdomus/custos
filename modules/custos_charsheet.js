@@ -124,6 +124,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         enableCreatio: game.settings.get("custos", "enableCreatio"),
       }
       actorData.isGM = game.user.isGM;
+      //actorData.effects = this.actor.getEmbeddedCollection("ActiveEffect").contents
     }
 
     _updateProvintiaValues(sheetData){
@@ -631,6 +632,13 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         case 'dying':
         {
           this.actor.update ({'system.status.dying': value});
+          /*if (value==true){
+            this.actor.createEmbeddedDocuments("ActiveEffect", [{name: "Dying", statuses:["dying"]}])
+          }
+          else{
+            this.actor.deleteEmbeddedDocuments("ActiveEffect", [{name: "Dying", statuses:["dying"]}])
+          }*/
+          
           break;
         }
         case 'surprised':
@@ -639,12 +647,6 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
           break;
         }
       }
-		  /*if (this.actor.system.treated == true){
-        await this.actor.update ({ 'system.treated': false });
-      }
-      else{
-        await this.actor.update ({ 'system.treated': true });
-      }*/
 		  return;
     }
 
