@@ -58,55 +58,97 @@
                     {{#if (eq item.system.characteristic1 "none")}}
                         <label></label> 
                     {{else}} 
-                        {{#if (eq item.system.characteristic1 "slow")}}
-                            <i class="fa-solid fa-weight-hanging"></i>
-                        {{/if}}
-                        {{#if (eq item.system.characteristic1 "throwing")}}
-                            <i class="fa-solid fa-share-from-square"></i>
-                        {{/if}}
-                        {{#if (eq item.system.characteristic1 "twohand")}}
-                            <i class="fa-solid fa-hands"></i>
-                        {{/if}}
-                        {{#if (eq item.system.characteristic1 "versatile")}}
-                            <i class="fa-regular fa-hands"></i>
-                        {{/if}}
+                        <div class="tooltip">
+                            {{#if (eq item.system.characteristic1 "slow")}}
+                                <i class="fa-solid fa-weight-hanging"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.slow"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.characteristic1 "throwing")}}
+                                <i class="fa-solid fa-share-from-square"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.throwing"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.characteristic1 "twohand")}}
+                                <i class="fa-solid fa-hands"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.twohand"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.characteristic1 "versatile")}}
+                                <i class="fa-regular fa-hands"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.versatile"}}</label>
+                                </span>
+                            {{/if}}
+                        </div>
                     {{/if}}
                     {{#if (eq item.system.characteristic2 "none")}}
                         <label></label> 
                     {{else}} 
-                        {{#if (eq item.system.characteristic2 "slow")}}
-                            <i class="fa-solid fa-weight-hanging"></i>
-                        {{/if}}
-                        {{#if (eq item.system.characteristic2 "throwing")}}
-                            <i class="fa-solid fa-share-from-square"></i>
-                        {{/if}}
-                        {{#if (eq item.system.characteristic2 "twohand")}}
-                            <i class="fa-solid fa-hands"></i>
-                        {{/if}}
-                        {{#if (eq item.system.characteristic2 "versatile")}}
-                            <i class="fa-regular fa-hands"></i>
-                        {{/if}}
+                        <div class="tooltip">
+                            {{#if (eq item.system.characteristic2 "slow")}}
+                                <i class="fa-solid fa-weight-hanging"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.slow"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.characteristic2 "throwing")}}
+                                <i class="fa-solid fa-share-from-square"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.throwing"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.characteristic2 "twohand")}}
+                                <i class="fa-solid fa-hands"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.twohand"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.characteristic2 "versatile")}}
+                                <i class="fa-regular fa-hands"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.versatile"}}</label>
+                                </span>
+                            {{/if}}
+                        </div>
                     {{/if}}
                 </td>
                 <td>
                     <label>{{item.system.weight}}</label>   
                 </td>
                 <td class="item-controls">
-                    <a class="weapon-equip" data-id="{{item._id}}">
-                        {{#if (eq item.system.equipped "dropped")}}
-                            <i class="fa-solid fa-arrows-down-to-line"></i>
-                        {{/if}}
-                        {{#if (eq item.system.equipped "inbag")}}
-                            <i class="fa-solid fa-sack-xmark"></i>
-                        {{/if}}
-                        {{#if (eq item.system.equipped "onehand")}}
-                            <i class="fa-regular fa-hand"></i>
-                        {{/if}}
-                        {{#if (eq item.system.equipped "twohand")}}
-                            <i class="fa-regular fa-hand"></i>
-                            <i class="fa-regular fa-hand"></i>
-                        {{/if}}
-                    </a>
+                    <div class="tooltip">
+                        <a class="weapon-equip" data-id="{{item._id}}">
+                            {{#if (eq item.system.equipped "dropped")}}
+                                <i class="fa-solid fa-arrows-down-to-line"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.dropped"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.equipped "inbag")}}
+                                <i class="fa-solid fa-sack-xmark"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.inbag"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.equipped "onehand")}}
+                                <i class="fa-regular fa-hand"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.onehand"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.equipped "twohand")}}
+                                <i class="fa-regular fa-hand"></i>
+                                <i class="fa-regular fa-hand"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.twohand"}}</label>
+                                </span>
+                            {{/if}}
+                        </a>
+                    </div>
                     <a class="item-edit" data-id="{{item._id}}"><i class="fas fa-edit"></i></a>
                     <a class="item-delete" data-id="{{item._id}}"><i class="fas fa-trash"></i></a>
                 </td>
@@ -150,17 +192,28 @@
                 </td>
                 
                 <td class="item-controls">
-                    <a class="armor-equip" data-id="{{item._id}}">
-                        {{#if (eq item.system.equipped "dropped")}}
-                            <i class="fa-solid fa-arrows-down-to-line"></i>
-                        {{/if}}
-                        {{#if (eq item.system.equipped "inbag")}}
-                            <i class="fa-solid fa-sack-xmark"></i>
-                        {{/if}}
-                        {{#if (eq item.system.equipped "worn")}}
-                            <i class="fa-solid fa-shirt"></i>
-                        {{/if}}
-                    </a>
+                    <div class="tooltip">
+                        <a class="armor-equip" data-id="{{item._id}}">
+                            {{#if (eq item.system.equipped "dropped")}}
+                                <i class="fa-solid fa-arrows-down-to-line"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.dropped"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.equipped "inbag")}}
+                                <i class="fa-solid fa-sack-xmark"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.inbag"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.equipped "worn")}}
+                                <i class="fa-solid fa-shirt"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.equipped"}}</label>
+                                </span>
+                            {{/if}}
+                        </a>
+                    </div>
                     <a class="item-edit" data-id="{{item._id}}"><i class="fas fa-edit"></i></a>
                     <a class="item-delete" data-id="{{item._id}}"><i class="fas fa-trash"></i></a>
                 </td>
@@ -205,17 +258,28 @@
                 </td>
                 
                 <td class="item-controls">
-                    <a class="armor-equip" data-id="{{item._id}}">
-                        {{#if (eq item.system.equipped "dropped")}}
-                            <i class="fa-solid fa-arrows-down-to-line"></i>
-                        {{/if}}
-                        {{#if (eq item.system.equipped "inbag")}}
-                            <i class="fa-solid fa-sack-xmark"></i>
-                        {{/if}}
-                        {{#if (eq item.system.equipped "worn")}}
-                        <i class="fa-solid fa-shield"></i>
-                        {{/if}}
-                    </a>
+                    <div class="tooltip">
+                        <a class="armor-equip" data-id="{{item._id}}">
+                            {{#if (eq item.system.equipped "dropped")}}
+                                <i class="fa-solid fa-arrows-down-to-line"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.dropped"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.equipped "inbag")}}
+                                <i class="fa-solid fa-sack-xmark"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.inbag"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.equipped "worn")}}
+                                <i class="fa-solid fa-shield"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.equipped"}}</label>
+                                </span>
+                            {{/if}}
+                        </a>
+                    </div>
                     <a class="item-edit" data-id="{{item._id}}"><i class="fas fa-edit"></i></a>
                     <a class="item-delete" data-id="{{item._id}}"><i class="fas fa-trash"></i></a>
                 </td>
@@ -258,14 +322,22 @@
                     <label>{{item.system.weight}}</label>   
                 </td>
                 <td class="item-controls">
-                    <a class="object-equip" data-id="{{item._id}}">
-                        {{#if (eq item.system.equipped "dropped")}}
-                            <i class="fa-solid fa-arrows-down-to-line"></i>
-                        {{/if}}
-                        {{#if (eq item.system.equipped "inbag")}}
-                            <i class="fa-solid fa-sack-xmark"></i>
-                        {{/if}}
-                    </a>
+                    <div class="tooltip">
+                        <a class="object-equip" data-id="{{item._id}}">
+                            {{#if (eq item.system.equipped "dropped")}}
+                                <i class="fa-solid fa-arrows-down-to-line"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.dropped"}}</label>
+                                </span>
+                            {{/if}}
+                            {{#if (eq item.system.equipped "inbag")}}
+                                <i class="fa-solid fa-sack-xmark"></i>
+                                <span class="tooltiptext">
+                                    <label>{{localize "CUSTOS.ui.inbag"}}</label>
+                                </span>
+                            {{/if}}
+                        </a>
+                    </div>
                     <a class="item-edit" data-id="{{item._id}}"><i class="fas fa-edit"></i></a>
                     <a class="item-delete" data-id="{{item._id}}"><i class="fas fa-trash"></i></a>
                 </td>

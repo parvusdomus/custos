@@ -51,11 +51,16 @@
         </tr>
         <tr>
             <td>
-                {{#if actor.system.hasFate}}
-                    <h3><a class="fate-toggle"><i class="fa-solid fa-toggle-on"></i></a></h3>
-                {{else}}
-                    <h3><a class="fate-toggle" style="color: black;"><i class="fa-solid fa-toggle-off"></i></a></h3>
-                {{/if}}
+                <div class="tooltip">
+                    {{#if actor.system.hasFate}}
+                        <h3><a class="fate-toggle"><i class="fa-solid fa-toggle-on"></i></a></h3>
+                    {{else}}
+                        <h3><a class="fate-toggle" style="color: black;"><i class="fa-solid fa-toggle-off"></i></a></h3>
+                    {{/if}}
+                    <span class="tooltiptext">
+                        <label>{{localize "CUSTOS.ui.togglepietas"}}</label>
+                    </span>
+                </div>
             </td>
         </tr>
     </table>

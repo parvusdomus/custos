@@ -64,6 +64,10 @@
     "CUSTOS.ui.throwing": "Arrojadiza",
     "CUSTOS.ui.twohand": "A dos Manos",
     "CUSTOS.ui.versatile": "Versátil",
+    "CUSTOS.ui.dropped": "En el Suelo",
+    "CUSTOS.ui.inbag": "En la Bolsa",
+    "CUSTOS.ui.onehand": "A una Mano",
+    "CUSTOS.ui.equipped": "Equipado",
     "CUSTOS.ui.range": "Rango",
     "CUSTOS.ui.cac": "C. a C.",
     "CUSTOS.ui.short": "Corto",
@@ -121,6 +125,7 @@
     "CUSTOS.ui.receivedamage": "recibe daño: ",
     "CUSTOS.ui.die": "ha muerto",
     "CUSTOS.ui.notallowed": "No tienes permiso para hacer eso",
+    "CUSTOS.ui.togglepietas": "Destino",
 
     "CUSTOS.chat.failure": "Fallo",
     "CUSTOS.chat.failureweapon": "No supera la dificultad del arma",

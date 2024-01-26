@@ -64,6 +64,10 @@
     "CUSTOS.ui.throwing": "Throwing",
     "CUSTOS.ui.twohand": "Two Handed",
     "CUSTOS.ui.versatile": "Versatile",
+    "CUSTOS.ui.dropped": "Dropped",
+    "CUSTOS.ui.inbag": "In Bag",
+    "CUSTOS.ui.onehand": "One Hand",
+    "CUSTOS.ui.equipped": "Equipped",
     "CUSTOS.ui.range": "Range",
     "CUSTOS.ui.cac": "Melee",
     "CUSTOS.ui.short": "Short",
@@ -121,6 +125,7 @@
     "CUSTOS.ui.receivedamage": "receives damage: ",
     "CUSTOS.ui.die": "died",
     "CUSTOS.ui.notallowed": "You are not allowed to do that",
+    "CUSTOS.ui.togglepietas": "Fate",
 
     "CUSTOS.chat.failure": "Failure",
     "CUSTOS.chat.failureweapon": "Fails to meet weapon difficulty",
