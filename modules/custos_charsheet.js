@@ -3,7 +3,7 @@ import {CombatSingleRoll} from "../modules/combat.js";
 import DamageRollDialogSingle from "../modules/damageRollDialogSingle.js";
 export default class CUSTOS_CHAR_SHEET extends ActorSheet{
     static get defaultOptions() {
-      return mergeObject(super.defaultOptions, {
+      return foundry.utils.mergeObject(super.defaultOptions, {
           classes: ["custos", "sheet", "actor"],
           template: "systems/custos/templates/actors/custos/custos.html",
           width: 750,

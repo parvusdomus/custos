@@ -5,7 +5,7 @@ export default class RegularRollDialog extends FormApplication {
     }
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             id: "custos-roll-dialog",
             title: "",
             template: "/systems/custos/templates/dialogs/regularRoll.html",

@@ -2,7 +2,7 @@ import {RegularNPCDiceRoll} from "../modules/rolls.js";
 import DamageRollDialogSingle from "../modules/damageRollDialogSingle.js";
 export default class CUSTOS_BEAST_SHEET extends ActorSheet{
     static get defaultOptions() {
-      return mergeObject(super.defaultOptions, {
+      return foundry.utils.mergeObject(super.defaultOptions, {
           classes: ["custos", "sheet", "actor"],
           template: "systems/custos/templates/actors/beast/beast.html",
           width: 650,

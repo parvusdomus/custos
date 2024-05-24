@@ -4,7 +4,7 @@ export default class creatio extends FormApplication {
     }
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             id: "custos-creatio",
             title: "",
             width: 750,

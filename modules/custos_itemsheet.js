@@ -1,6 +1,6 @@
 export default class CUSTOS_ITEM_SHEET extends ItemSheet{
     static get defaultOptions() {
-      return mergeObject(super.defaultOptions, {
+      return foundry.utils.mergeObject(super.defaultOptions, {
           classes: ["custos", "sheet", "item"],
           template: "systems/custos/templates/actors/character.html",
           width: 420,

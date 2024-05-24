@@ -89,7 +89,7 @@ export async function RegularDiceRoll (diceData)
 	{
         explode=false;
 		let roll = new Roll(rollText);
-		let evaluateRoll = roll.evaluate({async: false});
+		let evaluateRoll = await roll.evaluate();
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
@@ -184,7 +184,7 @@ export async function RegularNPCDiceRoll (diceData)
 	{
         explode=false;
 		let roll = new Roll(rollText);
-		let evaluateRoll = roll.evaluate({async: false});
+		let evaluateRoll = await roll.evaluate();
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
@@ -326,7 +326,7 @@ export async function SingleCombatRoll (diceData)
 	{
         explode=false;
 		let roll = new Roll(rollText);
-		let evaluateRoll = roll.evaluate({async: false});
+		let evaluateRoll = await roll.evaluate();
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
@@ -361,7 +361,7 @@ export async function SingleCombatRoll (diceData)
 	{
         explode=false;
 		let targetRoll = new Roll (targetrolltext)
-		let evaluateRoll = targetRoll.evaluate({async: false});
+		let evaluateRoll = await targetRoll.evaluate();
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(targetRoll,game.user,true,false,null)
         }
@@ -794,7 +794,7 @@ export async function RangedCombatRoll (diceData)
 	{
         explode=false;
 		let roll = new Roll(rollText);
-		let evaluateRoll = roll.evaluate({async: false});
+		let evaluateRoll = await roll.evaluate();
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
@@ -1033,7 +1033,7 @@ export async function SingleDamageRoll (diceData)
 	{
         explode=false;
 		let roll = new Roll(rollText);
-		let evaluateRoll = roll.evaluate({async: false});
+		let evaluateRoll = await roll.evaluate();
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
@@ -1057,7 +1057,7 @@ export async function SingleDamageRoll (diceData)
 	{
         explode=false;
 		let roll = new Roll(armorRollText);
-		let evaluateRoll = roll.evaluate({async: false});
+		let evaluateRoll = await roll.evaluate();
         if (game.modules.get('dice-so-nice')?.active){
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
