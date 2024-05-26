@@ -38,28 +38,13 @@
                             <td><h3><label>{{localize "CUSTOS.ui.office"}}&nbsp;&nbsp;</label></h3></td>
                             <td><h3>
                                 <select name="system.office" data-dtype="String">
-                                    {{#select actor.system.office}}
-                                        <option value="bellicus">{{localize "CUSTOS.ui.warrior"}}</option>
-                                        <option value="auguralis">{{localize "CUSTOS.ui.augur"}}</option>
-                                        <option value="exploratorius">{{localize "CUSTOS.ui.explorer"}}</option>
-                                        <option value="sapiens">{{localize "CUSTOS.ui.savant"}}</option>
-                                        <option value="legatorius">{{localize "CUSTOS.ui.diplomat"}}</option>
-                                        <option value="interfectorius">{{localize "CUSTOS.ui.assassin"}}</option>
-                                    {{/select}}
+                                    {{selectOptions officeCustos selected=actor.system.office localize=true}}
                                 </select>
                             </h3></td>
                             <td><h3><label>&nbsp;&nbsp;{{localize "CUSTOS.ui.rank"}}:&nbsp;&nbsp;</label></h3></td>
                             <td><h3>
                                 <select name="system.rank" data-dtype="String" disabled style="appearance: none;">
-                                    {{#select actor.system.rank}}
-                                        <option value="gregarius">Gregarius</option>
-                                        <option value="duplicarius">Duplicarius</option>
-                                        <option value="beneficiarius">Beneficiarius</option>
-                                        <option value="veteranus">Veteranus</option>
-                                        <option value="decanus">Decanus</option>
-                                        <option value="electus">Electus</option>
-                                        <option value="protector">Protector</option>
-                                    {{/select}}
+                                    {{selectOptions rankCustos selected=actor.system.rank}}
                                 </select>
                             </h3></td>
                         </tr>

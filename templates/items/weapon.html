@@ -33,12 +33,7 @@
                             </td>
                             <td>
                                 <select name="system.range" data-dtype="String">
-                                    {{#select item.system.range}}
-                                        <option value="cac">{{localize "CUSTOS.ui.cac"}}</option>
-                                        <option value="short">{{localize "CUSTOS.ui.short"}}</option>
-                                        <option value="medium">{{localize "CUSTOS.ui.medium"}}</option>
-                                        <option value="long">{{localize "CUSTOS.ui.long"}}</option>
-                                    {{/select}}
+                                    {{selectOptions rangeItem selected=item.system.range localize=true}}
                                 </select>
                             </td>
                         </tr>
@@ -54,14 +49,7 @@
                 </td>
                 <td>
                     <select name="system.peritia" data-dtype="String">
-                        {{#select item.system.peritia}}
-                            <option value="bello">De Bello</option>
-                            <option value="corpore">De Corpore</option>
-                            <option value="magia">De Magia</option>
-                            <option value="natura">De Natura</option>
-                            <option value="scientia">De Scientia</option>
-                            <option value="societate">De Societate</option>
-                        {{/select}}
+                        {{selectOptions peritiaItem selected=item.system.peritia}}
                     </select>
                 </td>
                 <td>
@@ -79,24 +67,12 @@
                 </td>
                 <td>
                     <select name="system.characteristic1" data-dtype="String">
-                        {{#select item.system.characteristic1}}
-                            <option value="none">{{localize "CUSTOS.ui.none"}}</option>
-                            <option value="slow">{{localize "CUSTOS.ui.slow"}}</option>
-                            <option value="throwing">{{localize "CUSTOS.ui.throwing"}}</option>
-                            <option value="twohand">{{localize "CUSTOS.ui.twohand"}}</option>
-                            <option value="versatile">{{localize "CUSTOS.ui.versatile"}}</option>
-                        {{/select}}
+                        {{selectOptions characteristicItem selected=item.system.characteristic1 localize=true}}
                     </select>
                 </td>
                 <td>
                     <select name="system.characteristic2" data-dtype="String">
-                        {{#select item.system.characteristic2}}
-                            <option value="none">{{localize "CUSTOS.ui.none"}}</option>
-                            <option value="slow">{{localize "CUSTOS.ui.slow"}}</option>
-                            <option value="throwing">{{localize "CUSTOS.ui.throwing"}}</option>
-                            <option value="twohand">{{localize "CUSTOS.ui.twohand"}}</option>
-                            <option value="versatile">{{localize "CUSTOS.ui.versatile"}}</option>
-                        {{/select}}
+                        {{selectOptions characteristicItem selected=item.system.characteristic2 localize=true}}
                     </select>
                 </td>
             </tr>

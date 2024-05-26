@@ -245,19 +245,11 @@
             <div class="creatio-box-step5"><h3>
                 {{#if (eq actor.system.creatio.locked true)}}
                     <select name="system.creatio.age.value" disabled="disabled" data-dtype="String">
-                        {{#select actor.system.creatio.age.value}}
-                            <option value="iuvenis">{{localize "CUSTOS.ui.young"}}</option>
-                            <option value="adultus">{{localize "CUSTOS.ui.adult"}}</option>
-                            <option value="maturus">{{localize "CUSTOS.ui.mature"}}</option>
-                        {{/select}}
+                        {{selectOptions ageCustos selected=actor.system.creatio.age.value localize=true}}
                     </select>
                 {{else}}
                     <select name="system.creatio.age.value" data-dtype="String">
-                        {{#select actor.system.creatio.age.value}}
-                            <option value="iuvenis">{{localize "CUSTOS.ui.young"}}</option>
-                            <option value="adultus">{{localize "CUSTOS.ui.adult"}}</option>
-                            <option value="maturus">{{localize "CUSTOS.ui.mature"}}</option>
-                        {{/select}}
+                        {{selectOptions ageCustos selected=actor.system.creatio.age.value localize=true}}
                     </select>
                 {{/if}}
             </h3></div>

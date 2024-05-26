@@ -29,14 +29,7 @@
                 </td>
                 <td>
                     <select name="system.office" data-dtype="String">
-                        {{#select item.system.office}}
-                            <option value="bellicus">{{localize "CUSTOS.ui.warrior"}}</option>
-                            <option value="auguralis">{{localize "CUSTOS.ui.augur"}}</option>
-                            <option value="exploratorius">{{localize "CUSTOS.ui.explorer"}}</option>
-                            <option value="sapiens">{{localize "CUSTOS.ui.savant"}}</option>
-                            <option value="legatorius">{{localize "CUSTOS.ui.diplomat"}}</option>
-                            <option value="interfectorius">{{localize "CUSTOS.ui.assassin"}}</option>
-                        {{/select}}
+                        {{selectOptions officeItem selected=item.system.office localize=true}}
                     </select>
                 </td>
                 <td>
@@ -44,15 +37,7 @@
                 </td>
                 <td>
                     <select name="system.virtus" data-dtype="String">
-                        {{#select item.system.virtus}}
-                            <option value="none">{{localize "CUSTOS.ui.none"}}</option>
-                            <option value="coordinatio">Coordinatio</option>
-                            <option value="auctoritas">Auctoritas</option>
-                            <option value="ratio">Ratio</option>
-                            <option value="vigor">Vigor</option>
-                            <option value="ingenium">Ingenium</option>
-                            <option value="sensibilitas">Sensibilitas</option>
-                        {{/select}}
+                        {{selectOptions virtusItem selected=item.system.virtus localize=true}}
                     </select>
                 </td>
             </tr>

@@ -170,6 +170,13 @@
     "CUSTOS.status.poisoned": "Poisoned",
     "CUSTOS.status.unconcious": "Unconcious",
     "CUSTOS.status.dying": "Dying",
-    "CUSTOS.status.surprised": "Surprised"
+    "CUSTOS.status.surprised": "Surprised",
+
+    "CUSTOS.virtus.coordinatio": "Coordinatio",
+    "CUSTOS.virtus.auctoritas": "Auctoritas",
+    "CUSTOS.virtus.ratio": "Ratio",
+    "CUSTOS.virtus.vigor": "Vigor",
+    "CUSTOS.virtus.ingenium": "Ingenium",
+    "CUSTOS.virtus.sensibilitas": "Sensibilitas"
 
 }

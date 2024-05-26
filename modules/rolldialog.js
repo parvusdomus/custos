@@ -36,7 +36,14 @@ export default class RegularRollDialog extends FormApplication {
             d12: this.object.d12,
             d20: this.object.d20
         };
-        
+        data.difficultyCustos = {
+            3: "CUSTOS.ui.easy",
+            6: "CUSTOS.ui.normal",
+            9: "CUSTOS.ui.challenging",
+            12: "CUSTOS.ui.hard",
+            15: "CUSTOS.ui.veryhard",
+            18:  "CUSTOS.ui.extreme"
+          }
         return data;
     }
 

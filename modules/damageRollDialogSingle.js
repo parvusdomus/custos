@@ -42,7 +42,14 @@ export default class DamageRollDialogSingle extends FormApplication {
             d12: this.object.d12,
             d20: this.object.d20
         };
-        
+        data.difficultyCustos = {
+            1: "1",
+            2: "2",
+            3: "3",
+            4: "4",
+            5: "5",
+            6:  "6"
+        }
         return data;
     }
 

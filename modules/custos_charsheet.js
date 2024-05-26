@@ -26,6 +26,28 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
           this._calculateCreatioValues(data);
         }
       }
+      data.ageCustos = {
+        iuvenis: "CUSTOS.ui.young",
+        adultus: "CUSTOS.ui.adult",
+        maturus: "CUSTOS.ui.mature"
+      }
+      data.officeCustos = {
+        bellicus: "CUSTOS.ui.warrior",
+        auguralis: "CUSTOS.ui.augur",
+        exploratorius: "CUSTOS.ui.explorer",
+        sapiens: "CUSTOS.ui.savant",
+        legatorius: "CUSTOS.ui.diplomat",
+        interfectorius: "CUSTOS.ui.assassin"
+      }
+      data.rankCustos = {
+        gregarius: "Gregarius",
+        duplicarius: "Duplicarius",
+        beneficiarius: "Beneficiarius",
+        veteranus: "Veteranus",
+        decanus: "Decanus",
+        electus: "Electus",
+        protector: "Protector"
+      }
       return data;
     }
 
