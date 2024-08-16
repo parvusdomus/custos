@@ -45,8 +45,10 @@
       }
     ],
     "initiative": "1",
-    "gridDistance": 2,
-    "gridUnits": "m",
+    "grid": {
+      "distance": 2,
+      "units": "m"
+    },
     "primaryTokenAttribute": "resources.life",
     "secondaryTokenAttribute": "resources.pietas",
     "url": "https://github.com/parvusdomus/custos",
