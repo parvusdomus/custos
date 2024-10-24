@@ -160,6 +160,8 @@
     "CUSTOS.config.enablePietasonTieHint": "Permite gastar Pietas para convertir un empate en un éxito.",
     "CUSTOS.config.enableCreatioName": "Activar pestaña de Creatio",
     "CUSTOS.config.enableCreatioHint": "Activala para tener la pestaña de Creatio visible en la hoja de personaje",
+    "CUSTOS.config.useFixedValuesName": "Usar Valores Corregidos de Salud y Pietas por Oficio",
+    "CUSTOS.config.useFixedValuesHint": "Activa para usar los valores de Salud y Pietas por Oficio tal cual aparecen en la última versión del PDF (ENG).",
 
     "CUSTOS.status.treated": "Tratado",
     "CUSTOS.status.fatigued": "Fatigado",

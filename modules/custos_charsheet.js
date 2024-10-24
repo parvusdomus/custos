@@ -248,17 +248,31 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
       const actorData = sheetData;
       let life_office_bonus=0;
       let pietas_office_bonus=0;
+      let useFixedValues=game.settings.get ("custos", "useFixedValues")
       switch (this.actor.system.office){
         case 'bellicus':
         {
-          life_office_bonus=2;
-          pietas_office_bonus=0;
+          if (useFixedValues==false){
+            life_office_bonus=2;
+            pietas_office_bonus=0;
+          }
+          else{
+            life_office_bonus=3;
+            pietas_office_bonus=-1;
+          }
+          
           break;
         }
         case 'auguralis':
         {
-          life_office_bonus=0;
-          pietas_office_bonus=2;
+          if (useFixedValues==false){
+            life_office_bonus=0;
+            pietas_office_bonus=2;
+          }
+          else{
+            life_office_bonus=-1;
+            pietas_office_bonus=3;
+          }
           break;
         }
         case 'exploratorius':

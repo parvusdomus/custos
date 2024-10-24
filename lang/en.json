@@ -160,6 +160,9 @@
     "CUSTOS.config.enablePietasonTieHint": "Allow to expend pietas to change a tie into a success",
     "CUSTOS.config.enableCreatioName": "Enable Creatio tab",
     "CUSTOS.config.enableCreatioHint": "Allows to have the Creatio tab visible in the character sheet",
+    "CUSTOS.config.useFixedValuesName": "Use Fixed Office Health and Pietas Values",
+    "CUSTOS.config.useFixedValuesHint": "Enable to use Office Health and Pietas values as they appear in latest PDF version.",
+
 
     "CUSTOS.status.treated": "Treated",
     "CUSTOS.status.fatigued": "Fatigued",

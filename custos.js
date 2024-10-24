@@ -60,6 +60,15 @@ Hooks.once("init", function(){
     config: true
   });
 
+  game.settings.register("custos", "useFixedValues", {
+    name: game.i18n.localize("CUSTOS.config.useFixedValuesName"),
+    hint: game.i18n.localize("CUSTOS.config.useFixedValuesHint"),
+    scope: "world",
+    type: Boolean,
+    default: false,
+    config: true
+  });
+
   Handlebars.registerHelper("times", function(n, content)
     {
       let result = "";
