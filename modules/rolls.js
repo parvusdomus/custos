@@ -57,7 +57,7 @@ export async function RegularDiceRoll (diceData)
     }
     for (let i = 0; i < diceData.d10; i++) {
         if (rollText==""){
-            rollText+="10"
+            rollText+="1d10"
         }
         else {
             rollText+="+1d10"
@@ -291,7 +291,7 @@ export async function SingleCombatRoll (diceData)
     }
     for (let i = 0; i < diceData.d10; i++) {
         if (rollText==""){
-            rollText+="10"
+            rollText+="1d10"
         }
         else {
             rollText+="+1d10"
@@ -760,7 +760,7 @@ export async function RangedCombatRoll (diceData)
     }
     for (let i = 0; i < diceData.d10; i++) {
         if (rollText==""){
-            rollText+="10"
+            rollText+="1d10"
         }
         else {
             rollText+="+1d10"
@@ -1000,7 +1000,7 @@ export async function SingleDamageRoll (diceData)
     }
     for (let i = 0; i < diceData.d10; i++) {
         if (rollText==""){
-            rollText+="10"
+            rollText+="1d10"
         }
         else {
             rollText+="+1d10"

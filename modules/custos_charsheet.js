@@ -602,9 +602,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
 
     async _onToggleStatus(event, data)
 	  {
-      console.log ("TOGGLE STATUS")
       const dataset = event.currentTarget.dataset;
-      console.log (dataset)
       event.preventDefault();
       let value=false;
       if (dataset.current == "false"){
@@ -880,7 +878,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
         d10: 0,
         d12: 0,
         d20: 0
-    };
+      };
       new RegularRollDialog(dice).render(true);
       return;
     }
