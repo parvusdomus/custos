@@ -4,7 +4,6 @@ import CUSTOS_BEAST_SHEET from "./modules/custos_beast.js";
 import CUSTOS_ITEM_SHEET from "./modules/custos_itemsheet.js";
 import { preloadHandlebarsTemplates } from "./modules/preloadTemplates.js";
 import custosChat from "./modules/chat.js";
-//import creatio from "./modules/creatio.js";
 
 Hooks.once("init", function(){
   document.getElementById("logo").src = "/systems/custos/style/images/Custos_Logo2.webp";
@@ -32,7 +31,6 @@ Hooks.once("init", function(){
   });
 
   preloadHandlebarsTemplates();
-  //registerLayers();
 
   
     // Slowing down pings
@@ -83,40 +81,12 @@ Hooks.once("init", function(){
 
 });
 
-/*function registerLayers() {
-  CONFIG.Canvas.layers.custostools = { layerClass: ControlsLayer, group: "interface" };
-}*/
-
 Hooks.on("renderPause", () => {
   $("#pause img").attr("class", "fa-spin pause-image");
   $("#pause figcaption").attr("class", "pause-custos");
 });
 
 Hooks.on('renderChatLog', (app, html, data) => custosChat.chatListeners(html))
-
-/*Hooks.on("getSceneControlButtons", (controls) => {
-  controls.push(
-    {
-        name: "custostools",
-        title: "Custos Tools",
-        icon: "fa-solid fa-swords",
-        layer: "custostools",
-        visible: true,
-        button: true,
-        tools: [
-        {
-          name: "creatio",
-          title: "Custos Creatio",
-          layer: "custostools",
-          icon: "fa-solid fa-swords",
-          onClick: () => {
-            new creatio().render(true);
-          },
-        }],
-        activeTool: "creatio",
-    }
-  );
-});*/
 
 Hooks.on('refreshToken', () => {
 

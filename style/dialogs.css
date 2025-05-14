@@ -139,6 +139,11 @@
     color: white;
 }
 
+.spendcombat {
+    background-color:  var(--dark-gold);
+    color: white;
+}
+
 .spent-pietas-message h3{
     border-bottom: none;
     font-family: TrajanBold;

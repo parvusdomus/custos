@@ -94,6 +94,7 @@ export async function RegularDiceRoll (diceData)
             game.dice3d.showForRoll(roll,game.user,true,false,null)
         }
         if (Number(evaluateRoll.total)===Number(diceData.current) && hasFate){explode = true}
+        
 		totalRoll += Number(evaluateRoll.total)
         for (let i = 0; i < ndice; i++) {
             let diceterm = 0
@@ -224,6 +225,8 @@ export async function RegularNPCDiceRoll (diceData)
 
 export async function SingleCombatRoll (diceData)
 {
+    console.log ("DICEDATA")
+    console.log (diceData)
     let isExpertus=diceData.isExpertus
     let hasFate=false
     let targethasFate=diceData.targethasFate
@@ -244,6 +247,12 @@ export async function SingleCombatRoll (diceData)
     let rollResult=""
     let rollText=""
     let ndice=0
+    console.log ("ACTOR")
+    console.log (actor)
+    if (actor.type=="Custos" && Number(actor.system.resources.pietas.value) < Number(actor.system.resources.pietas.max)){
+        hasFate=true
+        console.log ("PONGO HASFATE A TRUE")
+    }
     for (let i = 0; i < diceData.d3; i++) {
         if (rollText==""){
             rollText+="1d3"
@@ -577,8 +586,7 @@ export async function SingleCombatRoll (diceData)
     else{
         if (Number(totalRoll) == Number(diceData.difficulty)){
             if (hasFate && pietasOnTie){
-                rollResult="<td style=\"border:5px outset rgb(29, 0, 0);\" class=\"spendcombat\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
-            }
+            rollResult="<td style=\"border:5px outset rgb(29, 0, 0);\" class=\"spend\" data-name=\""+actor.name+"\" data-isCombat=\"true\" data-multiplier=\""+multiplier+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"            }
             else{
                 rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failureweapon")+"</td></tr><tr>"
             }
@@ -713,6 +721,10 @@ export async function RangedCombatRoll (diceData)
     let rollResult=""
     let rollText=""
     let ndice=0
+    if (actor.type=="Custos" && Number(actor.system.resources.pietas.value) < Number(actor.system.resources.pietas.max)){
+        hasFate=true
+        console.log ("PONGO HASFATE A TRUE")
+    }
     for (let i = 0; i < diceData.d3; i++) {
         if (rollText==""){
             rollText+="1d3"
@@ -896,14 +908,23 @@ export async function RangedCombatRoll (diceData)
             }
         }
         else {
-            rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failure")+"</td></tr><tr>"
+            if (Number(totalRoll) == Number(difficulty)){
+                if (hasFate && pietasOnTie){
+                    rollResult="<td style=\"border:5px outset rgb(29, 0, 0);\" class=\"spend\" data-name=\""+actor.name+"\" data-isCombat=\"true\" data-multiplier=\""+multiplier+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"                }
+                else{
+                    rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failure")+"</td></tr><tr>"
+                }
+            }
+            else {
+                rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failure")+"</td></tr><tr>"
+            }
         }
         
     }
     else {
         if (Number(totalRoll) == Number(diceData.weapondifficulty)){
             if (hasFate && pietasOnTie){
-                rollResult="<td style=\"border:5px outset rgb(29, 0, 0);\" class=\"spendcombat\" data-name=\""+actor.name+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
+                rollResult="<td style=\"border:5px outset rgb(29, 0, 0);\" class=\"spend\" data-name=\""+actor.name+"\" data-isCombat=\"true\" data-multiplier=\""+multiplier+"\" data-pjImage=\""+actor.img+"\" data-rollTitle=\""+rollTitle+"\" data-totalRoll=\""+totalRoll+"\" data-actor_id=\""+diceData.actor_id+"\">"+game.i18n.localize("CUSTOS.chat.spendPietas")+"</td>"
             }
             else{
                 rollResult="<td class=\"failure\">"+game.i18n.localize("CUSTOS.chat.failureweapon")+"</td></tr><tr>"
