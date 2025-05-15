@@ -1,6 +1,6 @@
 import DamageRollDialogSingle from "../modules/damageRollDialogSingle.js";
 export default class custosChat {
-  static chatListeners (html) {
+  static chatListeners (message, html) {
     html.on('click', '.spend', this._spendPietas.bind(this));
     html.on('click', '.spendcombat', this._spendPietasCombat.bind(this));
     html.on('click', '.damage', this._rollDamage.bind(this));

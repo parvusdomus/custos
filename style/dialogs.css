@@ -49,7 +49,16 @@
 
 .chat-header td:nth-child(1){
     text-align: left;
-    width: 40px
+    width: 44px;
+    padding-right: 0px;
+    padding-left: 4px;
+}
+
+.chat-header td:nth-child(3){
+    text-align: left;
+    width: 44px;
+    padding-right: 4px;
+    padding-left: 0px;
 }
 
 .chat-content {

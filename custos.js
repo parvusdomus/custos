@@ -5,8 +5,27 @@ import CUSTOS_ITEM_SHEET from "./modules/custos_itemsheet.js";
 import { preloadHandlebarsTemplates } from "./modules/preloadTemplates.js";
 import custosChat from "./modules/chat.js";
 
+var __defProp$t = Object.defineProperty;
+var __name$t = (target, value) => __defProp$t(target, "name", { value, configurable: true });
+const _CustosGamePause = class _CustosGamePause extends foundry.applications.ui.GamePause {
+  /** @override */
+  async _renderHTML(context, _options) {
+    const img = document.createElement("img");
+    img.src = "systems/custos/style/images/pause.webp"
+    if (context.spin) {
+      img.classList.add("fa-spin");
+    }
+    const caption = document.createElement("figcaption");
+    caption.innerText = context.text;
+    //caption.innerText = "Tempus Pausae"
+    return [img, caption];
+  }
+};
+__name$t(_CustosGamePause, "CustosGamePause");
+let CustosGamePause = _CustosGamePause;
+
 Hooks.once("init", function(){
-  document.getElementById("logo").src = "/systems/custos/style/images/Custos_Logo2.webp";
+  //document.getElementById("logo").src = "/systems/custos/style/images/Custos_Logo2.webp";
   console.log("test | INITIALIZING CUSTOS CHARACTER SHEETS...");
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("custos", CUSTOS_CHAR_SHEET, {
@@ -77,16 +96,18 @@ Hooks.once("init", function(){
     
       return result;
     });
-    
+  CONFIG.ui.pause = CustosGamePause;    
 
 });
 
-Hooks.on("renderPause", () => {
-  $("#pause img").attr("class", "fa-spin pause-image");
-  $("#pause figcaption").attr("class", "pause-custos");
-});
+//Hooks.on("renderPause", () => {
+//  $("#pause img").attr("class", "fa-spin pause-image");
+//  $("#pause figcaption").attr("class", "pause-custos");
+//});
 
-Hooks.on('renderChatLog', (app, html, data) => custosChat.chatListeners(html))
+Hooks.on('renderChatMessage', (message, html) => custosChat.chatListeners(message, html))
+//Hooks.on('renderChatMessage', (message, html) => tricubeChat.chatListeners(message, html))
+
 
 Hooks.on('refreshToken', () => {
 

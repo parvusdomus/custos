@@ -2,7 +2,7 @@
     "id": "custos",
     "title": "Custos System",
     "description": "Unofficial system for Lex Arcana",
-    "version": "1.2.7",
+    "version": "1.3.0",
     "authors": [
       {
         "name": "ParvusDomus",
@@ -10,8 +10,8 @@
       }
     ],
     "compatibility": {
-      "minimum": "11",
-      "verified": "12"
+      "minimum": "13",
+      "verified": "13"
     },
     "esmodules": [
       "custos.js"

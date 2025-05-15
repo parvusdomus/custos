@@ -414,22 +414,17 @@
     display: block !important;
 }
 
-#pause .pause-image {
-    background: url("images/pause.webp");
-    background-size: 128px;
-    width: 128px;
-    height: 128px;
-    padding-left: 128px;
+.paused {
+    background-color: var(--crimson);
 }
 
-#pause .pause-custos {
-    font-family: var(--bold-font-name);
-    margin: 0 auto;
-    text-align: center;
-    transform: scale3d(1, 1, 1);
-    text-transform: uppercase;
-    font-weight: 900;
-    color: #f4eded;
+.paused figcaption {
+    color: var(--light-gold);
+}
+
+.paused img {
+    width: 128px;
+    height: 128px;
 }
 
 
