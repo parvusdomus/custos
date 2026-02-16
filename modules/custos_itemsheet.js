@@ -15,6 +15,7 @@ export default class CUSTOS_ITEM_SHEET extends ItemSheet{
     getData() {
       const data = super.getData();
       data.officeItem = {
+        none: "CUSTOS.ui.none",
         bellicus: "CUSTOS.ui.warrior",
         auguralis: "CUSTOS.ui.augur",
         exploratorius: "CUSTOS.ui.explorer",
