@@ -38,6 +38,12 @@
         "flags": {}
       },
       {
+        "lang": "it",
+        "name": "Italian",
+        "path": "lang/it.json",
+        "flags": {}
+      },
+      {
         "lang": "en",
         "name": "English",
         "path": "lang/en.json",

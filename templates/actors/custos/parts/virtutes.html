@@ -27,7 +27,7 @@
                 <div class="char-info2">
                     <table>
                         <tr>
-                            <td><h3><label>{{localize "CUSTOS.ui.languages"}}&nbsp;&nbsp;</label></h3></td>
+                            <td><h3><label>{{localize "CUSTOS.ui.languages"}}</label></h3></td>
                             <td><h3><input name="system.languages" type="text" value="{{actor.system.languages}}" data-dtype="String"/></h3></td>
                         </tr>
                     </table>
@@ -35,13 +35,13 @@
                 <div class="char-info3">
                     <table>
                         <tr>
-                            <td><h3><label>{{localize "CUSTOS.ui.office"}}&nbsp;&nbsp;</label></h3></td>
+                            <td><h3><label>{{localize "CUSTOS.ui.office"}}</label></h3></td>
                             <td><h3>
                                 <select name="system.office" data-dtype="String">
                                     {{selectOptions officeCustos selected=actor.system.office localize=true}}
                                 </select>
                             </h3></td>
-                            <td><h3><label>&nbsp;&nbsp;{{localize "CUSTOS.ui.rank"}}:&nbsp;&nbsp;</label></h3></td>
+                            <td><h3><label>{{localize "CUSTOS.ui.rank"}}</label></h3></td>
                             <td><h3>
                                 <select name="system.rank" data-dtype="String" disabled style="appearance: none;">
                                     {{selectOptions rankCustos selected=actor.system.rank}}
