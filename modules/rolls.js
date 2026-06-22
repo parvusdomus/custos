@@ -148,6 +148,7 @@ export async function RegularDiceRoll (diceData)
         rollTitle: rollTitle,
         totalRoll: totalRoll, 
         dicelist: dicelist,
+        rollText: rollText,
         rollResult: rollResult,
         actor_id: diceData.actor_id
     });
@@ -207,8 +208,9 @@ export async function RegularNPCDiceRoll (diceData)
     let renderedRoll = await renderTemplate("systems/custos/templates/chat/simpleTestResult.html", { 
         pjName: actor.name,
         pjImage: actor.img,
-        rollTitle: rollTitle,
+        rollTitle: "<br>",
         totalRoll: totalRoll, 
+        rollText: rollText,
         dicelist: dicelist,
         rollResult: rollResult,
         actor_id: diceData.actor_id
@@ -225,7 +227,7 @@ export async function RegularNPCDiceRoll (diceData)
 
 export async function SingleCombatRoll (diceData)
 {
-    console.log ("DICEDATA")
+    console.log ("SINGLE COMBAT ROLL: DICEDATA")
     console.log (diceData)
     let isExpertus=diceData.isExpertus
     let hasFate=false
@@ -683,6 +685,7 @@ export async function SingleCombatRoll (diceData)
         targetImage: targetimage,
         targetName: targetname,
         rollTitle: rollTitle,
+        rollText: rollText,
         totalRoll: totalRoll, 
         dicelist: dicelist,
         npcdicelist: npcdicelist,
@@ -942,6 +945,7 @@ export async function RangedCombatRoll (diceData)
         targetImage: targetimage,
         targetName: targetname,
         rollTitle: rollTitle,
+        rollText: rollText,
         totalRoll: totalRoll, 
         dicelist: dicelist,
         npcdicelist: npcdicelist,
@@ -1111,6 +1115,7 @@ export async function SingleDamageRoll (diceData)
         pjName: diceData.pjName,
         pjImage: diceData.pjImage,
         rollTitle: rollTitle,
+        rollText: rollText,
         totalRoll: totalDamage, 
         dicelist: dicelist,
         armordicelist: armordicelist,

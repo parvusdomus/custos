@@ -247,7 +247,7 @@
     /* Position the tooltip text */
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    bottom: 50%;
     left: 50%;
     margin-left: -60px;
   
