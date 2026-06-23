@@ -55,4 +55,23 @@ export default class CUSTOS_ITEM_SHEET extends ItemSheet{
       }
       return data;
     }
+
+    activateListeners(html)
+	  {
+		  super.activateListeners(html);
+      html.find('a.use-toggle').click(this._onUseToggle.bind(this));
+    }
+
+    async _onUseToggle(event, data)
+	  {
+      console.log ("ENTRO EN USE TOGGLE")
+      const dataset = event.currentTarget.dataset;
+      event.preventDefault();
+      let value=false;
+      if (dataset.current == "false"){
+        value=true
+      }
+      this.item.update ({'system.used': value})
+		  return;
+    }
   }

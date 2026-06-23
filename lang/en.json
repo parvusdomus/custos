@@ -115,6 +115,7 @@
     "CUSTOS.ui.fewpoints": "You are rolling fewer dice points than your pool. Are you sure you want to continue?",
     "CUSTOS.ui.fewpointsTitle": "Are you sure?",
     "CUSTOS.ui.nopietas": "You have no Pietas left.",
+    "CUSTOS.ui.summoning_used": "This has been already used.",
     "CUSTOS.ui.noequipped": "This weapon is not equipped.",
     "CUSTOS.ui.special": "Special Habilities",
     "CUSTOS.ui.magic": "Magic Powers",

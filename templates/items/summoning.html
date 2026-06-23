@@ -18,6 +18,15 @@
                                 <div><h3><input name="system.cost" type="number" value="{{item.system.cost}}" data-dtype="Number"/></h3></div>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                {{#if (eq item.system.used true)}}
+                                    <h1 style="color: var(--crimson);"><a class="use-toggle" data-current="true"><i class="fa-regular fa-circle-xmark"></i></a></h1>
+                                {{else}}
+                                    <h1><a class="use-toggle" data-current="false"><i class="fa-solid fa-circle-check"></i></a></h1>
+                                {{/if}}
+                            </td>
+                        </tr>
                     </table>
                 </td>
             </tr>

@@ -83,11 +83,19 @@
                     {{#if (eq item.system.virtus "none")}}
                         &nbsp;
                     {{else}}
-                        <a class="summoning-roll" data-name="{{item.name}}" data-cost="{{item.system.cost}}" data-virtus="{{item.system.virtus}}"><i class="fa-solid fa-dice"></i></a>
+                        <a class="summoning-roll" data-id="{{item._id}}" data-name="{{item.name}}" data-used="{{item.system.used}}" data-cost="{{item.system.cost}}" data-virtus="{{item.system.virtus}}"><i class="fa-solid fa-dice"></i></a>
                     {{/if}}
                 </td>
                 <td>
-                    <label>{{item.name}}&nbsp;</label>   
+                    <label>
+                        {{item.name}}&nbsp;
+                        {{#if (eq item.system.used true)}}
+                            <i style="color: var(--crimson);" class="fa-regular fa-circle-xmark"></i>
+                        {{else}}
+                            <i class="fa-solid fa-circle-check"></i>
+                        {{/if}}
+                        
+                    </label>   
                 </td>
                 <td>
                     <label>{{item.system.patron}}&nbsp;</label>

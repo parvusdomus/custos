@@ -373,6 +373,7 @@
             "office": "bellicus",
             "virtus": "none",
             "cost": 0,
+            "used": false,
             "patron": "",
             "description": ""
         },
