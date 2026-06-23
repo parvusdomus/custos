@@ -64,7 +64,6 @@ export default class CUSTOS_ITEM_SHEET extends ItemSheet{
 
     async _onUseToggle(event, data)
 	  {
-      console.log ("ENTRO EN USE TOGGLE")
       const dataset = event.currentTarget.dataset;
       event.preventDefault();
       let value=false;

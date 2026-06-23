@@ -960,11 +960,7 @@ export default class CUSTOS_CHAR_SHEET extends ActorSheet{
     {
       event.preventDefault();
       const dataset = event.currentTarget.dataset;
-      console.log ("SUMMONING ROLL DATASET")
-      console.log (dataset)
       let summoning=await this.actor.items.find((k) => k._id === dataset.id);
-      console.log ("SUMMONING ITEM")
-      console.log (summoning)
       if (summoning.system.used){
         ui.notifications.warn(game.i18n.localize("CUSTOS.ui.summoning_used"));
         return;

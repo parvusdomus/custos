@@ -227,8 +227,6 @@ export async function RegularNPCDiceRoll (diceData)
 
 export async function SingleCombatRoll (diceData)
 {
-    console.log ("SINGLE COMBAT ROLL: DICEDATA")
-    console.log (diceData)
     let isExpertus=diceData.isExpertus
     let hasFate=false
     let targethasFate=diceData.targethasFate
@@ -249,11 +247,8 @@ export async function SingleCombatRoll (diceData)
     let rollResult=""
     let rollText=""
     let ndice=0
-    console.log ("ACTOR")
-    console.log (actor)
     if (actor.type=="Custos" && Number(actor.system.resources.pietas.value) < Number(actor.system.resources.pietas.max)){
         hasFate=true
-        console.log ("PONGO HASFATE A TRUE")
     }
     for (let i = 0; i < diceData.d3; i++) {
         if (rollText==""){
@@ -726,7 +721,6 @@ export async function RangedCombatRoll (diceData)
     let ndice=0
     if (actor.type=="Custos" && Number(actor.system.resources.pietas.value) < Number(actor.system.resources.pietas.max)){
         hasFate=true
-        console.log ("PONGO HASFATE A TRUE")
     }
     for (let i = 0; i < diceData.d3; i++) {
         if (rollText==""){
